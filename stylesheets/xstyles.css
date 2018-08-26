@@ -9,7 +9,49 @@ body {
 
 /* title for every page*/
 h1 {
+    font-weight: normal;
+    font-size: 18pt;
+    font-family: Georgia,Helvetica,sans-serif,Arial;
+    margin-top: 0px;
+    margin-bottom: 12px;
+    line-height: 1.3em; /* enforce single spacing so that Georgia works */
+}
 
+h2 {
+  margin-top: 0px;
+  margin-bottom: 25px;
+}
+
+h3,
+h4 {
+  color: #3D477B;
+  /*color: #06266F;*/
+
+  /*color: #000000;*/
+  font-weight: normal;
+  font-family: Georgia, Palatino, Times, serif;
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+
+/* This is used to provide section headings on a page */
+h3 {
+  font-size: 12pt;
+  margin-top: 35px;
+
+  padding-bottom: 2px;
+  border-bottom: 1px solid #999;
+
+  text-transform: uppercase;
+}
+
+/* Sub-section headings */
+h4 {
+  font-size: 12pt;
+  margin-top: 32px;
+
+  color: #000000;
+  font-weight: bold;
 }
 
 
@@ -20,12 +62,8 @@ h1 {
 
 
 
-
-
-
-
 hr {
-  height: 2px;
-  border: 0;
-  background-color: #808080; 
+    height: 2px;
+    border: 0;
+    background-color: #808080;
 }
