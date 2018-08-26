@@ -7,7 +7,7 @@ body {
     font-size: 10pt;
 }
 
-/* title for every page*/
+/* title for every articals*/
 h1 {
     font-weight: normal;
     font-size: 18pt;
@@ -18,46 +18,37 @@ h1 {
 }
 
 h2 {
-  margin-top: 0px;
-  margin-bottom: 25px;
+    margin-top: 0px;
+    margin-bottom: 25px;
 }
 
 h3,
 h4 {
-  color: #3D477B;
-  /*color: #06266F;*/
-
-  /*color: #000000;*/
-  font-weight: normal;
-  font-family: Georgia, Palatino, Times, serif;
-  margin-bottom: 2px;
-  margin-top: 2px;
+    color: #3D477B;
+    /*color: #06266F;*/
+    /*color: #000000;*/
+    font-weight: normal;
+    font-family: Georgia, Palatino, Times, serif;
+    margin-bottom: 2px;
+    margin-top: 2px;
 }
 
 /* This is used to provide section headings on a page */
 h3 {
-  font-size: 12pt;
-  margin-top: 35px;
-
-  padding-bottom: 2px;
-  border-bottom: 1px solid #999;
-
-  text-transform: uppercase;
+    font-size: 12pt;
+    margin-top: 35px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #999;
+    text-transform: uppercase;
 }
 
 /* Sub-section headings */
 h4 {
-  font-size: 12pt;
-  margin-top: 32px;
-
-  color: #000000;
-  font-weight: bold;
+    font-size: 12pt;
+    margin-top: 32px;
+    color: #000000;
+    font-weight: bold;
 }
-
-
-
-
-
 
 
 
@@ -67,3 +58,67 @@ hr {
     border: 0;
     background-color: #808080;
 }
+
+
+
+/************** header **************/
+div#header {
+    width: 800px;
+    padding: 0px;
+    margin: 0 auto; /*center*/
+    text-decoration: none;
+}
+
+/************** menubar **************/
+div#menubar {
+    margin: 0 auto; /*center*/
+    width: 800px;
+    padding: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #f0f0f0;
+    font-size: 21px;
+    font-weight: bold;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    clear: both;
+    text-align: center;
+}
+
+    div#menubar a {
+        color: #575757;
+        text-decoration: none;
+    }
+
+        div#menubar a:hover {
+            color: #24b200;
+            border-bottom: 1px dotted;
+        }
+
+
+
+/************** titles **************/
+
+
+
+
+
+
+
+
+
+
+
+#menu a {
+    color: #575757;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 21px;
+    font-style: bold;
+    text-decoration: none;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+    #menu a:hover {
+        color: #24b200;
+        border-bottom: 1px dotted;
+    }
