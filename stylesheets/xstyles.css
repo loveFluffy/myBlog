@@ -84,13 +84,17 @@ div#menubar {
     text-align: center;
 }
 
+    div#menubar table {
+        width: 100%;
+    }
+
     div#menubar a {
         color: #575757;
         text-decoration: none;
     }
 
         div#menubar a:hover {
-            color: #24b200;
+            color: #000000;
             border-bottom: 1px dotted;
         }
 
@@ -108,17 +112,4 @@ div#menubar {
 
 
 
-#menu a {
-    color: #575757;
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 21px;
-    font-style: bold;
-    text-decoration: none;
-    padding-left: 5px;
-    padding-right: 5px;
-}
 
-    #menu a:hover {
-        color: #24b200;
-        border-bottom: 1px dotted;
-    }
