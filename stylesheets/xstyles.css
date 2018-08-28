@@ -4,17 +4,16 @@ body {
     margin-top: 15px;
     background-color: white;
     font-family: Georgia,Helvetica,sans-serif,Arial;
-    font-size: 10pt;
+    font-size: 12pt;
 }
 
 /* title for every articals*/
 h1 {
     font-weight: normal;
     font-size: 18pt;
-    font-family: Georgia,Helvetica,sans-serif,Arial;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin-top: 0px;
     margin-bottom: 12px;
-    line-height: 1.3em; /* enforce single spacing so that Georgia works */
 }
 
 h2 {
@@ -61,7 +60,8 @@ hr {
 
 
 
-/************** header **************/
+/************** header & footer **************/
+div#footer,
 div#header {
     width: 800px;
     padding: 0px;
@@ -98,12 +98,25 @@ div#menubar {
             border-bottom: 1px dotted;
         }
 
+/************** disparea **************/
+div#disparea {
+    margin: 0 auto; /*center*/
+    width: 800px;
+    padding: 0px;
+    clear: both;
+    overflow: auto;
+}
 
+    div#disparea iframe {
+        width: 100%;
+        min-height: 500px;
+        min-width: 800px;
+        border-style: none;
+        padding: 0px;
+        /*overflow:hidden;*/
+    }
 
 /************** titles **************/
-
-
-
 
 
 
