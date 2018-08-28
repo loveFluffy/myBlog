@@ -1,10 +1,26 @@
 ﻿/* whole web pages*/
 body {
     margin-left: 20px;
-    margin-top: 15px;
+    margin-top: 10px;
     background-color: white;
     font-family: Georgia,Helvetica,sans-serif,Arial;
     font-size: 12pt;
+}
+
+a:link {
+    color: #000000;
+}
+
+a:visited {
+    color: #575757;
+}
+
+a:hover {
+    color: #f00;
+}
+
+a:active {
+    color: #f00;
 }
 
 /* title for every articals*/
@@ -24,8 +40,6 @@ h2 {
 h3,
 h4 {
     color: #3D477B;
-    /*color: #06266F;*/
-    /*color: #000000;*/
     font-weight: normal;
     font-family: Georgia, Palatino, Times, serif;
     margin-bottom: 2px;
@@ -109,7 +123,7 @@ div#disparea {
 
     div#disparea iframe {
         width: 100%;
-        min-height: 500px;
+        min-height: 600px;
         min-width: 800px;
         border-style: none;
         padding: 0px;
