@@ -7,6 +7,52 @@ body {
     font-size: 12pt;
 }
 
+/*
+    h1: article title
+    h2: article subtitle
+    h3: article section heading
+    h4:
+    h5:
+    h6:
+     */
+h1 {
+    margin: 0px;
+    font-weight: normal;
+    font-size: 18pt;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h2 {
+    margin: 0px;
+    font-weight: normal;
+    font-size: 16pt;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+h3,
+h4 {
+    margin-bottom: 2px;
+    font-weight: normal;
+    font-family: Georgia,Helvetica,sans-serif,Arial;
+    color: #000000;
+}
+
+h3 {
+    font-size: 12pt;
+    margin-top: 35px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #999;
+    text-transform: uppercase;
+}
+
+h4 {
+    font-size: 12pt;
+    margin-top: 32px;
+    color: #000000;
+    font-weight: bold;
+}
+
+
 a:link {
     color: #000000;
 }
@@ -23,54 +69,9 @@ a:active {
     color: #f00;
 }
 
-/* title for every articals*/
-h1 {
-    font-weight: normal;
-    font-size: 18pt;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    margin-top: 0px;
-    margin-bottom: 12px;
-}
-
-h2 {
-    margin-top: 0px;
-    margin-bottom: 25px;
-}
-
-h3,
-h4 {
-    color: #3D477B;
-    font-weight: normal;
-    font-family: Georgia, Palatino, Times, serif;
-    margin-bottom: 2px;
-    margin-top: 2px;
-}
-
-/* This is used to provide section headings on a page */
-h3 {
-    font-size: 12pt;
-    margin-top: 35px;
-    padding-bottom: 2px;
-    border-bottom: 1px solid #999;
-    text-transform: uppercase;
-}
-
-/* Sub-section headings */
-h4 {
-    font-size: 12pt;
-    margin-top: 32px;
-    color: #000000;
-    font-weight: bold;
-}
 
 
 
-
-hr {
-    height: 2px;
-    border: 0;
-    background-color: #808080;
-}
 
 
 
@@ -127,7 +128,6 @@ div#disparea {
         min-width: 800px;
         border-style: none;
         padding: 0px;
-        /*overflow:hidden;*/
     }
 
 /************** titles **************/
@@ -140,3 +140,9 @@ div#disparea {
 
 
 
+
+hr {
+    height: 2px;
+    border: 0;
+    background-color: #808080;
+}
