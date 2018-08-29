@@ -70,7 +70,9 @@ a:active {
     color: #f00;
 }
 
-
+ul li {
+    list-style-type: disc;
+}
 
 
 
