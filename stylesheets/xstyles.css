@@ -20,6 +20,7 @@ h1 {
     font-weight: normal;
     font-size: 18pt;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-transform: capitalize;
 }
 
 h2 {
@@ -27,6 +28,7 @@ h2 {
     font-weight: normal;
     font-size: 16pt;
     font-family: Helvetica, Arial, sans-serif;
+    text-transform: lowercase;
 }
 
 h3,
@@ -51,7 +53,6 @@ h4 {
     color: #000000;
     font-weight: bold;
 }
-
 
 a:link {
     color: #000000;
@@ -82,6 +83,7 @@ div#header {
     padding: 0px;
     margin: 0 auto; /*center*/
     text-decoration: none;
+    font-size: 10pt;
 }
 
 /************** menubar **************/
