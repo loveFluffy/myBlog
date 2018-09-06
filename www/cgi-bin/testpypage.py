@@ -1,5 +1,5 @@
 print 'Content-Type: text/html'
-print ''
+print '\n'
 
 print '<body>'
 
