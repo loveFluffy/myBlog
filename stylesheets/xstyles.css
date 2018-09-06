@@ -140,11 +140,13 @@ div#disparea {
 
 
 
-
-
-
 hr {
     height: 2px;
     border: 0;
     background-color: #808080;
+}
+
+/* make all italic be bold as well*/
+i {
+    font-weight: bold;
 }
