@@ -1,0 +1,48 @@
+/* notestyles by Bliss*/
+
+/* whole web pages */
+body {
+	width: 800px;
+	margin: 0 auto; /* center */
+    margin-bottom: 15px;
+	margin-top: 15px;
+    background-color: #d0d0d0;
+    font-family: Georgia,Helvetica,sans-serif,Arial;
+    font-size: 12pt;
+    border-style: dotted;
+    border-width: 5px;
+    border-color: #fff;
+    padding: 20px;
+    
+
+    min-height: 1000px;
+    min-width: 800px;
+
+    border-radius: 30px;
+    -moz-border-radius: 30px; /* old Firefox */
+}
+
+/*
+    h1: article title
+    h2: article subtitle
+    h3: article section heading
+    h4: section sub-heading
+    h5: section sub-sub-heading
+    h6:
+     */
+h1 {
+    margin: 0px;
+    font-weight: normal;
+    font-size: 18pt;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-transform: capitalize;
+}
+
+h2 {
+    margin: 0px;
+    font-weight: normal;
+    font-size: 16pt;
+    font-family: Helvetica, Arial, sans-serif;
+    text-transform: lowercase;
+}
+
