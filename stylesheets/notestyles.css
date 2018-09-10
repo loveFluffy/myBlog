@@ -24,9 +24,9 @@ body {
 /*
     h1: article title
     h2: article subtitle
-    h3: article section heading
-    h4: section sub-heading
-    h5: section sub-sub-heading
+    h3: chapter
+    h4: chapter sub-heading
+    h5: chapter sub-sub-heading
     h6:
      */
 h1 {
@@ -51,15 +51,15 @@ h4 {
     font-weight: normal;
     font-family: Georgia,Helvetica,sans-serif,Arial;
     color: #000;
+    text-shadow: 5px 5px 3px #888;
 }
 
 h3 {
-    font-size: 12pt;
+    font-size: 14pt;
     margin-top: 35px;
     padding-bottom: 2px;
     border-bottom: 1px solid #999;
     text-transform: uppercase;
-    text-shadow: 5px 5px 3px #888;
 }
 
 h4 {
