@@ -131,7 +131,7 @@ div#disparea {
 
     div#disparea iframe {
         width: 100%;
-        min-height: 600px;
+        min-height: 1200px;
         min-width: 800px;
         border-style: none;
         padding: 0px;
