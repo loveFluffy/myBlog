@@ -69,3 +69,7 @@ h4 {
     font-weight: bold;
 }
 
+/* make all italic be bold as well*/
+i {
+    font-weight: bold;
+}
