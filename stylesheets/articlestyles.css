@@ -1,0 +1,75 @@
+/* notestyles by Bliss*/
+
+/* whole web pages */
+body {
+	width: 800px;
+	margin: 0 auto; /* center */
+    margin-bottom: 15px;
+	margin-top: 15px;
+    background-color: #d0d0d0;
+    font-family: Georgia,Helvetica,sans-serif,Arial;
+    font-size: 12pt;
+    border-style: dotted;
+    border-width: 5px;
+    border-color: #fff;
+    padding: 20px;
+    
+    min-height: 1000px;
+    min-width: 800px;
+
+    border-radius: 30px;
+    -moz-border-radius: 30px; /* old Firefox */
+}
+
+/*
+    h1: article title
+    h2: article subtitle
+    h3: chapter
+    h4: chapter sub-heading
+    h5: chapter sub-sub-heading
+    h6:
+     */
+h1 {
+    margin: 0px;
+    font-weight: normal;
+    font-size: 18pt;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-transform: capitalize;
+}
+
+h2 {
+    margin: 0px;
+    font-weight: normal;
+    font-size: 16pt;
+    font-family: Helvetica, Arial, sans-serif;
+    text-transform: lowercase;
+}
+
+h3,
+h4 {
+    margin-bottom: 2px;
+    font-weight: normal;
+    font-family: Georgia,Helvetica,sans-serif,Arial;
+    color: #000;
+    text-shadow: 5px 5px 3px #888;
+}
+
+h3 {
+    font-size: 14pt;
+    margin-top: 35px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #999;
+    text-transform: uppercase;
+}
+
+h4 {
+    font-size: 12pt;
+    margin-top: 15px;
+    color: #000;
+    font-weight: bold;
+}
+
+/* make all italic be bold as well*/
+i {
+    font-weight: bold;
+}
