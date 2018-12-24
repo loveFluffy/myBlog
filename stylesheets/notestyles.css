@@ -69,6 +69,26 @@ h4 {
     font-weight: bold;
 }
 
+a:link {
+    color: #000000;
+}
+
+a:visited {
+    color: #575757;
+}
+
+a:hover {
+    color: #f00;
+}
+
+a:active {
+    color: #f00;
+}
+
+ul li {
+    list-style-type: disc;
+}
+
 /* make all italic be bold as well*/
 i {
     font-weight: bold;
@@ -80,20 +100,37 @@ table.gridtable {
     font-size:11pt;
     color:#333333;
     border-width: 1px;
+    border-style: solid;
     border-color: #666666;
     border-collapse: collapse;
 }
 table.gridtable th {
-    border-width: 1px;
     padding: 8px;
-    border-style: solid;
-    border-color: #666666;
     background-color: #dedede;
 }
 table.gridtable td {
-    border-width: 1px;
     padding: 8px;
-    border-style: solid;
-    border-color: #666666;
     background-color: #ffffff;
+}
+/*
+未读完不值得读-浅灰色 bk0
+读完不值得再读-浅棕色 bk1
+笔记值得反复看-浅绿色 bk2
+原作值得反复读-浅蓝色 bk3
+原作可买来收藏-浅红色 bk4
+*/
+.gridtable tr.bk0 td {
+    background-color: #f00; 
+}
+.gridtable tr.bk1 td {
+    background-color: #330;
+}
+.gridtable tr.bk2 td {
+    background-color: #0f0;
+}
+.gridtable tr.bk3 td {
+    background-color: #00f;
+}
+.gridtable tr.bk4 td {
+    background-color: #f00;
 }

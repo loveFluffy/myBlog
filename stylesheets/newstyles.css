@@ -69,6 +69,26 @@ h4 {
     font-weight: bold;
 }
 
+a:link {
+    color: #000000;
+}
+
+a:visited {
+    color: #575757;
+}
+
+a:hover {
+    color: #f00;
+}
+
+a:active {
+    color: #f00;
+}
+
+ul li {
+    list-style-type: disc;
+}
+
 /* make all italic be bold as well*/
 i {
     font-weight: bold;
@@ -80,20 +100,15 @@ table.gridtable {
     font-size:11pt;
     color:#333333;
     border-width: 1px;
+    border-style: solid;
     border-color: #666666;
     border-collapse: collapse;
 }
 table.gridtable th {
-    border-width: 1px;
     padding: 8px;
-    border-style: solid;
-    border-color: #666666;
     background-color: #dedede;
 }
 table.gridtable td {
-    border-width: 1px;
     padding: 8px;
-    border-style: solid;
-    border-color: #666666;
     background-color: #ffffff;
 }
