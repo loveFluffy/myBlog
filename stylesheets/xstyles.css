@@ -84,7 +84,7 @@ ul li {
 /************** header & footer **************/
 div#footer,
 div#header {
-    width: 1200px;
+    width: 800px;
     padding: 0px;
     margin: 0 auto; /*center*/
     text-decoration: none;
@@ -94,7 +94,7 @@ div#header {
 /************** menubar **************/
 div#menubar {
     margin: 0 auto; /*center*/
-    width: 1200px;
+    width: 800px;
     padding: 0px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -123,7 +123,7 @@ div#menubar {
 /************** disparea **************/
 div#disparea {
     margin: 0 auto; /*center*/
-    width: 1200px;
+    width: 800px;
     padding: 0px;
     clear: both;
     overflow: auto;
@@ -132,7 +132,7 @@ div#disparea {
     div#disparea iframe {
         width: 100%;
         min-height: 2000px;
-        min-width: 1200px;
+        min-width: 800px;
         border-style: none;
         padding: 0px;
     }
