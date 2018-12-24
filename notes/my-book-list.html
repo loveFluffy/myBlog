@@ -6,48 +6,43 @@
     <link rel="stylesheet" href="../stylesheets/notestyles.css" />
     <title>My Book List</title>
     <link rel="icon" href="../images/x.ico" />
+    <base target="_blank">
     <style type="text/css">
-        /*
-        未读完不值得读-浅灰色 bk0
-        读完不值得再读-浅棕色 bk1
-        笔记值得反复看-浅绿色 bk2
-        原作值得反复读-浅蓝色 bk3
-        原作可买来收藏-浅红色 bk4
-        */
         .gridtable tr.bk0 td,
         .legend td#bk0{
-            background-color: #C0C0C0;
+            background-color: #C0C0C0; /* 未读完不值得读-灰色 bk0 */
         }
         .gridtable tr.bk1 td,
         .legend td#bk1{
-            background-color: #D2B48C;
+            background-color: #D2B48C; /* 读完不值得再读-棕色 bk1 */
         }
         .gridtable tr.bk2 td,
         .legend td#bk2{
-            background-color: #3CB371;
+            background-color: #3CB371; /* 笔记值得反复看-绿色 bk2 */
         }
         .gridtable tr.bk3 td,
         .legend td#bk3{
-            background-color: #4169E1;
+            background-color: #4169E1; /* 原作值得反复读-蓝色 bk3 */
         }
         .gridtable tr.bk4 td,
         .legend td#bk4{
-            background-color: #F08080;
+            background-color: #F08080; /* 原作可买来收藏-红色 bk4 */
         }
         .legend td {
             font-size: 11pt;
         }
+        
     </style>
 </head>
 <body>
     <p align="center"><strong>My Book List: The books which interests me.</strong></p>
     <table align="center" border="0" width="100%" class="legend">
         <tr align="center">
-            <td id="bk0">未读完不值得读-浅灰色</td>
-            <td id="bk1">读完不值得再读-浅棕色</td>
-            <td id="bk2">笔记值得反复看-浅绿色</td>
-            <td id="bk3">原作值得反复读-浅蓝色</td>
-            <td id="bk4">原作可买来收藏-浅红色</td>
+            <td id="bk0">未读完不值得读-灰色</td>
+            <td id="bk1">读完不值得再读-棕色</td>
+            <td id="bk2">笔记值得反复看-绿色</td>
+            <td id="bk3">原作值得反复读-蓝色</td>
+            <td id="bk4">原作可买来收藏-红色</td>
         </tr>
     </table>
         
@@ -59,8 +54,8 @@
             <th><h4>备注</h4></td>
         </tr>
         
-        <tr class="bk0">
-            <td>周鸿祎自述：我的互联网方法论</td>
+        <tr>
+            <td><a href="./notes9001-周鸿祎自述-我的互联网方法论.html">周鸿祎自述：我的互联网方法论</a></td>
             <td></td>
             <td></td>
             <td></td>
