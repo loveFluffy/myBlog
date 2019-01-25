@@ -181,3 +181,8 @@ table.gridtable td {
     padding: 8px;
     background-color: #ffffff;
 }
+
+
+div#imagLink img:hover {
+    box-shadow: 5px 5px 3px #888;
+}
