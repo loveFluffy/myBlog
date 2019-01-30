@@ -34,7 +34,7 @@
         </ul>
 
         <h4>2.8 幕后控制台</h4>
-        <p>在大多数Linux发行版中，按下Ctrl-Alt-F1到Ctrl-Alt-F6访问不同的虚拟终端。当一个会话被访问的时候，它会显示登录提示框，我们需要输入用户名和密码。从一个虚拟控制台转换到另一个，按下Alt和F1-F6中的一个。返回图形桌面，按下 AltF7。</p>
+        <p>在大多数Linux发行版中，按下Ctrl-Alt-F1到Ctrl-Alt-F6访问不同的虚拟终端。当一个会话被访问的时候，它会显示登录提示框，我们需要输入用户名和密码。从一个虚拟控制台转换到另一个，按下Alt和F1-F6中的一个。返回图形桌面，按下 Alt-F7。</p>
     </div>
 
 
@@ -604,6 +604,74 @@
     <!-- ======================== Ch8: 从shell眼中看世界 ======================== -->
     <h3>Ch8: 从shell眼中看世界</h3>
     <div>
+        <h4>8.1 （字符）展开</h4>
+        <p>$ echo *<br/>
+            Desktop Documents ls-output.txt Music Pictures Public Templates Videos<br/>
+        为什么 echo 不打印"*"呢？在echo命令被执行前。当回车键被按下时，shell在命令被执行前在命令行上自动展开任何符合条件的字符，所以echo命令从不会发现"*"，只把它展开成结果。 </p>
+
+        <h4>8.2 路径名展开</h4>
+        <p>例如：</p>
+        <p>$ echo D* <br/>
+        Desktop Documents</p>
+        <p>$ echo *s<br/>
+        Documents Pictures Templates Videos</p>
+        <p>$ echo [[:upper:]]*<br/>
+        Desktop Documents Music Pictures Public Templates Videos</p>
+        <p>$ echo /usr/*/share<br/>
+        /usr/kerberos/share /usr/local/share</p>
+        <p>带有 -A 选项（almost all）的ls命令能够提供一份正确的隐藏文件清单。</p>
+
+        <h4>8.3 波浪线展开</h4>
+        <p>波浪线字符("~")有特殊的意思。当它用在一个单词的开头时，它会展开成指定用户的主目录名，如果没有指定用户名，则是当前用户的主目录。</p>
+        <p>$ echo ~<br/>
+        /home/me</p>
+        <p>如果有用户"foo"这个帐号，然后：<br/>
+        $ echo ~foo<br/>
+        /home/foo</p>
+
+        <h4>8.4 算术表达式展开</h4>
+        <p>$((expression))</p>
+        <p>算术表达式只支持整数（全部是数字，不带小数点）！</p>
+        <p align="center"><strong>算术操作符</strong></p>
+        <table align="center" border="1" width="80%">
+            <tr align="center">
+                <th>操作符</th>
+                <th>说明</th>
+            </tr>
+
+            <tr>
+                <td>+</td>
+                <td>加</td>
+            </tr>
+            <tr>
+                <td>-</td>
+                <td>减</td>
+            </tr>
+            <tr>
+                <td>*</td>
+                <td>乘</td>
+            </tr>
+            <tr>
+                <td>/</td>
+                <td>除（但是记住，因为展开只是支持整数除法，所以结果是整数。）</td>
+            </tr>
+            <tr>
+                <td>%</td>
+                <td>取余</td>
+            </tr>
+            <tr>
+                <td>**</td>
+                <td>取幂</td>
+            </tr>
+        </table>
+        <p></p>
+
+        <h4></h4>
+        <p></p>
+
+        <h4></h4>
+        <p></p>
+
         <h4></h4>
         <p></p>
 
