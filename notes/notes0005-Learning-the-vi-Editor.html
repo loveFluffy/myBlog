@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -58,26 +58,42 @@
             <li><strong>^</strong> moves to the first non-whitespace character of the line.</li>
         </ul>
         <p>The <strong>/</strong> command allows you to jump directly to some pattern in the file. For example, if you're looking for the next occurrence of the word "pomegranate" in your text, if you hit /, then type in pomegranate (you need not enter insert mode) and hit enter, the cursor will jump to the next occurrence of the word, if it exists. If you want to search backwards, you would perform the same procedure, but use the <strong>?</strong> command. To repeat either search, enter <strong>//</strong>, <strong>??</strong>, or alternatively, type <strong>/</strong> or <strong>?</strong> and hit Enter. You can also press <strong>n</strong> to jump to the next occurrence, and <strong>N</strong> to jump to the previous occurrence.</p>
-
-        <h4></h4>
-        <p></p>
-
-        <h4></h4>
-        <p></p>
+        <ul>
+            <p>Examples:</p>
+            <li><strong>d$</strong> will delete up to the of the line.</li>
+            <li><strong>dt;</strong> will delete until the next semicolon (This is helpful in languages like C and perl that use semicolons to finish statements).</li>
+            <li><strong>d2}</strong> to delete the next two paragraphs.</li>
+            <li><strong>d4b</strong> to delete the previous four words (alternatively, you could enter 4b4dw).</li>
+        </ul>
     </div>
 
 
 
-    <!-- ======================== Ch:  ======================== -->
-    <h3>Ch: </h3>
+    <!-- ======================== Ch4: Advanced tasks ======================== -->
+    <h3>Ch4: Advanced tasks</h3>
     <div>
-        <h4></h4>
-        <p></p>
+        <h4>4.1 Copying and Pasting</h4>
+        <p><strong>dw</strong> to delete a single word.</p>
+        <p><strong>yw</strong> to yank a single word.</p>
+        <p>Example:<br/>
+            <strong>db</strong> to delete a single word before the cursor.<br/>
+            <strong>dW</strong> the capital W tells vi to go all the way to the first whitespace character after the word.<br/>
+            <strong>dB</strong> the capital B tells vi to go all the way to the first whitespace character before the word.</p>
+        <p>用m来给文档加标签，用`来定位到标签。例如：d`a来删除当前位置到标签间的内容。</p>
+        <p>Type <strong>m</strong><strong>a</strong>. This will mark the current position that your cursor is at as mark a. You can go back to this position anytime you want from now on by typing <strong>`a</strong>. (`a means "move to the character that has been marked as a")</p>
+        <p>Now move to some other position. Type <strong>d`a</strong>. This will delete everything from the current position to the position you marked as a.</p>
+        <p>Some users find using <strong>mm</strong> to be a convenient temporary bookmark, because it can be typed so quickly.</p>
+        <ul>
+            <li>To the end or beginning of a line</li>
+            <p><strong>d$</strong> or <strong>d^</strong></p>
+            <li>To the end or beginning of the file</li>
+            <p><strong>dG</strong> or <strong>d1G</strong></p>
+            <li>To the next occurrence of a pattern</li>
+            <p><strong>d/myPattern</strong></p>
+            <p>This is particularly useful when editing HTML files with d/<</p>
+        </ul>
 
-        <h4></h4>
-        <p></p>
-
-        <h4></h4>
+        <h4>4.2 Adjusting the Screen</h4>
         <p></p>
     </div>
 
