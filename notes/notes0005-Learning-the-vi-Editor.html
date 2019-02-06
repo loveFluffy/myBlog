@@ -94,13 +94,28 @@
         </ul>
 
         <h4>4.2 Adjusting the Screen</h4>
-        <p></p>
+        <p>In order to force vi to redraw the complete screen, press <strong>Ctrl-L</strong> </p>
+        <p>If you want to adjust what is currently displayed, then the <z> command is rather useful. It's a kind of Swiss army knife, and has a rather complex syntax:</p>
+        <p><strong>[/pattern/][m]z[n](<CR>|.|-)</strong> </p>
+        <p>([ ... ] denotes optional items, (...|...) denotes alternatives)</p>
+        <p>Some common applications of the command,</p>
+        <p>Scroll the screen so the current line becomes the middle line of the screen. The cursor remains on that line:</p>
+        <p><strong>z .</strong> 这个挺有用的，光标置中。</p>
+        <p>Scroll the screen so the current line becomes the top line on the screen:</p>
+        <p><strong>z CR</strong></p>
+        <p>Scroll the screen, so the current line becomes the bottom line of the screen:</p>
+        <p><strong>z -</strong></p>
+        <p>If a <strong><i>/pattern/</i></strong> or a number <strong>m</strong> is given the cursor is moved further after the adjustment. <strong><i>/pattern/</i></strong> indicates to move the cursor to the first match of that pattern. <strong>m</strong> indicates to move the cursor to the mth line on the screen. So, for example,</p>
+        <p><strong>/while/z CR</strong></p>
+        <p>would first scroll the screen so the current line becomes the top line on the screen, and then move the cursor to the first 'while' in the text from that position on.</p>
+        <p>The number <strong>n</strong> is a rather obscure parameter. If provided, it tells vi to behave as if the screen is just <strong>n</strong> lines high. The result is that only <strong>n</strong> number of lines are adjusted, and the rest of the screen is either ignored or cleared, presumably useful on slow terminals to avoid redrawing the screen unneccessarily</p>
     </div>
 
 
 
-    <!-- ======================== Ch:  ======================== -->
-    <h3>Ch: </h3>
+    <!-- ======================== Ch5: Details ======================== -->
+    <h3>Ch5: Details</h3>
+    <p>从这一章往下，我只跳着看了一点，有很多特别细节的功能，暂时用不上的都没有看。以后用熟练了之后再回来深入学习吧。</p>
     <div>
         <h4></h4>
         <p></p>
@@ -114,8 +129,8 @@
 
 
 
-    <!-- ======================== Ch:  ======================== -->
-    <h3>Ch: </h3>
+    <!-- ======================== Ch6: Vi Clones ======================== -->
+    <h3>Ch6: Vi Clones</h3>
     <div>
         <h4></h4>
         <p></p>
@@ -129,8 +144,8 @@
 
 
 
-    <!-- ======================== Ch:  ======================== -->
-    <h3>Ch: </h3>
+    <!-- ======================== Ch7: Vim ======================== -->
+    <h3>Ch7: Vim</h3>
     <div>
         <h4></h4>
         <p></p>
@@ -144,8 +159,8 @@
 
 
 
-    <!-- ======================== Ch:  ======================== -->
-    <h3>Ch: </h3>
+    <!-- ======================== Ch8: vile ======================== -->
+    <h3>Ch8: vile</h3>
     <div>
         <h4></h4>
         <p></p>
@@ -159,8 +174,8 @@
 
 
 
-    <!-- ======================== Ch:  ======================== -->
-    <h3>Ch: </h3>
+    <!-- ======================== Ch9: BusyBox vi ======================== -->
+    <h3>Ch9: BusyBox vi</h3>
     <div>
         <h4></h4>
         <p></p>
@@ -174,8 +189,8 @@
 
 
 
-    <!-- ======================== Ch:  ======================== -->
-    <h3>Ch: </h3>
+    <!-- ======================== Ch10: vi Reference ======================== -->
+    <h3>Ch10: vi Reference</h3>
     <div>
         <h4></h4>
         <p></p>
@@ -189,8 +204,8 @@
 
 
 
-    <!-- ======================== Ch:  ======================== -->
-    <h3>Ch: </h3>
+    <!-- ======================== Ch11: Authors ======================== -->
+    <h3>Ch11: Authors</h3>
     <div>
         <h4></h4>
         <p></p>
@@ -204,8 +219,8 @@
 
 
 
-    <!-- ======================== Ch:  ======================== -->
-    <h3>Ch: </h3>
+    <!-- ======================== Ch12: Contributors ======================== -->
+    <h3>Ch12: Contributors</h3>
     <div>
         <h4></h4>
         <p></p>
