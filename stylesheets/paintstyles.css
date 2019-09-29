@@ -2,7 +2,7 @@
 
 /* whole web pages */
 body {
-	width: 800px;
+	width: 1000px;
 	margin: 0 auto; /* center */
     margin-bottom: 15px;
 	margin-top: 15px;
@@ -32,6 +32,23 @@ h1 {
     font-size: 18pt;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     text-transform: capitalize;
+}
+
+h3,
+h4 {
+    margin-bottom: 2px;
+    font-weight: normal;
+    font-family: Georgia,Helvetica,sans-serif,Arial;
+    color: #000;
+    text-shadow: 5px 5px 3px #888;
+}
+
+h3 {
+    font-size: 14pt;
+    margin-top: 35px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #999;
+    text-transform: uppercase;
 }
 
 a:link {
