@@ -1,0 +1,111 @@
+body {
+    /* center */
+    margin: 0 auto;
+    padding: 0 5% 0 5%;
+    background-color: #f1e5c9;
+    font-family: Georgia, Helvetica, sans-serif, Arial;
+    font-size: 12pt;
+    min-height: 1000px;
+    min-width: 1000px;
+}
+
+h1 {
+    font-size: 2.2em;
+    font-weight: 700;
+    line-height: 1.1;
+    padding-top: 16px;
+    margin-bottom: 4px;
+    text-align: center;
+}
+
+a:link {
+    color: #000000;
+}
+
+a:visited {
+    color: #575757;
+}
+
+a:hover {
+    color: #d3595e;
+}
+
+a:active {
+    color: #d3595e;
+}
+
+ul li {
+    list-style-type: disc;
+}
+
+/* table style */
+
+table.gridtable {
+    font-family: verdana, arial, sans-serif;
+    color: #333333;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #666666;
+    border-collapse: collapse;
+}
+
+table.gridtable th {
+    padding: 8px;
+    background-color: #dedede;
+}
+
+table.gridtable td {
+    padding: 8px;
+    background-color: #ffffff;
+}
+
+table th:first-of-type {
+    width: 20%;
+}
+
+table th:nth-of-type(2) {
+    width: 20%;
+}
+
+table th:nth-of-type(3) {
+    width: 10%;
+}
+
+table th:nth-of-type(4) {
+    width: 50%;
+}
+
+table {
+    align-self: center;
+}
+
+/*============下面是比较相关的细致设置============*/
+
+.gridtable tr.bk0 td, .legend td#bk0 {
+    background-color: #C0C0C0;
+    /* 未读完不值得读-灰色 bk0 */
+}
+
+.gridtable tr.bk1 td, .legend td#bk1 {
+    background-color: #D2B48C;
+    /* 读完不值得再读-棕色 bk1 */
+}
+
+.gridtable tr.bk2 td, .legend td#bk2 {
+    background-color: #99CC99;
+    /* 笔记值得反复看-绿色 bk2 */
+}
+
+.gridtable tr.bk3 td, .legend td#bk3 {
+    background-color: #99CCFF;
+    /* 原作值得反复读-蓝色 bk3 */
+}
+
+.gridtable tr.bk4 td, .legend td#bk4 {
+    background-color: #FF9999;
+    /* 原作可买来收藏-红色 bk4 */
+}
+
+/* .legend td {
+    font-size: 11pt;
+}*/
