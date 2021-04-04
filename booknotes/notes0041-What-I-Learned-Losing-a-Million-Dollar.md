@@ -509,296 +509,672 @@ On Thursday the whole soybean complex (beans, meal and oil) collapsed on reports
 
 I was right. Over the Labor Day weekend President Reagan condemned the Soviet assault but shunned tough retaliation. He refused to disrupt a new grain sales accord. Soybeans rallied sharply on the news, but the bull spreads in the oil market went down again. Once again, I chalked it up to the fact that the oil market had out-performed the beans in August; the beans were playing catch up and the oil market was resting before the next leg up. The spreads did stabilize for a couple of days as the market began to focus on the September 12th release of the Agriculture Department's crop report. That report turned out to be wildly bullish: the damage to the crop was more severe than previously thought. Beans opened almost limit up the next day, but closed almost limit down. However, the bull spreads in oil closed higher on the day.
 
-"Okay," I said to myself, "this oil market is starting to
-turn back to the upside. This whole bull market was
-driven by the oil market and bean oil is starting to rally
-again. This market is turning." But the next day the oil
-market collapsed again. Limit down in all contract months
-and more than limit down in the spot month, since there
-were no limits on the spot month.
-On Friday the market stabilized and managed to
-erase about a third of the week's losses. On. Monday,
-September 19th the bean market and the oil market roared
-to the upside. Over the weekend a winter storm system in
-Canada exploded and was drifting toward the Midwest
-U.S. "This is great," I thought to myself, "just a few weeks
-after the worst drought since the 1930s wreaked havoc
-with most of the soybean crop, an early frost threatens to
-damage what remains. Okay, finally the market is going to
-turn. This frost is going to revive the bull market." But it
-wasn't to be. The market just slipped right back down
-again. I never saw the spread trade better than it had on
-that last Friday in August when I was at Broderick's lake
-house. The decline was relentless, with only occasional
-spasms to the upside: up $10,000 one day, down $25,000
-the next.
-The market continued to grind lower, and I
-proceeded to lose about $20,000 to $25,000 a day, every
-day, for months. The clients I advised were sophisticated
-and experienced traders in their own right, and they had
-been bailing out of the market since early September. As
-far as I was concerned, this demonstrated their lack of
-courage to buy with pride and hold with conviction.
-Naturally, I didn't get out. I was in for the long pull. This
-was going to be The Big Trade. The world was going to
-run out of bean oil, maybe even mayonnaise, and Smith
-and I were going to make $10 million.
+"Okay," I said to myself, "this oil market is starting to turn back to the upside. This whole bull market was driven by the oil market and bean oil is starting to rally again. This market is turning." But the next day the oil market collapsed again. Limit down in all contract months and more than limit down in the spot month, since there were no limits on the spot month.
+
+On Friday the market stabilized and managed to erase about a third of the week's losses. On Monday, September 19th the bean market and the oil market roared to the upside. Over the weekend a winter storm system in Canada exploded and was drifting toward the Midwest U.S. "This is great," I thought to myself, "just a few weeks after the worst drought since the 1930s wreaked havoc with most of the soybean crop, an early frost threatens to damage what remains. Okay, finally the market is going to turn. This frost is going to revive the bull market." But it wasn't to be. The market just slipped right back down again. I never saw the spread trade better than it had on that last Friday in August when I was at Broderick's lake house. The decline was relentless, with only occasional spasms to the upside: up $10,000 one day, down $25,000 the next.
+
+The market continued to grind lower, and I proceeded to lose about $20,000 to $25,000 a day, every day, for months. The clients I advised were sophisticated and experienced traders in their own right, and they had been bailing out of the market since early September. As far as I was concerned, this demonstrated their lack of courage to buy with pride and hold with conviction. Naturally, I didn't get out. I was in for the long pull. This was going to be The Big Trade. The world was going to run out of bean oil, maybe even mayonnaise, and Smith and I were going to make $10 million.
 
 ### Vertigo
 
-For the next several weeks Smith and I kept telling each
-other, "It's going to be all right. It's gonna turn." Every
-news story we heard about the market we made fit the "we
-are going to be okay" scenario. "Now we know why the
-market was down today. Now that we understand that, it's
-going to go away. We're going to be okay." We
-rationalized everything. It was like living in Tortilla Flat
-with Danny and his friends, rationalizing everything.
-"Yeah, we just heard that some big commercial firm has
-just taken some deliveries of bean oil, so if he's stopping
-them then it must be okay now."
-By the beginning of October, I was under water.
-Soybean prices had fallen to the lowest levels in two
-months -- since the August 11th Agriculture Department's
-crop report predicting a curtailed harvest. Bean oil was
-now at 29 cents, down from the September highs of 37
-cents. I'd lost most of my money. As the position got
-increasingly worse, I began to get margin calls. I'd be on
-margin call for two or three days at a time but the firm's
-attitude was: "We know you're a big wheel. We know
-you're on the Executive Committee at the CME, and we
-know you're neat and you've got this fancy car. We know
-you're good for the money." I'd wait a few days to see if
-the market rallied. If it did, fine -- I wouldn't have to meet
-the margin call. If it didn't, I'd spend the next couple of
-days trying to borrow money from my friends so I could
-meet the margin call.
-I gradually began to lose my outward cool. I was
-fighting with Pat and the kids; they had no idea what was
-happening. But it's not uncommon for the spouses and
-families of traders not to know what's going on with the
-trader's market positions. I was skipping dinner so I
-wouldn't have to face my family. I lost 15 pounds. I
-couldn't sleep. I was going to bed every night knowing I
-had to get up the next day and go watch this thing again. It
-was horrible. It would be a Friday, and I'd say, "Okay, it's
-Friday. I can't lose any more on this for another couple of
-days because the market won't be open." Weekends were
-welcomed. It was exactly opposite of when I was making
-money on that trade. When I was making money, I
-couldn't wait for the market to open. When I was losing
-money, I couldn't wait for it to close. Time is very painful
-when you're losing money. All I wanted was for the
-market to rally back to the August highs, and I'd get out.
-We refused to accept the obvious: that we were going
-under. We were holding each other's hands, and every day
-we went through this little drill of losing an average of
-$20,000 to $25,000 but telling ourselves that it was going to
-be all right. Naturally, it never was. It got to be
-excruciatingly painful. But I couldn't get out of the market
-because as long as I had the position on, there was always
-the belief, the chance, the hope, that I could make back the
-money. If I got out of the market there wouldn't be any
-chance anymore. "Tomorrow is the first day of the rest of
-my life. It's going to turn -- tomorrow." It was always
-going to turn "tomorrow." But it never did.
-By the first week in November, I was under water big
-time: $200,000 or $300,000. Bean oil was at 25 cents. So
-from the high of August, I was down about $700,000 or
-$800,000. What was worse is that I'd borrowed money
-from my friends to the tune of about $400,000. I got
-another margin call in mid-November, but I didn't want to
-borrow any more money from my friends. So I decided to
-ride out the storm again to see if the market would rally
-enough to take me off the margin call. On November 17th
-one of the senior managers from the brokerage firm came
-into my office and started liquidating my position. The
-firm finally, and mercifully, pulled the plug on me because
-I couldn't do it myself.
-They not only liquidated the account, but they also
-started seizing whatever assets I had. They took my
-membership and sold it, which forced me to resign from
-the Board of Governors and the Executive Committee
-since you can't be on the Board if you're not a member of
-the Exchange. Then they literally started to take the stuff
-out of the office: the furniture, the stereo and the levitating
-desk and credenza. I can remember sitting at my desk
-crying as they started to strip the office. It was the absolute
-lowest point in my life. I had gone from having everything
-on August 31st to nothing on November 17th. I couldn't
-stand to watch them take all the stuff away, so I took the
-pictures of my family off the wall, put them in a box and
-walked out of the office. I vaguely remember wandering
-the halls of the Exchange for a while trying to figure out
-what I was going to do. I couldn't borrow any more money
-from friends, and my only hope for making money had
-been the bean oil position. Now it was gone. Well, Pat and
-I had been through some tough times before, surely we'd
-make it through this one, too. "Oh my God! Pat! How was
-I going to tell Pat what had happened? How was I going
-to tell her that my fifteen year career and all of the money
-had evaporated in the last two-and-a-half months?" I
-headed for The River Club at the Exchange to sort things
-out over a Jack Daniels.
-Several hours, and several drinks, later I weaved my
-way to the Porsche. I remember deciding the only way I
-could ever get out of this for my family was to kill myself.
-I had about a million dollars worth of life insurance, and
-the only way I could make it right for my wife and kids
-was to hit a bridge at 100 m.p.h. I remember thinking to
-myself, "Everybody knows I drink too much anyway, so it
-will look like an accident." I thought the insurance
-company wouldn't pay if it was suicide. I got on the
-Kennedy Expressway and started looking for a bridge. I
-had barely even gotten out of the city when I noticed blue
-lights flashing in my rear view mirror. I pulled over and
-waited for the cop to come to the window.
-"License and registration, please. Any idea how fast
-you were going, Mr. Paul?"
-"Uh, ... 75? 85?"
-"Try 18."
-I couldn't believe it. I was so drunk and so dazed over
-what had happened that I hadn't even gotten out of first
-gear. I didn't get a speeding ticket. I got a non-speeding
-ticket; a ticket for careless driving. I was a road hazard
-because I was doing 18 m.p.h. on an expressway in a
-Porsche.
-After recovering from the temporary bout of insanity
-of flirting with suicide, I spent the next three weeks in the
-house. I re-finished the living room floor and did a bunch
-of other little piddly things around the house. I had to act
-like I was doing something constructive, so I became Mr.
-Handyman. That was my "job." I'd have the T.V. on the
-financial news channel like I was watching the market and
-staying abreast of things -- even though I didn't have two
-dimes to put together to do anything about it. I even kept
-my charts updated but it was all phony. I wasn't doing
-anything; I was just acting like I was doing something.
+For the next several weeks Smith and I kept telling each other, "It's going to be all right. It's gonna turn." Every news story we heard about the market we made fit the "we are going to be okay" scenario. "Now we know why the market was down today. Now that we understand that, it's going to go away. We're going to be okay." We rationalized everything. It was like living in Tortilla Flat with Danny and his friends, rationalizing everything. "Yeah, we just heard that some big commercial firm has just taken some deliveries of bean oil, so if he's stopping them then it must be okay now."
+
+By the beginning of October, I was under water. Soybean prices had fallen to the lowest levels in two months -- since the August 11th Agriculture Department's crop report predicting a curtailed harvest. Bean oil was now at 29 cents, down from the September highs of 37 cents. I'd lost most of my money. As the position got increasingly worse, I began to get margin calls. I'd be on margin call for two or three days at a time but the firm's attitude was: "We know you're a big wheel. We know you're on the Executive Committee at the CME, and we know you're neat and you've got this fancy car. We know you're good for the money." I'd wait a few days to see if the market rallied. If it did, fine -- I wouldn't have to meet the margin call. If it didn't, I'd spend the next couple of days trying to borrow money from my friends so I could meet the margin call.
+
+I gradually began to lose my outward cool. I was fighting with Pat and the kids; they had no idea what was happening. But it's not uncommon for the spouses and families of traders not to know what's going on with the trader's market positions. I was skipping dinner so I wouldn't have to face my family. I lost 15 pounds. I couldn't sleep. I was going to bed every night knowing I had to get up the next day and go watch this thing again. It was horrible. It would be a Friday, and I'd say, "Okay, it's Friday. I can't lose any more on this for another couple of days because the market won't be open." Weekends were welcomed. It was exactly opposite of when I was making money on that trade. When I was making money, I couldn't wait for the market to open. When I was losing money, I couldn't wait for it to close. Time is very painful when you're losing money. All I wanted was for the market to rally back to the August highs, and I'd get out.
+
+We refused to accept the obvious: that we were going under. We were holding each other's hands, and every day we went through this little drill of losing an average of $20,000 to $25,000 but telling ourselves that it was going to be all right. Naturally, it never was. It got to be excruciatingly painful. But I couldn't get out of the market because as long as I had the position on, there was always the belief, the chance, the hope, that I could make back the money. If I got out of the market there wouldn't be any chance anymore. "Tomorrow is the first day of the rest of my life. It's going to turn -- tomorrow." It was always going to turn "tomorrow." But it never did.
+
+By the first week in November, I was under water big time: $200,000 or $300,000. Bean oil was at 25 cents. So from the high of August, I was down about $700,000 or $800,000. What was worse is that I'd borrowed money from my friends to the tune of about $400,000. I got another margin call in mid-November, but I didn't want to borrow any more money from my friends. So I decided to ride out the storm again to see if the market would rally enough to take me off the margin call. On November 17th one of the senior managers from the brokerage firm came into my office and started liquidating my position. The firm finally, and mercifully, pulled the plug on me because I couldn't do it myself.
+
+They not only liquidated the account, but they also started seizing whatever assets I had. They took my membership and sold it, which forced me to resign from the Board of Governors and the Executive Committee since you can't be on the Board if you're not a member of the Exchange. Then they literally started to take the stuff out of the office: the furniture, the stereo and the levitating desk and credenza. I can remember sitting at my desk crying as they started to strip the office. It was the absolute lowest point in my life. I had gone from having everything on August 31st to nothing on November 17th. I couldn't stand to watch them take all the stuff away, so I took the pictures of my family off the wall, put them in a box and walked out of the office. I vaguely remember wandering the halls of the Exchange for a while trying to figure out what I was going to do. I couldn't borrow any more money from friends, and my only hope for making money had been the bean oil position. Now it was gone. Well, Pat and I had been through some tough times before, surely we'd make it through this one, too. "Oh my God! Pat! How was I going to tell Pat what had happened? How was I going to tell her that my fifteen year career and all of the money had evaporated in the last two-and-a-half months?" I headed for The River Club at the Exchange to sort things out over a Jack Daniels.
+
+Several hours, and several drinks, later I weaved my way to the Porsche. I remember deciding the only way I could ever get out of this for my family was to kill myself. I had about a million dollars worth of life insurance, and the only way I could make it right for my wife and kids was to hit a bridge at 100 m.p.h. I remember thinking to myself, "Everybody knows I drink too much anyway, so it will look like an accident." I thought the insurance company wouldn't pay if it was suicide. I got on the Kennedy Expressway and started looking for a bridge. I had barely even gotten out of the city when I noticed blue lights flashing in my rear view mirror. I pulled over and waited for the cop to come to the window.
+
+"License and registration, please. Any idea how fast you were going, Mr. Paul?"  
+"Uh, ... 75? 85?"  
+"Try 18."  
+
+I couldn't believe it. I was so drunk and so dazed over what had happened that I hadn't even gotten out of first gear. I didn't get a speeding ticket. I got a non-speeding ticket; a ticket for careless driving. I was a road hazard because I was doing 18 m.p.h. on an expressway in a Porsche.
+
+After recovering from the temporary bout of insanity of flirting with suicide, I spent the next three weeks in the house. I re-finished the living room floor and did a bunch of other little piddly things around the house. I had to act like I was doing something constructive, so I became Mr. Handyman. That was my "job." I'd have the T.V. on the financial news channel like I was watching the market and staying abreast of things -- even though I didn't have two dimes to put together to do anything about it. I even kept my charts updated but it was all phony. I wasn't doing anything; I was just acting like I was doing something.
 
 ### Nadir
 
-After about a month I went to see my old friend from the
-lumber pit, Stu Gimble. I had no job, no money and no
-prospect for either. For some reason Stu wasn't
-discouraged at all. He thought it was the best thing that
-could have happened to me. "This is great. We'll get you
-back on your feet again. All the great traders have gone
-bust at least once in their careers. You're gonna be fine."
-He leased and paid the rent on a seat in the Eurodollar pit
-for me while he tried to teach me to do what he did. A
-sudden realization was beginning to set in; I wasn't a
-trader. I couldn't do it. I wasn't good enough.
-I literally couldn't do what he did, even though I had the
-best teacher and conceptually understood what he was
-doing. I wasn't quick enough. He had this fantastic thing
-for numbers that was unbelievable. But my brain didn't
-work like his. So there I was in the Eurodollar pit, with no
-customer business, trying to be a trader and I couldn't
-make a living.
-In September 1984, my accountant figured out that I
-could re-file my previous three years' tax returns, average
-all three years' income and get a tax refund. Combining
-the losses of 1983 with the money I had made in '82 and
-'81, I got a check from Uncle Sam for about $100,000. That
-wasn't much money relative to my dire financial situation,
-but it was a grub stake. The Eurodollar market was so
-slow and efficient that there just wasn't much price
-movement. I was used to the lumber market which really
-moved a lot, and I thought that whatever I had learned in
-the lumber pit would apply better to S&Ps than
-Eurodollars. I bought an IOM (Index and Option Market)
-seat for $55,000. I was going to try to trade the S&P 500
-futures index.
-I tried that for 5 months, and I didn't make any
-money doing that either. I wasn't any good at it. Once
-again, this validated that I didn't know how to trade. I
-tried to rationalize that away, i.e., I hadn't traded in the pit
-for so long, and I was used to trading from a computer
-screen in an upstairs office. I sold the seat for $60,000, and
-that was the last $60,000 I had in the whole world. I
-hooked back up with Kirby Smith, who was at a small
-brokerage firm, and we sat in an office everyday acting
-like we were going to trade and make the money back.
-I played that game until October 1985 and slowly ate up
-the money. I was still paying for the car, the house and all
-the expenses of having a family. You can go through
-money pretty quickly with those kinds of bills and no
-money coming in at all.
-If I didn't get it together soon, I'd have to get a real
-job. I'd have to go back to work to survive and keep my
-family alive. I didn't want to do it, since I had come to
-believe I was above all that. You gotta do what you gotta
-do. However, I didn't intend to give up on trading. I
-viewed it like blackjack in the caddy pen; I wasn't going to
-quit playing, but I was going to quit losing. It was time to
-be a smart man -- humbled, but resolved to learn from my
-mistakes.
+After about a month I went to see my old friend from the lumber pit, Stu Gimble. I had no job, no money and no prospect for either. For some reason Stu wasn't discouraged at all. He thought it was the best thing that could have happened to me. "This is great. We'll get you back on your feet again. All the great traders have gone bust at least once in their careers. You're gonna be fine." He leased and paid the rent on a seat in the Eurodollar pit for me while he tried to teach me to do what he did. A sudden realization was beginning to set in; I wasn't a trader. I couldn't do it. I wasn't good enough. I literally couldn't do what he did, even though I had the best teacher and conceptually understood what he was doing. I wasn't quick enough. He had this fantastic thing for numbers that was unbelievable. But my brain didn't work like his. So there I was in the Eurodollar pit, with no customer business, trying to be a trader and I couldn't make a living.
+
+In September 1984, my accountant figured out that I could re-file my previous three years' tax returns, average all three years' income and get a tax refund. Combining the losses of 1983 with the money I had made in '82 and '81, I got a check from Uncle Sam for about $100,000. That wasn't much money relative to my dire financial situation, but it was a grub stake. The Eurodollar market was so slow and efficient that there just wasn't much price movement. I was used to the lumber market which really moved a lot, and I thought that whatever I had learned in the lumber pit would apply better to S&Ps than Eurodollars. I bought an IOM (Index and Option Market) seat for $55,000. I was going to try to trade the S&P 500 futures index.
+
+I tried that for 5 months, and I didn't make any money doing that either. I wasn't any good at it. Once again, this validated that I didn't know how to trade. I tried to rationalize that away, i.e., I hadn't traded in the pit for so long, and I was used to trading from a computer screen in an upstairs office. I sold the seat for $60,000, and that was the last $60,000 I had in the whole world. I hooked back up with Kirby Smith, who was at a small brokerage firm, and we sat in an office everyday acting like we were going to trade and make the money back. I played that game until October 1985 and slowly ate up the money. I was still paying for the car, the house and all the expenses of having a family. You can go through money pretty quickly with those kinds of bills and no money coming in at all.
+
+If I didn't get it together soon, I'd have to get a real job. I'd have to go back to work to survive and keep my family alive. I didn't want to do it, since I had come to believe I was above all that. You gotta do what you gotta do. However, I didn't intend to give up on trading. I viewed it like blackjack in the caddy pen; I wasn't going to quit playing, but I was going to quit losing. It was time to be a smart man -- humbled, but resolved to learn from my mistakes.
 
 ## 5 The Quest
 
 ### How Do the Pros Make Money?
 
+Not only did I lose all of my money because of the stupid way I handled the bean oil position, but I also discovered that I'd never really been a trader. Sure, I had made money in the markets but it turned out that I really didn't know how or why I had made it. I couldn't duplicate the profits when I had to make a living strictly by trading. The money I'd made over the years "trading" wasn't because I was a good trader. I'd made money because of being a good salesman, being at the right place at the right time and knowing the right people, rather than because of some innate trading ability.
+
+It was a painful realization to discover that I wasn't a trader. I didn't have the patience or mechanical skills to be a successful floor trader, nor the consistency to be a successful upstairs trader. If I was going to learn how to make money trading I was going to have to find out how others had done it. I went and read the books and articles about, and interviews with, successful market professionals. I studied the best investors and traders from Wall Street and La Salle Street: Peter Lynch, Bernard Baruch, Jim Rogers, Paul Tudor Jones, Richard Dennis and many more. After all, when you're sick you want to consult the best doctors, and when you're in trouble you want the advice of the best lawyers. So, I consulted what the successful pros had to say about making money in the markets. If I could figure out how they did it, I could still pull off getting rich again. And this time I would keep the money.
+
+Below is some of the advice the pros offered for making money. Appendix A has brief dossier on these pros for those of you not familiar with their names.
+
 ### Advice and Dissent
+
+>"I haven't met a rich technician. "
+><div align='right'>Jim Rogers</div>
+
+>"I always laugh at people who say, 'I've never met a rich technician.' I love that! It is such an arrogant, nonsensical response. I used fundamentals for nine years and then got rich as a technician. "
+><div align='right'>Marty Schwartz</div>
+
+Not very encouraging! Okay, so maybe the key to success wasn't whether you were a fundamentalist or a technician. I mean, I had made a lot of money using both of these methods. While I found technical analysis indispensable, there was nothing like a good fundamental situation to really make a market move. Maybe another topic would begin to reveal the pros' secret.
+
+>"Diversify your investments. "
+><div align='right'>John Templeton</div>
+
+All right! Now I was getting somewhere. This was striking a familiar chord. Maybe I had placed too much emphasis on the soybean oil spreads. I had too large a percentage of my capital committed to that market and that trade. Even afterwards, I was trading only one market at a time. This looked like my first lesson from the masters: diversify. Or it looked that way until I read the following:
+
+>"Diversification is a hedge for ignorance. "
+><div align='right'>William O'Neil</div>
+
+>"Concentrate your investments. If you have a harem of 40 women you never get to know any ofthem very well. "
+><div align='right'>Warren Buffett</div>
+
+Buffett has made more than $1 billion in the market. Who was I to disagree with him? But Templeton is also one of the greatest investors alive and he said something totally opposite of Buffett.
+
+Okay, so maybe diversification wasn't the answer either. Maybe you could put all of your eggs in one basket and still get rich by watching the basket very closely. Perhaps the topics I had selected so far were too broad in their implications. Certainly the pros would agree on the more specific and practical applications of investment and trading mechanics.
 
 ### Averaging a Loss
 
+>"You have to understand the business of a company you have invested in, or you will not know whether to buy more if it goes down."
+><div align='right'>Peter Lynch</div>
+
+>"Averaging down is an amateur strategy that can produce serious losses."
+><div align='right'>William O'Neil</div>
+
 ### Top and Bottom Picking
+
+>"Don't bottom fish. "
+><div align='right'>Peter Lynch</div>
+
+>"Don't try to buy at the bottom or sell at the top. "
+><div align='right'>Bernard Baruch</div>
+
+>"Maybe the trend is your friend for a few minutes in Chicago, but for the most part it is rarely a way to get rich. "
+><div align='right'>Jim Rogers</div>
+
+>"I believe the very best money is made at the market turns. Everyone says you get killed trying to pick tops and bottoms and you make all the money by catching the trends in the middle. Well, for twelve years I have often been missing the meat in the middle, but I have caught a lot of bottoms and tops." 
+><div align='right'>Paul Tudor Jones</div>
 
 ### Spreading Up
 
+>"When you're not sure what is going to happen in the market it is wise to protect yourself by going short in something you think is over valued."
+><div align='right'>Roy Neuberger</div>
+
+>"Whether I am bullish or bearish, I always try to have both long and short positions-- just in case I'm wrong. "
+><div align='right'>Jim Rogers</div>
+
+>"I have tried being long a stock and short a stock in the same industry but generallyfound it to be unsuccessful. "
+><div align='right'>Michael Steinhardt</div>
+
+>"Many traders have the idea that when they are in a commodity (or stock), and it starts to decline, they can hedge and protect themselves, that is, short some other commodity (or stock) and make up the loss. There is no greater mistake than this. "
+><div align='right'>W.D. Gann</div>
+
+I had expected there might be some subtle differences among the pros. After all, some were stock market moguls, while others traded options or futures contracts. But didn't these guys agree on anything? Based on the examples above, they sounded more like members of a debate team trying to score points against each other.
+
+I had to find out how the pros made money in the markets. I had to learn the secret that all of them must know. But if the pros couldn't agree on how to make money, how was I going to learn their secret? And then it began to occur to me: there was no secret. They didn't all do the same thing to make money. What one guy said not to do, another guy said you should do. Why didn't they agree? I mean, here was a group of individuals who had collectively taken billions of dollars out of the markets and kept it. Weren't they all doing at least a few things the same when they made their money? Think about it this way; if one guy did what another said not to do, how come the first guy didn't lose his money? And if the first guy hadn't lost, why didn't the second guy?
+
+If imitating the pros was supposed to make you rich and not imitating them was supposed to make you poor, then each one of these guys should have lost all his money because none of them imitated each other. They all should be flat broke because they very often did things opposite of each other. It finally occurred to me that maybe studying losses was more important than searching for some Holy Grail to making money. So I started reading through all the material on the pros again and noted what they had to say about losses.
+
 ### Losses
+
+>"My basic advice is don't lose money."
+><div align='right'>Jim Rogers</div>
+
+>"I'm more concerned about controlling the downside. Learn to take the losses. The most important thing in making money is not letting your losses get out of hand."
+><div align='right'>Marty Schwartz</div>
+
+>"I'm always thinking about losing money as opposed to making money. Don't focus on making money; focus on protecting what you have."
+><div align='right'>Paul Tudor Jones</div>
+
+>"One investor's two rules of investing:
+>1. Never lose money.
+>2. Never forget rule #1."
+><div align='right'>Warren Buffett</div>
+
+>"The majority of unskilled investors stubbornly hold onto their losses when the losses are small and reasonable. They could get out cheaply, but being emotionally involved and human, they keep waiting and hoping until their loss gets much bigger and costs them dearly."
+><div align='right'>William O'Neil</div>
+
+>"Learn how to take losses quickly and cleanly. Don't expect to be right all the time. If you have a mistake, cut your loss as quickly as possible. "
+><div align='right'>Bernard Baruch</div>
+
+Now I was getting somewhere. Why was I trying to learn the secret to making money when it could be done in so many different ways? I knew something about how to make money; I had made a million dollars in the market. But I didn't know anything about how not to lose. The pros could all make money in contradictory ways because they all knew how to control their losses. While one person's method was making money, another person with an opposite approach would be losing -- if the second person was in the market. And that's just it; the second person wouldn't be in the market. He'd be on the sidelines with a nominal loss. The pros consider it their primary responsibility not to lose money.
+
+The moral, of course, is that just as there is more than one way to deal blackjack, there is more than one way to make money in the markets. Obviously, there is no secret way to make money because the pros have done it using very different, and often contradictory, approaches. Learning how not to lose money is more important than learning how to make money. Unfortunately, the pros didn't explain how to go about acquiring this skill. So I decided to study loss in general, and my losses in particular, to see if I could determine the root causes of losing money in the markets. As I said at the beginning of the book, I may not be wise, but I am now very smart. I eventually did learn from my mistakes.
 
 # PART II Lessons Learned
 
+>"Good judgment is usually the result of experience, and experience frequently the result of bad judgment."
+><div align='right'>Robert Lovett</div>
+
+What started as a search for the secret to making money had turned into a search for the secret of how not to lose money. Why is it is so important to learn how not to lose? Because when people lose money in the markets, they usually look for a new approach how to make money. Obviously, the previous method was defective; it's never the investor's or trader's fault. Given the myriad of how to methods, you could spend a lifetime trying, and failing, to make money with each one because you don't know how not to lose. On the other hand, if you learn why people lose and thereby control losses, profits will follow.
+
+Basically, what I found is that there are as many ways to make money in the markets as there are people in the markets, but there are relatively few ways to lose money. When I say lose here, I don't mean that there won't be any losses. You don't win every point in every game in every set in every match in tennis; you win some and you lose some. There will be lots of losses, just as there are losses in any business. Former Citicorp CEO Walter Wriston said that a lender who doesn't have loan losses isn't doing his job. And it's the truth. Trying to avoid taking losses altogether is the loser's curse. But the losses you are trying to avoid are the ones for which you hadn't made allowances, the ones which sneak up on you and the ones which ultimately put you out of business.
+
+Losing money in the markets is the result of either: (1) some fault in the analysis, or (2) some fault in its application. As the pros have demonstrated, there is no single sure-fire analytical way to make money in the markets. Therefore, studying the various analytical methods in search of the "best one" is a waste of time. Instead, what should be studied are the factors involved in applying, or failing to apply, any analytical method. Even when equipped with accurate analysis, correct forecasts and profitable recommendations, people still manage to lose money. Why can't people match the profitable performance records of the market advisory services they subscribe to? They can't because of psychological factors that prevent them from applying the analysis and following the recommendations.
+
+Psychological factors can be categorized as either: (1) the pathological mental disorders and illnesses which require professional help, or (2) the psychological distortions all of us engage in even though we are basically mentally healthy. We are interested in the latter.
+
+### Market Lore to Ignore?
+
+Most remedies for market losses due to psychological factors are old market saws that are too ambiguous to offer any means of practical application. People recite these catch phrases as if they were self-evident truths. After repeating them so often they become trite cliches used out of unthinking habit. But pearls of trading wisdom are more easily repeated than implemented. Repeating maxims, as if mere verbalization will activate the underlying principles, will not work. For example, simply following the dictum "Don't discuss market positions because the pros don't," won't automatically make you a pro. You must understand those principles before you can benefit from the maxims. Pros don't discuss their positions because they understand what triggers discussing positions in the first place, as well as the dangers of doing so. A maxim is a succinct formulation of some fundamental principle or rule of conduct. Memorizing and repeating cliches is easy; grasping their underlying principles is more difficult.
+
+For instance, consider what must be the most quoted maxim in the business: "Cut your losses short." Sounds great, but what does it mean? Do you get out of a position as soon as it shows a loss? What constitutes a loss? How do you define a market loss? At some point in almost every investment or trade the position is going to show a loss, so how do you know when it is really a loss -- something to get rid of-- and not a position that is going to come back and be profitable?
+
+Or how about: "Don't follow the crowd. Go against the herd." Okay, but how do you measure the crowd's position in the market? What are the truest bellwethers of public sentiment? Do you determine what the crowd is doing by looking at volume and open interest? Put-call ratios? Put-to-call premiums? Consumer confidence? Odd lot shorts? Sentiment numbers and consensus of investment advisors? Besides, doing the opposite of what everyone else is doing doesn't guarantee success and there are times when "trading opposite the crowd" can wipe you out.
+
+And then there's that oldie but goldie: "Don't trade on hope or fear or make emotional decisions." Sounds simple enough but as you will see later in the book, emotions in general, and hope and fear specifically, create a unique paradox for the market participant.
+
+This book will not instruct you on the specifics of how to confront your fears or how to "get in touch with your feelings and emotions." It will not reconcile your ego's legitimate internal psychological needs with your participation in the markets. I don't have a battery of tests for you to take to determine your particular psychological profile or your internal conflicts. I don't have a test to determine if you should be participating in the markets at all. I am not, nor do I pretend to be, a psychologist. But I don't have to be a psychologist to know that losses caused by *psychological* factors presupposes your *ego's* involvement in the market position in the first place, which means you have personalized the market. Knowing what causes something is the first step in preventing it from going into effect. If we can determine how a market position gets personalized (i.e., how ego gets involved), we will be well on our way to preventing it from happening. Then the losses due to psychological factors can be prevented.
+
+Some of the ideas in the rest of the book may sound like semantic quibbling. However, it is precisely those confused semantics that are largely responsible for the confused thinking, which, in turn, leads to the losses due to psychological factors. To clear up that confusion let's attach clear, specific meanings to the terms we use. Let's start at the beginning by defining psychology and seeing how it applies to us when we are in the market.
+
+*The American Heritage Dictionary* defines psychology as the study of the mental processes, behavioral characteristics and emotions of an individual or group. Since we're interested in market losses due to psychological factors, we will examine each of the three parts of the definition as they relate to us when we have those types of losses. Therefore, the second part of this book examines the mental processes, behavioral characteristics and emotions of people who lose money in the markets.
+
+**1. Mental Processes.** Chapter Six explains what happens when a market position, especially a loss, gets personalized. It presents the difference between external, objective losses and internal, subjective losses. Next, it looks at the mental process an individual goes through when experiencing an internal loss: denial, anger, bargaining, depression and acceptance. Most people equate loss with being wrong and, therefore, internalize what should be an external loss. Then they start to experience Five Stages of Internal Loss and the loss gets larger as they progress through the stages. Finally, the chapter makes a distinction between losses from discrete events (e.g., games) and continuous processes (e.g., markets) and shows that only the latter are subject to the Five Stages.
+
+**2. Behavioral Characteristics.** Chapter Seven discusses the most common way people personalize market positions. The chapter introduces the five types of participants in the markets: investors, traders, speculators, bettors and gamblers. The type of participant a person is, is determined by the behavioral characteristics he displays; not by the activity in which he is engaged. In other words, all stock purchases are not investing just as all card playing isn't gambling. The chapter also shows that the source of most losses in the markets is people betting or gambling, as defined by the characteristics of their behavior, on a continuous process risk activity.
+
+**3. Emotions of an Individual or Group.** Chapter Eight explains that emotions are neither good nor bad; they simply are. Emotions per se cannot be avoided. Emotionalism, on the other hand can, and should, be avoided. Emotionalism is decision-making based on emotions. The entity which best describes emotional decision-making is the crowd. The chapter explains that the crowd is the epitome of emotions in action and discusses the crowd not in the familiar terms of contrary opinion or as a stage of a runaway market, but in terms of a process that can affect a solitary individual. Being a member of the crowd is not a function of quantity of people. Rather, it is a function of the characteristics displayed. We will also look at two models that describe the stages an individual passes through as he becomes a member of a psychological crowd.
+
 ## 6 The Psychological Dynamics of Loss
+
+>"I can't get out here; I'm losing too much."
+><div align='right'>Loser's famous last words</div>
+
+*In mid-October 1983, while the bean oil position was blowing up in my face, I got a call from my mom. "Dad is going into the hospital for exploratory cancer surgery. It shouldn't be a big deal and they don't expect a problem, but they have to take a look," she said. She called back the next day after the surgery and the news from the doctors was that the cancer had spread through his whole body, and he had six months to live. They'd given him a full colostomy and he would start going to start chemo-radiation therapy immediately.*
+
+*Two months later I got a call from my dad. He said, "Mom's gone. I can't find her. She left last night and hasn't come home." As it turned out, my mom had committed suicide. She had walked into the Ohio River and drowned herself. The only good news was that she didn't know I was broke, so it wasn't my situation that made her do it. She did it because my dad was so sick and going to die, and she couldn't deal with it. I'd really have been in bad shape if I'd thought that she did it because of my situation. But they had no idea that I'd gone under. Things didn't look any different. We still lived in the house and so on. I just didn't have the same job. They knew I'd had a job change, but they didn't know why.*
+
+*By that time my dad was in and out of the nursing home and had a full-time nurse at home. I was driving back and forth almost every weekend visiting him and watching him die. I would go one weekend and my brother would go the next. Finally, in August of 1984 he died.*
+
+*So between August 1983 and August 1984, I lost all of my money, went $400,000 in debt, lost my membership, my job, my Board of Governor's seat, my Executive Committee seat and both of my parents. I lost everything that was important to me except my wife and kids. That was not a good twelve months.*
+
+I am not relating this story for your pity. I am relating it because it helps convey some important observations I made about the nature of loss. My losses in the market weren't the same as the losses in my personal life. My gambling losses in Las Vegas weren't the same as losses in the markets. All those losses were different from the loss of my parents, which was different from losing my Board of Governors seat.
+
+Most people acknowledge that losses will happen regardless of the type of business venture. A light bulb manufacturer knows that two out of three hundred bulbs will break. A fruit dealer knows that two out of one hundred apples will rot. Losses per se don't bother them; unexpected losses and losing on balance does. Acknowledging that losses are part of business is one thing; taking and accepting those losses in the markets is something else entirely. In the markets, people tend to have difficulty actively (as opposed to passively as in the case of the fruit dealer and bulb manufacturer) taking losses (i.e., accepting and controlling losses so that the business venture itself doesn't become a loser). This is because all losses are treated as failure; in every other area of our lives, the word loss has negative connotations. People tend to regard the words *loss, wrong, bad* and *failure* as the same, and *win*, *right, good* and *success* as the same. For instance, we *lose* points for wrong answers on tests in school. Likewise, when we lose money in the market we think we must have been wrong.
+
+*The American Heritage Dictionary* defines lose as: 1) To be deprived of through death, 2) To fail to win (i.e., lose a game; to be defeated). Most of the time *lose* or *loss* is associated with games. Somehow, the concepts *profit* and *loss* get confused with *win* and *lose*, and *right* and *wrong*. But if you *lose* as a participant of a game, you weren't wrong; you were defeated. If you lose as a spectator of a game, you must have placed a bet (or expressed an opinion) on the game's outcome and you lost money (or were wrong); but you were not defeated.
 
 ### External vs. Internal Loss
 
+There are many different types of losses. You can lose your keys, a game or contest, money, your mind, esteem, self control, your parents, a bet, a job, etc. However, all losses can be categorized either as: (1) internal; such as self-control, esteem, love, your mind, or (2) external; such as a bet, a game or contest, money. External losses are objective and internal losses are subjective. That is, an external loss is not open to subjective, individual interpretation; it is an objective fact. On the other hand, an internal loss is defined in terms of the individual (i.e., subject) experiencing it. In other words, a loss is objective when it is the same for me, you and anyone else. The loss is subjective when it differs from one person to another; when it is entirely a personal experience.
+
+For instance, thousands of people die every day, but those deaths aren't "losses" to everyone; only to those who are directly and personally (i.e., internally and emotionally) affected. This type of loss is an internal loss and is a function of, and created by, the feelings and reactions of the person experiencing them. This means the loss is *subjective* and definable only in terms of the individual experiencing it. On the other hand, when Kentucky loses a basketball game, it is no more of a loss for a member of the losing team than for a spectator in terms of it being an external, *objective* fact. Both people are totally outside the definition of the event itself. Anyone who was watching the game can tell you which team "lost" and everyone watching would tell you the same thing. An objective loss is impervious to how you feel about it or react to it. It's not subject to anyone's appraisal; it must be accepted without evaluation. The player and spectator just mentioned *could* personalize this external loss *if* they equated their self-esteem with the success or failure of the team. This would internalize an external loss.
+
+Because people tend to regard loss, wrong, bad and failure as the same thing, it is little wonder that loss is a dirty word in our vocabulary. However, in the markets losses should be viewed like the light bulbs or rotten fruit mentioned earlier: part of the business and taken with equanimity. *Loss* is not the same as *wrong*, and *loss* is not necessarily *bad*. For example, consider exiting a losing position with a small loss, but before the loss got bigger. That was a loss, but it was a good decision. By the same token, a profitable trade based on a tip may be bad because of the dangers of following tips (i.e., the tipster may have incorrect information or he doesn't tell you when to get out).
+
+Market losses are external, objective losses. It's only when you internalize the loss that it becomes subjective. This involves your ego and causes you to view it in a negative way, as a *failure*, something that is *wrong* or *bad*. Since psychology deals with your ego, if you can eliminate ego from the decision making process, you can begin to control the losses caused by psychological factors. The trick to preventing market losses from becoming internal losses is understand to how it happens and then avoiding those processes.
+
 ### How External Losses Become Internal Losses
+
+The key to understanding how external losses become internalized lies in knowing the subtle differences between facts and opinions. *The American Heritage Dictionary* defines a fact as something that has been objectively verified. Facts are neither right nor wrong; they simply are. Opinions are personal assessments and are right or wrong depending on whether they actually correspond with the facts. Therefore, only opinions can be right or wrong; facts cannot. *Right* and *wrong* are inappropriate for the description of business operations and market participation, and so are the terms *win* and *lose*. Participating in markets is not about being right or wrong, nor is it about defeat; it's about making decisions.
+
+Decision-making is a process of reaching a conclusion after careful consideration; it is a judgment; a choice between alternatives when all the facts are not yet, and cannot yet, be known because they depend on events unfolding in the future. Therefore, decision-making is not a choice between right and wrong. In 20/20 hindsight decisions might be *good* or *bad*, but not *right* or *wrong*. With regard to the markets, only expressed opinions can be right or wrong. Market positions are either *profitable* or *unprofitable*, period. But due to the vocabulary quirks outlined above, it is easy to equate *losing* money in the market with being *wrong*. In doing so, you take what had been a decision about money (external) and make it a matter of reputation and pride (internal). This is how your ego gets involved in the position. You begin to take the market personally, which takes the loss from being objective to being subjective. It is no longer a loss of money, but a personal loss to you (i.e., someone you knew was on the airplane that crashed). An example of personalizing market positions is people's tendency to exit profitable positions and keep unprofitable positions. It's as if profits and losses were a reflection of their intelligence or self-worth; if they take the loss it will make them feel stupid or wrong. They confuse net-worth with self-worth.
+
+The very use of the terms right and wrong when describing a market position or business dealing means: 1) an opinion has been expressed, which only a person can do, 2) the market position or business venture has been personalized and 3) any losses (or successes) are going to be internalized. Remember when I described the high from *being right* about the market on my $248,000 day? "I" had just made all that money for me and everyone else. "I" was so smart. I didn't know it at the time, but the only thing "I" had done was completely personalize my position in the market.
 
 ### The Five Stages of Internal Loss: Denial, Anger, Bargaining, Depression, Acceptance
 
+It may seem a bit strange comparing the loss of life to a loss in the market. Ordinarily, you wouldn't think of a loss in the market as a life or death situation (although living through a million-and-a-half-dollar loss can sure make you think about the alternative). However, the stages people go through when experiencing a loss in the market are strikingly similar to the stages people go through when facing death. When my father was dying, a friend of mine gave me a book about people with terminal illnesses titled *On Death and Dying*, by Elisabeth Kublar-Ross. During interviews with 200 terminally ill patients, the author identified five stages terminally ill patients go through once they find out about their illness. One can see the same stages in most people facing personally tragic news, such as the death of a spouse or a child. I also think people experiencing any type of internal loss go through these stages. For the purposes of this book let's refer to them as the Five Stages of Internal Loss. Below is a brief description of each stage and a reference to how I displayed the same characteristics when I was in the bean oil trade.
+
+**1. Denial**
+
+Upon receiving the news of being terminally ill, patients immediately responded, "No, not me. It can't be true." Some patients were observed "shopping around" for many doctors, looking for reassuring second opinions. Patients discounted doctors' opinions that confirmed the original diagnosis and emphasized those that were more optimistic.
+
+This is the same thing I was doing in September and October of 1983 when the bean oil position stopped going up and started down. I was losing money but denied that the market had really turned around. I was indignant That was the trade that was going to make me $10 million, remember? In October I knew that I was under water, but didn't even know how far under I was. That is the personification of denial. If you can't even, or don't dare, sit down and calculate how much you're losing in a position, but you know to the exact penny how much you're making on your profitable positions, then you're denying the loss. I also sought "second opinions" by asking other traders what they thought about the market. And, of course, I listened to the ones who were bullish and ignored those who weren't.
+
+**2. Anger**
+
+When the denial stage cannot be maintained any longer, it is replaced with feelings of anger (e.g., rage, envy, resentment). The anger is displaced in all directions (e.g., nurse, family, doctor, treatment) and projected onto the environment at random. I vented a lot of my frustrations about the loss in the form of anger directed mainly at my family. For a while, Pat and the kids avoided me like the plague.
+
+**3. Bargaining**
+
+Unable to face facts in the first stage, and angry at people and God in the second stage, patients try to succeed in entering some sort of agreement that may postpone the inevitable from happening: "If God has decided to take me from this earth, and he did not respond to my angry pleas, he may be more favorable if I ask nicely." In September 1983 I made a pact with myself that if the market rallied back to where it had been in late August I'd get out of the position. By November I was begging the market just to get my position back to breakeven. All I wanted to do was get back to where I was before I had put on the bean oil trade.
+
+**4. Depression**
+
+Depression is a complex psychological disorder and discussing it at length is beyond the scope of this book. Generally speaking, however, some of the symptoms of depression are: pervasive feelings of sadness, distancing yourself from loved ones, changes in appetite or sleep habits, loss of energy, inability to concentrate, indecisiveness and/or refusal to follow advice. While I never went to a doctor to see if I was clinically depressed, I had a lot of these symptoms in the fall of 1983. I was so consumed with the bean oil position that I couldn't sleep through the night, skipped meals, lost fifteen pounds in four weeks and lost interest in all the things that I once had found enjoyable. I was constantly tired, couldn't focus on my work and refused the advice of those who told me to get out of the market.
+
+**5. Acceptance**
+
+The patient finally resigns himself to the inevitable. In this stage, communication becomes more non-verbal. Kublar-Ross says acceptance is almost void of any feelings and is marked by resignation. There are patients who fight to the end; who struggle and keep a hope that makes it almost impossible to reach the stage of acceptance. The harder the struggle to avoid the inevitable death and the more they try to deny it, the more difficult it will be for them to reach this final stage. But they do finally reach this stage. Similarly, the trader finally faces up to the inescapable reality and "accepts" the loss; either because he "wakes up" and does something to get out of the position, or more likely, because someone or something else forces him to exit the position. In my case, it was the latter. Without force I never would have accepted, nor taken, the loss.
+
+For terminally ill patients, the one thing that usually persists through all these stages is hope. Even the most accepting patients left open the possibility for some cure, the discovery of a new drug or last minute success in a research project. They showed the greatest confidence in the doctors who allowed for such hope and appreciated it when hope was offered in spite of bad news. This is the same hope I was relying on when the bean oil position was deteriorating. When I talked to other traders, I only paid attention to the opinions and the news that confirmed my position in the market.
+
 ### The Five Stages of Loss and the Market Participant
+
+Once a person has personalized a market position and it starts to show a loss, he is uncertain when or how it is going to end (just like the person with the terminal illness is uncertain what's coming next) and he goes through the Five Stages of Internal Loss. He denies it's a loss. ("No way! Is the market really down there? Are you sure that's not a misprint?") It's a profitable trade that just hasn't gone his way yet. He gets angry at his broker and/or his spouse, and/or the market. After that he starts bargaining with God or the market-- that if only he can get back to breakeven, he will get out of the position. Then he gets depressed about the losing position. Finally, acceptance comes either because he "wakes up," the analyst finally puts out a sell recommendation, or the margin clerk blows him out of the position.
+
+The market participant doesn't have to move directly to the acceptance stage. He can loop back to denial after each and every temporary reprieve the market gives him. If the market rallies some, he thinks the market has finally turned. But when the market starts back down again, he slips back into denial, then anger and so on. With each temporary rally he has another opportunity to play out the stages and lose more money in the process.
+
+Even if the position is a net profit, the trader or investor can go through the Five Stages. Consider when a market position is profitable, but not as profitable as it once was. When that happens, he becomes married to the price at which it was the most profitable. He denies that the move is over, gets angry when the market starts to sell off, makes a bargain that he'll get out if the market moves back to that arbitrary point, gets depressed that he didn't get out and maybe even lets the profit turn into a loss, thus slipping again into denial, then anger, etc. He creates a chain reaction of loops that result in further losses.
+
+This is exactly what I did in the bean oil trade. Every time the market rallied, I felt relieved and assumed that the decline was over. Having survived each downdraft, I would start looking at the market as though I had just entered the position, and I would create new levels and parameters with which to monitor the market.
 
 ### Discrete Events vs. Continuous Processes
 
+Earlier in the chapter we saw that someone could actually internalize an external loss; the player or spectator *could* take the loss of the game as a personal matter, and internalize what is properly an external loss. Although someone *could* do it, it's a little hard to imagine someone going through the stages of denial, anger, bargaining, depression and acceptance over a basketball game. Why? Because the game is a *discrete event* -- an activity with a defined ending point. However, internalizing an external loss is a lot easier to do with the other type of loss producing activity: a *continuous process* -- an activity that has no clearly defined end. Losses from continuous processes are much more prone to become internalized because, like all internal losses, there is no predetermined ending point.
+
+In a continuous process, the participant gets to continuously make and re-make decisions that can affect how much money he makes or loses. On the other hand, a discrete event (e.g., a football game, roulette, blackjack or other casino game) has a defined ending point, which is characteristic of external losses. A loss resulting from a discrete event is definitive and not open to interpretation. When I bet on a Kentucky basketball game and Kentucky loses, it is a discrete event and an external loss that I can't really argue with. Or, if I bet on 21 black in roulette and the ball lands on 17 red, I lost -- period.
+
+The markets fall into the category of continuous process because market positions have no predetermined ending point. Granted, the market has a defined open and close for the day, but a market position continues beyond the market's close and could go on forever. Even though a loss in the market is an external loss (since money is external, not internal), it is also the result of a continuous process and prone to becoming an internal loss. Why? In a continuous process there is no certainty of how or when the open market position will end. That uncertainty about the future triggers the Five Stages of Internal Loss, which means the loss has become internalized, personalized and subjective. Because a losing market position is a continuous process, nothing forces you to acknowledge it as a loss; there's just you, your money and the market as a silent thief. So as long as your money holds out, you can continue to kid yourself that the position is a winner that just hasn't gone your way yet; the position may be losing money, but you tell yourself it's not a loss because you haven't closed the position yet. This is especially true for stock market positions because when you own the stock outright, no margin call is going to force you to call a loss a loss.
+
+Think of the differences between discrete events and continuous processes this way: Would you lose more money or less money at the racetrack if they stopped the race in the middle and re-opened the betting window? That is to say, you had the opportunity to either: (1) leave your bet, or (2) make a second bet on another horse. You sat down before the race, looked at the racing form and said, "Okay, number 4 is obviously the class horse, but he's 3:2 and I'm not going to bet the favorite because there's not enough payoff. I kind of like number 7 and he's 5:3, but 9 looks okay and he's 7:1. I'll go with 9." Half way through the race who's in front? Number 7. If they could stop the race and let you bet again, what would you do? You would say, "I knew it! I liked 7 to begin with. I should have picked 7." You would go to the betting window and make a new bet on number 7. Who wins? Number 4. In the markets they never close the window. It's open all the time, so you continuously get to re-make that decision and constantly make new "bets."
+
+*When I was in Cleveland managing the officefor Jack Salmon's regionalfirm, I had an experience that demonstrates this concept of internalizing external losses. One time a lot of my customers got short the lumber market. They were big cash lumber hedgers and knew that market as well as anybody. Their analysis, and mine too, was that the market was over-priced and due for a fall. So we got short. Well, the market rallied sharply. The market opened limit up and stayed limit up for four days in a row. There was no trading in the futures so we couldn't get out of our shorts. On the fifth day, the market started to trade but we didn't get out. We wanted to watch the market to see if it would start back down. Well, it didn't. After afew more days of the market trading during the day but closing limit up, we all got out of our shorts. God, it was awful. It had wiped out 90% of the office equity run.*
+
+*I called Jack Salmon down in St. Louis. "Look, I just blew up the office. There is no more money; no more business. It's all gone. I've destroyed it."*
+
+*"What happened?"*  
+*"We were short lumber, and the market kept going up and--"*  
+*"Well, whose idea was the trade?"*  
+*"It was the customers' idea, but--"*  
+*"Okay, how many lawsuits do we have?"*  
+*"We don't have any lawsuits. These guys are good guys; they're not going to sue anybody. But--"*  
+*"How many debits do we have?"*  
+*"We don't have any debits! Don't you understand? We lost all the money!"*  
+*"Wait a minute. Let me see if I understand this. We have no lawsuits, no debits and no customer complaints."*  
+*"Right."*  
+
+"Well, that just means you've got to go back to work, boy. You've got to pick up the phone again. This is part of the business. This is part of the deal. People get on the wrong side of the market and they lose all their money. Then the broker has to decide, 'Do I want to stay in the business or get out of the business?' Want to get out? Get out. Want to stay in? You don't have any problems -- you just have to go back to work."
+
+Not only had I failed to see that losses were just part of business, but I had gone so far as to personalize someone else's losses. If only I had known then what I'm writing now ...
+
 ## 7 The Psychological Fallacies of Risk
+
+>"Most people who think they are investing are speculating. And most people who think they are speculating are gambling. "
+><div align='right'>Unknown</div>
+
+*One day in the summer of 1981, my partner Larry Broderick and I met in Las Vegas with one of our best customers -- Conrad Pinette, a French Canadian and the manager of a very large lumber company in Canada. He was very wealthy and a big baccarat player. We got to Vegas and checked into the Hilton, since that's where Conrad liked to stay. This was the first trip to the Las Vegas Hilton for Larry and me, and they didn't know us from Adam's off ox; but they knew Conrad. He was a very big player and they loved him. All they want in Vegas is a guy who will play, and Conrad would play.*
+
+*We met Conrad in the hotel lobby and the first thing he said was, "What kind of a line do you boys want?" I said, "I don't know." "Well, why don't I just get you set up for ten thousand?" "Ten thousand? Dollars?" I really didn't want to lose $10,000. "Ah, we'll just set you up with a line. Don't worry about it." So when I got to the casino all I had to do was sign a piece of paper and they gave me two or three thousand dollars in chips. I just signed and they gave me chips. "Hey, this is kind of neat," I thought to myself It's not like I even had to have the money.*
+
+*Conrad wanted to "warm-up" before going to play baccarat. His warm-up was to sit down at a blackjack table with a $50 minimum bet. Now this was at a time when I might have been trading 20 or 30 or 40 contracts at a crack as a local trader. On 20 contracts I might be making or losing $1,000, $3,000 or even $5,000 in an hour in the pit. Serious money. So in context, $50 blackjack wasn't a lot of money. But when I sat down at that table, $50 sure seemed like an awful lot of money. I said to myself, "What am I doing betting $50? This is nuts." But he was the customer and Larry and I wanted to make him happy. Well, in half an hour I was down about $500 playing warm-up. I said, "Eh, this is not good . .. I'm not having fun here. I've had it with this warm-up stuff. Let's go try this baccarat thing."*
+
+*Baccarat was neat. It's been a game for the rich in France and Italy since the 15th century. I was rich in 1981, so I wanted to play. In the casinos it's always off to the side. It's roped off and they have to unfasten a velvet rope to let you in. It's where the big guys play. The riff-raff was out there throwing craps and playing roulette, and the big boys were in here at the fancy table where the waitresses catered to you and got you anything you wanted to drink. They served you brand name drinks at the baccarat table. I liked that.*
+
+*A guy met us at the velvet rope and said, "Mr. Pinette, Mr. Paul, Mr. Broderick, we're glad to have you." We sat down and signed a little piece of paper, and the guy shoved a whole bunch of chips in front of us. I had never played baccarat before, but I'd read about it in the James Bond book Goldfinger. The first thing you learn about baccarat is that there really are no decisions to make other than which way to bet (Player, House or Tie) and how much to bet. In blackjack, you're making choices -- do you want a card or not? -- in addition to how much you want to bet. In baccarat there are no decisions about the cards; the rules make all the decisions. The game is determined entirely by chance. The dealer deals two cards to the two sides (House and Player) and the rules dictate whether or not a third card is drawn. The object of the game is to draw cards adding to nine (tens and face cards count as zero). The dealer makes sure the bettors follow the inflexible rules.*
+
+*The strategy of baccarat players is similar to what traders use in the markets; they look for trends. The players get a little scorecard. Across the top it says House, Player and Tie, and it has columns under the headings. After every hand they put a little "x" under the appropriate heading, depending on who won. What they're looking for is a run of wins by either the House or Player. So if the House wins 3 straight hands, for instance, they will bet on the House on the 4th hand. Conrad was explaining all this stuff, most of which made little sense to me. But he was the hot-shot gambler and supposedly knew what he was doing.*
+
+*So I started playing the "look for the run" routine and betting the minimum $25. Well, somewhere along the line I was down about $2,000 with this Mickey Mouse looking for runs. I was getting very bored and more than a little upset. Two thousand dollars is real money. I don't know what else I would have done with two grand but I can think of a lot of things I could have done; like bought two pairs of Lucchese boots or a new shotgun.*
+
+*Well, at about three o'clock in the morning we got a new dealer and a new dealing shoe. The first two hands in the new shoe came up Player. Conrad looked at us and said, "Guys. This is it. I feel it. This is it. We're gonna get a run." So he doubled his bet (he was betting $100 or $200 at a crack). I still bet my $25 and we bet on Player. Player won the third hand. I left the $50. Player won again. I left the $100. Player won again! Well, before the run ended Player had won sixteen straight hands. Luckily for us, somewhere around the tenth or eleventh hand we started taking some money off of the table and lowering our bets. Conrad made about $40,000. Broderick and I each made about $7,000.*
+
+*Now, it was four o'clock in the morning in Las Vegas and we had all this free money that had just shown up out of the sky! You can get into a lot of trouble in Las Vegas with that much free money that you don't need, didn't expect to have and don't care if you have the next day.*
+
+Life is fraught with risk. Crossing the street is a risk, driving a car is a risk, getting married is a risk and so is having children. Needless to say, starting and operating a business is a risk and so is participating in the markets. Risk is defined as the possibility of suffering a loss. (It's called probability only if you can assign a numerical value to the likelihood of the loss occurring.) In none of life's activities is there a guarantee of success or of having things tum out the way you want. Obviously, the types of risk we are interested in are financial in nature; risk which produces monetary losses.
+
+Most people don't know whether they are investing, speculating or gambling and to the untrained eye the activities are very similar. Looking back on my trip to Vegas I can see the similarity between the casino and the brokerage house. The brokers are the croupiers. The commissions are similar to the house percentage. The boardrooms are the casinos themselves. The stock exchange and the ticker tape are the gambling devices. However, the markets and gambling games are similar only in that they each involve the possibility of monetary loss. They are different not only in the legal sense, but also in the economic sense. The big difference is: gambling creates risk while investing/speculating assumes and manages risk that already exists.
 
 ### Inherent Risk
 
+Inherent risk is a natural occurrence in both unorganized markets and organized markets. Management guru Peter Drucker calls it "risk which is coincident with the commitment of present resources to future expectations." Unorganized markets are the everyday markets in which we participate as consumers, such as the department store, the grocery store and the gas station. The producers bear the financial risks associated with getting the product to the consumer. Organized markets, on the other hand, are the centralized exchanges and over-the-counter markets for stocks, bonds, currencies, options and futures contracts.
+
 ### Created Risk: Investing, Trading, Speculating, Betting, Gambling
+
+Created risk involves the arbitrary invention of a potential monetary loss which otherwise would not have existed. Created risk is risk that is not a natural by-product of an activity itself. The roulette wheel could be spun, the football game played and the horse race run without monetary loss occurnng.
+
+Generally speaking, that's as far as people distinguish between inherent and created risk. However, a closer examination reveals that what determines whether someone is engaging in created or inherent risk is not the activity itself, but the characteristics the person exhibits when engaging in the activity.
+
+Let's define what those five activities are and the characteristics associated with each.
+
+**1. Investing** is parting with capital in the expectation of safety of principal and an adequate return on the capital in the form of dividends, interest or rent. Since the return on capital takes the form of periodic payments of interest or dividends, investing indicates an intention to be separated from the capital for an extended period of time. Therefore, investing is usually associated with relatively long time horizon. Buying stocks in a pension fund with the intention of holding them indefinitely, or buying bonds with the intention of holding until maturity, is investing.
+
+**2. Trading** is basically an activity in which someone (usually called a dealer) makes a market in a given financial instrument. Traders try to extract the bid-ask spread from a market. An example of a trader is the specialist on the floor of a stock exchange. He matches orders, maintains an orderly market and is willing to buy at the bid and sell at the offer. Traders on the futures and options exchanges make two sided markets, trying to buy at the bid and sell at the offer. Traders in the over-the-counter stock and bond markets do the same thing. In its most basic definition, trading is market-making. The trader essentially tries to stay net flat (neither long nor short) and makes money by extracting the bid-ask spread. In this sense, Stu Gimble, my friend from the lumber and Eurodollar pits, was the consummate mechanical trader.
+
+**3. Speculating** in its simplest form is buying for resale rather than for use or income as is the case for commodities or financial instruments, respectively. Speculating is parting with capital in the expectation of capital appreciation. This capital appreciation is the sole extent of "return" for the speculator. He does not anticipate return in the form of periodic dividends or interest payments, because he does not intend to hold the position for an extended period of time. The word speculation is derived from the Latin word specere which means to see. Speculating means vision, perception, the faculty of intellectual examination.
+
+**4. Betting** is an agreement between two parties where the party proved *wrong* about the outcome of an uncertain event will forfeit a stipulated thing or sum to the other party. Therefore, a bet is about being *right* or *wrong*. For example, people bet on the result of an election or a football game. More often than not, they bet on whom they want to win rather than on whom they think will win. I always bet on Kentucky in basketball games. If I took into account the point spread, that would be speculating. If I had been a bookie taking bets either way, trying to keep my exposure even and extracting my commission, I would have been more like a trader who tries to stay net flat and extracts the bid-ask spread.
+
+**5. Gambling** is a derivative of betting. To gamble is to wager money on the outcome of a game, contest or event, or to play a game of chance for money or other stakes. Gambling usually involves a game or event of chance; sometimes it involves games of both skill and chance. While gambling is popularly regarded as a vice that is injurious to public morals, it is actually a form of entertainment. Compulsive gambling might be injurious, but so is compulsive behavior of any kind. Gamblers may make money, but they are not deprived of enjoyment or entertainment if they do not make money. Individuals who lose a couple of hundred dollars in casinos are paying an entertainment fee, and they know it and have decided it's worth it. They engage in the activity for the action and the excitement of participation.
 
 ### Behavioral Characteristics Determine the Activity
 
+Don't make the mistake of assuming that just because you're participating in the market, that you are automatically investing, trading or speculating. The markets don't make you immune from betting or gambling. Determining which of the five activities you are doing is a function of the behavioral characteristics you exhibit. Gambling, investing and trading are not defined by any particular activity itself (i.e., playing cards, buying stocks or trading futures) but by how the person approaches the activity. All card playing is not gambling, all stock purchases are not investing and all futures transactions are not trading.
+
+Gambling and betting are most often associated with contests or games, such as casino games, sports games, horse racing, slot machines and bingo, to name a few. Bettors and gamblers can be either spectators or participants in the event on which they wager. But the distinguishing characteristic of a bettor or a gambler is whether he wants the satisfaction of being right in his prediction or the *entertainment* of participating, respectively.
+
+The bettor is interested in being right. His ego is on the line. He has a stalwart fealty to a team, a market position or an opinion. Very often, market analysts are subject to this pitfall. Having expressed an opinion either on market direction or the value of a particular stock, it becomes difficult, if not impossible, to abandon that opinion. The analyst doesn't want to be wrong or look stupid; he wants to be right. He is betting.
+
+The immediate aim of gambling is entertainment; betting for excitement. People gamble to escape the humdrum of everyday life. It fulfills the desire for stimulus (e.g., increased adrenalin and a rise in blood pressure) replacing the painful boredom of everyday life with thrill or excitement. The distinguishing feature of gambling is that it deals with the unknown, with pure chance. Money is only the ticket to this game and, therefore, winning or losing is relatively unimportant. It's the excitement that's important in gambling; the way right and wrong are important in betting; the way money is important in investing, trading and speculating. In gambling, winning is desired only in that money is needed to enter the game or continue playing; money is good for only one thing and that is to gamble.
+
+Conventional gambling serves no purposes other than those common to other forms of play. The gambler isn't playing a game; he is just playing. To a gambler, all normal criteria of odds (respective return, probability of winning, etc.) are irrelevant. At the poker table you always see some guy who stays in every hand, going for the inside straight even though the odds are he's not going to hit it. In a best case situation, the odds are 12:1 against him and deteriorate from there if one of the cards he needs has already been played or is in another player's hand. When I was in Las Vegas with Larry and Comad, I saw gamblers at the roulette table just throwing money away. But they didn't care; they were interested in entertainment and excitement, not money.
+
+It is important to understand that not all participants in gambling games are gamblers. The aim of the "professional gambler," as he is called, is to make money. He can be recognized by deliberate and extremely disciplined wagering. His wagering is systematic and usually limited to infrequent but highly favorable opportunities. The behavior of the professional gambler is highly controlled and usually the result of a studied approach to his chosen game. He concentrates on games where the element of skill is sufficient to produce the possibility of a player advantage such as blackjack and pari-mutuel betting. The professional gambler is similar to the stock arbitrageur in that they both take calculated risks. They are dealing with an uncertain outcome and seek to profit from their ability to anticipate the future or to *see the future* -- in other words, to speculate. Professional gamblers are actually speculators because of the characteristics they exhibit when risking money. They are not seeking entertainment at the tables like gamblers do, and they are not trying to be right. They are trying to make money.
+
+Consider Edward O. Thorp, the author of *Beat The Dealer* and a mathematics professor who devised a winning card counting system on a high-speed computer. He won so much money in Las Vegas playing blackjack that the Vegas Resort Hotel Association changed the rules of the game. Thorp wasn't gambling, even though he was playing cards. He was a professional speculator. Or consider a story reported in *Business Week* about an entrepreneur who started a small service company, took it public, made $20 million and then turned around and lost it in another business venture. He said "the relationship between gambling and entrepreneurship was an uneasy one" and confessed to behaving like a gambler in a business enterprise. This guy wasn't speculating on a business venture --he was gambling and fell prey to "gambler's ruin." That is, he wagered it all on that one venture just as I had wagered disproportionately on the bean oil trade. If a person approaches a business risk or a risk in the financial markets for excitement, then he is gambling -- regardless of how much control he supposedly has over the outcome.
+
+If you can find speculators in casinos, then you can also find gamblers and bettors in the stock and commodity markets either as customers, brokers or analysts. Whether they are betting or gambling is a function of how they go about participating in the markets. Are they exhibiting the characteristics of a bettor or gambler? If so, then they are betting or gambling-- regardless of what they think they are doing or say they are doing.
+
 ### A Dangerous Combination
+
+As the epigraph to this chapter indicates, most people don't know whether they are engaging in inherent or created risk activities. Couple this with people's failure to distinguish between the two types of loss-producing events, continuous and discrete, introduced at the end of the last chapter and you have a disaster waiting to happen. Recall that in discrete events, such as gambling and betting games, there is a defined end to the risk activity. But inherent risk activities are continuous processes with no predetermined end. For instance, running a business keeps you continuously exposed to the risks coincident with the commitment of resources to future expectations. A single sales transaction may be a defined event with a beginning and an end, but the business operation itself is a continuous process. Likewise, a market position is a continuous process, which introduces the possibility of internal losses because of the uncertainty of when the process will end. On the other hand, created risk activities are associated with discrete events, such as sports games, political contests or the rolls of the dice; the game ends, the contest finishes and the dice stop rolling.
+
+Betting and gambling are suitable for discrete events but not for continuous processes. If you introduce the behavioral characteristics of betting or gambling into a continuous process, you are leaving yourself open to enormous losses. In betting and gambling games, you wager and wait to see if you are right or to experience some excitement, respectively. Any resulting monetary losses are real, but they are also passive because the discrete event ends all by itself. On the other hand, a position in the market is a continuous process that doesn't end until you make it end. If you "wager and wait" in the market, you can lose a lot of money. In betting and gambling games if you stop acting and do nothing, the losses will stop. But when investing, trading or speculating if you're losing and stop acting, the losses don't stop; they can continue to grow almost indefinitely.
 
 ### Psychological Fallacies
 
+We've already seen that everyday life involves risk. Likewise, estimating and managing those risks is a necessary part of everyday life. Probability is the mathematics of estimating risk and you know how I feel about math. I'm not going into a long dissertation on the subject. I am, however, going to point out some of the more common misunderstandings about probability and how we psychologically distort situations to make the odds seem more in our favor. In this section, I want to point out a few examples of the fallacies in popularly held beliefs about probability and how market participants apply the same fallacies to their market strategies and positions. Succumbing to the fallacies is harmful enough when applied to discrete events, but it is catastrophic when applied to continuous processes. Below are a few examples of the psychological fallacies most people have when it comes to risk and probability. 
+
+1. The first psychological fallacy is the tendency to overvalue wagers involving a low probability of a high gain and to undervalue wagers involving a relatively high probability of low gain. The best examples are the favorites and the long shots at racetracks.
+2. The second is a tendency to interpret the probability of successive independent events as additive rather than multiplicative. In other words, people view the chance of throwing a given number on a die to be twice as large with two throws as it is with a single throw -- like throwing sixes four times in a row in craps and thinking that must mean their chances of throwing a seven next have improved.
+3. The third is the belief that after a run of successes, a failure is mathematically inevitable, and vice versa. This is known as the Monte Carlo fallacy. A person can throw double sixes in craps ten times in a row and not violate any laws of probability, because each of the throws is independent of all others.
+4. Fourth is the perception that the psychological probability of the occurrence of an event exceeds the mathematical probability if the event is favorable and vice-versa. For example, the probability of success of drawing the winning ticket in the lottery and the probability of being killed by lightning may both be one in 10,000; yet from a personal viewpoint, buying the winning lottery ticket is considered much more probable than getting hit by lightning.
+5. Fifth is people's tendency to overestimate the frequency of the occurrence of infrequent events and to underestimate that of comparatively frequent ones, after observing a series of randomly generated events of different kinds with an interest in the frequency with which each kind of event occurs. Thus, they remember the "streaks" in a long series of wins and losses and tend to minimize the number of short- term runs.
+6. Sixth is people's tendency to confuse the occurrence of "unusual" events with the occurrence of low-probability events. For example, the remarkable feature of a bridge hand of thirteen spades is its apparent regularity, not its rarity (all hands are equally probable). As another example, if one holds a number close to the winning number in a lottery, he tends to feel that a terrible bad stroke of misfortune has caused him just to miss the prize.
+
+### Some Examples
+
+**Independent Events**  
+A dealing shoe in baccarat doesn't know anything about what cards have already been dealt. Cards coming out of a deck are statistically independent events. In fact, one might argue that according to the law of large numbers, each side has a fifty/fifty probability of winning and one should bet against the run in baccarat. Nevertheless, people bet in baccarat on the premise that the random events of drawing cards from a dealing shoe are somehow related to each other and will tend to create a string of runs.
+
+**Risk, Exposure, and Probability**  
+The definition of risk is to expose to the chance or possibility of loss. Most people erroneously try to assign a numerical value to that chance, which simply confuses risk with probability. In the markets we are talking about unique, non-repeatable events so we can't assign a frequency probability to their occurrence. In statistical terminology, such events are categorized under case probability, not class probability. This means the probability of market events is not open to any kind of numerical evaluation. All you can actually determine is the amount of your exposure as opposed to the probability that the market will, or will not, go to a certain price. Therefore, all you can do is manage your exposure and losses, not predict profits.
+
+**Money Odds vs. Probability Odds**  
+Perhaps the most common fallacy to which market participants are susceptible is: Money Odds vs. Probability Odds. Many market participants express the probability of success in terms of a risk/ reward ratio. For example, if I bought my famous takeover stock (which you will hear about in the next chapter) at $26 and placed a sell stop below the market at $23 with an upside objective of $36, my risk/ reward ratio would be 3:10. Risk $3 to make $10. It is clear that I don't understand probability. Couching my rationalizations in arithmetic terms does not automatically lend credibility to my position. The 3:10 ratio has nothing to do with the probability that the stock can or will get to $36. All the ratio does is compare the dollar amount of what I think I might lose to the dollar amount of what I think I might make. But it doesn't say anything about the probability of either event occurring.
+
+**Some Dollars Are Bigger Than Others**  
+Why did the dollars seem so big at the blackjack table? Because I was accustomed to dealing with price ticks in the market, not tokens with $25 or $100 printed on them. Ordinarily, the use of chips is a psychological gimmick to minimize the importance of money, and it works on most people. But I was used to handling hundreds of thousands of dollars of market transactions on the simple shout of my voice, which made it seem like money wasn't actually involved. When I had to physically take two $25 chips and throw them on the blackjack table, it felt like real money.
+
+Being down $2,000 in ticks in the market doesn't feel the same as being down $2,000 at that baccarat table. It hurt a lot in baccarat. Also, the $7,000 in baccarat winnings felt like a lot more money than $7,000 in the market. Why? In the pit I was supposed to be working to try to make that kind of money, but in baccarat it was like free money. That means spending the $7,000 won in the casino was a lot easier than spending money made in the markets. The night after we'd won all the money, Comad, Broderick and I met a broker-friend of Comad's who was trying to get some of Comad's business. We wanted to go to the best restaurant in town. The broker swore we wouldn't be able to get a table on such short notice and without a reservation. Well, we went to the restaurant anyway and I slipped the maitre d' hundred dollar bills until he got us a table. It cost $600 but it was worth it to upstage the other broker. The money wasn't important because we hadn't worked for it. Those $100 bills were not nearly as big as the ones I had to work for in the pit.
+
 ### Profit Motive or Prophet Motive?
+
+There are two kinds of reward in the world: recognition and money. Are you in the market for recognition, congratulating yourself for calling every market move ahead of time and explaining the move after the fact, or are you in the market to make money? Are you more interested in the psychological reward of gold stars than the financial reward of gold coins? Are you trying to be right or to make money? Are you motivated by the prophet motive or the profit motive? To answer, you have to figure out which type of participant you are: bettor, gambler, investor, trader or speculator. You do this by examining the characteristics and behaviors you are exhibiting, not the activity, i.e., opining on the outcome of a political race, playing at a blackjack table, buying stocks, trading in the pit or buying/selling commodity futures from your Blue Bird Wanderlodge. The characteristics displayed determine the activity.
+
+Embarking upon games or entering the markets can be either an end or a means. It is an end for people who yearn for the stimulation and excitement which the vicissitudes of a game or the market provide them (e.g., gamblers), or those whose vanity is flattered by the display of their superiority in playing a game which requires cunning and skill (e.g., bettors). It is a means for professionals who want to make money (e.g., speculators, investors and traders).
+
+*One morning Joe Siegel and I were on the trading floor when one of my accounts called in from vacation.*
+
+*"What's lumber doing today?"*  
+*"It's limit up."*  
+*"Why?"*  
+*"The cash market is a lot stronger because storms in the Northwest are making it hard to get the lumber outfrom the mills."*  
+*"Where's cash?"*  
+
+*I told him prices for two-by-fours of White Fir, Western SPF and Green Douglas Fir, and continued reading the news wire. The "green" in Green Douglas Fir refers to the fact that it has been newly cut (it has not been dried). Just like someone who is new at something is referred to as green.*
+
+*Siegel looked over at me and said, "I never have understood why they get such a premium price for lumber that they paint green."*
+
+*I couldn't believe it. Here was Joe Siegel easily trading more lumber futures than anyone else on the floor, and he didn't even know the difference between green and kiln dried lumber in the cash market. I wasn't sure if he was kidding me or not. But looking back, I can only now see how it was possible for him to be such a successful trader without knowing that green lumber isn't actually painted green. He was a trader, and he relied on short-term information like order flow and price action to make his decisions because his time frame was short-term. He didn't let longer-term information more suited for investor types interfere with his trading. He knew the difference between traders and investors.*
 
 ## 8 The Psychological Crowd
 
+>"Man is extremely uncomfortable with uncertainty. To deal with his discomfort, man tends to create a false sense of security by substituting certainty for uncertainty. It becomes the herd instinct."
+>-- Bennett W. Goodspeed, *The Tao Jones Averages*
+
+*One day in the summer of 1980, my partner Larry Broderick called me and said, "Hey Jim, my stockbroker just called me with a tip, and we gotta buy this stock." Some company I can't even remember the name of (I told you I made investments that I couldn't remember) was a rumored takeover candidate. The broker said the "talk" was: if the takeover happens, it would probably be within sixty days and probably at $60 a share. At the time, the stock was at trading $25.*
+
+*So we checked to see if there were options on the stock. The 35 strike calls were trading way out of the money and with very little time premium. They were trading for 1/16 or 1/8. You could buy thousands of these things for very little money. Well, we liked buying thousands of anything, so we bought thousands of these call options. And I did exactly the same thing I would do later in the bean oil; almost everybody I knew had to have a couple of hundred of these options. Among all of our clients and acquaintances, we had tens of thousands of the 35 strike calls. I'd call my futures customers and say, "Look, I can't sell you this stuff but trust me, go call your stockbroker and buy some." Now, who's not going to believe me when I tell them to buy something I can't even sell them, or make any money on? They believe!* 
+
+*So, they bought the options. They all bought them. Everybody we knew bought them. Then the stock started to move, $25... $26... $27... $28... $29..., and volume started picking up too. Pretty soon the options started moving even though they were still trading for less than $1. When an option goes from 1/16 to 3/4, if you own 2,000 or 3,000 of them, you're talking some serious money. I had control of 300,000 shares at $35. At the $60 takeover price that's a $7,500,000 profit.*
+
+*Naturally, once something starts to work it's real easy to get people to believe you. "Okay, I told you to buy these options two weeks ago when they were at 1/16. Now they are at 3/4. Do you want to get in or do you want to stay stupid?" If I knew you, you had to have at least of couple of hundred of these things just for health insurance. What do I mean by health insurance? If I tell you that something which costs 1/16 today might be worth $25 inside of one month, you have to buy some of it. It's health insurance because once I tell you a story like that and you don't buy some and it happens, you're going to kill yourself. That's health insurance.*
+
+*In three weeks the stock was up to $37 or $38 and our options were in the money. We had paid 1/16 for them and now they were worth $3 or $4. Then one Friday afternoon after the futures markets had closed, we were all up in my office and I was holding court. The phone rang. It was my partner, Larry. "Holy shit! They just stopped trading in our stock, Jim! News to follow!"*
+
+*"That's it! That's it!" I screamed. "It's done. Holy . . . it's done."*
+
+*They had ceased trading in "our stock" -- news pending. Somebody was going to pay $60 for this stock that we owned at $35. We went home for the weekend thinking that Monday morning we were going to be millionaires. One of our biggest customers had on ten thousand or fifteen thousand of these options and he called British Airways to find out what it would cost to rent the Concorde --just for us! He actually wanted to lease the Concorde and fly to London to celebrate. We were all going to meet in New York at the WaldorfAstoria, get on the Concorde and go to London and have a good time. I don't remember the exact figure, but the rental would have been like $200,000 or $300,000. That kind of money wouldn't have been a problem considering that we were all going to be multi-millionaires come Monday morning.*
+
+*Well, Monday morning the stock was still under the news pending restriction but the options opened and they were higher. After about half an hour, the stock finally opened -- down $6! The news that came out was "the pending, potential buyout" had been killed. Our options expired worthless. But for a weekend, I thought I was going to be a real six-million-dollar-man*
+
 ### Emotions and the Crowd
+
+Perhaps the most frequently cited reason for losses in the markets is emotion. These explanations run the gamut from simply citing greed and fear to others which go into great detail on emotions, their source from early childhood and their affect on you. But examining individual emotions misses the point. Emotions are neither good nor bad; they simply are. They cannot be avoided. But emotionalism (i.e., decision-making based on emotions) is bad, can be controlled and should be avoided. So instead of examining each of the many individual emotions, this chapter will focus on the entity that epitomizes emotionalism: the crowd.
+
+Emotions are very strong feelings arising subjectively rather than through conscious mental effort. As will be shown shortly, the fundamental characteristic of a crowd is that it is exclusively guided by unconscious motives. In other words, it is guided by emotions. If you don't have conscious control of your actions, then your emotions have control of you. Therefore, in order to understand how emotionalism adversely affects you as an investor, trader or speculator, you have to know the characteristics and behaviors of the crowd. Nineteenth-century philosopher Gustave Le Bon put it this way: "Crowds are somewhat like the sphinx of ancient fable: it is necessary to arrive at a solution to the problem offered by their psychology or resign ourselves to being devoured by them."
 
 ### Conventional Views of the Crowd
 
+**1. Runaway Markets**  
+
+All of us are familiar with the old market sayings about the public and the crowd such as: "Don't follow the crowd," "Be contrarian," "Trade opposite the general public." But most people don't really know what a crowd is, much less how to recognize it and still less as to whether they are a part of the crowd. Most explanations of the crowd are actually studies of, or references to, the investing frenzies which have gripped mankind throughout history. For example, in his 1841 book *Extraordinary Popular Delusions and the Madness of Crowds*, British historian Charles Mackay recounts, among other manias, one of the more famous times in history when the crowd lost its collective head: Holland's Tulip Mania. In 1634 a speculative boom in Holland's primitive stock market spilled over into the flower marts, similar to the manner in which the speculative boom in the world stock markets in the 1980s spilled over into the art market. People in all stations of life converted their property into cash and invested it in tulip bulbs. At the peak of the tulip market in November 1634, single bulbs sold for prices equal to ten years' wages of the average worker.
+
+Looking at such historical speculative episodes in search of common patterns has produced various models which describe the stages of the process at work when a market is driven by a crowd. For instance, in Manias, Panics and Crashes by Charles P. Kindleberger we find The Minsky Model: 1) Displacement-- some exogenous event (war, crop failure, etc.) shocks the macro-economic system. 2) Opportunities -- the displacement creates profitable opportunities in some sectors of the economy and closes down other sectors. Investment and production focuses on the profitable sectors and a boom is underway. 3) Credit expansion -- an expansion of credit feeds the boom. 4) Euphoria -- speculation for price increases couples with investment for production/sale.
+
+Another common pattern used to describe the crowd overtaking a market is: 1) Speculation 2) Credit expansion 3) Financial distress 4) Crisis 5) Panic and crash There are variations on these models, but essentially the crowd has been studied, described and explained in terms of historical events, rather than as a mental process that can happen to individuals. Thus, the crowd is seen as some kind of anonymous they who got caught up in a runaway market.
+
+**2. Contrarian Approach**
+
+Another way of viewing the crowd is the contrarian approach to the market in which people look for universal endorsement at market tops and capitulation at market bottoms. Contrarians take market positions opposite the crowd. But you can't always be positioned opposite the crowd. In fact, you probably will be positioned the same way as the crowd at least some of the time because it's the only way your idea can become profitable; the crowd must come in and move the market the way you were positioned for it to go.
+
+These conventional views of the crowd do not serve our purpose. Knowing the patterns of manias, panics and crashes may be helpful in recognizing when such episodes are beginning to repeat themselves in the market, but these patterns reveal little about an individual's decision-making process. The patterns describe market events, not the mental state of an individual forming part of a crowd. Since our focus is on market participants rather than historians or economists, we don't need models to warn us of impending manias or panics in a market. Rather, we need a model to alert us to when we are becoming part of a crowd.
+
 ### What is a Crowd?
+
+In the ordinary sense the word, crowd means a gathering of individuals regardless of what has brought them together. But according to Le Bon, in his book *The Crowd*, from a psychological perspective the word means something entirely different. When the sentiments and ideas of all the people in the gathering take one and the same direction and their conscious individual personality disappears, then the gathering has become a *psychological crowd*. It is my contention that this process does not require a gathering of people; an isolated individual who displays those characteristics is, for all intents and purposes, a member of the crowd.
+
+Can you be classified as part of the crowd even if you're sitting alone in your den following the markets? Yes -- if you're wavering back and forth like a candle in the wind, swayed by every news story or price change on the screen. Are you displaying the characteristics of a crowd in your individual decision-making process? If you are evidencing the tendencies, emotions and characteristics of the crowd in your actions and reactions to the market, then you are making a crowd trade.
+
+The basic distinction between the individual and the crowd is that the individual acts after reasoning, deliberation and analysis; a crowd acts on feeling, emotion and impulses. An individual will think out his opinions, whereas a crowd is swayed by emotional viewpoints rather than by reasoning. In the crowd, emotional and thoughtless opinions spread widely via imitation and contagion. Learning the characteristics of a crowd and how it forms will provide a structure which shows how emotionalism affects your decision-making. Once you know the structure, you'll know what to avoid in order to prevent emotionalism.
 
 ### Characteristics of a Crowd
 
+There are three main characteristics that describe the mental state of an individual forming a part of a crowd. As you will see, the same characteristics can also be exhibited by an individual making investment and trading decisions.
+
+**1. A Sentiment of Invincible Power**
+
+The individual forming part of a crowd acquires a sentiment of invincible power; the improbable doesn't exist for the crowd or its members. According to *Webster's* dictionary, sentiment is a complex combination of feelings and opinions as a basis for judgment. This feeling of invincible power tends to make a person yield to instincts and emotions that he would ordinarily keep in check. But the crowd is anonymous and anyone in the crowd will shirk responsibility for his actions. In a crowd people do things they wouldn't ordinarily do, because they are anonymous and feed off the power provided by the crowd. The responsibility that keeps individuals in control vanishes in the crowd. (Witness the actions of fans who storm the football field after a victory and tear down the goal posts.) This is how I was in the bean oil trade. I was invincible. I could do no wrong. As far as I was concerned, there was no question that the trade was going to make $10 million.
+
+**2. Contagion**
+
+*The American Heritage Dictionary* defines contagion as the tendency to spread as an influence or emotional state. This is like the spontaneous wave at a football stadium, or the riots which break out in a city after a home team's championship victory. It's like being hypnotized or mesmerized. Watching prices change on the computer screen, getting quotes from your broker throughout the day, seeing the stock ticker on the bottom of your TV screen or just being in the market and experiencing prices going up and down can serve as the hypnotist's watch swinging back and forth in front of his subject. This describes my mental state in the motor home when I was keeping up with the markets on the telephone.
+
+**3. Suggestibility**
+
+The best way to describe this is the way a hypnotized subject, in the hands of his hypnotizer, responds to the power of suggestion. He is highly suggestible and no longer conscious of his acts. Under the influence of a suggestion, he will undertake the accomplishment of certain acts with irresistible impetuosity. This sounds just like me when I was driving down the Jersey turnpike, glued to my telephone and listening to the changing prices, and when I took the suggestions on the bean oil trade and the stock trades and ran with them. In the special state of fascination (contagion), an individual is in the hands of the price changes on the screen, the words and suggestions of whoever got him into the market in the first place or anyone else from whom he seeks opinions.
+
+The most striking peculiarity presented by a psychological crowd is the following: Once individuals have formed a crowd, however like or unlike their mode of life, their occupation, their character or their intelligence, that fact that they have been transformed into a crowd puts them in possession of a sort of collective mind which makes them act in a manner quite different from that in which each individual would act, were he in a state of isolation. A person in a crowd also allows himself to be induced to commit acts contrary to his most obvious interests. One of the most incomprehensible features of a crowd is the tenacity with which the members adhere to erroneous assumptions despite mounting evidence to challenge them. So when an individual adheres to a market position despite the mounting losses, he is a crowd.
+
+These observations explain what happens when you do something you said you weren't going to do, or fail to do something you said you would do. They also explain why I stayed in the bean oil after I began losing more than I ever had made in the position. It was obviously not in my best interest to take money from other ventures and borrow money to pay for the losses that were accumulating. Why would I let a once profitable position go to the point where I actually had to borrow money to stay in the position? If you had posed that possibility to me in 1973 or 1976, or even in August 1983, I would have completely rejected the notion that I could ever do such a thing. If you have ever had a position on and intended to do one thing but actually did something else, then you were a member of the psychological crowd and made a *crowd trade* -- whether you knew it or not. Otherwise, you would have done what you originally intended.
+
+The point is, that in addition to the traditional views of the crowd in the markets, there is also such thing as a crowd investment or a crowd trade that an individual can make, even without the presence or influence of other people. The similarities between a psychological crowd and a losing market participant are striking. Remember, it is not a function of a quantity of individuals which determines if a psychological crowd has formed. Rather, it is a function of the characteristics displayed. If a person is exhibiting these characteristics, then he is part of a psychological crowd and is making *crowd trades*.
+
+The market doesn't even have to be frothy for an individual to make a crowd trade, nor does it have to fall into either of the crowd models described earlier. The market can just be going sideways, and he can still be making a crowd trade, *if* he is exhibiting the special characteristics of crowds such as: impulsiveness, irritability, incapacity to reason, exaggeration of sentiments, absence of critical judgment, etc. If this isn't the profile of an emotional (and losing) market participant, then nothing is. It describes me perfectly when I was in the bean oil trade and the takeover stock trade, not to mention many other trades.
+
+The two models below are adapted from Le Bon's book, *The Crowd*. While he was interested in the processes and characteristics of mob behavior from a sociological point of view, we are interested in how those processes and characteristics exhibit themselves in individuals when making market decisions.
+
 ### Two Psychological Crowd Models
+
+
+
+
+
+
+
+Mania and Panic:
+Where Hope and Fear Meet the Crowd
+As the epigraph to this chapter states: man is extremely
+uncomfortable with uncertainty, tries to substitute certainty for
+uncertainty and, in doing so, succumbs to the herd instinct.
+That uncertainty about the future also elicits two primary
+emotional responses: hope and fear. We hope the future will
+tum out well, but we fear it won't. As members of the crowd
+we will always take these emotions to extremes. When the
+herd instinct combines with hope and fear in a market
+environment, we get panics and manias.
+According to The American Heritage Dictionary, a mania is
+an inordinately intense enthusiasm or hope for something; a
+craze, a fad or a behavior that enjoys brief popularity and
+pertains to the common people or people at large. It defines a
+panic as a sudden, overpowering terror often affecting many
+people at once. (It also says see synonym, fear.) Notice that the
+definitions of both mania and panic have direct references to
+hope and fear and the crowd.
+Manias and panics don't have to be full-scale mass
+population events like the tulips in Holland; they can occur on
+the scale of an individual making decisions about entering and
+exiting the market. Since an isolated individual can be
+classified as a crowd, then the same individual can get
+involved in a solitary panic or mania. And the market doesn't
+even have to be frothy for this to happen. It can be going
+sideways and the individual can experience a solitary panic or
+mania, simply by exhibiting the characteristics of a crowd
+coupled with hope or fear.
+In a solitary panic, crowd behavior combines with an
+individual's fear of losing money, or fear of missing an
+opportunity to profit, and becomes the primary reason for
+acting or failing to act. In a solitary mania, crowd behavior
+combines with an individual's intense hope for profit, or hope
+that a losing position will turn around, and becomes the
+primary reason for acting or failing to act.
+So, instead of trying to monitor yourself for all the
+different emotions and what they might mean, simply monitor
+yourself for the few stages of crowd formation. By avoiding
+the tell-tale symptoms which accompany becoming part of the
+crowd, you will automatically avoid emotionalism.
+
+The day after my $248,000 Thursday in August of 1983, Broderick and I
+were sitting on the dock at his lake house. He turned to me and said, "What's
+the only thing that can keep this market from really going?" I thought a
+minute and said, "Well ... ifit rains that'll change things."
+That night we were watching the news, and the weather report called
+for rain over the weekend. Broderick looked at me and said, "Well? That's it,
+right?" I said, "Well ... no ... it ain't ... it may not be enough rain ... and
+it's not really getting Indiana . .." It only took me about half-an-hour to
+decide that the rain didn't matter. There wasn't enough rain in the right
+places, and the market had already shrugged off that little bit of rain by
+closing higher that day.
+Broderick got out of the market on Monday - because it had rained.
+And I had told him that if it rained the trade was over. So he got out and he
+made money. But me? No! I had to stick and stay and tell myself it hadn't
+rained enough. I was not going to be tricked out ofone ofthe best trades ofthe
+decade by "a little rain." I had my own solitary mania going on.
+
+To repeat the leitmotiv of the book thus far: people lose
+(really lose, not just have occasional losing trades) because
+of psychological factors, not analytical ones (Chapter Five).
+They personalize the market and their positions (Chapters
+One through Four), internalizing what should be external
+losses (Chapter Six), confusing the different types of risk
+activities (Chapter Seven) and making crowd trades
+(Chapter Eight). Is there a single, factor common to all of
+these errors, and can we determine a way to address that
+factor in order to avoid the errors?
 
 ### Delusion Model: Expectant Attention, Suggestion, Contagion, Acceptance
 
+The delusion model describes the process an individual becoming part of a psychological crowd *before* he has a position on.
+
+1) Expectant Attention
+2) Suggestion Made
+3) Process of Contagion
+4) Acceptance by All Present.
+
+This model illustrates exactly how the net loser participates in the markets. He is ready! Because he is so anxious to make money, he is in a state of expectant attention. He hears a tip or a casual comment about the market; enthusiasm is contagious and he goes into a hypnoticlike trance, takes the tip as gospel and acts on it. Compare this to when you've made hasty, impulsive, spur-of-the-moment decisions or followed someone else's tip to get in or out of the market. I went through the same process when I entered the takeover stock trade and the bean oil position In both of these instances, as well as many others, I was in an expectant state of attention; ready to make money. Once the trades were suggested to me, a process of contagion took over and I acted.
+
+The reason why people who try to make back losses quickly lose again is because they are in an expectant state of attention ready to pounce on any trade suggested. This makes them part of the crowd, emotional to the extreme and bound to lose.
+
 ### Illusion Model: Affirmation, Repetition, Prestige, Contagion Emotions
+
+The illusion model accurately describes the process of an individual becoming part of a psychological crowd after he has a position on.
+
+1. Affirmation
+2. Repetition
+3. Prestige
+4. Contagion
+
+Consider the following scenario. An opinion about the market is expressed (affirmation) either by you or someone else. It gets repeated (repetition) to others. Friends ask what you think about the markets and you repeat the opinion, selling yourself on the idea once again. Next, prestige comes into play. Prestige is a sort of domination exercised over us by an individual, a work, an idea or a wish. It entirely paralyzes our critical faculty and fills us with wonderment. The market is going your way; you look like a hero; you're so smart (prestige); you have the adulation of your peers. Emotionalism overwhelms you (contagion). You're hypnotized.
+
+The illusion model can also be applied to losing trades if the prestige involved comes from your daring actions and being able to take the punishment of a losing position. Sure, the market is against you, but you're courageous and you can take it. The market is wrong and will turn around. You take pride in your courage to go against the crowd because according to
+market lore, the crowd is supposed to be wrong. People marvel at your ability to stay with a losing position. Once again you become hypnotized (contagion) and are out of control. The trade will end only when you are forced out by external forces (e.g., money, family, margin clerk). This is exactly what I did once the bean oil position started going against me. Why else would I let the once profitable bean oil position erode to the point where I'd basically lost my prior life?
+
+### Emotions
+
+Recall from basic economics that markets exist to satisfy the
+wants and needs of consumers. This means people make
+purchases for only one of two reasons: to feel better (satisfying a
+want) or to solve a problem (satisfying a need). Trying to do the
+former in the financial markets is dangerous. If you are in the
+markets to achieve a certain emotional state or create selfesteem, then you have some psychological disorders and need
+to see a therapist. Just as compulsive gambling, which is a
+personality disorder, isn't the focus of this book, neither are the
+other psychological pathologies. Our discussion only
+addresses the normal emotional ups and downs of participating in the markets, not the psychological disorders. Remember,
+emotions per se are neither good nor bad; they just are. It's
+emotionalism we are trying to avoid.
 
 ### Hope/Fear Paradox
 
+Psychologists and psychiatrists usually advise against
+suppressing emotions, and suppression usually involves
+negative emotions. Rarely, if ever, are patients treated for
+suppressing positive emotions. Surprising as it may sound,
+however, both positive and negative emotions can have
+detrimental effects on your decisions and performance in the
+markets. To see why this is true, let's examine the ailments of
+hope and fear and their unique link to the crowd.
+Ordinarily, greed and fear are cited as the two driving
+emotions of market participants. However, hope and fear are
+the primary emotions; greed is simply hope run amok. The
+advice on hope and fear is almost as conflicting as the advice
+the pros give us on making money. We have all been told not
+to buyI sell a stock or make trade based on hope or fear: never
+hope that a position will go our way and never fear that a
+position won't go our way. We've been told that hope causes
+us to buy a stock after it has already gone up, and we buy it at
+the top; fear causes us to sell a stock after it has already gone
+down a lot, and we wind up selling at the bottom. Or in the
+words of the father of contrary thinking, Humphrey Neil, "the
+crowd is most enthusiastic and optimistic when it should be
+cautious and prudent, and it is most fearful when it should be
+bold."7 On the other hand, we read Jesse Livermore's advice
+that we should hope when we would fear and fear when we
+would hope. That is, we should hope our profits will become
+bigger profits instead of fearing the profits will turn around;
+and that we should fear our losses will become bigger losses
+instead of hoping the losses will tum around.
+The conflicting advice is explained by the paradox that
+hope and fear are merely two sides of the same coin. In other
+words, more often than not you are likely to experience both
+hope and fear simultaneously.
+When you're long and the market is going up you:
+1. hope it will keep going but
+2. fear it won't.
+Ifyour fear is great enough, you will get out and hope the
+market turns down.
+When you're long and the market goes down you:
+1. hope it will turn around but
+2. fear it won't.
+Ifyour fear is great enough, you'll get out and hope that it
+keeps going down.
+When you're not long in the market but want to be and
+the market goes up you:
+1. hope it will temporarily turnaround toletyouil\ but
+2. fear it will keep going.
+If your fear is great enough you will buy and hope the
+market keeps going up.
+The point is: focusing on individual emotions can be
+quite confusing and it is better to focus on emotionalism
+instead. The best way to do that is by understanding the
+psychological crowd.
+
+
 ### Mania & Panic: Where Hope and Fear Meet the Crowd
+
+
 
 # Part III Tying It All Together
 
+
+
 ## 9 Rules, Tools and Fools
+
+
 
 ### Tying it All Together
 
