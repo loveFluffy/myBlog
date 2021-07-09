@@ -15,11 +15,13 @@ h1 {
 	margin-bottom: 4px;
 	text-align: center;
 }
+
 h2, h3, h4, h5, h6 {
 	line-height: 1.5em;
 	margin-top: 2.2em;
 	margin-bottom: 4px;
 }
+
 h2 {
 	font-size: 1.8em;
 	margin: 40px 10px 20px 0;
@@ -27,6 +29,7 @@ h2 {
 	line-height: 1.4;
 	text-align: center;
 }
+
 h3 {
 	font-weight: 700;
 	font-size: 1.4em;
@@ -36,6 +39,7 @@ h3 {
 	border-left: 6px solid #ff7e79;
 	border-bottom: 1px solid #ff7e79;
 }
+
 h4 {
 	font-weight: 700;
 	text-transform: uppercase;
@@ -44,16 +48,19 @@ h4 {
 	margin: 10px 0 5px;
 	padding-top: 10px
 }
+
 h5 {
 	font-size: 1em;
 	font-weight: bold;
 	text-transform: uppercase;
 }
+
 h6 {
 	font-size: 1em;
 	font-weight: normal;
 	color: #AAA;
 }
+
 img {
 	width: 100%;
 	border-radius: 5px;
@@ -61,28 +68,34 @@ img {
 	margin-bottom: 15px;
 	height: auto;
 }
+
 dl, ol, ul {
 	margin-top: 12px;
 	margin-bottom: 20px;
 	padding-left: 5%;
 	line-height: 1.8;
 }
+
 p {
 	margin: 0 0 20px;
 	padding: 0;
 	line-height: 1.8;
 }
+
 a {
 	color: #f22f27;
 	text-decoration: none;
 }
+
 a:hover {
 	color: #f55852;
 	text-decoration: underline;
 }
+
 a:focus {
 	outline-offset: -2px;
 }
+
 blockquote {
 	font-size: 1em;
 	font-style: normal;
@@ -94,6 +107,7 @@ blockquote {
 	border: none;
 	color: #888;
 }
+
 blockquote:before {
 	content: "“";
 	left: 0px;
@@ -105,6 +119,7 @@ blockquote:before {
 	font-weight: 700;
 	position: absolute;
 }
+
 blockquote:after {
 	content: "”";
 	right: 0px;
@@ -116,16 +131,20 @@ blockquote:after {
 	position: absolute;
 	bottom: -61px;
 }
+
 strong, dfn {
 	font-weight: 700;
 }
+
 em, dfn {
 	font-style: italic;
 	font-weight: 400;
 }
+
 del {
 	text-decoration: line-through;
 }
+
 /*code {font-size:90%;}*/
 
 /*pre {text-align:left; overflow-x: scroll; color: #257fa0; background: #f6f6f6; padding: 10pt 15pt; border-radius: 3px; border: solid 1px #e2e2e2;}*/
@@ -146,6 +165,7 @@ pre {
 	color: #666;
 	font-family: Courier, sans-serif;
 }
+
 code {
 	color: #c7254e;
 	background-color: #f9f2f4;
@@ -154,6 +174,7 @@ code {
 	padding: 2px 4px;
 	font-size: 90%;
 }
+
 p>code {
 	color: #c7264e;
 	background-color: #f9f2f4;
@@ -162,30 +183,37 @@ p>code {
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 }
+
 figure {
 	margin: 1em 0;
 }
+
 figcaption {
 	font-size: 0.75em;
 	padding: 0.5em 2em;
 	margin-bottom: 2em;
 }
+
 figure img {
 	margin-bottom: 0px;
 }
+
 hr {
 	margin-top: 20px;
 	margin-bottom: 20px;
 	border: 0;
 	border-top: 1px solid #eee;
 }
+
 ol p, ul p {
 	margin-bottom: 0px;
 }
+
 li {
 	margin-bottom: 0.75em;
 	margin-top: 0.75em;
 }
+
 ol#footnotes {
 	font-size: 0.95em;
 	padding-top: 1em;
@@ -198,6 +226,7 @@ ol#footnotes {
 	padding-left: 5%;
 	margin: 20px 0;
 }
+
 ol#footnotes li {
 	margin-bottom: 10px;
 	margin-left: 16px;
@@ -205,12 +234,14 @@ ol#footnotes li {
 	line-height: 2;
 	list-style-type: none;
 }
+
 ol#footnotes li:before {
 	content: counter(footer-counter) ". ";
 	counter-increment: footer-counter;
 	font-weight: 800;
 	font-size: .95em;
 }
+
 @keyframes highfade {
 	0% {
 		background-color: none;
@@ -222,6 +253,7 @@ ol#footnotes li:before {
 		background-color: none;
 	}
 }
+
 @-webkit-keyframes highfade {
 	0% {
 		background-color: none;
@@ -233,6 +265,7 @@ ol#footnotes li:before {
 		background-color: none;
 	}
 }
+
 a:target, ol#footnotes li:target, sup a:target {
 	animation-name: highfade;
 	animation-duration: 2s;
@@ -243,11 +276,18 @@ a:target, ol#footnotes li:target, sup a:target {
 	-webkit-animation-iteration-count: 1;
 	-webkit-animation-timing-function: ease-in-out;
 }
+
 a:target {
 	border: 0;
 	outline: 0;
 }
 
 table {
-    align-self: center;
+	align-self: center;
+}
+
+img {
+	align-self: center;
+	max-width: 1000px;
+	width: 1000px;
 }

@@ -1,62 +1,65 @@
 ﻿/* whole web pages*/
+
 body {
     margin-left: 20px;
     margin-top: 5px;
-    background-color: white;
-    font-family: Georgia,Helvetica,sans-serif,Arial;
+    background-color: #f1e5c9;
+    font-family: Georgia, Helvetica, sans-serif, Arial;
     font-size: 18pt;
 }
 
-/*
-    h1: article title
-    h2: article subtitle
-    h3: article section heading
-    h4: section sub-heading
-    h5: section sub-sub-heading
-    h6:
-     */
 h1 {
-    margin: 0px;
-    font-weight: normal;
-    font-size: 18pt;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    text-transform: capitalize;
+	font-size: 2.2em;
+	font-weight: 700;
+	line-height: 1.1;
+	padding-top: 16px;
+	margin-bottom: 4px;
+	text-align: center;
+}
+
+h2, h3, h4, h5, h6 {
+	line-height: 1.5em;
+	margin-top: 2.2em;
+	margin-bottom: 4px;
 }
 
 h2 {
-    margin: 0px;
-    font-weight: normal;
-    font-size: 16pt;
-    font-family: Helvetica, Arial, sans-serif;
-    /*text-transform: lowercase;*/
-}
-
-h3,
-h4 {
-    margin-bottom: 2px;
-    font-weight: normal;
-    font-family: Georgia,Helvetica,sans-serif,Arial;
-    color: #000000;
+	font-size: 1.8em;
+	margin: 40px 10px 20px 0;
+	font-weight: 700;
+	line-height: 1.4;
+	text-align: center;
 }
 
 h3 {
-    font-size: 12pt;
-    margin-top: 35px;
-    padding-bottom: 2px;
-    border-bottom: 1px solid #999;
-    text-transform: uppercase;
-    text-shadow: 5px 5px 3px #888;
+	font-weight: 700;
+	font-size: 1.4em;
+	line-height: 1.4;
+	margin: 10px 0 5px;
+	padding-left: 9px;
+	border-left: 6px solid #ff7e79;
+	border-bottom: 1px solid #ff7e79;
 }
 
 h4 {
-    font-size: 12pt;
-    margin-top: 15px;
-    color: #000000;
-    font-weight: bold;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 1.2em;
+	line-height: 1.4;
+	margin: 10px 0 5px;
+	padding-top: 10px
+}
+
+h5 {
+	font-size: 1em;
+	font-weight: bold;
+	text-transform: uppercase;
 }
 
 h6 {
-    margin: 0px;
+	font-size: 1em;
+	font-weight: normal;
+	color: #AAA;
 }
 
 a:link {
@@ -79,22 +82,22 @@ ul li {
     list-style-type: disc;
 }
 
-
-
 /************** header & footer **************/
-div#footer,
-div#header {
+/*
+div#footer, div#header {
     width: 800px;
     padding: 0px;
-    margin: 0 auto; /*center*/
+    margin: 0 auto;
+    /*center*/  /*
     text-decoration: none;
     font-size: 10pt;
-}
-
+}*/
 /************** menubar **************/
+
 div#menubar {
-    margin: 0 auto; /*center*/
-    width: 800px;
+    margin: 0 auto;
+    /*center*/
+    /*width: 800px;*/
     padding: 0px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -104,37 +107,38 @@ div#menubar {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     clear: both;
     text-align: center;
-
     border-radius: 10px;
-    -moz-border-radius: 10px; /* old Firefox */
+    -moz-border-radius: 10px;
+    /* old Firefox */
 }
 
-    div#menubar table {
-        width: 100%;
-    }
+div#menubar table {
+    width: 100%;
+}
 
-    div#menubar a {
-        color: #575757;
-        text-decoration: none;
-    }
+div#menubar a {
+    color: #575757;
+    text-decoration: none;
+}
 
-        div#menubar a:hover {
-            color: #000000;
-            border-bottom: 1px dotted;
-        }
+div#menubar a:hover {
+    color: #000000;
+    border-bottom: 1px dotted;
+}
 
 /************** disparea **************/
+
 div#disparea {
-    margin: 0 auto; /*center*/
-    width: 790px;
+    margin: 0 auto;
+    /*center*/
+    /*width: 790px;*/
     padding: 5px;
     margin-top: 5px;
     clear: both;
     overflow: auto;
     background-color: #f0f0f0;
-
-    
 }
+
 /*
     div#disparea iframe {
         width: 100%;
@@ -144,13 +148,8 @@ div#disparea {
         padding: 0px;
     }
 */
+
 /************** titles **************/
-
-
-
-
-
-
 
 hr {
     height: 2px;
@@ -158,30 +157,27 @@ hr {
     background-color: #808080;
 }
 
-/* make all italic be bold as well*/
-i {
-    font-weight: bold;
-}
-
 /* table style */
+
 table.gridtable {
-    font-family: verdana,arial,sans-serif;
-    font-size:11pt;
-    color:#333333;
+    font-family: verdana, arial, sans-serif;
+    font-size: 11pt;
+    color: #333333;
     border-width: 1px;
     border-style: solid;
     border-color: #666666;
     border-collapse: collapse;
 }
+
 table.gridtable th {
     padding: 8px;
     background-color: #dedede;
 }
+
 table.gridtable td {
     padding: 8px;
     background-color: #ffffff;
 }
-
 
 div#imagLink img:hover {
     box-shadow: 5px 5px 3px #888;
