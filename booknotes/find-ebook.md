@@ -10,6 +10,8 @@
 
 [berkshirehathaway](https://berkshirehathaway.com/)
 
+[爱问共享资料](http://ishare.iask.sina.com.cn/)
+
 ### 网盘搜索引擎
 
 [k2pdfopt](https://www.willus.com/k2pdfopt/)：将 PDF 文件重排成 Kindle 和手机可以阅读的页面大小。
