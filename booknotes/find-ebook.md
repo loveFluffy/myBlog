@@ -8,11 +8,37 @@
 
 [Library Genesis](http://libgen.rs/)
 
+[Kindle 书伴](https://bookfere.com/)
+
+[PDFDrive](https://www.pdfdrive.com/)
+
 [berkshirehathaway](https://berkshirehathaway.com/)
 
 [爱问共享资料](http://ishare.iask.sina.com.cn/)
 
+[Standard Ebooks](https://standardebooks.org/)
+
+[Internet Archive](https://archive.org/)
+
+[Project Gutenberg](https://www.gutenberg.org/)
+
+[PUBee电子书库](http://cn.epubee.com/)
+
+[Kindleshare](https://kindleshare.cn/)
+
+[我的小书屋](http://mebook.cc)
+
+[BookFi](https://en.bookfi.net/): 是Library Genesis的镜子之一。支持格式：PDF。
+
+[Obooko](https://www.obooko.com/)
+
 ### 网盘搜索引擎
+
+[Find-pdf-doc](http://www.findpdfdoc.com/)
+
+[FreeFullPDF](http://www.freefullpdf.com/index.html#gsc.tab=0)
+
+[PDF Downloads](https://pdf-downloads.net/)
 
 [k2pdfopt](https://www.willus.com/k2pdfopt/)：将 PDF 文件重排成 Kindle 和手机可以阅读的页面大小。
 
@@ -65,3 +91,5 @@
 [Kindle电子书分享](https://kindle.51nazhun.pub/) | [新域名](https://book.51read.site/)
 
 [5kindle.com](https://5kindle.com/)：免费电子书分享。
+
+[Science.gov](https://www.science.gov/)
