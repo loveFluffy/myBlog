@@ -4,9 +4,11 @@
 
 [超能搜](https://www.chaonengso.com/)
 
-[ZLibrary](https://zh.singlelogin.org/) | [ZLibrary(book4you.org可以跳转)](https://singlelogin.org/)
+[ZLibrary](https://zh.b-ok.cc/) | [Zlibrary](https://zh.singlelogin.org/) | [ZLibrary(book4you.org可以跳转)](https://singlelogin.org/)
 
 [Library Genesis](http://libgen.rs/)
+
+[JSTOR](https://www.jstor.org/)
 
 [Kindle 书伴](https://bookfere.com/)
 
@@ -50,7 +52,7 @@
 
 [ePUBw.COM](https://epubw.com/) | [备用加速线路](http://www.epubw.xyz)
 
-[点书网](http://www.gezhongshu.com/forum.php)
+[点书网](http://www.gezhongshu.com/forum.php) | [点书网-新域名](https://dianshu.xyz/)
 
 [如风搜](http://www.rufengso.net/)
 
@@ -93,3 +95,5 @@
 [5kindle.com](https://5kindle.com/)：免费电子书分享。
 
 [Science.gov](https://www.science.gov/)
+
+[全国图书馆参考咨询联盟](http://www.ucdrs.superlib.net/)
