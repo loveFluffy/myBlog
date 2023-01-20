@@ -1,188 +1,447 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>&#x5fae;&#x4e60;&#x60ef;&#xff1a;&#x7b80;&#x5355;&#x5230;&#x4e0d;&#x53ef;&#x80fd;&#x5931;&#x8d25;&#x7684;&#x81ea;&#x6211;&#x7ba1;&#x7406;&#x6cd5;&#x5219;</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="../stylesheets/notestyles.css" />
-    <title>微习惯：简单到不可能失败的自我管理法则</title> <!-- CHANGE HERE -->
-    <link rel="icon" href="../images/x.ico" />
-</head>
-<body> <!-- CHANGE HERE -->
-    <h1>Notes#9037: 微习惯：简单到不可能失败的自我管理法则</h1>
-    <h2>[美] 斯蒂芬·盖斯(Stephen Guise) 著|桂君 译</h2>
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
 
-    <p>情绪要么顺服你，要么支配你，这要看谁说了算。  ——吉米·罗恩</p>
+/* From extension ms-toolsai.jupyter */
+/* These classnames are inherited from bootstrap, but are present in most notebook renderers */
 
+.alert {
+    width: auto;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.alert > *:last-child {
+    margin-bottom: 0;
+}
+#preview > .alert:last-child {
+    /* Prevent this being set to zero by the default notebook stylesheet */
+    padding-bottom: 1em;
+}
 
+.alert-success {
+    /* Note there is no suitable color available, so we just copy "info" */
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-info {
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-warning {
+    background-color: var(--theme-warning-background);
+    color: var(--theme-warning-foreground);
+}
+.alert-danger {
+    background-color: var(--theme-error-background);
+    color: var(--theme-error-foreground);
+}
 
-    <!-- ======================== Ch1: 微习惯是什么 ======================== -->
-    <h3>Ch1: 微习惯是什么</h3>
-    <div>
-        <h4>一切的源头：挑战1个俯卧撑</h4>
-        <p>请思考下列事实对你来说意味着什么：<br/>
-        1. 如果没有产出什么结果，再大的决心也毫无价值。比如，我可以“说”我要每天锻炼两小时，可根本就没这么做，决心再大也就没有意义了。实际上，脱离行动的决心反而会有损自信。<br/>
-        2. 人们总会习惯性地高估自己的自控力。<br/>
-        这两点虽然道理浅显，却揭示了很多人难以改变的原因。他们雄心勃勃，却高估了自己的能力，为求改变而勉强自己做超出自己能力的事情。这就是欲望和能力不匹配。</p>
-        <p>你还应考虑下面两个事实：<br/>
-        1. 哪怕是一点点行动，也比毫不作为强无数倍（在数学意义上如此，实际生活中也是如此）。<br/>
-        2. 相比某一天做很多事，每天做一点儿事的影响力会更大。能大多少？答案是惊人的。因为每天完成一点儿事，积累起来就形成了一辈子的固定习惯。很快，你将看到它的影响到底有多大。</p>
-        <p>我们总是急于责怪自己没什么进步，却无法及时意识到是策略出了问题。之后，我们又会重蹈覆辙，还幻想着能看到一些成效。可是问题在于，<strong>如果一种策略已经失败好几次，那就该试试别的了。</strong>如果它不适合你，就算适合别人，那也没有价值。</p>
-
-        <h4>只为培养好习惯</h4>
-        <p></p>
-
-        <h4>微习惯简介</h4>
-        <p>微习惯就是你强迫自己每天做的微不足道的积极行为。微步骤每次都能有效果，而习惯来自坚持，所以它俩注定要在一起。</p>
-
-        <h4>习惯和大脑探秘</h4>
-        <p>可能改变你一生的习惯还有：<br/>
-        1. 习惯每天锻炼20分钟，足够改变你的体格。<br/>
-        2. 习惯吃更加健康的食物，可能延长你的寿命，而且会让你的精力更充沛。<br/>
-        3. 习惯每天早上早起1小时，每年就会多阅读365小时。按照平均每分钟阅读300字算，利用这些额外的阅读时间，你每年能多读657万字，或131本5万字的书。</p>
-    </div>
-<p>1.当你做事缺乏动力时，意志力的消耗量就会猛涨。意志力消耗量较高时，你会难以长期维持一个行为并将其培养成习惯。<br/>
-            2.只有在精力充沛、思维模式健康而且没有受到强烈诱惑时，我们才能依靠动力成功。可到该行动的时候，局面似乎远没有那么有利，我们就会决定“明天再做吧”。<br/>
-            3.刚开始做一件事的兴奋在最初会有很大帮助，可是等到这股劲头渐渐消失，你开始怀疑有什么地方出了什么问题的时候，它又会成为强大的敌人。如果最开始就选择不依赖动力和感受，就能有效降低这种风险。</p>
-
-
-    <!-- ======================== Ch2: 大脑的工作原理 ======================== -->
-    <h3>Ch2: 大脑的工作原理</h3>
-    <div>
-        <h4>变化缓慢、状态稳定的大脑</h4>
-        <p></p>
+</style>
         
-        <h4>愚蠢的重复者与聪明的管理者</h4>
-        <p></p>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
 
-        <h4>前额皮层——对抗自动行为的防御武器</h4>
-        <p></p>
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        <style>
+body {
+	font-size: 18pt;
+	color: #333;
+	background: #f1e5c9;
+	font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
+	margin: 0;
+	padding: 0 1% 0 1%;
+}
 
-        <h4>基底神经节——模式探测器</h4>
-        <p></p>
-    </div>
+h1 {
+	font-size: 2.2em;
+	font-weight: 700;
+	line-height: 1.1;
+	padding-top: 16px;
+	margin-bottom: 4px;
+	text-align: center;
+}
 
+h2, h3, h4, h5, h6 {
+	line-height: 1.5em;
+	margin-top: 2.2em;
+	margin-bottom: 4px;
+}
 
+h2 {
+	font-size: 1.8em;
+	margin: 40px 10px 20px 0;
+	font-weight: 700;
+	line-height: 1.4;
+	text-align: center;
+}
 
-    <!-- ======================== Ch3: 动力 v.s. 意志力 ======================== -->
-    <h3>Ch3: 动力 v.s. 意志力</h3>
-    <div>
-        <h4>“激发动力”策略的诸多问题</h4>
-        <p></p>
+h3 {
+	font-weight: 700;
+	font-size: 1.4em;
+	line-height: 1.4;
+	margin: 10px 0 5px;
+	padding-left: 9px;
+	border-left: 6px solid #ff7e79;
+	border-bottom: 1px solid #ff7e79;
+}
 
-        <h4>为什么意志力能打败动力？</h4>
-        <p></p>
+h4 {
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 1.2em;
+	line-height: 1.4;
+	margin: 10px 0 5px;
+	padding-top: 10px
+}
 
-        <h4>意志力的工作原理</h4>
-        <p></p>
-    </div>
+h5 {
+	font-size: 1em;
+	font-weight: bold;
+	text-transform: uppercase;
+}
 
+h6 {
+	font-size: 1em;
+	font-weight: normal;
+	color: #AAA;
+}
 
+img {
+	width: 100%;
+	border-radius: 5px;
+	display: block;
+	margin-bottom: 15px;
+	height: auto;
+}
 
-    <!-- ======================== Ch4: 微习惯策略 ======================== -->
-    <h3>Ch4: 微习惯策略</h3>
-    <div>
-        <h4>以微习惯方式运用意志力</h4>
-        <p></p>
+dl, ol, ul {
+	margin-top: 12px;
+	margin-bottom: 20px;
+	padding-left: 5%;
+	line-height: 1.8;
+}
 
-        <h4>微习惯如何拓宽你的舒适区</h4>
-        <p></p>
+p {
+	margin: 0 0 20px;
+	padding: 0;
+	line-height: 1.8;
+}
 
-        <h4>出现阻力的两个时间节点</h4>
-        <p></p>
+a {
+	color: #f22f27;
+	text-decoration: none;
+}
 
-        <h4>跨越障碍的微习惯</h4>
-        <p></p>
-    </div>
+a:hover {
+	color: #f55852;
+	text-decoration: underline;
+}
 
+a:focus {
+	outline-offset: -2px;
+}
 
+blockquote {
+	font-size: 1em;
+	font-style: normal;
+	padding: 30px 38px;
+	margin: 0 0 15px;
+	position: relative;
+	line-height: 1.8;
+	text-indent: 0;
+	border: none;
+	color: #888;
+}
 
-    <!-- ======================== Ch5: 微习惯的独特之处 ======================== -->
-    <h3>Ch5: 微习惯的独特之处</h3>
-    <div>
-        <h4>微习惯能与现有习惯一较高下</h4>
-        <p></p>
+blockquote:before {
+	content: "“";
+	left: 0px;
+	top: 0;
+	color: #E0E0E0;
+	font-size: 4em;
+	font-family: Arial, serif;
+	line-height: 1em;
+	font-weight: 700;
+	position: absolute;
+}
 
-        <h4>微步骤+意志力是必胜组合</h4>
-        <p></p>
+blockquote:after {
+	content: "”";
+	right: 0px;
+	color: #E0E0E0;
+	font-size: 4em;
+	font-family: Arial, serif;
+	line-height: 1em;
+	font-weight: 700;
+	position: absolute;
+	bottom: -61px;
+}
 
-        <h4>微习惯没有截止时间</h4>
-        <p></p>
+strong, dfn {
+	font-weight: 700;
+}
 
-        <h4>微习惯能提升自我效能感</h4>
-        <p></p>
+em, dfn {
+	font-style: italic;
+	font-weight: 400;
+}
 
-        <h4>微习惯能给予你自主权</h4>
-        <p></p>
+del {
+	text-decoration: line-through;
+}
 
-        <h4>抽象和具体目标与微习惯相结合</h4>
-        <p></p>
+/*code {font-size:90%;}*/
 
-        <h4>远离恐惧、怀疑、胆怯或犹豫</h4>
-        <p></p>
+/*pre {text-align:left; overflow-x: scroll; color: #257fa0; background: #f6f6f6; padding: 10pt 15pt; border-radius: 3px; border: solid 1px #e2e2e2;}*/
 
-        <h4>微习惯增强正念和意志力，给你超乎想象的惊喜</h4>
-        <p></p>
-    </div>
+pre {
+	margin: 0 0 10px;
+	font-size: 13px;
+	line-height: 1.42857;
+	word-break: break-all;
+	word-wrap: break-word;
+	border-radius: 4px;
+	white-space: pre-wrap;
+	display: block;
+	background: #f8f8f8;
+	padding: 10px 20px;
+	border: none;
+	margin-bottom: 25px;
+	color: #666;
+	font-family: Courier, sans-serif;
+}
 
+code {
+	color: #c7254e;
+	background-color: #f9f2f4;
+	border-radius: 4px;
+	font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+	padding: 2px 4px;
+	font-size: 90%;
+}
 
+p>code {
+	color: #c7264e;
+	background-color: #f9f2f4;
+	font-size: .95em;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
 
-    <!-- ======================== Ch6: 彻底改变只需八步 ======================== -->
-    <h3>Ch6: 彻底改变只需八步</h3>
-    <div>
-        <h4>第1步：选择适合你的微习惯和计划</h4>
-        <p></p>
+figure {
+	margin: 1em 0;
+}
 
-        <h4>第2步：挖掘每个微习惯的内在价值</h4>
-        <p></p>
+figcaption {
+	font-size: 0.75em;
+	padding: 0.5em 2em;
+	margin-bottom: 2em;
+}
 
-        <h4>第3步：明确习惯依据，将其纳入日程</h4>
-        <p></p>
+figure img {
+	margin-bottom: 0px;
+}
 
-        <h4>第4步：创建回报机制，以奖励提升成就感</h4>
-        <p></p>
+hr {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: 0;
+	border-top: 1px solid #eee;
+}
 
-        <h4>第5步：记录与追踪完成情况</h4>
-        <p></p>
+ol p, ul p {
+	margin-bottom: 0px;
+}
 
-        <h4>第6步：微量开始，超额完成</h4>
-        <p></p>
+li {
+	margin-bottom: 0.75em;
+	margin-top: 0.75em;
+}
 
-        <h4>第7步：服从计划安排，摆脱高期待值</h4>
-        <p></p>
+ol#footnotes {
+	font-size: 0.95em;
+	padding-top: 1em;
+	margin-top: 1em;
+	margin-left: 0;
+	border-top: 1px solid #eaeaea;
+	counter-reset: footer-counter;
+	list-style: none;
+	color: #555;
+	padding-left: 5%;
+	margin: 20px 0;
+}
 
-        <h4>第8步：留意习惯养成的标志</h4>
-        <p></p>
-    </div>
+ol#footnotes li {
+	margin-bottom: 10px;
+	margin-left: 16px;
+	font-weight: 400;
+	line-height: 2;
+	list-style-type: none;
+}
 
+ol#footnotes li:before {
+	content: counter(footer-counter) ". ";
+	counter-increment: footer-counter;
+	font-weight: 800;
+	font-size: .95em;
+}
 
+@keyframes highfade {
+	0% {
+		background-color: none;
+	}
+	20% {
+		background-color: yellow;
+	}
+	100% {
+		background-color: none;
+	}
+}
 
-    <!-- ======================== Ch7: 微习惯策略的八大规则 ======================== -->
-    <h3>Ch7: 微习惯策略的八大规则</h3>
-    <div>
-        <h4> 1. 绝不要自欺欺人</h4>
-        <p></p>
+@-webkit-keyframes highfade {
+	0% {
+		background-color: none;
+	}
+	20% {
+		background-color: yellow;
+	}
+	100% {
+		background-color: none;
+	}
+}
 
-        <h4>2. 满意每一个进步</h4>
-        <p></p>
+a:target, ol#footnotes li:target, sup a:target {
+	animation-name: highfade;
+	animation-duration: 2s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-name: highfade;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: ease-in-out;
+}
 
-        <h4>3. 经常回报自己，尤其在完成微习惯之后</h4>
-        <p></p>
+a:target {
+	border: 0;
+	outline: 0;
+}
 
-        <h4>4. 保持头脑清醒</h4>
-        <p></p>
+table {
+	align-self: center;
+}
 
-        <h4>5. 感到强烈抵触时，后退并缩小目标</h4>
-        <p></p>
+img {
+	align-self: center;
+	max-width: 1000px;
+	width: 1000px;
+}
+</style>
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="微习惯简单到不可能失败的自我管理法则">微习惯：简单到不可能失败的自我管理法则</h1>
+<h2 id="美斯蒂芬盖斯stephen-guise-著桂君-译">[美]斯蒂芬·盖斯(Stephen Guise) 著|桂君 译</h2>
+<p>情绪要么顺服你，要么支配你，这要看谁说了算。 ——吉米·罗恩</p>
+<h3 id="微习惯是什么">微习惯是什么</h3>
+<h4 id="一切的源头挑战1个俯卧撑">一切的源头：挑战1个俯卧撑</h4>
+<p>请思考下列事实对你来说意味着什么：</p>
+<ol>
+<li>如果没有产出什么结果，再大的决心也毫无价值。比如，我可以“说”我要每天锻炼两小时，可根本就没这么做，决心再大也就没有意义了。实际上，脱离行动的决心反而会有损自信。</li>
+<li>人们总会习惯性地高估自己的自控力。
+这两点虽然道理浅显，却揭示了很多人难以改变的原因。他们雄心勃勃，却高估了自己的能力，为求改变而勉强自己做超出自己能力的事情。这就是欲望和能力不匹配。</li>
+</ol>
+<p>你还应考虑下面两个事实：</p>
+<ol>
+<li>哪怕是一点点行动，也比毫不作为强无数倍（在数学意义上如此，实际生活中也是如此）。</li>
+<li>相比某一天做很多事，每天做一点儿事的影响力会更大。能大多少？答案是惊人的。因为每天完成一点儿事，积累起来就形成了一辈子的固定习惯。很快，你将看到它的影响到底有多大。</li>
+</ol>
+<p>我们总是急于责怪自己没什么进步，却无法及时意识到是策略出了问题。之后，我们又会重蹈覆辙，还幻想着能看到一些成效。可是问题在于，如果一种策略已经失败好几次，那就该试试别的了。如果它不适合你，就算适合别人，那也没有价值。</p>
+<h4 id="只为培养好习惯">只为培养好习惯</h4>
+<h4 id="微习惯简介">微习惯简介</h4>
+<p>微习惯就是你强迫自己每天做的微不足道的积极行为。微步骤每次都能有效果，而习惯来自坚持，所以它俩注定要在一起。</p>
+<h4 id="习惯和大脑探秘">习惯和大脑探秘</h4>
+<p>可能改变你一生的习惯还有：</p>
+<ol>
+<li>习惯每天锻炼20分钟，足够改变你的体格。</li>
+<li>习惯吃更加健康的食物，可能延长你的寿命，而且会让你的精力更充沛。</li>
+<li>习惯每天早上早起1小时，每年就会多阅读365小时。按照平均每分钟阅读300字算，利用这些额外的阅读时间，你每年能多读657万字，或131本5万字的书。</li>
+<li>当你做事缺乏动力时，意志力的消耗量就会猛涨。意志力消耗量较高时，你会难以长期维持一个行为并将其培养成习惯。</li>
+<li>只有在精力充沛、思维模式健康而且没有受到强烈诱惑时，我们才能依靠动力成功。可到该行动的时候，局面似乎远没有那么有利，我们就会决定“明天再做吧”。</li>
+<li>刚开始做一件事的兴奋在最初会有很大帮助，可是等到这股劲头渐渐消失，你开始怀疑有什么地方出了什么问题的时候，它又会成为强大的敌人。如果最开始就选择不依赖动力和感受，就能有效降低这种风险。</li>
+</ol>
+<h3 id="大脑的工作原理">大脑的工作原理</h3>
+<h4 id="变化缓慢状态稳定的大脑">变化缓慢、状态稳定的大脑</h4>
+<h4 id="愚蠢的重复者与聪明的管理者">愚蠢的重复者与聪明的管理者</h4>
+<h4 id="前额皮层对抗自动行为的防御武器">前额皮层——对抗自动行为的防御武器</h4>
+<h4 id="基底神经节模式探测器">基底神经节——模式探测器</h4>
+<h3 id="动力-vs-意志力">动力 v.s. 意志力</h3>
+<h4 id="激发动力策略的诸多问题">“激发动力”策略的诸多问题</h4>
+<h4 id="为什么意志力能打败动力">为什么意志力能打败动力？</h4>
+<h4 id="意志力的工作原理">意志力的工作原理</h4>
+<h3 id="微习惯策略">微习惯策略</h3>
+<h4 id="以微习惯方式运用意志力">以微习惯方式运用意志力</h4>
+<h4 id="微习惯如何拓宽你的舒适区">微习惯如何拓宽你的舒适区</h4>
+<h4 id="出现阻力的两个时间节点">出现阻力的两个时间节点</h4>
+<h4 id="跨越障碍的微习惯">跨越障碍的微习惯</h4>
+<h3 id="微习惯的独特之处">微习惯的独特之处</h3>
+<h4 id="微习惯能与现有习惯一较高下">微习惯能与现有习惯一较高下</h4>
+<h4 id="微步骤意志力是必胜组合">微步骤+意志力是必胜组合</h4>
+<h4 id="微习惯没有截止时间">微习惯没有截止时间</h4>
+<h4 id="微习惯能提升自我效能感">微习惯能提升自我效能感</h4>
+<h4 id="微习惯能给予你自主权">微习惯能给予你自主权</h4>
+<h4 id="抽象和具体目标与微习惯相结合">抽象和具体目标与微习惯相结合</h4>
+<h4 id="远离恐惧怀疑胆怯或犹豫">远离恐惧、怀疑、胆怯或犹豫</h4>
+<h4 id="微习惯增强正念和意志力给你超乎想象的惊喜">微习惯增强正念和意志力，给你超乎想象的惊喜</h4>
+<h3 id="彻底改变只需八步">彻底改变只需八步</h3>
+<h4 id="第1步选择适合你的微习惯和计划">第1步：选择适合你的微习惯和计划</h4>
+<h4 id="第2步挖掘每个微习惯的内在价值">第2步：挖掘每个微习惯的内在价值</h4>
+<h4 id="第3步明确习惯依据将其纳入日程">第3步：明确习惯依据，将其纳入日程</h4>
+<h4 id="第4步创建回报机制以奖励提升成就感">第4步：创建回报机制，以奖励提升成就感</h4>
+<h4 id="第5步记录与追踪完成情况">第5步：记录与追踪完成情况</h4>
+<h4 id="第6步微量开始超额完成">第6步：微量开始，超额完成</h4>
+<h4 id="第7步服从计划安排摆脱高期待值">第7步：服从计划安排，摆脱高期待值</h4>
+<h4 id="第8步留意习惯养成的标志">第8步：留意习惯养成的标志</h4>
+<h3 id="微习惯策略的八大规则">微习惯策略的八大规则</h3>
+<h4 id="1-绝不要自欺欺人">1. 绝不要自欺欺人</h4>
+<h4 id="2-满意每一个进步">2. 满意每一个进步</h4>
+<h4 id="3-经常回报自己尤其在完成微习惯之后">3. 经常回报自己，尤其在完成微习惯之后</h4>
+<h4 id="4-保持头脑清醒">4. 保持头脑清醒</h4>
+<h4 id="5-感到强烈抵触时后退并缩小目标">5. 感到强烈抵触时，后退并缩小目标</h4>
+<h4 id="6-提醒自己这件事很轻松">6. 提醒自己这件事很轻松</h4>
+<h4 id="7-绝不要小看微步骤">7. 绝不要小看微步骤</h4>
+<h4 id="8-用多余精力超额完成任务而不是制定更大目标">8. 用多余精力超额完成任务，而不是制定更大目标</h4>
 
-        <h4>6. 提醒自己这件事很轻松</h4>
-        <p></p>
-
-        <h4>7. 绝不要小看微步骤</h4>
-        <p></p>
-
-        <h4>8. 用多余精力超额完成任务，而不是制定更大目标</h4>
-        <p></p>
-    </div>
-
-</body>
-</html>
+        
+        
+    </body>
+    </html>
