@@ -34,6 +34,8 @@
 
 [Obooko](https://www.obooko.com/)
 
+[易书 书籍检索](https://search.yibook.org/)
+
 ### 网盘搜索引擎
 
 [Find-pdf-doc](http://www.findpdfdoc.com/)
