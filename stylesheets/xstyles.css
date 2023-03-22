@@ -206,7 +206,8 @@ table.toolbox td:hover {
 
 
 
-iframe {
+iframe.menu,
+iframe.copyright {
     margin: 0px;
     padding: 0px;
     border-style: none;
@@ -220,6 +221,11 @@ iframe {
     position: sticky;
     top: 0;
 }
+iframe.copyright{
+    height: 50px;
+}
+
+
 
 a img {
     width: 60px;
