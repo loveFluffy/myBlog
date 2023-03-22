@@ -1,65 +1,76 @@
-﻿/* whole web pages*/
+﻿body {
+    margin-top: 0px;
+    margin-bottom: 5px;
+    /* 待定 */
+    margin-left: auto;
+    /* 左右居中 */
+    margin-right: auto;
+    /* 左右居中 */
 
-body {
-    margin-left: 20px;
-    margin-top: 5px;
+    max-width: 1080px;
+    /* 根据手机屏幕宽度确定的 */
+
     background-color: #f1e5c9;
     font-family: Georgia, Helvetica, sans-serif, Arial;
-    font-size: 18pt;
+    font-size: 16pt;
 }
 
 h1 {
-	font-size: 2.2em;
-	font-weight: 700;
-	line-height: 1.1;
-	padding-top: 16px;
-	margin-bottom: 4px;
-	text-align: center;
+    font-size: 2.2em;
+    font-weight: 700;
+    line-height: 1.1;
+    padding-top: 16px;
+    margin-bottom: 4px;
+    text-align: center;
 }
 
-h2, h3, h4, h5, h6 {
-	line-height: 1.5em;
-	margin-top: 2.2em;
-	margin-bottom: 4px;
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.5em;
+    margin-top: 2.2em;
+    margin-bottom: 4px;
 }
 
 h2 {
-	font-size: 1.8em;
-	margin: 40px 10px 20px 0;
-	font-weight: 700;
-	line-height: 1.4;
-	text-align: center;
+    font-size: 1.8em;
+    margin: 40px 10px 20px 0;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
 }
 
 h3 {
-	font-weight: 700;
-	font-size: 1.4em;
-	line-height: 1.4;
-	margin: 10px 0 5px;
-	padding-left: 9px;
-	border-left: 6px solid #ff7e79;
-	border-bottom: 1px solid #ff7e79;
+    font-weight: 700;
+    font-size: 1.4em;
+    line-height: 1.4;
+    margin: 10px 0 5px;
+    padding-left: 9px;
+    border-left: 6px solid #ff7e79;
+    border-bottom: 1px solid #ff7e79;
 }
 
 h4 {
-	font-weight: 700;
-	text-transform: uppercase;
-	font-size: 1.2em;
-	line-height: 1.4;
-	margin: 10px 0 5px;
-	padding-top: 10px
+    font-weight: 700;
+    /*text-transform: uppercase;*/
+    font-size: 1.2em;
+    line-height: 1.4;
+    margin: 10px 0 5px;
+    padding-top: 10px
 }
 
 h5 {
-	font-size: 1em;
-	font-weight: bold;
-	text-transform: uppercase;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 h6 {
-	font-size: 1em;
-	font-weight: normal;
-	color: #AAA;
+    font-size: 1em;
+    font-weight: normal;
+    color: #AAA;
 }
 
 a:link {
@@ -70,10 +81,7 @@ a:visited {
     color: #575757;
 }
 
-a:hover {
-    color: #d3595e;
-}
-
+a:hover,
 a:active {
     color: #d3595e;
 }
@@ -82,96 +90,51 @@ ul li {
     list-style-type: disc;
 }
 
-/************** header & footer **************/
-/*
-div#footer, div#header {
-    width: 800px;
-    padding: 0px;
-    margin: 0 auto;
-    /*center*/  /*
-    text-decoration: none;
-    font-size: 10pt;
-}*/
-/************** menubar **************/
 
-div#menubar {
-    margin: 0 auto;
-    /*center*/
-    /*width: 800px;*/
-    padding: 0px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    background-color: #f0f0f0;
-    font-size: 21pt;
-    font-weight: bold;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    clear: both;
-    text-align: center;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    /* old Firefox */
-}
-
-div#menubar table {
-    width: 100%;
-}
-
-div#menubar a {
-    color: #575757;
-    text-decoration: none;
-}
-
-div#menubar a:hover {
-    color: #000000;
-    border-bottom: 1px dotted;
-}
-
-/************** disparea **************/
-
-div#disparea {
-    margin: 0 auto;
-    /*center*/
-    /*width: 790px;*/
-    padding: 5px;
-    margin-top: 5px;
-    clear: both;
-    overflow: auto;
-    background-color: #f0f0f0;
-}
-
-/*
-    div#disparea iframe {
-        width: 100%;
-        min-height: 2000px;
-        min-width: 800px;
-        border-style: none;
-        padding: 0px;
-    }
-*/
-
-/************** titles **************/
-
-hr {
-    height: 2px;
-    border: 0;
-    background-color: #808080;
-}
-
-/* table style */
-
-table.gridtable {
-    font-family: verdana, arial, sans-serif;
-    font-size: 11pt;
+table {
+    align-self: center;
     color: #333333;
     border-width: 1px;
     border-style: solid;
     border-color: #666666;
     border-collapse: collapse;
+    font-size: 14pt;
 }
+
+
+table.legend {
+    border: none;
+}
+
+table.legend td {
+    border: none;
+}
+
+/**** book list table style ****
+
+table.gridtable {
+}
+*/
 
 table.gridtable th {
     padding: 8px;
     background-color: #dedede;
+}
+
+table.gridtable th:nth-child(1) {
+    width: 20%;
+}
+
+table.gridtable th:nth-child(2) {
+    width: 20%;
+}
+
+table.gridtable th:nth-child(3) {
+    width: 20%;
+}
+
+table.gridtable th:nth-child(4) {
+    width: 40%;
 }
 
 table.gridtable td {
@@ -179,6 +142,98 @@ table.gridtable td {
     background-color: #ffffff;
 }
 
-div#imagLink img:hover {
-    box-shadow: 5px 5px 3px #888;
+/*============下面是比较相关的细致设置============*/
+
+.gridtable tr.bk0 td,
+.legend td#bk0 {
+    background-color: #C0C0C0;
+    /* 未读完不值得读-灰色 bk0 */
+}
+
+.gridtable tr.bk1 td,
+.legend td#bk1 {
+    background-color: #D2B48C;
+    /* 读完不值得再读-棕色 bk1 */
+}
+
+.gridtable tr.bk2 td,
+.legend td#bk2 {
+    background-color: #99CC99;
+    /* 笔记值得反复看-绿色 bk2 */
+}
+
+.gridtable tr.bk3 td,
+.legend td#bk3 {
+    background-color: #99CCFF;
+    /* 原作值得反复读-蓝色 bk3 */
+}
+
+.gridtable tr.bk4 td,
+.legend td#bk4 {
+    background-color: #FF9999;
+    /* 原作可买来收藏-红色 bk4 */
+}
+
+
+
+
+table.toolbox {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+
+    /*每列宽度相等*/
+    table-layout: fixed;
+}
+
+table.toolbox td {
+    text-align: center;
+    background-color: transparent;
+}
+
+table.toolbox td a {
+    /*将链接显示为块元素可以使整个链接区域都可单击（不仅是文本），而且允许我们指定填充（如果需要，还可以指定高度，宽度，边距等）*/
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+/* 当鼠标悬停时把链接颜色更改为浅红色*/
+table.toolbox td:hover {
+    background-color: #ff9191;
+}
+
+
+
+iframe {
+    margin: 0px;
+    padding: 0px;
+    border-style: none;
+
+    width: 100%;
+    height: 100px;
+
+    /*滚动时固定在屏幕顶端*/
+    position: -webkit-sticky;
+    /* Safari */
+    position: sticky;
+    top: 0;
+}
+
+a img {
+    width: 60px;
+    height: 60px;
+}
+
+/* hr 用于创建一条水平线*/
+hr {
+    height: 2px;
+    border: 0;
+    background-color: #808080;
+}
+
+/* 将内容分成两栏显示，用以显示链接列表之类的 */
+ul.list{
+    columns: 2;
 }
