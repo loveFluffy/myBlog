@@ -1,14 +1,9 @@
 ﻿body {
-    margin-top: 0px;
-    margin-bottom: 5px;
-    /* 待定 */
-    margin-left: auto;
-    /* 左右居中 */
-    margin-right: auto;
-    /* 左右居中 */
+    /* 上、右、下、左： 左右居中 */
+    margin: 0px auto 5px;
 
-    max-width: 1080px;
     /* 根据手机屏幕宽度确定的 */
+    max-width: 1080px;
 
     background-color: #f1e5c9;
     font-family: Georgia, Helvetica, sans-serif, Arial;
