@@ -105,11 +105,13 @@ table.legend td {
     border: none;
 }
 
-/**** book list table style ****
+/**** book list table style ****/
 
 table.gridtable {
+    /*border: 1px black;*/
+    width: 100%;
 }
-*/
+
 
 table.gridtable th {
     padding: 8px;
