@@ -5,4 +5,8 @@ books/
 # temp files directories
 *.swp
 
+links/business.html
+links/finance.html
 links/jobs.html
+projects.html
+RochesterExplore.md

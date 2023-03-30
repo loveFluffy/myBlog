@@ -187,6 +187,7 @@ table.toolbox {
 table.toolbox td {
     text-align: center;
     background-color: transparent;
+    padding: 5px;
 }
 
 table.toolbox td a {
