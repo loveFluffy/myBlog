@@ -4,8 +4,19 @@
         <meta charset="UTF-8">
         <title>What I Learned Losing a Million Dollars</title>
         <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
 </style>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
@@ -17,13 +28,327 @@
             }
         </style>
         <style>
-.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
 </style>
         <style>
-body { font-size: 18pt; color: #333; background: #f1e5c9; font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif"; margin: 0; padding: 0 1% 0 1%; } h1 { font-size: 2.2em; font-weight: 700; line-height: 1.1; padding-top: 16px; margin-bottom: 4px; text-align: center; } h2, h3, h4, h5, h6 { line-height: 1.5em; margin-top: 2.2em; margin-bottom: 4px; } h2 { font-size: 1.8em; margin: 40px 10px 20px 0; font-weight: 700; line-height: 1.4; text-align: center; } h3 { font-weight: 700; font-size: 1.4em; line-height: 1.4; margin: 10px 0 5px; padding-left: 9px; border-left: 6px solid #ff7e79; border-bottom: 1px solid #ff7e79; } h4 { font-weight: 700; text-transform: uppercase; font-size: 1.2em; line-height: 1.4; margin: 10px 0 5px; padding-top: 10px } h5 { font-size: 1em; font-weight: bold; text-transform: uppercase; } h6 { font-size: 1em; font-weight: normal; color: #AAA; } img { width: 100%; border-radius: 5px; display: block; margin-bottom: 15px; height: auto; } dl, ol, ul { margin-top: 12px; margin-bottom: 20px; padding-left: 5%; line-height: 1.8; } p { margin: 0 0 20px; padding: 0; line-height: 1.8; } a { color: #f22f27; text-decoration: none; } a:hover { color: #f55852; text-decoration: underline; } a:focus { outline-offset: -2px; } blockquote { font-size: 1em; font-style: normal; padding: 30px 38px; margin: 0 0 15px; position: relative; line-height: 1.8; text-indent: 0; border: none; color: #888; } blockquote:before { content: "“"; left: 0px; top: 0; color: #E0E0E0; font-size: 4em; font-family: Arial, serif; line-height: 1em; font-weight: 700; position: absolute; } blockquote:after { content: "”"; right: 0px; color: #E0E0E0; font-size: 4em; font-family: Arial, serif; line-height: 1em; font-weight: 700; position: absolute; bottom: -61px; } strong, dfn { font-weight: 700; } em, dfn { font-style: italic; font-weight: 400; } del { text-decoration: line-through; } /*code {font-size:90%;}*/ /*pre {text-align:left; overflow-x: scroll; color: #257fa0; background: #f6f6f6; padding: 10pt 15pt; border-radius: 3px; border: solid 1px #e2e2e2;}*/ pre { margin: 0 0 10px; font-size: 13px; line-height: 1.42857; word-break: break-all; word-wrap: break-word; border-radius: 4px; white-space: pre-wrap; display: block; background: #f8f8f8; padding: 10px 20px; border: none; margin-bottom: 25px; color: #666; font-family: Courier, sans-serif; } code { color: #c7254e; background-color: #f9f2f4; border-radius: 4px; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; padding: 2px 4px; font-size: 90%; } p>code { color: #c7264e; background-color: #f9f2f4; font-size: .95em; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; } figure { margin: 1em 0; } figcaption { font-size: 0.75em; padding: 0.5em 2em; margin-bottom: 2em; } figure img { margin-bottom: 0px; } hr { margin-top: 20px; margin-bottom: 20px; border: 0; border-top: 1px solid #eee; } ol p, ul p { margin-bottom: 0px; } li { margin-bottom: 0.75em; margin-top: 0.75em; } ol#footnotes { font-size: 0.95em; padding-top: 1em; margin-top: 1em; margin-left: 0; border-top: 1px solid #eaeaea; counter-reset: footer-counter; list-style: none; color: #555; padding-left: 5%; margin: 20px 0; } ol#footnotes li { margin-bottom: 10px; margin-left: 16px; font-weight: 400; line-height: 2; list-style-type: none; } ol#footnotes li:before { content: counter(footer-counter) ". "; counter-increment: footer-counter; font-weight: 800; font-size: .95em; } @keyframes highfade { 0% { background-color: none; } 20% { background-color: yellow; } 100% { background-color: none; } } @-webkit-keyframes highfade { 0% { background-color: none; } 20% { background-color: yellow; } 100% { background-color: none; } } a:target, ol#footnotes li:target, sup a:target { animation-name: highfade; animation-duration: 2s; animation-iteration-count: 1; animation-timing-function: ease-in-out; -webkit-animation-name: highfade; -webkit-animation-duration: 2s; -webkit-animation-iteration-count: 1; -webkit-animation-timing-function: ease-in-out; } a:target { border: 0; outline: 0; } table { align-self: center; }
+@charset "utf-8";
+
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html {
+	color: #000;
+	/*background-color: #f1e5c9;*/
+	background: #f1e5c9;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	text-rendering: optimizelegibility;
+}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+menu,
+nav,
+section {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 18pt;
+	color: #333;
+	background: #f1e5c9;
+	font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
+	/* 上、右、下、左 */
+	margin: 5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.3;
+	margin-top: 1.2em;
+	margin-bottom: 0.6em;
+	font-weight: bold;
+}
+
+h1 {
+	font-size: 2em;
+	text-align: center;
+	/*这个属性如果不定义的话，在md转html的时候会莫名给赋值，导致h1下面出现一条线，所以这里定义一下*/
+	border-bottom-style:none; 
+}
+
+h2 {
+	font-size: 1.8em;
+	text-align: center;
+}
+
+h3 {
+	font-size: 1.6em;
+	margin: 10px 0 5px;
+	padding-left: 9px;
+	border-left: 6px solid #ff7e79;
+	border-bottom: 1px solid #ff7e79;
+}
+
+h4 {
+	font-size: 1.4em;
+	margin: 10px 0 5px;
+	padding-left: 9px;
+	border-left: 6px solid #666;
+}
+
+h5 {
+	font-size: 1.2em;
+	padding-left: 9px;
+	border-left: 6px double #666;
+}
+
+h6 {
+	font-size: 1em;
+}
+
+img {
+	width: 100%;
+	border-radius: 5px;
+	display: block;
+	margin-bottom: 15px;
+	height: auto;
+}
+
+dl,
+ol,
+ul {
+	margin-bottom: 1em;
+	padding-left: 5%;
+	line-height: 1.8;
+}
+
+p {
+	margin: 0 0 1em;
+	padding: 0;
+	line-height: 1.8;
+}
+
+a:link {
+	color: #000;
+}
+
+a:visited {
+	color: #575757;
+}
+
+a:hover,
+a:active {
+	color: #d3595e;
+}
+
+/* 块/段落引用 */
+blockquote {
+	font-size: 0.9em;
+	line-height: 1.6;
+	position: relative;
+	color: #666;
+	border-left: 2px solid #fbb;
+	padding-left: 1em;
+	margin: 1em 3em 1em 2em;
+}
+
+blockquote p {
+	margin: 0 0 18px;
+}
+
+strong,
+dfn {
+	font-weight: 700;
+}
+
+em,
+dfn {
+	font-style: italic;
+	font-weight: 400;
+}
+
+del {
+	text-decoration: line-through;
+}
+
+code {
+	color: #c7254e;
+	background-color: #f9f2f4;
+	border-radius: 4px;
+	font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+	padding: 2px 4px;
+	font-size: 90%;
+}
+
+p>code {
+	color: #c7264e;
+	background-color: #f9f2f4;
+	font-size: .95em;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+figure {
+	margin: 1em 0;
+}
+
+figcaption {
+	font-size: 0.75em;
+	padding: 0.5em 2em;
+	margin-bottom: 2em;
+}
+
+figure img {
+	margin-bottom: 0px;
+}
+
+/* hr 用于创建一条水平线*/
+hr {
+	margin: 0.8em 0;
+	border: none;
+	border-bottom: 1px solid #cfcfcf;
+	height: 10px;
+}
+
+ol p,
+ul p {
+	margin-bottom: 0px;
+}
+
+li {
+	margin-bottom: 0.75em;
+	margin-top: 0.75em;
+}
+
+ol#footnotes {
+	font-size: 0.95em;
+	padding-top: 1em;
+	margin-top: 1em;
+	margin-left: 0;
+	border-top: 1px solid #eaeaea;
+	counter-reset: footer-counter;
+	list-style: none;
+	color: #555;
+	padding-left: 5%;
+	margin: 20px 0;
+}
+
+ol#footnotes li {
+	margin-bottom: 10px;
+	margin-left: 16px;
+	font-weight: 400;
+	line-height: 2;
+	list-style-type: none;
+}
+
+ol#footnotes li:before {
+	content: counter(footer-counter) ". ";
+	counter-increment: footer-counter;
+	font-weight: 800;
+	font-size: .95em;
+}
+
+@keyframes highfade {
+	0% {
+		background-color: none;
+	}
+
+	20% {
+		background-color: yellow;
+	}
+
+	100% {
+		background-color: none;
+	}
+}
+
+@-webkit-keyframes highfade {
+	0% {
+		background-color: none;
+	}
+
+	20% {
+		background-color: yellow;
+	}
+
+	100% {
+		background-color: none;
+	}
+}
+
+a:target,
+ol#footnotes li:target,
+sup a:target {
+	animation-name: highfade;
+	animation-duration: 2s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-name: highfade;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+a:target {
+	border: 0;
+	outline: 0;
+}
+
+table {
+	align-self: center;
+}
+
+img {
+	align-self: center;
+	max-width: 1000px;
+	width: 1000px;
+}
 </style>
-        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
-        
     </head>
     <body class="vscode-body vscode-light">
         <h1 id="what-i-learned-losing-a-million-dollars">What I Learned Losing a Million Dollars</h1>
@@ -753,7 +1078,7 @@ If your fear is great enough, you will buy and hope the market keeps going up.</
 <p>However, from my trading and gambling experiences I have learned that the more the markets are treated as a game, the less likely you are to have losses due to psychological factors. Why? Games have rules and defined ending points. Their participants have a game plan. A plan takes the positive attributes of games (not gambling games per se, but the concept of a game) and applies them to the market, giving you the structure necessary to create a discrete event. This means you won't confuse Speculating with betting or gambling. It also prevents you from betting or gambling on a continuous process. Recall that thinking before acting is the definition of Speculation. Mixing up the order of the process (i.e., acting then thinking), is betting or gambling. Trying to be <em>right</em> (i.e., betting) about an event that never ends means that you will never be completely right. Trying to get excitement (i.e., gambling) from an event that never ends will provide you with more excitement than you bargained for.</p>
 <p>Having a plan requires thinking, which only an individual can do -- not a crowd. A crowd cannot think any more than it can eat or drink. There is no such thing as a group brain. Since a plan is about having rules, and since mass behavior is not rule governed, having and following a plan means, by definition, you are not part of the crowd. Following your plan imposes discipline over your emotions. Since discipline means not doing what your emotions would have you do, then if you don't have the discipline to follow the plan, your emotions have taken control and you wind up in the crowd. If you don't have control of your emotions via a plan, then your decision-making will be based on emotions. That makes you highly subject to contagion because of the hypnotic effect of the changing prices, and you fall into either one of the psychological crowd models mentioned earlier since the crowd epitomizes emotionalism. So rather than monitoring yourself for evidence of each individual emotion, if you avoid the characteristics of crowd behavior you will, by default, avoid emotional decisionmaking. As my mom used to say, &quot;Weak is he who allows his actions to be controlled by his emotions and strong is he who forces his actions to control his emotions.&quot; If you're not consciously doing the latter, then you're unconsciously doing the former, which is precisely Le Bon's description of the conscious personality of an individual vanishing when he enters the crowd.</p>
 <p>This last section has been a detailed explanation of how following a plan keeps you from falling into the three part psychological trap discussed in Chapters Six, Seven and Eight. Obviously, the three don't have to occur in the order we covered them. That was simply the order given in the definition of psychology back in Chapter Five. The errors can occur in any sequence and form a vicious circle. For example, you could: 1) make a crowd trade after falling into one of the crowd models previously outlined, then 2) confuse the different types of risk activities and wind up betting because you're only interested in being right and finally 3) personalize a loss when it develops and go through the Five Stages of Internal Loss. Or you could easily reverse the order of number two and three or the whole sequence, for that matter. The permutations are there for you to work out, but the point to understand is that these three mistakes feed on each other and lead to each other regardless of which one you fall into first. On the next page is a flow chart that gives you the visual representation of what happens when you do not have and follow a plan.</p>
-<p><img src="file:////home/bx/loveFluffy/myBlog/booknotes/img/notes0041-1.png" alt="avatar"></p>
+<p><img src="file:///d:\loveFluffy\myBlog\booknotes\md\img\notes0041-1.png" alt="avatar"></p>
 <h3 id="a-plan-and-objectivity">A Plan and Objectivity</h3>
 <p>The failure to have and follow a plan is the root cause of most of the other &quot;reasons&quot; (or more accurately, &quot;excuses&quot;) why people lose money in the markets. And while you will still lose <em>some</em> money with a plan, you are certain to lose all your money, eventually, without one. You will enter the market and <em>then</em> draw up your possible courses of action on an as-needed-basis. Unless your timing is perfect, which may happen occasionally but probably not often, immediately after establishing a market position it is either going to show a profit then a loss, or a loss then a profit. But it will be a loss at some point and you will say, &quot;If only I had sold instead of bought, I would have a profit now instead of a loss.&quot; After a series of such trades, you would say, &quot;All those losses would have been profits and I'd be up x amount dollars.&quot; Nonsense! Since your timing will in all likelihood never be perfect, the market would have been against you at some point, providing you plenty of opportunity to make an emotional decision and lose money. You must have a means to remove yourself from &quot;subjectively experiencing&quot; the market while making decisions. Obversely stated, you must have a means to &quot;objectively perceive&quot; the market while making decisions and to maintain that <em>objectivity</em> once you're in the market. That's exactly what a plan does.</p>
 <p>For the roulette player, the last moment of objectivity is just before he places his bet and the wheel starts spinning, after which he can't do anything to lose more money than he wagered. For the market participant, the last moment of objectivity is the moment before he enters the market, after which he <em>can</em> still do plenty to lose more money. This is why you must determine your exit and entry criteria during the pre-trade, objective time period when your thinking is clear. You wouldn't sign off on an unacceptable loss before entering the market, so the decision about how much you're willing to lose must be made before you get in the market. This keeps you from making or re-making decisions after you have established a position when you would be prone to personalize the market and succumb to the errors discussed in Chapters Six, Seven and Eight.</p>
@@ -832,5 +1157,7 @@ Another way of looking at it is: are you long because you're bullish or bullish 
 <p>Bernard Baruch had made $3,000,000 on Wall Street by the time he was thirty-two years old- and this was in the 1920's and 1930's. He made a million in the stock market and put it at risk to earn a second million and so on until he amassed $25,000,000.</p>
 <p>W. D. Gann was one of the most successful commodity and stock traders in the 1920's and 1930's -- if not all time. An analysis of his trading record over 25 market days revealed that he made 286 trades, 264 of which were profitable. During that period, he turned $450 into $37,000.</p>
 
+        <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
     </body>
     </html>

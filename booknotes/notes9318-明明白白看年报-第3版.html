@@ -2,8 +2,19 @@
     <html>
     <head>
         <meta charset="UTF-8">
-        <title>&#x660E;&#x660E;&#x767D;&#x767D;&#x770B;&#x5E74;&#x62A5;&#xFF08;&#x7B2C;3&#x7248;&#xFF09;</title>
+        <title>&#x660e;&#x660e;&#x767d;&#x767d;&#x770b;&#x5e74;&#x62a5;&#xff08;&#x7b2c;3&#x7248;&#xff09;</title>
         <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
 </style>
         
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
@@ -16,13 +27,327 @@
             }
         </style>
         <style>
-.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
 </style>
         <style>
-body { font-size: 18pt; color: #333; background: #f1e5c9; font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif"; margin: 0; padding: 0 1% 0 1%; } h1 { font-size: 2.2em; font-weight: 700; line-height: 1.1; padding-top: 16px; margin-bottom: 4px; text-align: center; } h2, h3, h4, h5, h6 { line-height: 1.5em; margin-top: 2.2em; margin-bottom: 4px; } h2 { font-size: 1.8em; margin: 40px 10px 20px 0; font-weight: 700; line-height: 1.4; text-align: center; } h3 { font-weight: 700; font-size: 1.4em; line-height: 1.4; margin: 10px 0 5px; padding-left: 9px; border-left: 6px solid #ff7e79; border-bottom: 1px solid #ff7e79; } h4 { font-weight: 700; text-transform: uppercase; font-size: 1.2em; line-height: 1.4; margin: 10px 0 5px; padding-top: 10px } h5 { font-size: 1em; font-weight: bold; text-transform: uppercase; } h6 { font-size: 1em; font-weight: normal; color: #AAA; } img { width: 100%; border-radius: 5px; display: block; margin-bottom: 15px; height: auto; } dl, ol, ul { margin-top: 12px; margin-bottom: 20px; padding-left: 5%; line-height: 1.8; } p { margin: 0 0 20px; padding: 0; line-height: 1.8; } a { color: #f22f27; text-decoration: none; } a:hover { color: #f55852; text-decoration: underline; } a:focus { outline-offset: -2px; } blockquote { font-size: 1em; font-style: normal; padding: 30px 38px; margin: 0 0 15px; position: relative; line-height: 1.8; text-indent: 0; border: none; color: #888; } blockquote:before { content: "“"; left: 0px; top: 0; color: #E0E0E0; font-size: 4em; font-family: Arial, serif; line-height: 1em; font-weight: 700; position: absolute; } blockquote:after { content: "”"; right: 0px; color: #E0E0E0; font-size: 4em; font-family: Arial, serif; line-height: 1em; font-weight: 700; position: absolute; bottom: -61px; } strong, dfn { font-weight: 700; } em, dfn { font-style: italic; font-weight: 400; } del { text-decoration: line-through; } /*code {font-size:90%;}*/ /*pre {text-align:left; overflow-x: scroll; color: #257fa0; background: #f6f6f6; padding: 10pt 15pt; border-radius: 3px; border: solid 1px #e2e2e2;}*/ pre { margin: 0 0 10px; font-size: 13px; line-height: 1.42857; word-break: break-all; word-wrap: break-word; border-radius: 4px; white-space: pre-wrap; display: block; background: #f8f8f8; padding: 10px 20px; border: none; margin-bottom: 25px; color: #666; font-family: Courier, sans-serif; } code { color: #c7254e; background-color: #f9f2f4; border-radius: 4px; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; padding: 2px 4px; font-size: 90%; } p>code { color: #c7264e; background-color: #f9f2f4; font-size: .95em; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; } figure { margin: 1em 0; } figcaption { font-size: 0.75em; padding: 0.5em 2em; margin-bottom: 2em; } figure img { margin-bottom: 0px; } hr { margin-top: 20px; margin-bottom: 20px; border: 0; border-top: 1px solid #eee; } ol p, ul p { margin-bottom: 0px; } li { margin-bottom: 0.75em; margin-top: 0.75em; } ol#footnotes { font-size: 0.95em; padding-top: 1em; margin-top: 1em; margin-left: 0; border-top: 1px solid #eaeaea; counter-reset: footer-counter; list-style: none; color: #555; padding-left: 5%; margin: 20px 0; } ol#footnotes li { margin-bottom: 10px; margin-left: 16px; font-weight: 400; line-height: 2; list-style-type: none; } ol#footnotes li:before { content: counter(footer-counter) ". "; counter-increment: footer-counter; font-weight: 800; font-size: .95em; } @keyframes highfade { 0% { background-color: none; } 20% { background-color: yellow; } 100% { background-color: none; } } @-webkit-keyframes highfade { 0% { background-color: none; } 20% { background-color: yellow; } 100% { background-color: none; } } a:target, ol#footnotes li:target, sup a:target { animation-name: highfade; animation-duration: 2s; animation-iteration-count: 1; animation-timing-function: ease-in-out; -webkit-animation-name: highfade; -webkit-animation-duration: 2s; -webkit-animation-iteration-count: 1; -webkit-animation-timing-function: ease-in-out; } a:target { border: 0; outline: 0; } table { align-self: center; } img { align-self: center; max-width: 1000px; width: 1000px; }
+@charset "utf-8";
+
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html {
+	color: #000;
+	/*background-color: #f1e5c9;*/
+	background: #f1e5c9;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	text-rendering: optimizelegibility;
+}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+menu,
+nav,
+section {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 18pt;
+	color: #333;
+	background: #f1e5c9;
+	font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
+	/* 上、右、下、左 */
+	margin: 5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.3;
+	margin-top: 1.2em;
+	margin-bottom: 0.6em;
+	font-weight: bold;
+}
+
+h1 {
+	font-size: 2em;
+	text-align: center;
+	/*这个属性如果不定义的话，在md转html的时候会莫名给赋值，导致h1下面出现一条线，所以这里定义一下*/
+	border-bottom-style:none; 
+}
+
+h2 {
+	font-size: 1.8em;
+	text-align: center;
+}
+
+h3 {
+	font-size: 1.6em;
+	margin: 10px 0 5px;
+	padding-left: 9px;
+	border-left: 6px solid #ff7e79;
+	border-bottom: 1px solid #ff7e79;
+}
+
+h4 {
+	font-size: 1.4em;
+	margin: 10px 0 5px;
+	padding-left: 9px;
+	border-left: 6px solid #666;
+}
+
+h5 {
+	font-size: 1.2em;
+	padding-left: 9px;
+	border-left: 6px double #666;
+}
+
+h6 {
+	font-size: 1em;
+}
+
+img {
+	width: 100%;
+	border-radius: 5px;
+	display: block;
+	margin-bottom: 15px;
+	height: auto;
+}
+
+dl,
+ol,
+ul {
+	margin-bottom: 1em;
+	padding-left: 5%;
+	line-height: 1.8;
+}
+
+p {
+	margin: 0 0 1em;
+	padding: 0;
+	line-height: 1.8;
+}
+
+a:link {
+	color: #000;
+}
+
+a:visited {
+	color: #575757;
+}
+
+a:hover,
+a:active {
+	color: #d3595e;
+}
+
+/* 块/段落引用 */
+blockquote {
+	font-size: 0.9em;
+	line-height: 1.6;
+	position: relative;
+	color: #666;
+	border-left: 2px solid #fbb;
+	padding-left: 1em;
+	margin: 1em 3em 1em 2em;
+}
+
+blockquote p {
+	margin: 0 0 18px;
+}
+
+strong,
+dfn {
+	font-weight: 700;
+}
+
+em,
+dfn {
+	font-style: italic;
+	font-weight: 400;
+}
+
+del {
+	text-decoration: line-through;
+}
+
+code {
+	color: #c7254e;
+	background-color: #f9f2f4;
+	border-radius: 4px;
+	font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+	padding: 2px 4px;
+	font-size: 90%;
+}
+
+p>code {
+	color: #c7264e;
+	background-color: #f9f2f4;
+	font-size: .95em;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+figure {
+	margin: 1em 0;
+}
+
+figcaption {
+	font-size: 0.75em;
+	padding: 0.5em 2em;
+	margin-bottom: 2em;
+}
+
+figure img {
+	margin-bottom: 0px;
+}
+
+/* hr 用于创建一条水平线*/
+hr {
+	margin: 0.8em 0;
+	border: none;
+	border-bottom: 1px solid #cfcfcf;
+	height: 10px;
+}
+
+ol p,
+ul p {
+	margin-bottom: 0px;
+}
+
+li {
+	margin-bottom: 0.75em;
+	margin-top: 0.75em;
+}
+
+ol#footnotes {
+	font-size: 0.95em;
+	padding-top: 1em;
+	margin-top: 1em;
+	margin-left: 0;
+	border-top: 1px solid #eaeaea;
+	counter-reset: footer-counter;
+	list-style: none;
+	color: #555;
+	padding-left: 5%;
+	margin: 20px 0;
+}
+
+ol#footnotes li {
+	margin-bottom: 10px;
+	margin-left: 16px;
+	font-weight: 400;
+	line-height: 2;
+	list-style-type: none;
+}
+
+ol#footnotes li:before {
+	content: counter(footer-counter) ". ";
+	counter-increment: footer-counter;
+	font-weight: 800;
+	font-size: .95em;
+}
+
+@keyframes highfade {
+	0% {
+		background-color: none;
+	}
+
+	20% {
+		background-color: yellow;
+	}
+
+	100% {
+		background-color: none;
+	}
+}
+
+@-webkit-keyframes highfade {
+	0% {
+		background-color: none;
+	}
+
+	20% {
+		background-color: yellow;
+	}
+
+	100% {
+		background-color: none;
+	}
+}
+
+a:target,
+ol#footnotes li:target,
+sup a:target {
+	animation-name: highfade;
+	animation-duration: 2s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-name: highfade;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+a:target {
+	border: 0;
+	outline: 0;
+}
+
+table {
+	align-self: center;
+}
+
+img {
+	align-self: center;
+	max-width: 1000px;
+	width: 1000px;
+}
 </style>
-        
-        
     </head>
     <body class="vscode-body vscode-light">
         <h1 id="明明白白看年报第3版">明明白白看年报（第3版）</h1>
@@ -152,11 +477,11 @@ body { font-size: 18pt; color: #333; background: #f1e5c9; font-family: Helvetica
 <h4 id="关注三季报">关注三季报</h4>
 <p>最先透露全年业绩信息的，是上市公司第三季度报告。该报告披露时间是每年的10月1日至31日。</p>
 <p>按照规定：如果上市公司预测全年累计净利润可能为亏损、扭亏为盈，或者与上一年同比会发生大幅度变动（上升或者下降50%以上），应当在其第三季度报告中，予以披露并说明原因。据此，一些上市公司会在其三季报中对全年业绩做出预测（见图1-2）。</p>
-<p><img src="file:////home/bx/loveFluffy/myBlog/booknotes/img/notes9318-1.jpeg" alt="三季报示例"></p>
+<p><img src="file:///d:\loveFluffy\myBlog\booknotes\md\img\notes9318-1.jpeg" alt="三季报示例"></p>
 <p>图1-2　三季报示例</p>
 <p>值得注意的是，按照规定，中小板上市公司必须在每年第三季度报告中对全年业绩作预测。这一点与主板上市公司有明显区别。</p>
 <p>当然，与后面将要讲到的业绩预告、业绩快报相比，三季报中对全年业绩做出的预测，准确性要低一些。毕竟，第四季度经营尚未发生，不可预知因素很多。比如，从2008年的情况看，由于全球经济在第四季度加剧衰退，不少上市公司修订了三季报中的盈利预测（见图1-3）。</p>
-<p><img src="file:////home/bx/loveFluffy/myBlog/booknotes/img/notes9318-2.jpeg" alt="业绩预告修正公告"></p>
+<p><img src="file:///d:\loveFluffy\myBlog\booknotes\md\img\notes9318-2.jpeg" alt="业绩预告修正公告"></p>
 <p>图1-3　业绩预告修正公告</p>
 <h4 id="业绩预告">业绩预告</h4>
 <p>从每年11月1日至来年1月31日之间（交易所之所以将1月31日作为上市公司披露业绩预告的截止日，是考虑到在1月份之时，公司已可以对去年全年业绩做出较为准确的判断），上市公司若符合下列两项条件之一的，也要对全年业绩进行预告（见图1-4）。</p>
@@ -164,26 +489,26 @@ body { font-size: 18pt; color: #333; background: #f1e5c9; font-family: Helvetica
 条件一：预计全年业绩将出现亏损、实现扭亏为盈或者与上年相比业绩出现大幅变动（上升或者下降50%以上）。</p>
 <p>条件二：在会计年度结束后1个月内，经上市公司财务核算或初步审计确认，公司全年经营业绩将出现亏损、实现扭亏为盈、与上年同期相比业绩出现大幅变动（上升或者下降50%以上）。</p>
 <p>由以上规定，投资者可以推算：如果一家上市公司在1月31日之前还没有公布业绩预告，那么该公司全年业绩很可能同比增幅或降幅不会超过50%。此外，上市公司发布业绩预告后，如出现实际业绩与预计业绩存在重大差异，还会及时披露业绩预告修正公告。</p>
-<p>业绩快报</p>
+<h4 id="业绩快报">业绩快报</h4>
 <p>除业绩预告外，按照规定，在年报披露前，有条件的上市公司可以主动披露全年业绩快报。须注意的是，主动披露并非强制性要求。只有在上市公司全年业绩被提前泄漏，或者因业绩传闻导致公司股票异常波动的情况下，上市公司才必须披露业绩快报。</p>
 <p>中小板上市公司、创业板上市公司的业绩快报也另有要求：如果公司年报预约披露时间在3月或4月，公司应当在2月底前披露业绩快报。</p>
 <p>与业绩预告一样，如果公司实际业绩与业绩快报所披露的数字出现重大差异，上市公司也会披露业绩快报修正公告。</p>
 <p>与业绩预告不同的是，业绩快报的内容更加翔实、准确（见图1-5），更加接近最终年报公布的数据。业绩快报与年报数据间的差别，主要在于前者尚未经会计师审计，一般来说，快报数据经审计后，微调可能会有，但发生大变动的可能性已经不大。</p>
-<p>图　1-5　浦发银行2009年度业绩快报
-业绩预告汇总</p>
+<p>图1-5　浦发银行2009年度业绩快报</p>
+<h4 id="业绩预告汇总">业绩预告汇总</h4>
 <p>很多投资者还会有这样的需求──能够及时快速浏览已经公布的，上市公司业绩预告的汇总，以便从中寻找可能的投资对象。</p>
 <p>这里建议大家利用新浪财经网站中的“业绩预告”栏目（查询路径：新浪首页→财经→股票→业绩预告），如图1-6、图1-7所示。</p>
 <p>该统计汇总的优点在于，及时汇总了所有的业绩预告，而且将预告内容按照预增、预减、略增、略减等标准分类，有利于投资者按图索骥。同时，在“点击查看明细”栏目中，还可以方便地阅读业绩预告全文。</p>
-<p>图　1-6　业绩预告界面</p>
-<p>图　1-7　业绩预告示例
-另类盈利预测</p>
+<p>图1-6　业绩预告界面</p>
+<p>图1-7　业绩预告示例</p>
+<h4 id="另类盈利预测">另类盈利预测</h4>
 <p>除了刚才所提到的三季报、业绩预告、业绩快报之外，个别上市公司还会在一些公开披露的文件中，夹杂着对年度业绩信息的预测。这类预测的一个普遍特点是，更多基于主观估计与评价，不确定性更高。正因为如此，我们姑且将它们称为“另类盈利预测”。</p>
 <p>另类盈利预测主要见于上市公司的招股说明书（包括IPO以及发行新股）、重大资产重组的说明书。</p>
 <p>从目前情况看，上市公司在招股说明书中进行年度盈利预测属于“自选动作”，监管部门没有强制性要求（但如果披露，监管部门对其披露内容与格式都有明确规定）。这主要是因为，公司在招股时进行盈利预测，很可能是考虑有利股票的发行，具备高估盈利的潜在动机。因此，投资者在参考这类盈利预测时，要充分考虑风险。</p>
 <p>此外，按照规定，上市公司进行重大资产重组时，如果存在下列两项情形之一，应当提供盈利预测报告（见图1-8）：</p>
 <p>（一）上市公司出售资产的总额和购买资产的总额占其最近一个会计年度经审计的合并财务会计报告期末资产总额的比例均达到70%以上。</p>
 <p>（二）上市公司出售全部经营性资产，同时购买其他资产。</p>
-<p>图　1-8　另类盈利预测
+<p>图1-8　另类盈利预测
 从上述规定看，这类资产重组，大都是“脱胎换骨”，也就是上市公司的规模、资产、主营业务，甚至控股股东，都发生了根本性改变。因此，对于去年实施过此类重组的上市公司，投资者判断其全年业绩时，可回溯重组时披露的盈利预测报告以为参考。</p>
 <h3 id="第2章-无网不利-网络年报资源扫描">第2章 无网不利 网络年报资源扫描</h3>
 <h3 id="第3章-庖丁解牛-年报正文概述">第3章 庖丁解牛 年报正文概述</h3>
@@ -220,5 +545,7 @@ body { font-size: 18pt; color: #333; background: #f1e5c9; font-family: Helvetica
 <h3 id="第29章-给上市公司卸妆-非经常性损益">第29章 给上市公司卸妆 非经常性损益</h3>
 <h2 id="结束语-安全第一-年报中的风险提示">结束语 安全第一 年报中的风险提示</h2>
 
+        
+        
     </body>
     </html>

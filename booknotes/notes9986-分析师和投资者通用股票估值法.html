@@ -15,41 +15,6 @@
 	display: none;
 }
 
-/* From extension ms-toolsai.jupyter */
-/* These classnames are inherited from bootstrap, but are present in most notebook renderers */
-
-.alert {
-    width: auto;
-    padding: 1em;
-    margin-top: 1em;
-    margin-bottom: 1em;
-}
-.alert > *:last-child {
-    margin-bottom: 0;
-}
-#preview > .alert:last-child {
-    /* Prevent this being set to zero by the default notebook stylesheet */
-    padding-bottom: 1em;
-}
-
-.alert-success {
-    /* Note there is no suitable color available, so we just copy "info" */
-    background-color: var(--theme-info-background);
-    color: var(--theme-info-foreground);
-}
-.alert-info {
-    background-color: var(--theme-info-background);
-    color: var(--theme-info-foreground);
-}
-.alert-warning {
-    background-color: var(--theme-warning-background);
-    color: var(--theme-warning-foreground);
-}
-.alert-danger {
-    background-color: var(--theme-error-background);
-    color: var(--theme-error-foreground);
-}
-
 </style>
         
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
@@ -73,42 +38,94 @@
 }
 </style>
         <style>
+@charset "utf-8";
+
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html {
+	color: #000;
+	/*background-color: #f1e5c9;*/
+	background: #f1e5c9;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	text-rendering: optimizelegibility;
+}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+menu,
+nav,
+section {
+	margin: 0;
+	padding: 0;
+}
+
 body {
 	font-size: 18pt;
 	color: #333;
 	background: #f1e5c9;
 	font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
-	margin: 0;
-	padding: 0 1% 0 1%;
+	/* 上、右、下、左 */
+	margin: 5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.3;
+	margin-top: 1.2em;
+	margin-bottom: 0.6em;
+	font-weight: bold;
 }
 
 h1 {
-	font-size: 2.2em;
-	font-weight: 700;
-	line-height: 1.1;
-	padding-top: 16px;
-	margin-bottom: 4px;
+	font-size: 2em;
 	text-align: center;
-}
-
-h2, h3, h4, h5, h6 {
-	line-height: 1.5em;
-	margin-top: 2.2em;
-	margin-bottom: 4px;
+	/*这个属性如果不定义的话，在md转html的时候会莫名给赋值，导致h1下面出现一条线，所以这里定义一下*/
+	border-bottom-style:none; 
 }
 
 h2 {
 	font-size: 1.8em;
-	margin: 40px 10px 20px 0;
-	font-weight: 700;
-	line-height: 1.4;
 	text-align: center;
 }
 
 h3 {
-	font-weight: 700;
-	font-size: 1.4em;
-	line-height: 1.4;
+	font-size: 1.6em;
 	margin: 10px 0 5px;
 	padding-left: 9px;
 	border-left: 6px solid #ff7e79;
@@ -116,24 +133,20 @@ h3 {
 }
 
 h4 {
-	font-weight: 700;
-	text-transform: uppercase;
-	font-size: 1.2em;
-	line-height: 1.4;
+	font-size: 1.4em;
 	margin: 10px 0 5px;
-	padding-top: 10px
+	padding-left: 9px;
+	border-left: 6px solid #666;
 }
 
 h5 {
-	font-size: 1em;
-	font-weight: bold;
-	text-transform: uppercase;
+	font-size: 1.2em;
+	padding-left: 9px;
+	border-left: 6px double #666;
 }
 
 h6 {
 	font-size: 1em;
-	font-weight: normal;
-	color: #AAA;
 }
 
 img {
@@ -144,101 +157,61 @@ img {
 	height: auto;
 }
 
-dl, ol, ul {
-	margin-top: 12px;
-	margin-bottom: 20px;
+dl,
+ol,
+ul {
+	margin-bottom: 1em;
 	padding-left: 5%;
 	line-height: 1.8;
 }
 
 p {
-	margin: 0 0 20px;
+	margin: 0 0 1em;
 	padding: 0;
 	line-height: 1.8;
 }
 
-a {
-	color: #f22f27;
-	text-decoration: none;
+a:link {
+	color: #000;
 }
 
-a:hover {
-	color: #f55852;
-	text-decoration: underline;
+a:visited {
+	color: #575757;
 }
 
-a:focus {
-	outline-offset: -2px;
+a:hover,
+a:active {
+	color: #d3595e;
 }
 
+/* 块/段落引用 */
 blockquote {
-	font-size: 1em;
-	font-style: normal;
-	padding: 30px 38px;
-	margin: 0 0 15px;
+	font-size: 0.9em;
+	line-height: 1.6;
 	position: relative;
-	line-height: 1.8;
-	text-indent: 0;
-	border: none;
-	color: #888;
+	color: #666;
+	border-left: 2px solid #fbb;
+	padding-left: 1em;
+	margin: 1em 3em 1em 2em;
 }
 
-blockquote:before {
-	content: "“";
-	left: 0px;
-	top: 0;
-	color: #E0E0E0;
-	font-size: 4em;
-	font-family: Arial, serif;
-	line-height: 1em;
-	font-weight: 700;
-	position: absolute;
+blockquote p {
+	margin: 0 0 18px;
 }
 
-blockquote:after {
-	content: "”";
-	right: 0px;
-	color: #E0E0E0;
-	font-size: 4em;
-	font-family: Arial, serif;
-	line-height: 1em;
-	font-weight: 700;
-	position: absolute;
-	bottom: -61px;
-}
-
-strong, dfn {
+strong,
+dfn {
 	font-weight: 700;
 }
 
-em, dfn {
+em,
+dfn {
 	font-style: italic;
 	font-weight: 400;
 }
 
 del {
 	text-decoration: line-through;
-}
-
-/*code {font-size:90%;}*/
-
-/*pre {text-align:left; overflow-x: scroll; color: #257fa0; background: #f6f6f6; padding: 10pt 15pt; border-radius: 3px; border: solid 1px #e2e2e2;}*/
-
-pre {
-	margin: 0 0 10px;
-	font-size: 13px;
-	line-height: 1.42857;
-	word-break: break-all;
-	word-wrap: break-word;
-	border-radius: 4px;
-	white-space: pre-wrap;
-	display: block;
-	background: #f8f8f8;
-	padding: 10px 20px;
-	border: none;
-	margin-bottom: 25px;
-	color: #666;
-	font-family: Courier, sans-serif;
 }
 
 code {
@@ -273,14 +246,16 @@ figure img {
 	margin-bottom: 0px;
 }
 
+/* hr 用于创建一条水平线*/
 hr {
-	margin-top: 20px;
-	margin-bottom: 20px;
-	border: 0;
-	border-top: 1px solid #eee;
+	margin: 0.8em 0;
+	border: none;
+	border-bottom: 1px solid #cfcfcf;
+	height: 10px;
 }
 
-ol p, ul p {
+ol p,
+ul p {
 	margin-bottom: 0px;
 }
 
@@ -321,9 +296,11 @@ ol#footnotes li:before {
 	0% {
 		background-color: none;
 	}
+
 	20% {
 		background-color: yellow;
 	}
+
 	100% {
 		background-color: none;
 	}
@@ -333,15 +310,19 @@ ol#footnotes li:before {
 	0% {
 		background-color: none;
 	}
+
 	20% {
 		background-color: yellow;
 	}
+
 	100% {
 		background-color: none;
 	}
 }
 
-a:target, ol#footnotes li:target, sup a:target {
+a:target,
+ol#footnotes li:target,
+sup a:target {
 	animation-name: highfade;
 	animation-duration: 2s;
 	animation-iteration-count: 1;
@@ -377,6 +358,12 @@ img {
 <p>作为一个高级分析师，他是科技行业研究的主管，主要关注通讯科技（设备和半导体）和电子制造商服务。Jim还是一个CFA认证的持有者，并且三次赢得华尔街时报的全明星分析师调查中的“街最佳”。Jim在the street.com有一个投资专栏，他的文章常常被领先的财务出版物所引用。</p>
 <h2 id="第一部分收入报表介绍">第一部分　收入报表介绍</h2>
 <h3 id="第1章第1阶段收入报表和差额模型第1部分">第1章　第1阶段：收入报表和差额模型（第1部分）</h3>
+<p>在第一阶段中，我们有几个应该被持续演练的任务：我们将创造一个可视化的、吸引人的、有信息量的模板；我们也会收集过去几年或者几个季度的历史数据，调整历史数据得出的结论也能适应现在的情形；接下来调整历史时期来适应真实事件，比如那些一次性的，或者不会再次发生的事件的成本，这两类事件会影响调整后的或者非会计原则的收入；接下来，我们要建立一个8个季度的收入报表模型，能够同时适应会计原则和调整过的收入。我们也针对仅发布会计原则结果的公司建立单独的模型，任何资产损坏的事实，都会导致公司被重新估值。</p>
+<p>第二阶段，叫做“部门模拟”，会在第三章节中呈现，我们模拟公司发表的数据来合并主要收入项。第三阶段，也就是第四章节，我们讨论模拟部门操作收入，我们会用一个专有的技术来处理它。在一个标准百分比主要收入模拟的变化形式中，我们说明了如何建立利润及亏损的区别（在主要收入和部分操作费用）百分比模型。</p>
+<p>第五章节详细解释第四阶段，叫做“工作台”，来管理公司公布的消息、轶闻、各种渠道来的公众信息、购买来的信息和其他数据，将这些加入到模拟收入部分。这里我们也讨论成本的输入值，并且为将来复制模型。</p>
+<p>在第六章节，我们考虑了在对爱立信公司建模和模拟时遇到的几个特别挑战。这家公司在美国市场上的经历使我们有了几个新的议题，例如美国储蓄证券和股票的关系平衡的改变、股票的拆分、合资企业的模拟。第七章节中，我们完成模拟工具组合，通过引入标准化的收入和最小二乘法来精化我们的模拟，从而决定复合年增长率。</p>
+<p>我们在工作中发展和分析了更多种的估值方法，但是我们更在意的是收入模拟的精确度。一定要记住，收入并不是公司每天运营产生的赢利，它们不是一回事。</p>
+<p>分析师把收入看作是很容易改变和受不确定输入值影响的东西，如果不能熟练地使用，就会很棘手。这些输入值包括主要收入识别，详细目录识别决策，线性折旧，与基于税收和利息相反的会计。当改变股票基数时，每股收益（EPS）就会变得更加复杂了。为了获得一个更凝炼的EPS，净收入被划分为会随着输入值起伏的股票部分（包括净收入水平）和与各种普通股票等价的状态相关的股票价格。</p>
 <h4 id="在工作簿中模拟">在工作簿中模拟</h4>
 <h4 id="追踪历史数据资源">追踪历史数据资源</h4>
 <h4 id="改变现状">改变现状</h4>
@@ -489,7 +476,7 @@ img {
 <h4 id="标准roe">标准ROE</h4>
 <h4 id="杜邦roe">杜邦ROE</h4>
 <h4 id="风险分析">风险分析</h4>
-<h4 id="运营杠杆">运营杠杆</h4>
+<h4 id="运营杠杆-1">运营杠杆</h4>
 <h4 id="已获利息倍数利息偿付率">已获利息倍数（利息偿付率）</h4>
 <h4 id="债务股票">债务/股票</h4>
 <h4 id="债务比市值">债务比市值</h4>
@@ -552,7 +539,7 @@ img {
 <h4 id="根据组分的dfcf计算">根据组分的DFCF计算</h4>
 <h4 id="组分dfcf的最终价值">组分DFCF的最终价值</h4>
 <h4 id="dfcf估值的敏感性">DFCF估值的敏感性</h4>
-<h4 id="年度更新">年度更新</h4>
+<h4 id="年度更新-1">年度更新</h4>
 <h4 id="完成股票价值工作表">完成股票价值工作表</h4>
 <h4 id="资产的混合价值">资产的混合价值</h4>
 <h4 id="混合价值的风险调整回报率">混合价值的风险调整回报率</h4>
@@ -560,7 +547,7 @@ img {
 <h2 id="第四部分相关估值行业矩阵工作簿和同侪衍生估值">第四部分　相关估值：行业矩阵工作簿和同侪衍生估值</h2>
 <h3 id="第14章价格和表现分析">第14章　价格和表现分析</h3>
 <h4 id="查询页和价格变形网">查询页和价格变形网</h4>
-<h4 id="总揽">总揽</h4>
+<h4 id="总揽-1">总揽</h4>
 <h4 id="年度更新百分比改变">年度更新百分比改变</h4>
 <h4 id="买卖触发器">买卖触发器</h4>
 <h4 id="相对表现">相对表现</h4>

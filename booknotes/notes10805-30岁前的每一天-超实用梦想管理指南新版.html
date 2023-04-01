@@ -38,42 +38,94 @@
 }
 </style>
         <style>
+@charset "utf-8";
+
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html {
+	color: #000;
+	/*background-color: #f1e5c9;*/
+	background: #f1e5c9;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	text-rendering: optimizelegibility;
+}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+menu,
+nav,
+section {
+	margin: 0;
+	padding: 0;
+}
+
 body {
 	font-size: 18pt;
 	color: #333;
 	background: #f1e5c9;
 	font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
-	margin: 0;
-	padding: 0 1% 0 1%;
+	/* 上、右、下、左 */
+	margin: 5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.3;
+	margin-top: 1.2em;
+	margin-bottom: 0.6em;
+	font-weight: bold;
 }
 
 h1 {
-	font-size: 2.2em;
-	font-weight: 700;
-	line-height: 1.1;
-	padding-top: 16px;
-	margin-bottom: 4px;
+	font-size: 2em;
 	text-align: center;
-}
-
-h2, h3, h4, h5, h6 {
-	line-height: 1.5em;
-	margin-top: 2.2em;
-	margin-bottom: 4px;
+	/*这个属性如果不定义的话，在md转html的时候会莫名给赋值，导致h1下面出现一条线，所以这里定义一下*/
+	border-bottom-style:none; 
 }
 
 h2 {
 	font-size: 1.8em;
-	margin: 40px 10px 20px 0;
-	font-weight: 700;
-	line-height: 1.4;
 	text-align: center;
 }
 
 h3 {
-	font-weight: 700;
-	font-size: 1.4em;
-	line-height: 1.4;
+	font-size: 1.6em;
 	margin: 10px 0 5px;
 	padding-left: 9px;
 	border-left: 6px solid #ff7e79;
@@ -81,24 +133,20 @@ h3 {
 }
 
 h4 {
-	font-weight: 700;
-	text-transform: uppercase;
-	font-size: 1.2em;
-	line-height: 1.4;
+	font-size: 1.4em;
 	margin: 10px 0 5px;
-	padding-top: 10px
+	padding-left: 9px;
+	border-left: 6px solid #666;
 }
 
 h5 {
-	font-size: 1em;
-	font-weight: bold;
-	text-transform: uppercase;
+	font-size: 1.2em;
+	padding-left: 9px;
+	border-left: 6px double #666;
 }
 
 h6 {
 	font-size: 1em;
-	font-weight: normal;
-	color: #AAA;
 }
 
 img {
@@ -109,101 +157,61 @@ img {
 	height: auto;
 }
 
-dl, ol, ul {
-	margin-top: 12px;
-	margin-bottom: 20px;
+dl,
+ol,
+ul {
+	margin-bottom: 1em;
 	padding-left: 5%;
 	line-height: 1.8;
 }
 
 p {
-	margin: 0 0 20px;
+	margin: 0 0 1em;
 	padding: 0;
 	line-height: 1.8;
 }
 
-a {
-	color: #f22f27;
-	text-decoration: none;
+a:link {
+	color: #000;
 }
 
-a:hover {
-	color: #f55852;
-	text-decoration: underline;
+a:visited {
+	color: #575757;
 }
 
-a:focus {
-	outline-offset: -2px;
+a:hover,
+a:active {
+	color: #d3595e;
 }
 
+/* 块/段落引用 */
 blockquote {
-	font-size: 1em;
-	font-style: normal;
-	padding: 30px 38px;
-	margin: 0 0 15px;
+	font-size: 0.9em;
+	line-height: 1.6;
 	position: relative;
-	line-height: 1.8;
-	text-indent: 0;
-	border: none;
-	color: #888;
+	color: #666;
+	border-left: 2px solid #fbb;
+	padding-left: 1em;
+	margin: 1em 3em 1em 2em;
 }
 
-blockquote:before {
-	content: "“";
-	left: 0px;
-	top: 0;
-	color: #E0E0E0;
-	font-size: 4em;
-	font-family: Arial, serif;
-	line-height: 1em;
-	font-weight: 700;
-	position: absolute;
+blockquote p {
+	margin: 0 0 18px;
 }
 
-blockquote:after {
-	content: "”";
-	right: 0px;
-	color: #E0E0E0;
-	font-size: 4em;
-	font-family: Arial, serif;
-	line-height: 1em;
-	font-weight: 700;
-	position: absolute;
-	bottom: -61px;
-}
-
-strong, dfn {
+strong,
+dfn {
 	font-weight: 700;
 }
 
-em, dfn {
+em,
+dfn {
 	font-style: italic;
 	font-weight: 400;
 }
 
 del {
 	text-decoration: line-through;
-}
-
-/*code {font-size:90%;}*/
-
-/*pre {text-align:left; overflow-x: scroll; color: #257fa0; background: #f6f6f6; padding: 10pt 15pt; border-radius: 3px; border: solid 1px #e2e2e2;}*/
-
-pre {
-	margin: 0 0 10px;
-	font-size: 13px;
-	line-height: 1.42857;
-	word-break: break-all;
-	word-wrap: break-word;
-	border-radius: 4px;
-	white-space: pre-wrap;
-	display: block;
-	background: #f8f8f8;
-	padding: 10px 20px;
-	border: none;
-	margin-bottom: 25px;
-	color: #666;
-	font-family: Courier, sans-serif;
 }
 
 code {
@@ -238,14 +246,16 @@ figure img {
 	margin-bottom: 0px;
 }
 
+/* hr 用于创建一条水平线*/
 hr {
-	margin-top: 20px;
-	margin-bottom: 20px;
-	border: 0;
-	border-top: 1px solid #eee;
+	margin: 0.8em 0;
+	border: none;
+	border-bottom: 1px solid #cfcfcf;
+	height: 10px;
 }
 
-ol p, ul p {
+ol p,
+ul p {
 	margin-bottom: 0px;
 }
 
@@ -286,9 +296,11 @@ ol#footnotes li:before {
 	0% {
 		background-color: none;
 	}
+
 	20% {
 		background-color: yellow;
 	}
+
 	100% {
 		background-color: none;
 	}
@@ -298,15 +310,19 @@ ol#footnotes li:before {
 	0% {
 		background-color: none;
 	}
+
 	20% {
 		background-color: yellow;
 	}
+
 	100% {
 		background-color: none;
 	}
 }
 
-a:target, ol#footnotes li:target, sup a:target {
+a:target,
+ol#footnotes li:target,
+sup a:target {
 	animation-name: highfade;
 	animation-duration: 2s;
 	animation-iteration-count: 1;
@@ -401,6 +417,23 @@ img {
 <p>他真的不算是天才型的人，但我从认识他以来，眼见着他在一步一步地努力。在平常人都不会注意的小事上，严格地要求自己。开始的时候，活动早到、送人上车这种事，大家都会觉得他似乎有些虚伪和做作。可是，我们认识8年了，见面也有几十次了，他每一次都用这个标准做事。所有人最后剩下的只有敬佩。</p>
 <h4 id="痛苦和失败都不值一提">痛苦和失败，都不值一提</h4>
 <h5 id="你是一个悲观的人吗">你是一个悲观的人吗</h5>
+<p>被誉为“积极心理学之父”的马丁·塞利格曼（Martin E.P．Seligman），曾经拟定过一套科学的心理测试试题，目的是测试悲观和乐观在不同维度上的指数高低。这套测试在他的《活出最乐观的自己》一书中可以找到。</p>
+<p>你是否相信好或坏的事是永久性的？</p>
+<p>这套测试有一个维度叫作“永久性维度”。就是说，当遇见一件好事的时候，你是否认为它会长久地持续下去？而当遇见一件倒霉的事时，你是否会认为它会经常发生？</p>
+<p>例如，你忘记了女朋友的生日，如果你选择的理由是“我不擅长记生日”，这就意味着，你对这种不好的事情的看法是永久性的，你认为它是会经常发生的。认为倒霉的事情“总是”会发生的人，自然更加悲观、更加难以恢复。</p>
+<p>而认为好事“总是”会发生的人，自然就会更加乐观。哪怕遇见倒霉的事，也会认为这仅仅是“暂时发生的”。</p>
+<p>一对双胞胎男孩，一个特别乐观，一个特别悲观。父母为了改变他们这种倾向，给悲观的那个男孩买了一辆非常漂亮的玩具车，而把那个乐观的男孩带到了一堆牛粪旁边。过了一会儿，父母去看他们各自的情况。在父母的想象中，玩具车一定会给悲观的男孩带来很多快乐；而面对一堆牛粪，再乐观的孩子恐怕也无法高兴起来。可是，事实正好相反。那个悲观的男孩面对着玩具车非常悲伤，他说：“这么漂亮的玩具车，很快就会被玩坏了。”而那个乐观的男孩正兴高采烈地往牛粪中间挖，他高兴地对父母说：“是不是牛粪中间藏着一个惊喜？”</p>
+<p>你看，这就是悲观者和乐观者的不同态度。那个悲观的男孩，认为得到玩具这件好事发生的状况是暂时的，糟糕的事迟早会发生。而乐观的男孩则认为，得到牛粪这件坏事，发生的状况是暂时的，好事肯定会随之而来。</p>
+<p>你是否觉得，某件好事（坏事）具有普遍性？</p>
+<p>这套测试里还有一种普遍性的维度，即当事人是否认为坏事的发生是由于普遍的原因。</p>
+<p>例如，如果你认为考试不及格的主要原因是你不像其他人那么聪明，那么就意味着你认为很多坏事是有普遍性的。你会认为因为自己不聪明，所以不但考试考不好，其他很多事情也无法做好。如果你是一个乐观者，你就会认为，考试考得不好，仅仅是因为自己这次准备得不够充分。随之而来的应对策略就是，下次准备得更充分一点儿就好了。</p>
+<p>普遍性会让悲观或乐观的情绪弥漫开来，有时候，其实仅仅是一件小事。例如，你面试了一家公司，结果没有通过。你会悲痛地想，我果然是没有用、没有能力啊。这个公司面试没通过，肯定别的公司也不会录用我。我完了，肯定找不到工作了。这种想法，就是具有普遍性的悲观。</p>
+<p>乐观一点儿的想法应该是：这个公司面试没有通过，肯定是因为我准备得不够充分，也可能是因为他们觉得我不太符合这个公司的文化，那我回去准备得再充分些，可能下一家公司就会录用我了。</p>
+<p>你看，同样一件事，悲观的人和乐观的人就会有两种完全不同的反应。</p>
+<p>你是否对未来抱有希望？</p>
+<p>在这个测试的所有维度里，希望维度是最重要的。这也就是为什么我始终强调梦想的力量。只要未来有梦想和希望，你就会有继续坚持下去的动力。乐观者也会遭遇困难和挫折，但是他们认为困难和挫折是暂时的，以及有特定原因的，而不是永恒的和普遍的。</p>
+<p>这是你对人生的不同态度所决定的。正如有一半水的杯子，悲观者看到的是它空了一半，所以只有半杯水；乐观者看到的是，它不是全部空的，居然有半杯水。事情的本质并没有发生改变，完全是因为人的态度不同。</p>
+<p>从悲观转为乐观并不容易，不过请牢牢记住：当不幸来临时，你要告诉自己这个是暂时的，只是目前的这一件事，而不要对自己说“我一辈子都很倒霉，什么事都很倒霉”。当幸运来临时，你则要告诉自己“我好像一向运气都非常好，什么事都运气很好”。</p>
 <h5 id="为什么上天对我这么不公平">为什么上天对我这么不公平</h5>
 <h5 id="不要成为错误和失败的奴隶">不要成为错误和失败的奴隶</h5>
 <h5 id="所有的失败都是成功前的练习">所有的失败都是成功前的练习</h5>
