@@ -17,15 +17,7 @@
 
 </style>
         
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-<style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
+        
         <style>
 .task-list-item {
     list-style-type: none;
@@ -48,6 +40,7 @@ html {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	text-rendering: optimizelegibility;
+	height: 100%;
 }
 
 /* 内外边距通常让各个浏览器样式的表现位置不同 */
@@ -96,8 +89,7 @@ body {
 	color: #333;
 	background: #f1e5c9;
 	font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
-	/* 上、右、下、左 */
-	margin: 5px;
+	height: 100%;
 }
 
 h1,
@@ -116,7 +108,7 @@ h1 {
 	font-size: 2em;
 	text-align: center;
 	/*这个属性如果不定义的话，在md转html的时候会莫名给赋值，导致h1下面出现一条线，所以这里定义一下*/
-	border-bottom-style:none; 
+	border-bottom-style: none;
 }
 
 h2 {
@@ -187,7 +179,7 @@ a:active {
 /* 块/段落引用 */
 blockquote {
 	font-size: 0.9em;
-	line-height: 1.6;
+	line-height: 1.5;
 	position: relative;
 	color: #666;
 	border-left: 2px solid #fbb;
@@ -196,7 +188,7 @@ blockquote {
 }
 
 blockquote p {
-	margin: 0 0 18px;
+	margin: 0 0 1em;
 }
 
 strong,
@@ -259,11 +251,12 @@ ul p {
 	margin-bottom: 0px;
 }
 
+/*
 li {
 	margin-bottom: 0.75em;
 	margin-top: 0.75em;
 }
-
+*/
 ol#footnotes {
 	font-size: 0.95em;
 	padding-top: 1em;
@@ -347,10 +340,140 @@ img {
 	max-width: 1000px;
 	width: 1000px;
 }
+
+/* 选中后背景浅粉色 */
+::selection {
+	background-color: #fbb;
+}
+
+
+
+/* ======== 侧边的目录相关 ======== */
+
+.content {
+	float: right;
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+
+	/* 滚动条 */
+	scrollbar-width: thin;
+	/* thumb & track */
+	scrollbar-color: skyblue #ededed;
+
+	scroll-behavior: smooth;
+}
+
+/* 
+手机：2400*1080
+iPad mini 5：2048*1536
+电脑：1920*1200 
+*/
+/* 窄屏幕：手机竖屏、iPad竖屏 */
+@media (max-width: 1536px) {
+	.content {
+		width: 99.5%;
+		padding-left: 0.5%;
+	}
+
+	/* 不显示目录 */
+	div.toc {
+		display: none;
+	}
+}
+
+/* 宽屏幕：电脑、手机横屏、iPad横屏 */
+@media (min-width: 1537px) {
+	div.toc {
+		line-height: 1.2;
+		max-width: 24%;
+		height: 100vh;
+		padding-right: 0.5%;
+
+		float: left;
+		font-size: 0.7em;
+		overflow: auto;
+		overflow-x: hidden;
+
+		/* 目录栏 滚动时固定在屏幕顶端：仅当父元素没有设置overflow、高度为确定数值且比toc高度更大的时候才起作用*/
+		/* 现在因为toc与body等高，所以不起作用，也无须起作用
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;*/
+
+		/* 滚动条 */
+		scrollbar-width: thin;
+		/* thumb & track */
+		scrollbar-color: rgb(178, 216, 232) #ededed;
+	}
+
+	/*
+	div.toc ul,
+	div.toc li {
+		margin: 0;
+		padding: 0;
+		border-bottom: 1px solid #f1e5c9;
+	}
+		*/
+	div.toc ul {
+		margin: 0;
+		padding: 0;
+		background-color: #f1e5c9;
+	}
+
+	div.toc li {
+		padding-left: 10px;
+		list-style-position: inside;
+	}
+
+	/*h1 h2 h3 h4滚动时固定在屏幕顶端*/
+	div.toc ul>li,
+	div.toc ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		/* Safari 及其他兼容 */
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;
+	}
+
+	div.toc ul>li {
+		z-index: 1;
+		/*#ff7e79*/
+		background-color: skyblue;
+	}
+
+	div.toc ul>li>ul>li {
+		z-index: 2;
+		/*#ff7e79*/
+		background-color: rgb(178, 216, 232);
+	}
+
+	div.toc ul>li>ul>li>ul>li {
+		z-index: 3;
+		/*#fbb*/
+		background-color: rgb(210, 231, 239);
+	}
+
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		z-index: 4;
+		background-color: rgb(228, 235, 238);
+	}
+
+	.content {
+		width: 75%;
+		padding-left: 0.5%;
+	}
+}
 </style>
     </head>
     <body class="vscode-body vscode-light">
-        <h1 id="第一时间看透对方fbi教你破解身体语言">第一时间看透对方：FBI教你破解身体语言</h1>
+        <div class="content">
+<h1 id="第一时间看透对方fbi教你破解身体语言">第一时间看透对方：FBI教你破解身体语言</h1>
 <h2 id="美乔纳瓦罗joe-navarro-美马文卡尔林斯marvin-karlins-著王丽-译">[美]乔·纳瓦罗（Joe Navarro） [美]马文·卡尔林斯（Marvin Karlins） 著|王丽 译</h2>
 <h3 id="前言-我知道你在想什么">前言 我知道你在想什么</h3>
 <p>如果放在50年前，本书是无法得到科学界的认同的。但是现在，随着脑扫描技术和中枢成像技术的发展，科学家们已经能够证实作者的论述了。如今，他的经验已得到世界范围内的认可，他本人也多次接受nbc的《今日秀》、cnn的《头条新闻》、《福克斯有线新闻》和abc的《早安美国》等节目的访谈。他不仅是很多知名银行和保险公司的顾问，同时也是国内外各大律师事务所的顾问。</p>
@@ -551,7 +674,103 @@ img {
 <p>这是一种假笑或一种“礼貌的笑”:嘴角被拉向耳朵的方向，眼睛中元不出任何感情。</p>
 <h3 id="第八章-查找欺骗行为">第八章 查找欺骗行为</h3>
 <h3 id="结语-人生的两种语言">结语 人生的两种语言</h3>
-
+</div>
+<div class="toc">
+<ul>
+<li><a href="#%E7%AC%AC%E4%B8%80%E6%97%B6%E9%97%B4%E7%9C%8B%E9%80%8F%E5%AF%B9%E6%96%B9fbi%E6%95%99%E4%BD%A0%E7%A0%B4%E8%A7%A3%E8%BA%AB%E4%BD%93%E8%AF%AD%E8%A8%80">第一时间看透对方：FBI教你破解身体语言</a>
+<ul>
+<li><a href="#%E7%BE%8E%E4%B9%94%E7%BA%B3%E7%93%A6%E7%BD%97joe-navarro-%E7%BE%8E%E9%A9%AC%E6%96%87%E5%8D%A1%E5%B0%94%E6%9E%97%E6%96%AFmarvin-karlins-%E8%91%97%E7%8E%8B%E4%B8%BD-%E8%AF%91">[美]乔·纳瓦罗（Joe Navarro） [美]马文·卡尔林斯（Marvin Karlins） 著|王丽 译</a>
+<ul>
+<li><a href="#%E5%89%8D%E8%A8%80-%E6%88%91%E7%9F%A5%E9%81%93%E4%BD%A0%E5%9C%A8%E6%83%B3%E4%BB%80%E4%B9%88">前言 我知道你在想什么</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%BA%AB%E4%BD%93%E8%AF%AD%E8%A8%80%E7%9A%84%E7%A7%98%E5%AF%86">第一章 身体语言的秘密</a></li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%88%91%E4%BB%AC%E7%9A%84%E8%BE%B9%E7%BC%98%E5%A4%A7%E8%84%91">第二章 我们的边缘大脑</a>
+<ul>
+<li><a href="#%E5%86%BB%E7%BB%93%E5%8F%8D%E5%BA%94">冻结反应</a></li>
+<li><a href="#%E9%80%83%E8%B7%91%E5%8F%8D%E5%BA%94">逃跑反应</a></li>
+<li><a href="#%E6%88%98%E6%96%97%E5%8F%8D%E5%BA%94">战斗反应</a></li>
+<li><a href="#%E5%AE%89%E6%85%B0%E8%A1%8C%E4%B8%BA%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7">安慰行为的重要性</a></li>
+<li><a href="#%E9%A2%88%E9%83%A8%E5%8A%A8%E4%BD%9C">颈部动作</a></li>
+<li><a href="#%E5%AE%89%E6%85%B0%E8%A1%8C%E4%B8%BA%E7%9A%84%E7%B1%BB%E5%9E%8B">安慰行为的类型</a></li>
+<li><a href="#%E9%A2%88%E9%83%A8%E5%AE%89%E6%85%B0%E5%8A%A8%E4%BD%9C">颈部安慰动作</a></li>
+<li><a href="#%E8%84%B8%E9%83%A8%E5%AE%89%E6%85%B0%E8%A1%8C%E4%B8%BA">脸部安慰行为</a></li>
+<li><a href="#%E5%A3%B0%E9%9F%B3%E5%AE%89%E6%85%B0%E8%A1%8C%E4%B8%BA">声音安慰行为</a></li>
+<li><a href="#%E8%BF%87%E5%A4%9A%E7%9A%84%E5%93%88%E6%AC%A0">过多的哈欠</a></li>
+<li><a href="#%E6%90%93%E8%85%BF%E5%8A%A8%E4%BD%9C">搓腿动作</a></li>
+<li><a href="#%E9%80%9A%E6%B0%94%E8%A1%8C%E4%B8%BA">通气行为</a></li>
+<li><a href="#%E8%87%AA%E6%88%91%E6%8E%A7%E5%88%B6%E7%9A%84%E6%8B%A5%E6%8A%B1">自我控制的拥抱</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%9C%80%E8%AF%9A%E5%AE%9E%E7%9A%84%E8%85%BF%E8%84%9A">第三章 最诚实的腿脚</a>
+<ul>
+<li><a href="#%E5%BF%AB%E4%B9%90%E8%84%9A">快乐脚</a></li>
+<li><a href="#%E8%BD%AC%E5%90%91%E8%84%9A">转向脚</a></li>
+<li><a href="#%E6%8A%B1%E7%B4%A7%E8%86%9D%E7%9B%96">抱紧膝盖</a></li>
+<li><a href="#%E8%83%8C%E7%A6%BB%E9%87%8D%E5%8A%9B%E7%9A%84%E8%84%9A%E9%83%A8%E8%A1%8C%E4%B8%BA">背离重力的脚部行为</a></li>
+<li><a href="#%E5%8F%89%E5%BC%80%E7%9A%84%E5%8F%8C%E8%85%BF">叉开的双腿</a></li>
+<li><a href="#%E9%AB%98%E5%BA%A6%E8%88%92%E9%80%82%E6%84%9F">高度舒适感</a></li>
+<li><a href="#%E6%81%8B%E7%88%B1%E7%9A%84%E8%85%BF%E8%84%9A">恋爱的腿脚</a></li>
+<li><a href="#%E6%88%91%E4%BB%AC%E9%9C%80%E8%A6%81%E7%A9%BA%E9%97%B4">我们需要空间</a></li>
+<li><a href="#%E4%BB%8E%E6%91%87%E5%8A%A8%E5%88%B0%E8%B8%A2%E5%8A%A8">从摇动到踢动</a></li>
+<li><a href="#%E8%84%9A%E9%83%A8%E5%86%BB%E7%BB%93">脚部冻结</a></li>
+<li><a href="#%E9%94%81%E8%84%9A%E7%A6%BB%E5%BC%80">锁脚，离开</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%9C%80%E5%8F%97%E5%BF%BD%E8%A7%86%E7%9A%84%E8%BA%AF%E5%B9%B2">第四章 最受忽视的躯干</a>
+<ul>
+<li><a href="#%E8%BA%AF%E5%B9%B2%E5%80%BE%E6%96%9C">躯干倾斜</a></li>
+<li><a href="#%E8%85%B9%E4%BE%A7%E5%90%A6%E5%86%B3%E5%92%8C%E8%85%B9%E4%BE%A7%E5%89%8D%E7%BD%AE">腹侧否决和腹侧前置</a></li>
+<li><a href="#%E8%BA%AF%E5%B9%B2%E4%BF%9D%E6%8A%A4">躯干保护</a></li>
+<li><a href="#%E8%BA%AF%E5%B9%B2%E4%BC%B8%E5%B1%95">躯干伸展</a></li>
+<li><a href="#%E5%A4%A7%E5%8F%A3%E5%96%98%E6%B0%94">大口喘气</a></li>
+<li><a href="#%E8%80%B8%E8%82%A9%E6%8C%BA%E8%B5%B7%E8%83%B8%E8%86%9B">耸肩挺起胸膛</a></li>
+<li><a href="#%E8%82%A9%E9%83%A8%E6%94%B6%E7%BC%A9">肩部收缩</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E8%A7%A6%E6%89%8B%E5%8F%AF%E5%8F%8A%E7%9A%84%E4%BF%A1%E6%81%AF">第五章 触手可及的信息</a>
+<ul>
+<li><a href="#%E4%B8%8E%E9%87%8D%E5%8A%9B%E7%9B%B8%E5%85%B3%E7%9A%84%E6%89%8B%E8%87%82%E5%8A%A8%E4%BD%9C">与重力相关的手臂动作</a></li>
+<li><a href="#%E6%94%B6%E5%9B%9E%E7%9A%84%E6%89%8B%E8%87%82">收回的手臂</a></li>
+<li><a href="#%E6%89%8B%E8%87%82%E5%86%BB%E7%BB%93">手臂冻结</a></li>
+<li><a href="#%E6%89%8B%E8%87%82%E7%9A%84%E6%83%85%E6%84%9F%E6%8C%87%E7%A4%BA">手臂的情感指示</a></li>
+<li><a href="#%E4%BF%9D%E6%8C%81%E4%B8%80%E8%87%82%E7%9A%84%E8%B7%9D%E7%A6%BB">“保持一臂的距离”</a></li>
+<li><a href="#%E6%89%8B%E8%87%82%E7%9A%84%E9%A2%86%E5%9C%B0%E5%AE%A3%E8%A8%80">手臂的领地宣言</a></li>
+<li><a href="#%E5%8F%8C%E6%89%8B%E5%8F%89%E8%85%B0">双手叉腰</a></li>
+<li><a href="#%E6%8A%B1%E5%A4%B4">抱头</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E4%BB%A5%E6%89%8B%E8%A7%82%E4%BA%BA%E4%BB%A5%E6%89%8B%E8%A7%82%E5%BF%83">第六章 以手观人，以手观心</a>
+<ul>
+<li><a href="#%E7%A7%AF%E6%9E%81%E6%89%8B%E4%B8%8E%E6%B6%88%E6%9E%81%E6%89%8B">“积极手”与“消极手”</a></li>
+<li><a href="#%E4%BB%A5%E6%89%8B%E8%A7%82%E4%BA%BA">以手观人</a></li>
+<li><a href="#%E6%89%8B%E5%BF%83%E5%87%BA%E6%B1%97">手心出汗</a></li>
+<li><a href="#%E6%89%8B%E6%8E%8C%E9%A2%A4%E5%8A%A8">手掌颤动</a></li>
+<li><a href="#%E9%AB%98%E5%BA%A6%E8%87%AA%E4%BF%A1%E7%9A%84%E6%89%8B%E9%83%A8%E5%8A%A8%E4%BD%9C">高度自信的手部动作</a></li>
+<li><a href="#%E5%B0%96%E5%A1%94%E5%BC%8F%E6%89%8B%E5%8A%BF">尖塔式手势</a></li>
+<li><a href="#%E7%AB%96%E8%B5%B7%E6%8B%87%E6%8C%87">竖起拇指</a></li>
+<li><a href="#%E5%86%BB%E7%BB%93%E7%9A%84%E5%8F%8C%E6%89%8B">冻结的双手</a></li>
+<li><a href="#%E5%8D%81%E6%8C%87%E4%BA%A4%E5%8F%89%E7%B4%A7%E6%89%A3">十指交叉紧扣</a></li>
+<li><a href="#%E6%90%93%E6%89%8B">搓手</a></li>
+<li><a href="#%E6%89%8B%E9%83%A8%E5%8A%A8%E4%BD%9C%E7%9A%84%E8%BD%AC%E6%8D%A2">手部动作的转换</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E8%A1%A8%E6%83%85%E6%80%9D%E7%BB%B4%E7%9A%84%E7%94%BB%E6%9D%BF">第七章 表情，思维的画板</a>
+<ul>
+<li><a href="#%E6%B6%88%E6%9E%81%E8%A1%A8%E6%83%85">消极表情</a></li>
+<li><a href="#%E7%A7%AF%E6%9E%81%E8%A1%A8%E6%83%85">积极表情</a></li>
+<li><a href="#%E6%B6%88%E6%9E%81%E7%9A%84%E7%9C%BC%E9%83%A8%E5%8A%A8%E4%BD%9C">消极的眼部动作</a></li>
+<li><a href="#%E7%A7%AF%E6%9E%81%E7%9A%84%E7%9C%BC%E9%83%A8%E5%8A%A8%E4%BD%9C">积极的眼部动作</a></li>
+<li><a href="#%E8%BF%9E%E7%BB%AD%E7%9C%A8%E7%9C%BC%E8%B7%B3%E5%8A%A8%E7%9C%BC%E7%9D%9B">连续眨眼/跳动眼睛</a></li>
+<li><a href="#%E7%9C%9F%E7%AC%91%E4%B8%8E%E5%81%87%E7%AC%91">真笑与假笑</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E6%9F%A5%E6%89%BE%E6%AC%BA%E9%AA%97%E8%A1%8C%E4%B8%BA">第八章 查找欺骗行为</a></li>
+<li><a href="#%E7%BB%93%E8%AF%AD-%E4%BA%BA%E7%94%9F%E7%9A%84%E4%B8%A4%E7%A7%8D%E8%AF%AD%E8%A8%80">结语 人生的两种语言</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
         
         
     </body>

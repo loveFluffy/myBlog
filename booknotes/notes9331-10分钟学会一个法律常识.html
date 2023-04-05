@@ -17,15 +17,7 @@
 
 </style>
         
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-<style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
+        
         <style>
 .task-list-item {
     list-style-type: none;
@@ -48,6 +40,7 @@ html {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	text-rendering: optimizelegibility;
+	height: 100%;
 }
 
 /* 内外边距通常让各个浏览器样式的表现位置不同 */
@@ -96,8 +89,7 @@ body {
 	color: #333;
 	background: #f1e5c9;
 	font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
-	/* 上、右、下、左 */
-	margin: 5px;
+	height: 100%;
 }
 
 h1,
@@ -116,7 +108,7 @@ h1 {
 	font-size: 2em;
 	text-align: center;
 	/*这个属性如果不定义的话，在md转html的时候会莫名给赋值，导致h1下面出现一条线，所以这里定义一下*/
-	border-bottom-style:none; 
+	border-bottom-style: none;
 }
 
 h2 {
@@ -187,7 +179,7 @@ a:active {
 /* 块/段落引用 */
 blockquote {
 	font-size: 0.9em;
-	line-height: 1.6;
+	line-height: 1.5;
 	position: relative;
 	color: #666;
 	border-left: 2px solid #fbb;
@@ -196,7 +188,7 @@ blockquote {
 }
 
 blockquote p {
-	margin: 0 0 18px;
+	margin: 0 0 1em;
 }
 
 strong,
@@ -259,11 +251,12 @@ ul p {
 	margin-bottom: 0px;
 }
 
+/*
 li {
 	margin-bottom: 0.75em;
 	margin-top: 0.75em;
 }
-
+*/
 ol#footnotes {
 	font-size: 0.95em;
 	padding-top: 1em;
@@ -347,10 +340,140 @@ img {
 	max-width: 1000px;
 	width: 1000px;
 }
+
+/* 选中后背景浅粉色 */
+::selection {
+	background-color: #fbb;
+}
+
+
+
+/* ======== 侧边的目录相关 ======== */
+
+.content {
+	float: right;
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+
+	/* 滚动条 */
+	scrollbar-width: thin;
+	/* thumb & track */
+	scrollbar-color: skyblue #ededed;
+
+	scroll-behavior: smooth;
+}
+
+/* 
+手机：2400*1080
+iPad mini 5：2048*1536
+电脑：1920*1200 
+*/
+/* 窄屏幕：手机竖屏、iPad竖屏 */
+@media (max-width: 1536px) {
+	.content {
+		width: 99.5%;
+		padding-left: 0.5%;
+	}
+
+	/* 不显示目录 */
+	div.toc {
+		display: none;
+	}
+}
+
+/* 宽屏幕：电脑、手机横屏、iPad横屏 */
+@media (min-width: 1537px) {
+	div.toc {
+		line-height: 1.2;
+		max-width: 24%;
+		height: 100vh;
+		padding-right: 0.5%;
+
+		float: left;
+		font-size: 0.7em;
+		overflow: auto;
+		overflow-x: hidden;
+
+		/* 目录栏 滚动时固定在屏幕顶端：仅当父元素没有设置overflow、高度为确定数值且比toc高度更大的时候才起作用*/
+		/* 现在因为toc与body等高，所以不起作用，也无须起作用
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;*/
+
+		/* 滚动条 */
+		scrollbar-width: thin;
+		/* thumb & track */
+		scrollbar-color: rgb(178, 216, 232) #ededed;
+	}
+
+	/*
+	div.toc ul,
+	div.toc li {
+		margin: 0;
+		padding: 0;
+		border-bottom: 1px solid #f1e5c9;
+	}
+		*/
+	div.toc ul {
+		margin: 0;
+		padding: 0;
+		background-color: #f1e5c9;
+	}
+
+	div.toc li {
+		padding-left: 10px;
+		list-style-position: inside;
+	}
+
+	/*h1 h2 h3 h4滚动时固定在屏幕顶端*/
+	div.toc ul>li,
+	div.toc ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		/* Safari 及其他兼容 */
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;
+	}
+
+	div.toc ul>li {
+		z-index: 1;
+		/*#ff7e79*/
+		background-color: skyblue;
+	}
+
+	div.toc ul>li>ul>li {
+		z-index: 2;
+		/*#ff7e79*/
+		background-color: rgb(178, 216, 232);
+	}
+
+	div.toc ul>li>ul>li>ul>li {
+		z-index: 3;
+		/*#fbb*/
+		background-color: rgb(210, 231, 239);
+	}
+
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		z-index: 4;
+		background-color: rgb(228, 235, 238);
+	}
+
+	.content {
+		width: 75%;
+		padding-left: 0.5%;
+	}
+}
 </style>
     </head>
     <body class="vscode-body vscode-light">
-        <h1 id="10分钟学会一个法律常识">10分钟学会一个法律常识</h1>
+        <div class="content">
+<h1 id="10分钟学会一个法律常识">10分钟学会一个法律常识</h1>
 <h2 id="辛辉-主编">辛辉 主编</h2>
 <h2 id="第一章-衣食住行日常生活中的百姓权益">第一章 衣食住行——日常生活中的百姓权益</h2>
 <h3 id="一餐饮纠纷">一、餐饮纠纷</h3>
@@ -1038,7 +1161,727 @@ img {
 <h4 id="执行涉及案外人财产时案外人如何保护自己的利益">执行涉及案外人财产时，案外人如何保护自己的利益?</h4>
 <h4 id="被执行人死亡能否执行遗产">被执行人死亡，能否执行遗产?</h4>
 <h4 id="被执行人延期履行义务的后果是什么">被执行人延期履行义务的后果是什么?</h4>
-
+</div>
+<div class="toc">
+<ul>
+<li><a href="#%E4%B8%80%E9%A4%90%E9%A5%AE%E7%BA%A0%E7%BA%B7">一、餐饮纠纷</a>
+<ul>
+<li><a href="#%E5%9C%A8%E9%A4%90%E9%A6%86%E5%90%83%E9%A5%AD%E6%97%B6%E8%B4%A2%E7%89%A9%E4%B8%A2%E5%A4%B1%E5%BA%97%E4%B8%BB%E6%98%AF%E5%90%A6%E5%BA%94%E5%BD%93%E6%89%BF%E6%8B%85%E8%B4%A3%E4%BB%BB">在餐馆吃饭时财物丢失，店主是否应当承担责任?</a></li>
+<li><a href="#%E9%A1%BE%E5%AE%A2%E5%B0%B1%E9%A4%90%E6%97%B6%E6%94%BE%E5%9C%A8%E8%BD%A6%E5%86%85%E7%9A%84%E8%B4%A2%E7%89%A9%E4%B8%A2%E5%A4%B1%E9%85%92%E5%BA%97%E5%BA%94%E8%B4%9F%E8%B4%A3%E8%B5%94%E5%81%BF%E5%90%97">顾客就餐时放在车内的财物丢失，酒店应负责赔偿吗?</a></li>
+<li><a href="#%E9%A1%BE%E5%AE%A2%E5%9C%A8%E5%90%83%E7%81%AB%E9%94%85%E6%97%B6%E8%A2%AB%E7%83%AB%E4%BC%A4%E5%8F%AF%E4%BB%A5%E8%A6%81%E6%B1%82%E9%A5%AD%E5%BA%97%E8%B5%94%E5%81%BF%E5%8C%BB%E7%96%97%E8%B4%B9%E5%90%97">顾客在吃火锅时被烫伤可以要求饭店赔偿医疗费吗?</a></li>
+<li><a href="#%E9%85%92%E5%BA%97%E7%A6%81%E6%AD%A2%E9%A1%BE%E5%AE%A2%E8%87%AA%E5%B8%A6%E9%85%92%E6%B0%B4%E6%88%96%E8%80%85%E6%94%B6%E5%8F%96%E5%BC%80%E7%93%B6%E8%B4%B9%E5%90%88%E6%B3%95%E5%90%97">酒店禁止顾客自带酒水或者收取“开瓶费”合法吗?</a></li>
+<li><a href="#%E9%A2%84%E8%AE%A2%E7%9A%84%E9%85%92%E5%B8%AD%E8%A2%AB%E5%8F%96%E6%B6%88%E5%8F%AF%E4%BB%A5%E5%8F%8C%E5%80%8D%E7%B4%A2%E8%BF%98%E5%AE%9A%E9%87%91%E5%90%97">预订的酒席被取消，可以双倍索还定金吗?</a></li>
+<li><a href="#%E6%80%8E%E6%A0%B7%E5%BA%94%E5%AF%B9%E4%BC%98%E6%83%A0%E6%B4%BB%E5%8A%A8%E7%9A%84%E6%9C%80%E7%BB%88%E8%A7%A3%E9%87%8A%E6%9D%83%E5%BD%92%E9%A5%AD%E5%BA%97%E6%89%80%E6%9C%89">怎样应对“优惠活动的最终解释权归饭店所有”?</a></li>
+<li><a href="#%E9%85%92%E5%BA%97%E4%BB%A5%E6%B6%88%E8%B4%B9%E5%B0%8F%E7%A5%A8%E6%B2%A1%E7%9B%96%E7%AB%A0%E4%B8%BA%E7%94%B1%E4%B8%8D%E7%BB%99%E5%BC%80%E5%8F%91%E7%A5%A8%E6%80%8E%E4%B9%88%E5%8A%9E">酒店以消费小票没盖章为由不给开发票怎么办?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C%E8%B4%AD%E7%89%A9%E7%BA%A0%E7%BA%B7">二、购物纠纷</a>
+<ul>
+<li><a href="#%E8%B4%AD%E7%89%A9%E8%BF%94%E5%88%B8%E5%87%BA%E7%8E%B0%E8%B4%A8%E9%87%8F%E9%97%AE%E9%A2%98%E6%80%8E%E6%A0%B7%E5%8A%9E%E7%90%86%E9%80%80%E8%B4%A7">购物返券，出现质量问题怎样办理退货?</a></li>
+<li><a href="#%E5%9C%A8%E5%B1%95%E9%94%80%E4%BC%9A%E4%B8%8A%E4%B9%B0%E5%88%B0%E5%8A%A3%E8%B4%A8%E5%95%86%E5%93%81%E5%8F%AF%E4%BB%A5%E8%A6%81%E6%B1%82%E4%B8%BE%E5%8A%9E%E8%80%85%E8%B5%94%E5%81%BF%E5%90%97">在展销会上买到劣质商品，可以要求举办者赔偿吗?</a></li>
+<li><a href="#%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E4%BB%98%E6%AC%BE%E5%90%8E%E5%8D%B4%E6%B2%A1%E6%9C%89%E6%94%B6%E5%88%B0%E8%B4%A7%E5%BA%94%E8%AF%A5%E6%89%BE%E5%BA%97%E5%AE%B6%E8%BF%98%E6%98%AF%E6%89%BE%E7%BD%91%E7%AB%99%E8%B5%94%E5%81%BF">网上购物付款后却没有收到货，应该找店家还是找网站赔偿?</a></li>
+<li><a href="#%E6%B6%88%E8%B4%B9%E8%80%85%E5%9C%A8%E8%90%A5%E4%B8%9A%E5%9C%BA%E6%89%80%E8%A2%AB%E4%BA%BA%E6%AE%B4%E6%89%93%E5%A6%82%E4%BD%95%E7%B4%A2%E8%B5%94">消费者在营业场所被人殴打如何索赔?</a></li>
+<li><a href="#%E6%89%93%E6%8A%98%E5%95%86%E5%93%81%E4%B8%8D%E5%BC%80%E5%8F%91%E7%A5%A8%E5%90%88%E6%B3%95%E5%90%97">打折商品不开发票合法吗?</a></li>
+<li><a href="#%E7%94%A8%E8%B4%AD%E7%89%A9%E5%8D%A1%E4%B9%B0%E4%B8%9C%E8%A5%BF%E8%B6%85%E5%B8%82%E5%8F%AF%E4%BB%A5%E4%B8%8D%E7%BB%99%E5%8F%91%E7%A5%A8%E5%90%97">用购物卡买东西，超市可以不给发票吗?</a></li>
+<li><a href="#%E6%B2%A1%E6%9C%89%E5%8F%91%E7%A5%A8%E6%B6%88%E8%B4%B9%E8%80%85%E6%80%8E%E6%A0%B7%E8%A6%81%E6%B1%82%E8%B5%94%E5%81%BF">没有发票消费者怎样要求赔偿?</a></li>
+<li><a href="#%E9%A1%BE%E5%AE%A2%E7%9A%84%E7%89%A9%E5%93%81%E5%9C%A8%E8%B6%85%E5%B8%82%E5%85%8D%E8%B4%B9%E5%AF%84%E5%AD%98%E6%97%B6%E8%A2%AB%E8%B0%83%E5%8C%85%E8%B6%85%E5%B8%82%E6%98%AF%E5%90%A6%E6%89%BF%E6%8B%85%E8%B4%A3%E4%BB%BB">顾客的物品在超市免费寄存时被调包超市是否承担责任?</a></li>
+<li><a href="#%E5%95%86%E5%BA%97%E5%87%BA%E5%94%AE%E5%81%87%E8%B4%A7%E5%90%8E%E6%B6%88%E8%B4%B9%E8%80%85%E5%8F%AF%E5%90%A6%E8%A6%81%E6%B1%82%E5%85%B6%E5%8F%8C%E5%80%8D%E8%B5%94%E5%81%BF">商店出售假货后消费者可否要求其双倍赔偿?</a></li>
+<li><a href="#%E8%B5%A0%E5%93%81%E6%9C%89%E8%B4%A8%E9%87%8F%E9%97%AE%E9%A2%98%E5%8F%AF%E4%BB%A5%E7%B4%A2%E8%B5%94%E5%90%97">赠品有质量问题可以索赔吗?</a></li>
+<li><a href="#%E4%BF%9D%E4%BF%AE%E6%9C%9F%E5%86%85%E9%80%80%E6%8D%A2%E6%89%8B%E6%9C%BA%E8%BF%98%E8%A6%81%E4%BA%A4%E7%BA%B3%E6%8D%A2%E5%A3%B3%E8%B4%B9%E5%90%97">保修期内退换手机还要交纳“换壳费”吗?</a></li>
+<li><a href="#%E6%B6%88%E8%B4%B9%E8%80%85%E6%B2%A1%E6%9C%89%E8%AE%A4%E7%9C%9F%E9%AA%8C%E8%B4%A7%E4%B9%B0%E5%9B%9E%E5%90%8E%E5%87%BA%E7%8E%B0%E8%B4%A8%E9%87%8F%E9%97%AE%E9%A2%98%E5%8F%AF%E4%BB%A5%E8%A6%81%E6%B1%82%E9%80%80%E6%8D%A2%E5%90%97">消费者没有认真验货，买回后出现质量问题可以要求退换吗?</a></li>
+<li><a href="#%E4%BF%83%E9%94%80%E6%89%93%E6%8A%98%E7%9A%84%E5%95%86%E5%93%81%E5%87%BA%E7%8E%B0%E8%B4%A8%E9%87%8F%E9%97%AE%E9%A2%98%E5%B0%B1%E5%8F%AF%E4%BB%A5%E4%B8%8D%E4%BA%88%E9%80%80%E8%B4%A7%E5%90%97">促销、打折的商品出现质量问题就可以不予退货吗?</a></li>
+<li><a href="#%E5%95%86%E5%BA%97%E8%A7%84%E5%AE%9A%E5%81%B7%E4%B8%80%E7%BD%9A%E5%8D%81%E5%90%88%E6%B3%95%E5%90%97">商店规定“偷一罚十”合法吗?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89%E4%BD%8F%E5%AE%BF%E7%BA%A0%E7%BA%B7">三、住宿纠纷</a>
+<ul>
+<li><a href="#%E6%97%85%E9%A6%86%E5%AF%B9%E9%A1%BE%E5%AE%A2%E6%96%97%E6%AE%B4%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%9C%AA%E5%8F%8A%E6%97%B6%E5%88%B6%E6%AD%A2%E6%98%AF%E5%90%A6%E5%BA%94%E5%BD%93%E6%89%BF%E6%8B%85%E8%B5%94%E5%81%BF%E8%B4%A3%E4%BB%BB">旅馆对顾客斗殴的事件未及时制止，是否应当承担赔偿责任?</a></li>
+<li><a href="#%E6%97%85%E5%AE%A2%E5%9C%A8%E5%AE%BE%E9%A6%86%E4%BD%8F%E5%AE%BF%E8%A2%AB%E6%9D%80%E5%AE%B3%E5%AE%BE%E9%A6%86%E6%98%AF%E5%90%A6%E5%BA%94%E5%BD%93%E6%89%BF%E6%8B%85%E8%B4%A3%E4%BB%BB">旅客在宾馆住宿被杀害，宾馆是否应当承担责任?</a></li>
+<li><a href="#%E4%BD%8F%E5%AE%BF%E6%97%B6%E8%A2%AB%E6%97%85%E5%BA%97%E4%BF%9D%E5%AE%89%E6%AE%B4%E6%89%93%E6%97%85%E5%BA%97%E7%BB%8F%E8%90%A5%E8%80%85%E6%98%AF%E5%90%A6%E6%89%BF%E6%8B%85%E8%B4%A3%E4%BB%BB">住宿时被旅店保安殴打，旅店经营者是否承担责任?</a></li>
+<li><a href="#%E6%97%85%E9%A6%86%E9%98%BB%E6%AD%A2%E6%9C%AA%E4%BB%98%E6%88%BF%E6%AC%BE%E7%9A%84%E5%AE%A2%E4%BA%BA%E7%A6%BB%E5%BC%80%E6%98%AF%E5%90%A6%E4%B8%BA%E4%BE%B5%E6%9D%83">旅馆阻止未付房款的客人离开，是否为侵权?</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B%E5%87%BA%E8%A1%8C%E7%BA%A0%E7%BA%B7">四、出行纠纷</a>
+<ul>
+<li><a href="#%E4%B9%98%E5%AE%A2%E4%B9%98%E5%9D%90%E5%87%BA%E7%A7%9F%E8%BD%A6%E9%81%AD%E9%81%87%E4%BA%A4%E9%80%9A%E4%BA%8B%E6%95%85%E5%BA%94%E8%AF%A5%E5%90%91%E8%B0%81%E7%B4%A2%E8%B5%94">乘客乘坐出租车遭遇交通事故，应该向谁索赔?</a></li>
+<li><a href="#%E5%87%BA%E7%A7%9F%E8%BD%A6%E5%8F%B8%E6%9C%BA%E6%8B%92%E8%BD%BD%E4%B9%98%E5%AE%A2%E6%80%8E%E4%B9%88%E5%8A%9E">出租车司机拒载乘客怎么办?</a></li>
+<li><a href="#%E5%87%BA%E5%94%AE%E8%BD%A6%E7%A5%A8%E6%90%AD%E5%94%AE%E4%BF%9D%E9%99%A9%E7%9A%84%E8%A1%8C%E4%B8%BA%E5%90%88%E6%B3%95%E5%90%97">出售车票搭售保险的行为合法吗?</a></li>
+<li><a href="#%E5%85%8D%E7%A5%A8%E4%B9%98%E8%BD%A6%E5%8F%91%E7%94%9F%E4%BA%A4%E9%80%9A%E6%84%8F%E5%A4%96%E8%83%BD%E5%90%A6%E8%8E%B7%E5%BE%97%E8%BD%A6%E4%B8%BB%E8%B5%94%E5%81%BF">免票乘车，发生交通意外能否获得车主赔偿?</a></li>
+<li><a href="#%E4%B9%98%E5%9D%90%E5%AE%A2%E8%BD%A6%E8%A1%8C%E6%9D%8E%E4%B8%A2%E5%A4%B1%E5%8F%AF%E5%90%A6%E5%90%91%E6%89%BF%E8%BF%90%E6%96%B9%E7%B4%A2%E8%B5%94">乘坐客车行李丢失，可否向承运方索赔?</a></li>
+<li><a href="#%E7%A9%BA%E8%B0%83%E8%BD%A6%E4%B8%8D%E5%BC%80%E7%A9%BA%E8%B0%83%E4%B9%98%E5%AE%A2%E5%8F%AF%E4%BB%A5%E8%A6%81%E6%B1%82%E9%80%80%E7%A5%A8%E5%90%97">空调车不开空调，乘客可以要求退票吗?</a></li>
+<li><a href="#%E6%B2%A1%E6%9C%89%E6%A3%80%E7%A5%A8%E5%85%A5%E7%AB%99%E7%9A%84%E4%B9%98%E5%AE%A2%E5%9C%A8%E7%AB%99%E5%86%85%E5%8F%97%E4%BC%A4%E5%8F%AF%E4%BB%A5%E8%A6%81%E6%B1%82%E8%BD%A6%E7%AB%99%E8%B5%94%E5%81%BF%E5%90%97">没有检票入站的乘客在站内受伤，可以要求车站赔偿吗?</a></li>
+<li><a href="#%E6%89%BF%E8%BF%90%E6%96%B9%E6%B2%A1%E6%9C%89%E5%8F%8A%E6%97%B6%E6%8A%8A%E6%82%A3%E7%97%85%E7%9A%84%E4%B9%98%E5%AE%A2%E9%80%81%E5%88%B0%E5%8C%BB%E9%99%A2%E6%95%91%E6%B2%BB%E5%BA%94%E5%AF%B9%E4%B9%98%E5%AE%A2%E7%9A%84%E6%AD%BB%E4%BA%A1%E6%89%BF%E6%8B%85%E8%B4%A3%E4%BB%BB%E5%90%97">承运方没有及时把患病的乘客送到医院救治，应对乘客的死亡承担责任吗?</a></li>
+<li><a href="#%E4%B9%98%E5%AE%A2%E8%87%AA%E5%B7%B1%E6%8A%8A%E8%83%B3%E8%86%8A%E4%BC%B8%E5%87%BA%E8%BD%A6%E5%A4%96%E5%AF%BC%E8%87%B4%E5%8F%97%E4%BC%A4%E5%8F%AF%E4%BB%A5%E8%A6%81%E6%B1%82%E8%B5%94%E5%81%BF%E5%90%97">乘客自己把胳膊伸出车外导致受伤，可以要求赔偿吗?</a></li>
+<li><a href="#%E9%A3%9E%E6%9C%BA%E6%99%9A%E7%82%B9%E4%B9%98%E5%AE%A2%E5%8F%AF%E4%BB%A5%E8%A6%81%E6%B1%82%E6%9B%B4%E6%8D%A2%E7%8F%AD%E6%9C%BA%E6%88%96%E8%80%85%E9%80%80%E7%A5%A8%E5%90%97">飞机晚点，乘客可以要求更换班机或者退票吗?</a></li>
+<li><a href="#%E4%B9%98%E5%AE%A2%E8%A7%81%E4%B9%89%E5%8B%87%E4%B8%BA%E8%80%8C%E5%8F%97%E4%BC%A4%E5%8F%AF%E4%BB%A5%E8%A6%81%E6%B1%82%E8%BF%90%E8%BE%93%E4%BA%BA%E6%89%BF%E6%8B%85%E8%B4%A3%E4%BB%BB%E5%90%97">乘客见义勇为而受伤，可以要求运输人承担责任吗?</a></li>
+<li><a href="#%E6%B8%B8%E5%AE%A2%E5%9C%A8%E6%97%85%E6%B8%B8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%8C%9D%E6%AD%BB%E6%97%85%E8%A1%8C%E7%A4%BE%E5%BA%94%E5%90%A6%E8%B5%94%E5%81%BF">游客在旅游过程中猝死，旅行社应否赔偿?</a></li>
+<li><a href="#%E6%B8%B8%E5%AE%A2%E5%8F%AF%E4%BB%A5%E5%9B%A0%E6%97%85%E8%A1%8C%E7%A4%BE%E5%8D%95%E6%96%B9%E9%9D%A2%E5%8F%98%E6%9B%B4%E6%97%85%E6%B8%B8%E6%99%AF%E7%82%B9%E8%80%8C%E8%A6%81%E6%B1%82%E8%B5%94%E5%81%BF%E5%90%97">游客可以因旅行社单方面变更旅游景点而要求赔偿吗?</a></li>
+<li><a href="#%E6%B8%B8%E5%AE%A2%E8%87%AA%E5%B7%B1%E6%9C%AA%E5%B0%BD%E5%AE%89%E5%85%A8%E4%B9%89%E5%8A%A1%E8%80%8C%E5%8F%97%E4%BC%A4%E5%8F%AF%E5%90%A6%E8%A6%81%E6%B1%82%E6%99%AF%E5%8C%BA%E7%AE%A1%E7%90%86%E8%80%85%E8%B5%94%E5%81%BF">游客自己未尽安全义务而受伤，可否要求景区管理者赔偿?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%94%E4%BA%A4%E9%80%9A%E4%BA%8B%E6%95%85">五、交通事故</a>
+<ul>
+<li><a href="#%E5%8F%91%E7%94%9F%E4%BA%A4%E9%80%9A%E4%BA%8B%E6%95%85%E5%90%8E%E5%BD%93%E4%BA%8B%E4%BA%BA%E5%BA%94%E8%AF%A5%E6%80%8E%E4%B9%88%E5%8A%9E">发生交通事故后，当事人应该怎么办?</a></li>
+<li><a href="#%E9%AA%91%E8%87%AA%E8%A1%8C%E8%BD%A6%E6%8A%8A%E4%BA%BA%E6%92%9E%E6%AD%BB%E6%9E%84%E6%88%90%E4%BA%A4%E9%80%9A%E4%BA%8B%E6%95%85%E5%90%97">骑自行车把人撞死，构成交通事故吗?</a></li>
+<li><a href="#%E8%BF%9D%E8%A7%84%E5%81%9C%E6%94%BE%E8%BD%A6%E8%BE%86%E5%BC%95%E5%8F%91%E4%BA%A4%E9%80%9A%E4%BA%8B%E6%95%85%E5%81%9C%E8%BD%A6%E8%80%85%E6%98%AF%E5%90%A6%E5%BA%94%E6%89%BF%E6%8B%85%E8%B4%A3%E4%BB%BB">违规停放车辆引发交通事故，停车者是否应承担责任?</a></li>
+<li><a href="#%E4%BA%A4%E9%80%9A%E4%BA%8B%E6%95%85%E4%B8%AD%E8%A1%8C%E4%BA%BA%E8%B4%9F%E5%85%A8%E8%B4%A3%E5%B0%B1%E6%92%9E%E4%BA%86%E7%99%BD%E6%92%9E%E5%90%97">交通事故中行人负全责，就“撞了白撞”吗?</a></li>
+<li><a href="#%E5%80%9F%E4%BA%A4%E9%80%9A%E4%BA%8B%E6%95%85%E5%AE%9E%E6%96%BD%E8%87%AA%E6%9D%80%E6%9C%BA%E5%8A%A8%E8%BD%A6%E4%B8%80%E6%96%B9%E5%BA%94%E6%89%BF%E6%8B%85%E8%B4%A3%E4%BB%BB%E5%90%97">借交通事故实施自杀，机动车一方应承担责任吗?</a></li>
+<li><a href="#%E9%AA%91%E8%BD%A6%E4%BA%BA%E4%B8%8E%E9%85%92%E5%90%8E%E9%A9%BE%E8%BD%A6%E5%8F%B8%E6%9C%BA%E6%8A%A2%E9%81%93%E5%8F%91%E7%94%9F%E4%BA%8B%E6%95%85%E6%9C%BA%E5%8A%A8%E8%BD%A6%E4%B8%80%E6%96%B9%E8%B4%9F%E5%85%A8%E8%B4%A3%E5%90%97">骑车人与酒后驾车司机抢道发生事故，机动车一方负全责吗?</a></li>
+<li><a href="#%E5%A4%A7%E9%9B%BE%E6%98%AF%E4%BA%A4%E9%80%9A%E4%BA%8B%E6%95%85%E7%9A%84%E5%BF%85%E7%84%B6%E5%85%8D%E8%B4%A3%E7%90%86%E7%94%B1%E5%90%97">大雾是交通事故的必然免责理由吗?</a></li>
+<li><a href="#%E5%B0%86%E8%BD%A6%E8%BE%86%E5%80%9F%E7%BB%99%E6%97%A0%E9%A9%BE%E9%A9%B6%E8%AF%81%E7%9A%84%E4%BA%BA%E5%BC%95%E5%8F%91%E4%BA%8B%E6%95%85%E8%BD%A6%E4%B8%BB%E5%BA%94%E6%89%BF%E6%8B%85%E8%B4%A3%E4%BB%BB%E5%90%97">将车辆借给无驾驶证的人引发事故，车主应承担责任吗?</a></li>
+<li><a href="#%E4%BA%A4%E9%80%9A%E4%BA%8B%E6%95%85%E8%B4%A3%E4%BB%BB%E4%BA%BA%E4%B8%8D%E5%B1%A5%E8%A1%8C%E8%B5%94%E5%81%BF%E5%8D%8F%E8%AE%AE%E5%8F%A6%E4%B8%80%E6%96%B9%E5%8F%AF%E4%BB%A5%E8%A6%81%E6%B1%82%E5%BC%BA%E5%88%B6%E6%89%A7%E8%A1%8C%E5%90%97">交通事故责任人不履行赔偿协议，另一方可以要求强制执行吗?</a></li>
+<li><a href="#%E4%BA%A4%E9%80%9A%E4%BA%8B%E6%95%85%E5%9C%A8%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E5%8F%AF%E4%BB%A5%E7%A7%81%E4%BA%86">交通事故在什么情况下可以私了?</a></li>
+<li><a href="#%E5%9C%A8%E4%BA%A4%E9%80%9A%E4%BA%8B%E6%95%85%E4%B8%AD%E5%8F%97%E4%BC%A4%E5%8C%BB%E9%99%A2%E5%8F%AF%E4%BB%A5%E5%9B%A0%E4%B8%BA%E6%B2%A1%E4%BA%A4%E5%8C%BB%E7%96%97%E8%B4%B9%E8%80%8C%E6%8B%92%E7%BB%9D%E6%95%91%E6%B2%BB%E5%90%97">在交通事故中受伤，医院可以因为没交医疗费而拒绝救治吗?</a></li>
+<li><a href="#%E4%BA%A4%E9%80%9A%E4%BA%8B%E6%95%85%E7%9A%84%E6%AD%BB%E8%80%85%E5%AE%B6%E5%B1%9E%E5%8F%AF%E4%BB%A5%E5%9B%A0%E4%B8%BA%E4%BA%8B%E6%95%85%E5%8E%9F%E5%9B%A0%E4%B8%8D%E6%98%8E%E8%80%8C%E6%8B%92%E7%BB%9D%E5%A4%84%E7%90%86%E6%AD%BB%E8%80%85%E5%B0%B8%E4%BD%93%E5%90%97">交通事故的死者家属可以因为事故原因不明而拒绝处理死者尸体吗?</a></li>
+<li><a href="#%E4%BA%A4%E9%80%9A%E8%82%87%E4%BA%8B%E5%90%8E%E5%BC%83%E8%BD%A6%E9%80%83%E7%A6%BB%E7%9A%84%E6%98%AF%E5%90%A6%E5%B1%9E%E4%BA%8E%E4%BA%A4%E9%80%9A%E8%82%87%E4%BA%8B%E9%80%83%E9%80%B8%E8%A1%8C%E4%B8%BA">交通肇事后弃车逃离的，是否属于交通肇事逃逸行为?</a></li>
+<li><a href="#%E4%BA%A4%E9%80%9A%E4%BA%8B%E6%95%85%E8%B4%A3%E4%BB%BB%E4%BA%BA%E6%8B%92%E7%BB%9D%E8%B5%94%E5%81%BF%E5%8C%BB%E7%96%97%E8%B4%B9%E6%80%8E%E4%B9%88%E5%8A%9E">交通事故责任人拒绝赔偿医疗费怎么办?</a></li>
+<li><a href="#%E5%9B%A0%E6%9C%BA%E5%8A%A8%E8%BD%A6%E8%B4%A8%E9%87%8F%E9%97%AE%E9%A2%98%E9%80%A0%E6%88%90%E4%BA%A4%E9%80%9A%E4%BA%8B%E6%95%85%E5%BA%94%E8%AF%A5%E7%94%B1%E8%B0%81%E6%89%BF%E6%8B%85%E8%B5%94%E5%81%BF%E8%B4%A3%E4%BB%BB">因机动车质量问题造成交通事故，应该由谁承担赔偿责任?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%80%E5%87%BA%E7%94%9F">一、出生</a>
+<ul>
+<li><a href="#%E5%AD%A9%E5%AD%90%E7%9A%84%E6%B3%95%E5%AE%9A%E5%87%BA%E7%94%9F%E6%97%A5%E6%9C%9F%E6%80%8E%E6%A0%B7%E7%A1%AE%E5%AE%9A%E6%9C%89%E4%BD%95%E6%84%8F%E4%B9%89">孩子的法定出生日期怎样确定?有何意义?</a></li>
+<li><a href="#%E6%80%8E%E6%A0%B7%E4%B8%BA%E9%9D%9E%E5%A9%9A%E7%94%9F%E5%AD%90%E5%A5%B3%E5%8A%9E%E7%90%86%E6%88%B7%E5%8F%A3">怎样为非婚生子女办理户口?</a></li>
+<li><a href="#%E5%AD%A9%E5%AD%90%E4%B8%80%E5%AE%9A%E8%A6%81%E9%9A%8F%E7%88%B6%E5%A7%93%E5%90%97">孩子一定要随父姓吗?</a></li>
+<li><a href="#%E5%AE%9D%E5%AE%9D%E8%A6%81%E5%85%A5%E5%B9%BC%E5%84%BF%E5%9B%AD%E4%B8%80%E5%AE%9A%E8%A6%81%E6%9C%89%E5%85%8D%E7%96%AB%E6%8E%A5%E7%A7%8D%E8%AF%81%E5%90%97">宝宝要入幼儿园，一定要有免疫接种证吗?</a></li>
+<li><a href="#%E6%96%B0%E7%94%9F%E5%84%BF%E5%85%B7%E6%9C%89%E6%B0%91%E4%BA%8B%E6%9D%83%E5%88%A9%E5%90%97">新生儿具有民事权利吗?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C%E9%80%80%E4%BC%91%E4%B8%8E%E5%85%BB%E8%80%81">二、退休与养老</a>
+<ul>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%B3%95%E5%AE%9A%E9%80%80%E4%BC%91%E5%B9%B4%E9%BE%84">什么是法定退休年龄?</a></li>
+<li><a href="#%E4%BB%80%E4%B9%88%E4%BA%BA%E5%8F%AF%E4%BB%A5%E5%8F%82%E5%8A%A0%E5%9F%BA%E6%9C%AC%E5%85%BB%E8%80%81%E4%BF%9D%E9%99%A9">什么人可以参加基本养老保险?</a></li>
+<li><a href="#%E5%91%98%E5%B7%A5%E8%A2%AB%E8%A7%A3%E8%81%98%E5%90%8E%E8%83%BD%E8%A6%81%E5%9B%9E%E8%87%AA%E5%B7%B1%E4%BA%A4%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%85%BB%E8%80%81%E4%BF%9D%E9%99%A9%E5%90%97">员工被解聘后，能要回自己交的基本养老保险吗?</a></li>
+<li><a href="#%E8%81%8C%E5%B7%A5%E5%8F%AF%E4%BB%A5%E6%8B%92%E7%BB%9D%E5%8F%82%E5%8A%A0%E5%9F%BA%E6%9C%AC%E5%85%BB%E8%80%81%E4%BF%9D%E9%99%A9%E5%90%97">职工可以拒绝参加基本养老保险吗?</a></li>
+<li><a href="#%E5%9B%A0%E5%85%AC%E5%8F%B8%E5%8E%9F%E5%9B%A0%E6%9C%AA%E4%B8%8A%E5%85%BB%E8%80%81%E4%BF%9D%E9%99%A9%E8%BF%87%E5%90%8E%E5%8F%AF%E4%BB%A5%E8%A1%A5%E7%BC%B4%E5%90%97">因公司原因未上养老保险，过后可以补缴吗?</a></li>
+<li><a href="#%E5%85%AC%E5%8F%B8%E4%B8%8D%E4%B8%BA%E5%91%98%E5%B7%A5%E7%BC%B4%E7%BA%B3%E5%9F%BA%E6%9C%AC%E5%85%BB%E8%80%81%E4%BF%9D%E9%99%A9%E5%91%98%E5%B7%A5%E5%BA%94%E8%AF%A5%E6%80%8E%E4%B9%88%E5%8A%9E">公司不为员工缴纳基本养老保险，员工应该怎么办?</a></li>
+<li><a href="#%E6%88%B7%E5%8F%A3%E4%B8%8E%E6%A1%A3%E6%A1%88%E4%B8%8D%E5%9C%A8%E5%B7%A5%E4%BD%9C%E6%89%80%E5%9C%A8%E5%9C%B0%E5%8D%95%E4%BD%8D%E5%B0%B1%E5%8F%AF%E4%BB%A5%E4%B8%8D%E7%BB%99%E4%B8%8A%E5%85%BB%E8%80%81%E4%BF%9D%E9%99%A9%E5%90%97">户口与档案不在工作所在地，单位就可以不给上养老保险吗?</a></li>
+<li><a href="#%E5%86%9C%E6%B0%91%E5%B7%A5%E5%A6%82%E4%BD%95%E4%B8%8A%E5%85%BB%E8%80%81%E4%BF%9D%E9%99%A9">农民工如何上养老保险?</a></li>
+<li><a href="#%E5%95%86%E4%B8%9A%E9%99%A9%E4%B8%8E%E5%9F%BA%E6%9C%AC%E5%85%BB%E8%80%81%E4%BF%9D%E9%99%A9%E5%86%B2%E7%AA%81%E5%90%97">商业险与基本养老保险冲突吗?</a></li>
+<li><a href="#%E5%AE%9A%E5%B1%85%E5%9B%BD%E5%A4%96%E7%9A%84%E9%80%80%E4%BC%91%E8%80%85%E8%BF%98%E8%83%BD%E9%A2%86%E5%8F%96%E5%85%BB%E8%80%81%E4%BF%9D%E9%99%A9%E9%87%91%E5%90%97">定居国外的退休者还能领取养老保险金吗?</a></li>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E5%85%BB%E8%80%81%E4%BF%9D%E9%99%A9%E8%B4%B9%E6%AC%A0%E7%BC%B4%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E4%B8%AA%E4%BA%BA%E8%B4%A6%E6%88%B7%E5%BA%94%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86">基本养老保险费欠缴的情况下，个人账户应如何管理?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89%E5%8C%BB%E7%96%97%E7%94%9F%E8%82%B2%E4%BF%9D%E9%99%A9">三、医疗、生育保险</a>
+<ul>
+<li><a href="#%E5%93%AA%E4%BA%9B%E5%8D%95%E4%BD%8D%E5%92%8C%E4%B8%AA%E4%BA%BA%E5%BF%85%E9%A1%BB%E5%8F%82%E5%8A%A0%E5%9F%BA%E6%9C%AC%E5%8C%BB%E7%96%97%E4%BF%9D%E9%99%A9">哪些单位和个人必须参加基本医疗保险?</a></li>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E5%8C%BB%E7%96%97%E4%BF%9D%E9%99%A9%E8%B4%B9%E5%8F%AF%E4%BB%A5%E5%85%A8%E9%83%A8%E7%94%B1%E8%81%8C%E5%B7%A5%E4%B8%AA%E4%BA%BA%E6%89%BF%E6%8B%85%E5%90%97">基本医疗保险费可以全部由职工个人承担吗?</a></li>
+<li><a href="#%E5%8F%82%E5%8A%A0%E5%8C%BB%E7%96%97%E4%BF%9D%E9%99%A9%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%8C%BB%E7%96%97%E6%9C%BA%E6%9E%84">参加医疗保险，如何选择医疗机构?</a></li>
+<li><a href="#%E6%9D%A5%E4%B8%8D%E5%8F%8A%E5%88%B0%E5%AE%9A%E7%82%B9%E5%8C%BB%E7%96%97%E6%9C%BA%E6%9E%84%E5%B0%B1%E5%8C%BB%E6%B2%BB%E7%96%97%E8%B4%B9%E7%94%A8%E8%83%BD%E5%90%A6%E6%8A%A5%E9%94%80">来不及到定点医疗机构就医，治疗费用能否报销?</a></li>
+<li><a href="#%E5%93%AA%E4%BA%9B%E8%8D%AF%E5%93%81%E4%B8%8D%E8%83%BD%E7%94%A8%E5%9F%BA%E6%9C%AC%E5%8C%BB%E7%96%97%E4%BF%9D%E9%99%A9%E6%94%AF%E4%BB%98">哪些药品不能用基本医疗保险支付?</a></li>
+<li><a href="#%E7%94%A8%E4%BA%BA%E5%8D%95%E4%BD%8D%E6%B2%A1%E6%9C%89%E7%BB%99%E8%81%8C%E5%B7%A5%E7%BC%B4%E7%BA%B3%E5%8C%BB%E7%96%97%E4%BF%9D%E9%99%A9%E8%B4%B9%E8%81%8C%E5%B7%A5%E6%82%A3%E7%97%85%E7%9A%84%E5%8C%BB%E7%96%97%E8%B4%B9%E8%B0%81%E6%9D%A5%E6%94%AF%E4%BB%98">用人单位没有给职工缴纳医疗保险费，职工患病的医疗费谁来支付?</a></li>
+<li><a href="#%E7%94%A8%E4%BA%BA%E5%8D%95%E4%BD%8D%E6%98%AF%E5%90%A6%E6%9C%89%E4%B9%89%E5%8A%A1%E4%B8%BA%E5%91%98%E5%B7%A5%E6%8F%90%E4%BE%9B%E8%A1%A5%E5%85%85%E5%8C%BB%E7%96%97%E4%BF%9D%E9%99%A9">用人单位是否有义务为员工提供补充医疗保险?</a></li>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E5%8C%BB%E7%96%97%E4%BF%9D%E9%99%A9%E7%9A%84%E7%BC%B4%E8%B4%B9%E5%9F%BA%E6%95%B0%E6%98%AF%E6%8C%89%E5%9F%BA%E6%9C%AC%E5%B7%A5%E8%B5%84%E5%90%97">基本医疗保险的缴费基数是按基本工资吗?</a></li>
+<li><a href="#%E7%94%9F%E8%82%B2%E4%BF%9D%E9%99%A9%E8%B4%B9%E7%94%B1%E8%B0%81%E7%BC%B4%E7%BA%B3">生育保险费由谁缴纳?</a></li>
+<li><a href="#%E5%A5%B3%E8%81%8C%E5%B7%A5%E5%9B%A0%E7%94%9F%E8%82%B2%E5%BC%95%E8%B5%B7%E7%96%BE%E7%97%85%E5%8C%BB%E7%96%97%E8%B4%B9%E7%94%A8%E6%98%AF%E5%90%A6%E7%94%B1%E7%94%9F%E8%82%B2%E4%BF%9D%E9%99%A9%E5%9F%BA%E9%87%91%E6%94%AF%E4%BB%98">女职工因生育引起疾病，医疗费用是否由生育保险基金支付?</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B%E5%8C%BB%E7%96%97%E4%BA%8B%E6%95%85">四、医疗事故</a>
+<ul>
+<li><a href="#%E9%9D%9E%E6%B3%95%E8%A1%8C%E5%8C%BB%E8%87%B4%E4%BA%BA%E6%8D%9F%E5%AE%B3%E7%9A%84%E5%B1%9E%E4%BA%8E%E5%8C%BB%E7%96%97%E4%BA%8B%E6%95%85%E5%90%97">非法行医致人损害的，属于医疗事故吗?</a></li>
+<li><a href="#%E5%9B%A0%E8%AF%AF%E8%AF%8A%E5%AF%BC%E8%87%B4%E4%BB%96%E4%BA%BA%E4%BC%A4%E6%AE%8B%E7%9A%84%E5%BA%94%E6%89%BF%E6%8B%85%E4%BD%95%E7%A7%8D%E8%B4%A3%E4%BB%BB">因误诊导致他人伤残的应承担何种责任?</a></li>
+<li><a href="#%E5%8C%BB%E7%96%97%E4%BA%8B%E6%95%85%E4%B8%8E%E5%8C%BB%E7%96%97%E5%B7%AE%E9%94%99%E5%A6%82%E4%BD%95%E5%8C%BA%E5%88%86">医疗事故与医疗差错如何区分?</a></li>
+<li><a href="#%E6%8E%A5%E5%88%B0%E6%80%A5%E6%95%91%E7%94%B5%E8%AF%9D%E6%9C%AA%E5%8F%8A%E6%97%B6%E5%87%BA%E8%AF%8A%E5%8C%BB%E9%99%A2%E6%89%BF%E6%8B%85%E8%B4%A3%E4%BB%BB%E5%90%97">接到急救电话未及时出诊，医院承担责任吗?</a></li>
+<li><a href="#%E6%82%A3%E8%80%85%E7%AD%BE%E4%BA%86%E6%89%8B%E6%9C%AF%E5%90%8C%E6%84%8F%E4%B9%A6%E5%87%BA%E7%8E%B0%E4%BA%8B%E6%95%85%E5%8C%BB%E7%94%9F%E5%B0%B1%E4%B8%8D%E8%B4%9F%E8%B4%A3%E5%90%97">患者签了手术同意书，出现事故医生就不负责吗?</a></li>
+<li><a href="#%E6%82%A3%E8%80%85%E4%B8%8D%E9%85%8D%E5%90%88%E6%B2%BB%E7%96%97%E5%AF%BC%E8%87%B4%E7%BB%88%E7%94%9F%E6%AE%8B%E7%96%BE%E6%98%AF%E5%8C%BB%E7%96%97%E4%BA%8B%E6%95%85%E5%90%97">患者不配合治疗导致终生残疾，是医疗事故吗?</a></li>
+<li><a href="#%E7%97%85%E5%8E%86%E5%BA%94%E7%94%B1%E8%B0%81%E4%BF%9D%E7%AE%A1">病历应由谁保管?</a></li>
+<li><a href="#%E5%8C%BB%E7%96%97%E6%8D%9F%E5%AE%B3%E8%B5%94%E5%81%BF%E7%BA%A0%E7%BA%B7%E6%9C%89%E5%93%AA%E4%BA%9B%E8%A7%84%E5%AE%9A">医疗损害赔偿纠纷有哪些规定?</a></li>
+<li><a href="#%E5%8C%BB%E6%82%A3%E5%8F%8C%E6%96%B9%E5%AF%B9%E6%82%A3%E8%80%85%E6%AD%BB%E4%BA%A1%E5%8E%9F%E5%9B%A0%E5%AD%98%E5%9C%A8%E4%BA%89%E8%AE%AE%E6%80%8E%E4%B9%88%E5%8A%9E">医患双方对患者死亡原因存在争议怎么办?</a></li>
+<li><a href="#%E5%87%BA%E7%8E%B0%E5%8C%BB%E7%96%97%E4%BA%8B%E6%95%85%E6%82%A3%E8%80%85%E5%8F%AF%E4%BB%A5%E8%A6%81%E6%B1%82%E8%B5%94%E5%81%BF%E5%93%AA%E4%BA%9B%E6%8D%9F%E5%A4%B1">出现医疗事故，患者可以要求赔偿哪些损失?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%94%E6%AD%BB%E4%BA%A1%E4%B8%8E%E4%B8%A7%E8%91%AC">五、死亡与丧葬</a>
+<ul>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%AE%A3%E5%91%8A%E6%AD%BB%E4%BA%A1%E5%AE%A3%E5%91%8A%E6%AD%BB%E4%BA%A1%E8%83%BD%E5%BC%95%E8%B5%B7%E4%BB%80%E4%B9%88%E6%B3%95%E5%BE%8B%E5%90%8E%E6%9E%9C">什么是宣告死亡?宣告死亡能引起什么法律后果?</a></li>
+<li><a href="#%E8%A2%AB%E5%AE%A3%E5%B8%83%E6%AD%BB%E4%BA%A1%E6%9C%9F%E9%97%B4%E5%AE%9E%E6%96%BD%E7%9A%84%E6%B0%91%E4%BA%8B%E8%A1%8C%E4%B8%BA%E6%9C%89%E6%95%88%E5%90%97">被宣布死亡期间实施的民事行为有效吗?</a></li>
+<li><a href="#%E8%A2%AB%E5%AE%A3%E5%91%8A%E6%AD%BB%E4%BA%A1%E5%90%8E%E5%A4%8D%E6%B4%BB%E5%A6%BB%E5%AD%90%E5%B7%B2%E6%94%B9%E5%AB%81%E6%80%8E%E4%B9%88%E5%8A%9E">被宣告死亡后“复活”，妻子已改嫁怎么办?</a></li>
+<li><a href="#%E8%A2%AB%E5%AE%A3%E5%91%8A%E6%AD%BB%E4%BA%A1%E7%9A%84%E4%BA%BA%E5%A4%8D%E6%B4%BB%E8%A2%AB%E4%BB%96%E4%BA%BA%E6%81%B6%E6%84%8F%E4%BE%B5%E5%8D%A0%E7%9A%84%E8%B4%A2%E4%BA%A7%E8%BF%98%E8%83%BD%E8%A6%81%E5%9B%9E%E5%90%97">被宣告死亡的人“复活”，被他人恶意侵占的财产还能要回吗?</a></li>
+<li><a href="#%E8%A2%AB%E5%AE%A3%E5%91%8A%E6%AD%BB%E4%BA%A1%E5%8F%88%E5%A4%8D%E6%B4%BB%E5%B7%B2%E8%A2%AB%E8%BD%AC%E7%A7%BB%E7%9A%84%E8%B4%A2%E4%BA%A7%E8%BF%98%E8%83%BD%E8%A6%81%E5%9B%9E%E5%90%97">被宣告死亡又“复活”，已被转移的财产还能要回吗?</a></li>
+<li><a href="#%E6%9D%91%E6%B0%91%E5%8F%AF%E4%BB%A5%E5%8D%A0%E7%94%A8%E8%80%95%E5%9C%B0%E4%BF%AE%E5%BB%BA%E5%9D%9F%E5%A2%93%E5%90%97">村民可以占用耕地修建坟墓吗?</a></li>
+<li><a href="#%E5%BC%82%E5%9C%B0%E6%AD%BB%E4%BA%A1%E8%80%85%E7%9A%84%E9%81%97%E4%BD%93%E8%83%BD%E5%90%A6%E8%BF%90%E5%9B%9E%E5%AE%B6%E4%B9%A1%E5%9C%9F%E8%91%AC">异地死亡者的遗体能否运回家乡土葬?</a></li>
+<li><a href="#%E5%AF%B9%E4%BA%8E%E5%86%9C%E6%9D%91%E9%9A%8F%E4%BE%BF%E5%9C%9F%E8%91%AC%E7%9A%84%E8%A1%8C%E4%B8%BA%E6%B0%91%E6%94%BF%E9%83%A8%E9%97%A8%E5%8F%AF%E4%BB%A5%E5%BC%BA%E5%88%B6%E7%81%AB%E5%8C%96%E5%90%97">对于农村随便土葬的行为，民政部门可以强制火化吗?</a></li>
+</ul>
+</li>
+<li><a href="#%E5%85%AD%E9%81%97%E4%BA%A7%E7%BB%A7%E6%89%BF">六、遗产继承</a>
+<ul>
+<li><a href="#%E8%99%90%E5%BE%85%E6%89%93%E9%AA%82%E7%88%B6%E6%AF%8D%E7%9A%84%E5%AD%90%E5%A5%B3%E8%BF%98%E6%9C%89%E7%BB%A7%E6%89%BF%E6%9D%83%E5%90%97">虐待、打骂父母的子女还有继承权吗?</a></li>
+<li><a href="#%E5%A5%B3%E5%84%BF%E5%87%BA%E5%AB%81%E5%B0%B1%E5%A4%B1%E5%8E%BB%E7%BB%A7%E6%89%BF%E7%88%B6%E6%AF%8D%E9%81%97%E4%BA%A7%E7%9A%84%E8%B5%84%E6%A0%BC%E4%BA%86%E5%90%97">女儿出嫁就失去继承父母遗产的资格了吗?</a></li>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%B3%95%E5%AE%9A%E7%BB%A7%E6%89%BF%E6%B3%95%E5%AE%9A%E7%BB%A7%E6%89%BF%E7%9A%84%E9%A1%BA%E5%BA%8F%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84">什么是法定继承?法定继承的顺序是怎样的?</a></li>
+<li><a href="#%E7%A7%81%E7%94%9F%E5%AD%90%E6%9C%89%E7%BB%A7%E6%89%BF%E6%9D%83%E5%90%97">“私生子”有继承权吗?</a></li>
+<li><a href="#%E7%88%B6%E4%BA%B2%E5%85%88%E4%BA%8E%E7%88%B7%E7%88%B7%E5%8E%BB%E4%B8%96%E7%9A%84%E5%8F%AF%E4%BB%A5%E4%BB%A3%E6%9B%BF%E7%88%B6%E4%BA%B2%E7%BB%A7%E6%89%BF%E7%88%B7%E7%88%B7%E7%9A%84%E9%81%97%E4%BA%A7%E5%90%97">父亲先于爷爷去世的，可以“代替”父亲继承爷爷的遗产吗?</a></li>
+<li><a href="#%E5%AD%90%E5%A5%B3%E7%BB%A7%E6%89%BF%E9%81%97%E4%BA%A7%E7%9A%84%E4%BB%BD%E9%A2%9D%E5%BF%85%E9%A1%BB%E5%9D%87%E7%AD%89%E5%90%97">子女继承遗产的份额必须均等吗?</a></li>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%81%97%E5%98%B1%E7%BB%A7%E6%89%BF8%E5%B2%81%E7%9A%84%E5%AD%A9%E5%AD%90%E6%89%80%E7%AB%8B%E9%81%97%E5%98%B1%E6%9C%89%E6%95%88%E5%90%97">什么是遗嘱继承?8岁的孩子所立遗嘱有效吗?</a></li>
+<li><a href="#%E8%A2%AB%E7%AF%A1%E6%94%B9%E7%9A%84%E9%81%97%E5%98%B1%E6%9C%89%E6%95%88%E5%90%97">被篡改的遗嘱有效吗？</a></li>
+<li><a href="#%E9%81%97%E5%98%B1%E7%BB%A7%E6%89%BF%E4%B8%8E%E6%B3%95%E5%AE%9A%E7%BB%A7%E6%89%BF%E5%93%AA%E4%B8%AA%E6%95%88%E5%8A%9B%E4%BC%98%E5%85%88">遗嘱继承与法定继承哪个效力优先?</a></li>
+<li><a href="#%E9%81%97%E5%98%B1%E5%8F%AF%E4%BB%A5%E5%89%A5%E5%A4%BA%E6%B3%95%E5%AE%9A%E7%BB%A7%E6%89%BF%E4%BA%BA%E7%9A%84%E7%BB%A7%E6%89%BF%E6%9D%83%E5%90%97">遗嘱可以剥夺法定继承人的继承权吗?</a></li>
+<li><a href="#%E4%B8%B4%E7%BB%88%E5%89%8D%E7%AB%8B%E7%9A%84%E5%8F%A3%E5%A4%B4%E9%81%97%E5%98%B1%E6%9C%89%E6%95%88%E5%90%97">临终前立的口头遗嘱有效吗?</a></li>
+<li><a href="#%E7%AB%8B%E6%9C%89%E6%95%B0%E4%BB%BD%E5%86%85%E5%AE%B9%E7%9B%B8%E6%8A%B5%E8%A7%A6%E7%9A%84%E9%81%97%E5%98%B1%E6%97%B6%E5%BA%94%E4%BB%A5%E5%93%AA%E4%BB%BD%E4%B8%BA%E5%87%86">立有数份内容相抵触的遗嘱时，应以哪份为准?</a></li>
+<li><a href="#%E9%81%97%E5%98%B1%E4%B8%8E%E9%81%97%E8%B5%A0%E6%8A%9A%E5%85%BB%E5%8D%8F%E8%AE%AE%E5%93%AA%E4%B8%AA%E4%BC%98%E5%85%88">遗嘱与遗赠抚养协议哪个优先?</a></li>
+<li><a href="#%E6%9C%AA%E5%87%BA%E7%94%9F%E7%9A%84%E8%83%8E%E5%84%BF%E6%9C%89%E7%BB%A7%E6%89%BF%E6%9D%83%E5%90%97">未出生的胎儿有继承权吗?</a></li>
+<li><a href="#%E8%BF%87%E7%BB%A7%E5%AD%90%E5%A5%B3%E6%9C%89%E7%BB%A7%E6%89%BF%E6%9D%83%E5%90%97">“过继”子女有继承权吗?</a></li>
+<li><a href="#%E7%88%B6%E4%BA%B2%E5%8E%BB%E4%B8%96%E5%AD%90%E5%A5%B3%E5%8F%AF%E4%BB%A5%E8%A6%81%E6%B1%82%E4%B8%8E%E6%AF%8D%E4%BA%B2%E5%85%B1%E5%90%8C%E7%BB%A7%E6%89%BF%E5%AE%B6%E9%87%8C%E7%9A%84%E8%B4%A2%E4%BA%A7%E5%90%97">父亲去世，子女可以要求与母亲共同继承家里的财产吗?</a></li>
+<li><a href="#%E4%BA%92%E6%9C%89%E7%BB%A7%E6%89%BF%E6%9D%83%E7%9A%84%E4%BA%BA%E5%9C%A8%E5%90%8C%E4%B8%80%E4%BA%8B%E4%BB%B6%E4%B8%AD%E6%AD%BB%E4%BA%A1%E7%BB%A7%E6%89%BF%E9%A1%BA%E5%BA%8F%E8%A6%81%E6%80%8E%E6%A0%B7%E7%A1%AE%E5%AE%9A">互有继承权的人在同一事件中死亡，继承顺序要怎样确定?</a></li>
+<li><a href="#%E5%8F%97%E6%AD%BB%E8%80%85%E8%B5%84%E5%8A%A9%E7%9A%84%E5%84%BF%E7%AB%A5%E5%8F%AF%E4%BB%A5%E8%A6%81%E6%B1%82%E5%88%86%E5%BE%97%E9%81%97%E4%BA%A7%E5%90%97">受死者资助的儿童可以要求分得遗产吗?</a></li>
+<li><a href="#%E8%87%AA%E5%8A%A8%E8%B5%A1%E5%85%BB%E5%AD%A4%E5%AF%A1%E8%80%81%E4%BA%BA%E5%8F%AF%E4%BB%A5%E7%BB%A7%E6%89%BF%E8%80%81%E4%BA%BA%E7%9A%84%E9%81%97%E4%BA%A7%E5%90%97">自动赡养孤寡老人，可以继承老人的遗产吗?</a></li>
+<li><a href="#%E9%81%97%E4%BA%A7%E7%BB%A7%E6%89%BF%E9%80%82%E7%94%A8%E4%BA%8E%E4%BA%8B%E5%AE%9E%E5%A9%9A%E5%A7%BB%E5%85%B3%E7%B3%BB%E5%90%97">遗产继承适用于事实婚姻关系吗?</a></li>
+<li><a href="#%E8%A6%81%E6%83%B3%E7%BB%A7%E6%89%BF%E9%81%97%E4%BA%A7%E5%B0%B1%E5%BF%85%E9%A1%BB%E5%AF%B9%E8%A2%AB%E7%BB%A7%E6%89%BF%E4%BA%BA%E7%94%9F%E5%89%8D%E7%9A%84%E5%80%BA%E5%8A%A1%E8%B4%9F%E8%B4%A3%E5%90%97">要想继承遗产，就必须对被继承人生前的债务负责吗?</a></li>
+<li><a href="#%E6%8F%90%E8%B5%B7%E7%BB%A7%E6%89%BF%E8%AF%89%E8%AE%BC%E6%9C%89%E6%97%B6%E9%97%B4%E9%99%90%E5%88%B6%E5%90%97">提起继承诉讼有时间限制吗?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%80%E7%BB%93%E5%A9%9A">一、结婚</a>
+<ul>
+<li><a href="#%E8%A2%AB%E7%88%B6%E6%AF%8D%E9%80%BC%E8%BF%AB%E5%AB%81%E7%BB%99%E4%BB%96%E4%BA%BA%E8%BF%99%E6%A0%B7%E7%9A%84%E5%A9%9A%E5%A7%BB%E6%9C%89%E6%95%88%E5%90%97">被父母逼迫嫁给他人，这样的婚姻有效吗?</a></li>
+<li><a href="#%E7%BB%93%E5%A9%9A%E5%BF%85%E9%A1%BB%E8%BE%BE%E5%88%B0%E6%80%8E%E6%A0%B7%E7%9A%84%E5%B9%B4%E9%BE%84">结婚必须达到怎样的年龄?</a></li>
+<li><a href="#%E9%87%8D%E5%A9%9A%E7%9A%84%E5%A9%9A%E5%A7%BB%E6%9C%89%E6%95%88%E5%90%97">重婚的婚姻有效吗?</a></li>
+<li><a href="#%E8%A1%A8%E5%85%84%E5%A6%B9%E4%B9%8B%E9%97%B4%E5%8F%AF%E4%BB%A5%E7%BB%93%E5%A9%9A%E5%90%97">表兄妹之间可以结婚吗?</a></li>
+<li><a href="#%E8%89%BE%E6%BB%8B%E7%97%85%E6%82%A3%E8%80%85%E5%8F%AF%E4%BB%A5%E7%BB%93%E5%A9%9A%E5%90%97">艾滋病患者可以结婚吗?</a></li>
+<li><a href="#%E4%B8%80%E6%96%B9%E5%A9%9A%E5%89%8D%E6%82%A3%E6%9C%89%E6%80%A7%E7%97%85%E5%A9%9A%E5%90%8E%E5%8F%A6%E4%B8%80%E6%96%B9%E8%83%BD%E4%BB%A5%E6%AD%A4%E4%B8%BA%E7%94%B1%E8%AF%B7%E6%B1%82%E5%AE%A3%E5%91%8A%E5%A9%9A%E5%A7%BB%E6%97%A0%E6%95%88%E5%90%97">一方婚前患有性病，婚后另一方能以此为由请求宣告婚姻无效吗?</a></li>
+<li><a href="#%E4%B8%BE%E8%A1%8C%E4%BA%86%E5%A9%9A%E7%A4%BC%E4%BD%86%E6%B2%A1%E6%9C%89%E5%8A%9E%E7%90%86%E7%99%BB%E8%AE%B0%E7%9A%84%E5%A9%9A%E5%A7%BB%E6%9C%89%E6%95%88%E5%90%97">举行了婚礼但没有办理登记的婚姻有效吗?</a></li>
+<li><a href="#%E6%AF%8D%E4%BA%B2%E8%83%BD%E5%90%A6%E5%90%91%E6%B3%95%E9%99%A2%E7%94%B3%E8%AF%B7%E5%AE%A3%E5%91%8A%E5%A5%B3%E5%84%BF%E7%9A%84%E5%A9%9A%E5%A7%BB%E6%97%A0%E6%95%88">母亲能否向法院申请宣告女儿的婚姻无效?</a></li>
+<li><a href="#%E5%A9%9A%E5%A7%BB%E8%A2%AB%E5%AE%A3%E5%91%8A%E6%97%A0%E6%95%88%E5%BD%93%E4%BA%8B%E4%BA%BA%E8%83%BD%E5%90%A6%E5%B0%B1%E6%AD%A4%E4%B8%8A%E8%AF%89">婚姻被宣告无效，当事人能否就此上诉?</a></li>
+<li><a href="#%E8%A2%AB%E5%A8%81%E8%83%81%E8%80%8C%E4%B8%8E%E4%BB%96%E4%BA%BA%E7%BB%93%E5%A9%9A%E5%A9%9A%E5%A7%BB%E5%85%B3%E7%B3%BB%E5%8F%AF%E4%BB%A5%E6%92%A4%E9%94%80%E5%90%97">被威胁而与他人结婚，婚姻关系可以撤销吗?</a></li>
+<li><a href="#%E4%B8%8E%E5%A4%96%E5%9B%BD%E4%BA%BA%E5%9C%A8%E6%88%91%E5%9B%BD%E7%BB%93%E5%A9%9A%E8%A6%81%E9%81%B5%E5%AE%88%E6%88%91%E5%9B%BD%E6%B3%95%E5%BE%8B%E5%90%97">与外国人在我国结婚，要遵守我国法律吗?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C%E5%A4%AB%E5%A6%BB%E4%B9%8B%E9%97%B4%E7%9A%84%E6%9D%83%E5%88%A9%E4%B8%8E%E4%B9%89%E5%8A%A1">二、夫妻之间的权利与义务</a>
+<ul>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%AE%B6%E5%BA%AD%E6%9A%B4%E5%8A%9B%E5%AE%B6%E5%BA%AD%E6%9A%B4%E5%8A%9B%E6%9E%84%E6%88%90%E7%8A%AF%E7%BD%AA%E5%90%97">什么是家庭暴力?家庭暴力构成犯罪吗?</a></li>
+<li><a href="#%E5%A4%AB%E5%A6%BB%E4%B9%8B%E9%97%B4%E7%AD%BE%E8%AE%A2%E7%9A%84%E5%BF%A0%E8%B4%9E%E5%8D%8F%E8%AE%AE%E6%9C%89%E6%B3%95%E5%BE%8B%E6%95%88%E5%8A%9B%E5%90%97">夫妻之间签订的“忠贞协议”有法律效力吗?</a></li>
+<li><a href="#%E5%A6%BB%E5%AD%90%E6%9C%89%E6%9D%83%E6%8B%92%E7%BB%9D%E4%B8%88%E5%A4%AB%E7%9A%84%E7%94%9F%E8%82%B2%E8%A6%81%E6%B1%82%E5%90%97">妻子有权拒绝丈夫的生育要求吗?</a></li>
+<li><a href="#%E4%B8%88%E5%A4%AB%E4%B8%8E%E4%BB%96%E4%BA%BA%E5%90%8C%E5%B1%85%E5%A6%BB%E5%AD%90%E5%8F%AF%E4%BB%A5%E9%87%87%E5%8F%96%E4%BB%80%E4%B9%88%E6%8E%AA%E6%96%BD%E7%BB%B4%E6%8A%A4%E6%9D%83%E5%88%A9">丈夫与他人同居，妻子可以采取什么措施维护权利?</a></li>
+<li><a href="#%E4%B8%88%E5%A4%AB%E6%98%AF%E5%90%A6%E6%9C%89%E6%9D%83%E5%BC%BA%E8%BF%AB%E5%A6%BB%E5%AD%90%E5%8F%91%E7%94%9F%E6%80%A7%E8%A1%8C%E4%B8%BA">丈夫是否有权强迫妻子发生性行为?</a></li>
+<li><a href="#%E4%B8%88%E5%A4%AB%E8%83%BD%E5%BC%BA%E8%BF%AB%E5%A6%BB%E5%AD%90%E4%B8%8D%E8%A6%81%E5%B7%A5%E4%BD%9C%E5%9C%A8%E5%AE%B6%E8%B5%8B%E9%97%B2%E5%90%97">丈夫能强迫妻子不要工作、在家赋闲吗?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89%E5%A4%AB%E5%A6%BB%E8%B4%A2%E4%BA%A7%E5%85%B3%E7%B3%BB">三、夫妻财产关系</a>
+<ul>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%AB%E5%A6%BB%E4%B8%AA%E4%BA%BA%E7%89%B9%E6%9C%89%E8%B4%A2%E4%BA%A7%E5%93%AA%E4%BA%9B%E8%B4%A2%E4%BA%A7%E5%B1%9E%E4%BA%8E%E5%A4%AB%E5%A6%BB%E4%B8%AA%E4%BA%BA%E7%89%B9%E6%9C%89%E8%B4%A2%E4%BA%A7">什么是夫妻个人特有财产?哪些财产属于夫妻个人特有财产?</a></li>
+<li><a href="#%E4%B8%80%E6%96%B9%E5%9C%A8%E5%A9%9A%E5%89%8D%E8%B4%AD%E4%B9%B0%E7%9A%84%E4%BD%8F%E6%88%BF%E4%BC%9A%E5%9B%A0%E7%BB%93%E5%A9%9A%E8%80%8C%E8%BD%AC%E4%B8%BA%E5%A4%AB%E5%A6%BB%E5%85%B1%E5%90%8C%E8%B4%A2%E4%BA%A7%E5%90%97">一方在婚前购买的住房，会因结婚而转为夫妻共同财产吗?</a></li>
+<li><a href="#%E7%BB%93%E5%A9%9A%E5%89%8D%E4%B8%80%E6%96%B9%E7%88%B6%E6%AF%8D%E4%B8%BA%E4%BA%8C%E4%BA%BA%E8%B4%AD%E4%B9%B0%E7%9A%84%E7%BB%93%E5%A9%9A%E7%94%A8%E6%88%BF%E5%B1%9E%E4%BA%8E%E5%A4%AB%E5%A6%BB%E5%85%B1%E5%90%8C%E8%B4%A2%E4%BA%A7%E5%90%97">结婚前一方父母为二人购买的结婚用房，属于夫妻共同财产吗?</a></li>
+<li><a href="#%E5%A9%9A%E5%89%8D%E7%9A%84%E8%B4%A2%E7%A4%BC%E5%8F%AF%E4%BB%A5%E8%A6%81%E6%B1%82%E8%BF%94%E8%BF%98%E5%90%97">婚前的“财礼”可以要求返还吗?</a></li>
+<li><a href="#%E5%A4%AB%E5%A6%BB%E4%B8%80%E6%96%B9%E4%BB%A5%E4%B8%AA%E4%BA%BA%E5%90%8D%E4%B9%89%E5%80%9F%E7%9A%84%E5%80%BA%E5%8F%AF%E4%BB%A5%E8%A6%81%E6%B1%82%E5%8F%A6%E4%B8%80%E6%96%B9%E5%81%BF%E8%BF%98%E5%90%97">夫妻一方以个人名义借的债，可以要求另一方偿还吗?</a></li>
+<li><a href="#%E5%A4%AB%E5%A6%BB%E4%B8%80%E6%96%B9%E6%93%85%E8%87%AA%E8%B5%A0%E4%B8%8E%E4%BB%96%E4%BA%BA%E5%A4%A7%E9%A2%9D%E9%87%91%E9%92%B1%E7%9A%84%E8%A1%8C%E4%B8%BA%E6%9C%89%E6%95%88%E5%90%97">夫妻一方擅自赠与他人大额金钱的行为有效吗?</a></li>
+<li><a href="#%E5%A4%AB%E5%A6%BB%E4%B8%AD%E6%94%B6%E5%85%A5%E9%AB%98%E7%9A%84%E4%B8%80%E6%96%B9%E5%9C%A8%E5%A4%84%E7%90%86%E8%B4%A2%E4%BA%A7%E4%B8%8A%E5%8F%AF%E4%BB%A5%E4%BA%AB%E6%9C%89%E6%9B%B4%E5%A4%9A%E6%9D%83%E5%88%A9%E5%90%97">夫妻中收入高的一方在处理财产上可以享有更多权利吗?</a></li>
+<li><a href="#%E7%94%B7%E5%A5%B3%E6%9C%AA%E5%A9%9A%E5%90%8C%E5%B1%85%E5%88%86%E6%89%8B%E5%90%8E%E8%B4%A2%E4%BA%A7%E6%80%8E%E6%A0%B7%E5%A4%84%E7%90%86">男女未婚同居，分手后财产怎样处理?</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B%E7%A6%BB%E5%A9%9A">四、离婚</a>
+<ul>
+<li><a href="#%E5%8F%8C%E6%96%B9%E8%BE%BE%E6%88%90%E7%A6%BB%E5%A9%9A%E5%8D%8F%E8%AE%AE%E5%90%8E%E5%BA%94%E5%BD%93%E5%A6%82%E4%BD%95%E5%8A%9E%E7%90%86%E7%A6%BB%E5%A9%9A%E6%89%8B%E7%BB%AD">双方达成离婚协议后应当如何办理离婚手续?</a></li>
+<li><a href="#%E7%AC%A6%E5%90%88%E5%93%AA%E4%BA%9B%E6%83%85%E5%BD%A2%E6%B3%95%E9%99%A2%E4%BC%9A%E5%88%A4%E5%86%B3%E7%A6%BB%E5%A9%9A">符合哪些情形，法院会判决离婚?</a></li>
+<li><a href="#%E5%9C%A8%E7%A6%BB%E5%A9%9A%E8%AF%89%E8%AE%BC%E4%B8%AD%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E5%A4%AB%E5%A6%BB%E6%84%9F%E6%83%85%E7%A1%AE%E5%B7%B2%E7%A0%B4%E8%A3%82">在离婚诉讼中，如何确定“夫妻感情确已破裂”?</a></li>
+<li><a href="#%E5%A4%AB%E5%A6%BB%E5%8F%AA%E8%A6%81%E5%88%86%E5%B1%85%E6%BB%A12%E5%B9%B4%E4%BA%BA%E6%B0%91%E6%B3%95%E9%99%A2%E5%B0%B1%E4%BC%9A%E5%87%86%E4%BA%88%E7%A6%BB%E5%A9%9A%E5%90%97">夫妻只要分居满2年，人民法院就会准予离婚吗?</a></li>
+<li><a href="#%E7%8E%B0%E5%BD%B9%E5%86%9B%E4%BA%BA%E7%9A%84%E9%85%8D%E5%81%B6%E8%83%BD%E5%8D%95%E6%96%B9%E9%9D%A2%E8%A6%81%E6%B1%82%E7%A6%BB%E5%A9%9A%E5%90%97">现役军人的配偶能单方面要求离婚吗?</a></li>
+<li><a href="#%E5%9C%A8%E5%A5%B3%E6%96%B9%E6%80%80%E5%AD%95%E6%9C%9F%E9%97%B4%E7%94%B7%E6%96%B9%E5%8F%AF%E4%BB%A5%E6%8F%90%E5%87%BA%E7%A6%BB%E5%A9%9A%E5%90%97">在女方怀孕期间，男方可以提出离婚吗?</a></li>
+<li><a href="#%E5%A6%BB%E5%AD%90%E5%9B%A0%E5%A4%96%E9%81%87%E7%94%9F%E4%B8%8B%E4%BA%86%E4%BB%96%E4%BA%BA%E7%9A%84%E5%AD%A9%E5%AD%90%E4%B8%88%E5%A4%AB%E5%8F%AF%E4%BB%A5%E6%8F%90%E5%87%BA%E7%A6%BB%E5%A9%9A%E5%90%97">妻子因外遇生下了他人的孩子，丈夫可以提出离婚吗?</a></li>
+<li><a href="#%E5%A6%BB%E5%AD%90%E5%8F%91%E7%8E%B0%E4%B8%88%E5%A4%AB%E5%8C%85%E5%85%BB%E6%83%85%E5%A6%87%E5%8F%AF%E4%BB%A5%E8%A6%81%E6%B1%82%E7%A6%BB%E5%A9%9A%E5%90%97">妻子发现丈夫包养情妇，可以要求离婚吗?</a></li>
+<li><a href="#%E7%88%B6%E4%BA%B2%E8%83%BD%E5%90%A6%E4%BB%A3%E6%9B%BF%E6%97%A0%E6%B0%91%E4%BA%8B%E8%A1%8C%E4%B8%BA%E8%83%BD%E5%8A%9B%E7%9A%84%E5%A5%B3%E5%84%BF%E6%8F%90%E8%B5%B7%E7%A6%BB%E5%A9%9A%E8%AF%89%E8%AE%BC">父亲能否代替无民事行为能力的女儿提起离婚诉讼?</a></li>
+<li><a href="#%E6%8F%90%E8%B5%B7%E7%A6%BB%E5%A9%9A%E8%AF%89%E8%AE%BC%E5%90%8E%E5%8F%88%E5%8F%8D%E6%82%94%E4%BA%86%E8%BF%98%E5%8F%AF%E4%BB%A5%E6%92%A4%E8%AF%89%E5%90%97">提起离婚诉讼后又反悔了，还可以撤诉吗?</a></li>
+<li><a href="#%E5%BD%93%E4%BA%8B%E4%BA%BA%E6%94%B6%E5%88%B0%E4%B8%80%E5%AE%A1%E7%A6%BB%E5%A9%9A%E5%88%A4%E5%86%B3%E5%90%8E%E5%8F%AF%E4%BB%A5%E9%A9%AC%E4%B8%8A%E5%86%8D%E5%A9%9A%E5%90%97">当事人收到一审离婚判决后，可以马上再婚吗?</a></li>
+<li><a href="#%E7%A6%BB%E5%A9%9A%E6%97%B6%E4%B8%80%E6%96%B9%E6%8B%92%E7%BB%9D%E6%89%BF%E6%8B%85%E5%8F%8C%E6%96%B9%E7%9A%84%E5%85%B1%E5%90%8C%E5%80%BA%E5%8A%A1%E8%AF%A5%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86">离婚时一方拒绝承担双方的共同债务该如何处理?</a></li>
+<li><a href="#%E7%A6%BB%E5%A9%9A%E6%97%B6%E4%B8%80%E6%96%B9%E7%94%9F%E6%B4%BB%E5%9B%B0%E9%9A%BE%E6%9C%89%E6%9D%83%E8%A6%81%E6%B1%82%E5%8F%A6%E4%B8%80%E6%96%B9%E7%BB%99%E4%BA%88%E7%BB%8F%E6%B5%8E%E5%B8%AE%E5%8A%A9%E5%90%97">离婚时，一方生活困难，有权要求另一方给予经济帮助吗?</a></li>
+<li><a href="#%E7%A6%BB%E5%A9%9A%E6%97%B6%E5%8F%AF%E4%BB%A5%E5%88%86%E5%89%B2%E7%99%BB%E8%AE%B0%E5%9C%A8%E5%AD%90%E5%A5%B3%E5%90%8D%E4%B8%8B%E7%9A%84%E8%B4%A2%E4%BA%A7%E5%90%97">离婚时可以分割登记在子女名下的财产吗?</a></li>
+<li><a href="#%E7%A6%BB%E5%A9%9A%E5%90%8E%E5%AD%90%E5%A5%B3%E5%BA%94%E5%BD%92%E5%93%AA%E6%96%B9%E6%8A%9A%E5%85%BB">离婚后，子女应归哪方抚养</a></li>
+<li><a href="#%E7%A6%BB%E5%A9%9A%E5%8D%8F%E8%AE%AE%E4%B8%AD%E7%BA%A6%E5%AE%9A%E8%BD%AE%E6%B5%81%E6%8A%9A%E5%85%BB%E5%AD%A9%E5%AD%90%E6%98%AF%E5%90%A6%E5%90%88%E6%B3%95">离婚协议中约定轮流抚养孩子是否合法?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%94%E6%8A%9A%E5%85%BB%E4%B8%8E%E7%9B%91%E6%8A%A4">五、抚养与监护</a>
+<ul>
+<li><a href="#%E5%A4%AB%E5%A6%BB%E4%B8%80%E6%96%B9%E4%B8%A7%E5%A4%B1%E5%8A%B3%E5%8A%A8%E8%83%BD%E5%8A%9B%E5%90%8E%E5%8F%A6%E4%B8%80%E6%96%B9%E6%98%AF%E5%90%A6%E8%B4%9F%E6%9C%89%E6%8A%9A%E5%85%BB%E7%9A%84%E4%B9%89%E5%8A%A1">夫妻一方丧失劳动能力后，另一方是否负有抚养的义务?</a></li>
+<li><a href="#%E7%A6%BB%E5%A9%9A%E5%90%8E%E6%8A%9A%E5%85%BB%E5%AD%A9%E5%AD%90%E7%9A%84%E4%B8%80%E6%96%B9%E9%98%BB%E6%8C%A0%E5%AF%B9%E6%96%B9%E6%8E%A2%E8%A7%86%E5%AD%A9%E5%AD%90%E6%80%8E%E4%B9%88%E5%8A%9E">离婚后，抚养孩子的一方阻挠对方探视孩子怎么办?</a></li>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%9B%91%E6%8A%A4%E7%88%B6%E6%AF%8D%E5%8F%8C%E4%BA%A1%E5%90%8E%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E5%AD%A9%E5%AD%90%E7%9A%84%E7%9B%91%E6%8A%A4%E4%BA%BA">什么是监护?父母双亡后如何确定孩子的监护人?</a></li>
+<li><a href="#%E7%88%B6%E6%AF%8D%E6%9C%89%E6%9D%83%E9%9A%8F%E6%84%8F%E5%A4%84%E5%88%86%E5%AD%A9%E5%AD%90%E7%9A%84%E5%AD%98%E6%AC%BE%E5%90%97">父母有权随意处分孩子的存款吗?</a></li>
+<li><a href="#%E5%B0%8F%E5%AD%A6%E7%94%9F%E5%9C%A8%E5%AD%A6%E6%A0%A1%E5%B0%86%E4%BA%BA%E6%89%93%E4%BC%A4%E8%B5%94%E5%81%BF%E8%B4%A3%E4%BB%BB%E7%94%B1%E8%B0%81%E6%89%BF%E6%8B%85">小学生在学校将人打伤，赔偿责任由谁承担?</a></li>
+<li><a href="#%E7%B2%BE%E7%A5%9E%E7%97%85%E4%BA%BA%E8%87%B4%E4%BA%BA%E6%8D%9F%E5%AE%B3%E7%94%B1%E8%B0%81%E6%9D%A5%E6%89%BF%E6%8B%85%E8%B4%A3%E4%BB%BB">精神病人致人损害由谁来承担责任?</a></li>
+<li><a href="#%E7%A6%BB%E5%A9%9A%E5%90%8E%E6%B2%A1%E6%9C%89%E6%8A%9A%E5%85%BB%E6%9D%83%E7%9A%84%E4%B8%80%E6%96%B9%E5%AF%B9%E5%AD%A9%E5%AD%90%E8%BF%98%E6%9C%89%E7%9B%91%E6%8A%A4%E4%B9%89%E5%8A%A1%E5%90%97">离婚后没有抚养权的一方对孩子还有监护义务吗?</a></li>
+</ul>
+</li>
+<li><a href="#%E5%85%AD%E6%94%B6%E5%85%BB">六、收养</a>
+<ul>
+<li><a href="#%E7%AC%A6%E5%90%88%E4%BB%80%E4%B9%88%E6%9D%A1%E4%BB%B6%E7%9A%84%E5%AD%A9%E5%AD%90%E6%89%8D%E8%83%BD%E8%A2%AB%E6%94%B6%E5%85%BB">符合什么条件的孩子才能被收养?</a></li>
+<li><a href="#%E6%94%B6%E5%85%BB%E4%BA%BA%E5%BA%94%E5%BD%93%E7%AC%A6%E5%90%88%E5%93%AA%E4%BA%9B%E6%9D%A1%E4%BB%B6">收养人应当符合哪些条件?</a></li>
+<li><a href="#%E4%B8%88%E5%A4%AB%E6%93%85%E8%87%AA%E5%B0%86%E5%A5%B3%E5%84%BF%E9%80%81%E7%BB%99%E4%BB%96%E4%BA%BA%E6%94%B6%E5%85%BB%E5%A6%BB%E5%AD%90%E5%8F%AF%E4%BB%A5%E8%A6%81%E5%9B%9E%E5%90%97">丈夫擅自将女儿送给他人收养，妻子可以要回吗?</a></li>
+<li><a href="#%E6%94%B6%E5%85%BB%E5%85%B3%E7%B3%BB%E5%BD%93%E4%BA%8B%E4%BA%BA%E8%A6%81%E6%B1%82%E4%BF%9D%E5%AE%88%E6%94%B6%E5%85%BB%E7%A7%98%E5%AF%86%E6%98%AF%E5%90%A6%E5%BA%94%E5%BD%93%E5%8F%97%E5%88%B0%E6%B3%95%E5%BE%8B%E4%BF%9D%E6%8A%A4">收养关系当事人要求保守收养秘密是否应当受到法律保护?</a></li>
+<li><a href="#%E8%A2%AB%E6%94%B6%E5%85%BB%E7%9A%84%E5%AD%A9%E5%AD%90%E6%9C%89%E8%B5%A1%E5%85%BB%E4%BA%B2%E7%94%9F%E7%88%B6%E6%AF%8D%E7%9A%84%E4%B9%89%E5%8A%A1%E5%90%97">被收养的孩子有赡养亲生父母的义务吗?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%83%E8%B5%A1%E5%85%BB">七、赡养</a>
+<ul>
+<li><a href="#%E5%AD%90%E5%A5%B3%E4%B9%8B%E9%97%B4%E8%83%BD%E5%90%A6%E8%AE%A2%E7%AB%8B%E5%88%86%E5%BC%80%E8%B5%A1%E5%85%BB%E7%88%B9%E5%A8%98%E7%9A%84%E5%8D%8F%E8%AE%AE">子女之间能否订立分开赡养爹娘的协议?</a></li>
+<li><a href="#%E8%83%BD%E5%90%A6%E5%9B%A0%E4%B8%BA%E7%88%B6%E4%BA%B2%E5%A3%B0%E6%98%8E%E6%96%AD%E7%BB%9D%E7%88%B6%E5%AD%90%E5%85%B3%E7%B3%BB%E5%B0%B1%E6%8B%92%E7%BB%9D%E5%B1%A5%E8%A1%8C%E8%B5%A1%E5%85%BB%E4%B9%89%E5%8A%A1">能否因为父亲声明断绝父子关系就拒绝履行赡养义务?</a></li>
+<li><a href="#%E5%AD%90%E5%A5%B3%E8%83%BD%E5%90%A6%E4%BB%A5%E6%94%BE%E5%BC%83%E7%BB%A7%E6%89%BF%E6%9D%83%E4%B8%BA%E7%94%B1%E6%8B%92%E7%BB%9D%E5%B1%A5%E8%A1%8C%E8%B5%A1%E5%85%BB%E7%88%B6%E6%AF%8D%E7%9A%84%E4%B9%89%E5%8A%A1">子女能否以放弃继承权为由拒绝履行赡养父母的义务?</a></li>
+<li><a href="#%E5%AD%99%E5%AD%90%E6%9C%89%E8%B5%A1%E5%85%BB%E7%88%B7%E7%88%B7%E5%A5%B6%E5%A5%B6%E7%9A%84%E4%B9%89%E5%8A%A1%E5%90%97">孙子有赡养爷爷奶奶的义务吗?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%80%E5%8F%97%E6%95%99%E8%82%B2%E7%9A%84%E6%9D%83%E5%88%A9">一、受教育的权利</a>
+<ul>
+<li><a href="#%E4%B9%89%E5%8A%A1%E6%95%99%E8%82%B2%E4%B8%AD%E6%89%BF%E6%8B%85%E4%B9%89%E5%8A%A1%E7%9A%84%E6%9C%89%E5%93%AA%E4%BA%9B%E4%BA%BA">义务教育中，承担义务的有哪些人?</a></li>
+<li><a href="#%E7%88%B6%E6%AF%8D%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E5%89%A5%E5%A4%BA%E6%9C%AA%E6%88%90%E5%B9%B4%E4%BA%BA%E4%B8%8A%E5%AD%A6%E7%9A%84%E6%9D%83%E5%88%A9">父母是否可以剥夺未成年人上学的权利?</a></li>
+<li><a href="#%E8%A2%AB%E4%BB%96%E4%BA%BA%E5%86%92%E5%90%8D%E4%B8%8A%E5%A4%A7%E5%AD%A6%E5%8F%AF%E4%BB%A5%E8%8E%B7%E5%BE%97%E4%BD%95%E7%A7%8D%E8%B5%94%E5%81%BF">被他人冒名上大学，可以获得何种赔偿?</a></li>
+<li><a href="#%E9%AB%98%E6%A0%A1%E8%83%BD%E4%BB%A5%E5%AD%A6%E7%94%9F%E6%AE%8B%E7%96%BE%E4%B8%BA%E7%94%B1%E8%80%8C%E4%B8%8D%E8%AE%A9%E5%85%B6%E5%85%A5%E5%AD%A6%E5%90%97">高校能以学生残疾为由而不让其入学吗?</a></li>
+<li><a href="#%E5%AD%A6%E6%A0%A1%E8%83%BD%E5%9B%A0%E5%9C%A8%E6%A0%A1%E5%A5%B3%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%80%80%E5%AD%95%E8%80%8C%E5%BC%80%E9%99%A4%E5%85%B6%E5%AD%A6%E7%B1%8D%E5%90%97">学校能因在校女大学生怀孕而开除其学籍吗?</a></li>
+<li><a href="#%E7%94%B3%E8%AF%B7%E5%9B%BD%E5%AE%B6%E5%8A%A9%E5%AD%A6%E8%B4%B7%E6%AC%BE%E9%9C%80%E8%A6%81%E6%BB%A1%E8%B6%B3%E5%93%AA%E4%BA%9B%E6%9D%A1%E4%BB%B6">申请国家助学贷款需要满足哪些条件?</a></li>
+<li><a href="#%E5%8A%A9%E5%AD%A6%E8%B4%B7%E6%AC%BE%E5%88%A9%E6%81%AF%E6%80%8E%E4%B9%88%E8%BF%98%E8%BF%98%E6%AC%BE%E6%9C%9F%E6%9C%89%E5%A4%9A%E9%95%BF">助学贷款利息怎么还?还款期有多长?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C%E5%8A%B3%E5%8A%A8%E5%B0%B1%E4%B8%9A">二、劳动就业</a>
+<ul>
+<li><a href="#%E5%8A%B3%E5%8A%A8%E8%80%85%E5%BA%94%E8%81%98%E5%88%B0%E4%B8%80%E5%AE%B6%E7%94%A8%E4%BA%BA%E5%8D%95%E4%BD%8D%E6%97%B6%E6%9C%89%E6%9D%83%E7%9F%A5%E9%81%93%E5%93%AA%E4%BA%9B%E4%BA%8B%E9%A1%B9">劳动者应聘到一家用人单位时，有权知道哪些事项?</a></li>
+<li><a href="#%E6%8B%9B%E5%B7%A5%E6%97%B6%E5%A5%B3%E6%80%A7%E6%98%AF%E5%90%A6%E5%B0%B1%E5%BA%94%E9%81%AD%E5%8F%97%E6%80%A7%E5%88%AB%E6%AD%A7%E8%A7%86">招工时女性是否就应遭受性别歧视?</a></li>
+<li><a href="#%E7%94%A8%E4%BA%BA%E5%8D%95%E4%BD%8D%E5%8F%AF%E4%BB%A5%E6%8B%92%E6%94%B6%E6%B2%BB%E6%84%88%E5%90%8E%E7%9A%84%E7%B2%BE%E7%A5%9E%E7%97%85%E4%BA%BA%E5%90%97">用人单位可以拒收治愈后的精神病人吗?</a></li>
+<li><a href="#%E5%8A%B3%E5%8A%A8%E8%80%85%E5%9C%A8%E8%AF%95%E7%94%A8%E6%9C%9F%E5%86%85%E6%9C%89%E5%93%AA%E4%BA%9B%E6%9D%83%E5%88%A9">劳动者在试用期内有哪些权利?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89%E5%8A%B3%E5%8A%A8%E5%90%88%E5%90%8C">三、劳动合同</a>
+<ul>
+<li><a href="#%E6%B2%A1%E6%9C%89%E7%AD%BE%E8%AE%A2%E5%8A%B3%E5%8A%A8%E5%90%88%E5%90%8C%E5%8A%B3%E5%8A%A8%E5%85%B3%E7%B3%BB%E6%88%90%E7%AB%8B%E5%90%97">没有签订劳动合同，劳动关系成立吗?</a></li>
+<li><a href="#%E8%AF%95%E7%94%A8%E6%9C%9F%E5%8C%85%E5%90%AB%E5%9C%A8%E5%8A%B3%E5%8A%A8%E5%90%88%E5%90%8C%E6%9C%9F%E9%99%90%E5%86%85%E5%90%97">试用期包含在劳动合同期限内吗?</a></li>
+<li><a href="#%E5%85%AC%E5%8F%B8%E4%B8%8D%E6%8A%8A%E5%8A%B3%E5%8A%A8%E5%90%88%E5%90%8C%E5%8F%91%E7%BB%99%E5%8A%B3%E5%8A%A8%E8%80%85%E7%9A%84%E8%A1%8C%E4%B8%BA%E5%90%88%E6%B3%95%E5%90%97">公司不把劳动合同发给劳动者的行为合法吗?</a></li>
+<li><a href="#%E6%9C%AA%E8%AE%A2%E7%AB%8B%E4%B9%A6%E9%9D%A2%E5%8A%B3%E5%8A%A8%E5%90%88%E5%90%8C%E4%B8%94%E5%AF%B9%E5%8A%B3%E5%8A%A8%E6%8A%A5%E9%85%AC%E7%BA%A6%E5%AE%9A%E4%B8%8D%E6%98%8E%E6%80%8E%E4%B9%88%E5%8A%9E">未订立书面劳动合同且对劳动报酬约定不明怎么办?</a></li>
+<li><a href="#%E6%89%80%E6%9C%89%E7%9A%84%E5%8A%B3%E5%8A%A8%E8%80%85%E9%83%BD%E8%A6%81%E4%B8%8E%E7%94%A8%E4%BA%BA%E5%8D%95%E4%BD%8D%E7%AD%BE%E8%AE%A2%E7%AB%9E%E4%B8%9A%E9%99%90%E5%88%B6%E5%8D%8F%E8%AE%AE%E5%90%97">所有的劳动者都要与用人单位签订“竞业限制”协议吗?</a></li>
+<li><a href="#%E5%8A%B3%E5%8A%A8%E5%90%88%E5%90%8C%E5%88%B0%E6%9C%9F%E6%B2%A1%E6%9C%89%E7%BB%AD%E7%AD%BE%E5%8F%AF%E4%BB%A5%E8%AE%A4%E4%B8%BA%E5%8A%B3%E5%8A%A8%E5%85%B3%E7%B3%BB%E8%87%AA%E5%8A%A8%E7%BB%88%E6%AD%A2%E5%90%97">劳动合同到期没有续签，可以认为劳动关系自动终止吗?</a></li>
+<li><a href="#%E5%8A%B3%E5%8A%A8%E5%90%88%E5%90%8C%E5%87%BA%E7%8E%B0%E5%8F%91%E7%94%9F%E4%BC%A4%E4%BA%A1%E4%BA%8B%E6%95%85%E5%85%AC%E5%8F%B8%E6%A6%82%E4%B8%8D%E8%B4%9F%E8%B4%A3%E7%9A%84%E6%9D%A1%E6%AC%BE%E6%9C%89%E6%95%88%E5%90%97">劳动合同出现“发生伤亡事故公司概不负责”的条款有效吗?</a></li>
+<li><a href="#%E5%8A%B3%E5%8A%A8%E5%90%88%E5%90%8C%E6%97%A0%E6%95%88%E5%B7%B2%E4%BB%98%E5%87%BA%E5%8A%B3%E5%8A%A8%E7%9A%84%E5%8A%B3%E5%8A%A8%E8%80%85%E8%BF%98%E8%83%BD%E6%8B%BF%E5%88%B0%E5%8A%B3%E5%8A%A8%E6%8A%A5%E9%85%AC%E5%90%97">劳动合同无效，已付出劳动的劳动者还能拿到劳动报酬吗?</a></li>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E5%8A%B3%E5%8A%A8%E8%80%85%E5%8F%AF%E4%BB%A5%E8%A7%A3%E9%99%A4%E5%90%88%E5%90%8C">什么情况下劳动者可以解除合同?</a></li>
+<li><a href="#%E5%85%AC%E5%8F%B8%E5%9C%A8%E8%AF%95%E7%94%A8%E6%9C%9F%E5%86%85%E5%8F%91%E7%8E%B0%E6%96%B0%E5%91%98%E5%B7%A5%E4%B8%8D%E7%AC%A6%E5%90%88%E5%BD%95%E7%94%A8%E6%9D%A1%E4%BB%B6%E6%80%8E%E4%B9%88%E5%8A%9E">公司在试用期内发现新员工不符合录用条件怎么办?</a></li>
+<li><a href="#%E7%94%A8%E4%BA%BA%E5%8D%95%E4%BD%8D%E5%8F%AF%E5%90%A6%E5%9C%A8%E5%A5%B3%E8%81%8C%E5%B7%A5%E6%80%80%E5%AD%95%E6%9C%9F%E9%97%B4%E4%B8%8E%E5%85%B6%E8%A7%A3%E9%99%A4%E5%8A%B3%E5%8A%A8%E5%90%88%E5%90%8C">用人单位可否在女职工怀孕期间与其解除劳动合同?</a></li>
+<li><a href="#%E5%85%AC%E5%8F%B8%E8%83%BD%E4%BB%A5%E4%B8%A5%E9%87%8D%E4%BA%8F%E6%8D%9F%E4%B8%BA%E7%94%B1%E4%B8%8E%E5%8A%B3%E5%8A%A8%E8%80%85%E8%A7%A3%E9%99%A4%E5%90%88%E5%90%8C%E5%90%97">公司能以严重亏损为由与劳动者解除合同吗?</a></li>
+<li><a href="#%E5%85%AC%E5%8F%B8%E5%8F%AF%E4%BB%A5%E5%8D%95%E6%96%B9%E9%9D%A2%E6%93%85%E8%87%AA%E8%A7%A3%E9%99%A4%E5%8A%B3%E5%8A%A8%E5%90%88%E5%90%8C%E5%90%97">公司可以单方面擅自解除劳动合同吗?</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B%E5%8A%B3%E5%8A%A8%E6%8A%A5%E9%85%AC%E4%B8%8E%E4%BC%91%E6%81%AF%E4%BC%91%E5%81%87">四、劳动报酬与休息休假</a>
+<ul>
+<li><a href="#%E7%94%A8%E4%BA%BA%E5%8D%95%E4%BD%8D%E6%8B%96%E6%AC%A0%E5%8A%B3%E5%8A%A8%E8%80%85%E5%B7%A5%E8%B5%84%E5%8A%B3%E5%8A%A8%E8%80%85%E5%BA%94%E8%AF%A5%E6%80%8E%E4%B9%88%E5%8A%9E">用人单位拖欠劳动者工资，劳动者应该怎么办?</a></li>
+<li><a href="#%E6%9C%80%E4%BD%8E%E5%B7%A5%E8%B5%84%E9%87%8C%E5%8C%85%E6%8B%AC%E5%9B%BD%E5%AE%B6%E8%A7%84%E5%AE%9A%E7%9A%84%E7%A6%8F%E5%88%A9%E5%90%97">最低工资里包括国家规定的福利吗?</a></li>
+<li><a href="#%E5%9B%BD%E5%AE%B6%E5%AF%B9%E5%8F%91%E5%B7%A5%E8%B5%84%E7%9A%84%E5%85%B7%E4%BD%93%E6%97%A5%E6%9C%9F%E6%9C%89%E8%A7%84%E5%AE%9A%E5%90%97">国家对发工资的具体日期有规定吗?</a></li>
+<li><a href="#%E4%BC%91%E5%A9%9A%E5%81%87%E6%9C%9F%E9%97%B4%E5%B7%A5%E8%B5%84%E7%85%A7%E5%8F%91%E5%90%97">休婚假期间，工资照发吗?</a></li>
+<li><a href="#%E4%BC%81%E4%B8%9A%E5%81%9C%E5%B7%A5%E6%9C%9F%E9%97%B4%E5%8F%AF%E4%BB%A5%E4%B8%8D%E5%8F%91%E7%BB%99%E8%81%8C%E5%B7%A5%E5%B7%A5%E8%B5%84%E5%90%97">企业停工期间可以不发给职工工资吗?</a></li>
+<li><a href="#%E5%8F%91%E6%94%BE%E5%B7%A5%E8%B5%84%E6%97%B6%E5%8F%AF%E4%BB%A5%E7%94%A8%E5%AE%9E%E7%89%A9%E4%BB%A3%E6%9B%BF%E8%B4%A7%E5%B8%81%E5%90%97">发放工资时，可以用实物代替货币吗?</a></li>
+<li><a href="#%E7%94%A8%E4%BA%BA%E5%8D%95%E4%BD%8D%E5%8F%AF%E4%BB%A5%E9%87%87%E7%94%A8%E4%B8%8E%E5%8A%B3%E5%8A%A8%E8%80%85%E7%AD%BE%E8%AE%A2%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9D%A5%E5%BB%B6%E9%95%BF%E5%B7%A5%E4%BD%9C%E6%97%B6%E9%97%B4%E5%90%97">用人单位可以采用与劳动者签订协议的方式来延长工作时间吗?</a></li>
+<li><a href="#%E5%8A%B3%E5%8A%A8%E8%80%85%E6%8B%92%E7%BB%9D%E5%8A%A0%E7%8F%AD%E7%94%A8%E4%BA%BA%E5%8D%95%E4%BD%8D%E5%8F%AF%E5%9B%A0%E6%AD%A4%E6%89%A3%E5%8F%91%E5%B7%A5%E8%B5%84%E5%90%97">劳动者拒绝加班，用人单位可因此扣发工资吗?</a></li>
+<li><a href="#%E5%8A%A0%E7%8F%AD%E8%B4%B9%E7%9A%84%E6%A0%87%E5%87%86%E6%98%AF%E6%80%8E%E6%A0%B7%E8%AE%A1%E7%AE%97%E7%9A%84">加班费的标准是怎样计算的?</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%8F%8A%E6%97%A5%E5%B7%A5%E8%B5%84%E6%A0%87%E5%87%86">如何计算工作日及日工资标准?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%94%E5%B7%A5%E4%BC%A4%E7%BA%A0%E7%BA%B7">五、工伤纠纷</a>
+<ul>
+<li><a href="#%E5%9C%A8%E5%B7%A5%E4%BD%9C%E6%9C%9F%E9%97%B4%E4%BC%91%E6%81%AF%E6%97%B6%E5%8F%97%E4%BC%A4%E5%8F%AF%E4%BB%A5%E7%AE%97%E5%B7%A5%E4%BC%A4%E5%90%97">在工作期间休息时受伤，可以算工伤吗?</a></li>
+<li><a href="#%E5%B7%A5%E4%BD%9C%E6%97%B6%E9%97%B4%E8%A2%AB%E4%BB%96%E4%BA%BA%E6%89%93%E4%BC%A4%E5%8F%AF%E4%BB%A5%E7%AE%97%E4%BD%9C%E5%B7%A5%E4%BC%A4%E5%90%97">工作时间被他人打伤，可以算作工伤吗?</a></li>
+<li><a href="#%E4%B8%8B%E7%8F%AD%E9%80%94%E4%B8%AD%E9%81%AD%E9%81%87%E8%BD%A6%E7%A5%B8%E7%AE%97%E6%98%AF%E5%B7%A5%E4%BC%A4%E5%90%97">下班途中遭遇车祸，算是工伤吗?</a></li>
+<li><a href="#%E4%B8%8A%E7%8F%AD%E6%97%B6%E5%BF%83%E8%84%8F%E7%97%85%E7%AA%81%E5%8F%91%E8%80%8C%E6%AD%BB%E8%83%BD%E7%AE%97%E4%BD%9C%E5%B7%A5%E4%BC%A4%E5%90%97">上班时心脏病突发而死，能算作工伤吗?</a></li>
+<li><a href="#%E5%9B%A0%E9%86%89%E9%85%92%E9%A9%BE%E9%A9%B6%E8%80%8C%E5%8F%91%E7%94%9F%E8%BD%A6%E7%A5%B8%E5%8F%97%E4%BC%A4%E8%83%BD%E7%AE%97%E4%BD%9C%E5%B7%A5%E4%BC%A4%E5%90%97">因醉酒驾驶而发生车祸受伤，能算作工伤吗?</a></li>
+<li><a href="#%E5%B7%A5%E4%BC%A4%E7%94%B3%E8%AF%B7%E5%BA%94%E5%BD%93%E7%94%B1%E8%B0%81%E6%8F%90%E5%87%BA">工伤申请应当由谁提出?</a></li>
+<li><a href="#%E9%9D%9E%E6%B3%95%E7%94%A8%E5%B7%A5%E5%8D%95%E4%BD%8D%E4%BC%A4%E4%BA%A1%E4%BA%BA%E5%91%98%E5%BA%94%E5%A6%82%E4%BD%95%E4%BA%AB%E5%8F%97%E5%B7%A5%E4%BC%A4%E5%BE%85%E9%81%87">非法用工单位伤亡人员应如何享受工伤待遇?</a></li>
+<li><a href="#%E5%B7%A5%E4%BC%A4%E6%B2%BB%E7%96%97%E6%9C%9F%E9%97%B4%E4%BA%AB%E5%8F%97%E5%93%AA%E4%BA%9B%E5%BE%85%E9%81%87">工伤治疗期间享受哪些待遇?</a></li>
+</ul>
+</li>
+<li><a href="#%E5%85%AD%E5%8A%B3%E5%8A%A8%E4%BA%89%E8%AE%AE%E7%9A%84%E8%A7%A3%E5%86%B3">六、劳动争议的解决</a>
+<ul>
+<li><a href="#%E5%9C%A8%E5%8A%B3%E5%8A%A8%E4%BA%89%E8%AE%AE%E4%B8%AD%E8%81%8C%E5%B7%A5%E4%B8%8D%E6%9C%8D%E5%85%AC%E5%8F%B8%E7%9A%84%E5%A4%84%E7%90%86%E5%86%B3%E5%AE%9A%E5%BA%94%E5%BD%93%E6%80%8E%E4%B9%88%E5%8A%9E">在劳动争议中职工不服公司的处理决定应当怎么办?</a></li>
+<li><a href="#%E5%8D%95%E4%BD%8D%E5%8D%95%E6%96%B9%E9%9D%A2%E8%A7%A3%E9%99%A4%E5%8A%B3%E5%8A%A8%E5%85%B3%E7%B3%BB%E5%8A%B3%E5%8A%A8%E8%80%85%E5%BA%94%E5%A6%82%E4%BD%95%E7%BB%B4%E6%9D%83">单位单方面解除劳动关系，劳动者应如何维权?</a></li>
+<li><a href="#%E5%8A%B3%E5%8A%A8%E8%80%85%E4%B8%8E%E7%94%A8%E4%BA%BA%E5%8D%95%E4%BD%8D%E5%8F%91%E7%94%9F%E7%BA%A0%E7%BA%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E5%85%88%E8%BF%9B%E8%A1%8C%E8%B0%83%E8%A7%A3%E5%90%97">劳动者与用人单位发生纠纷，一定要先进行调解吗?</a></li>
+<li><a href="#%E5%8A%B3%E5%8A%A8%E4%BA%89%E8%AE%AE%E6%B2%A1%E6%9C%89%E7%BB%8F%E8%BF%87%E4%BB%B2%E8%A3%81%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E5%90%91%E6%B3%95%E9%99%A2%E8%B5%B7%E8%AF%89%E5%90%97">劳动争议没有经过仲裁，可以直接向法院起诉吗?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%80%E8%BA%AB%E4%BD%93%E4%BC%A4%E5%AE%B3">一、身体伤害</a>
+<ul>
+<li><a href="#%E7%94%B5%E6%B0%B4%E5%A3%B6%E6%BC%8F%E7%94%B5%E8%87%B4%E4%BA%BA%E9%87%8D%E4%BC%A4%E8%B4%A3%E4%BB%BB%E7%94%B1%E8%B0%81%E6%89%BF%E6%8B%85">电水壶漏电致人重伤，责任由谁承担?</a></li>
+<li><a href="#%E5%81%B7%E5%90%83%E5%88%AB%E4%BA%BA%E6%A1%83%E5%AD%90%E5%AF%BC%E8%87%B4%E4%B8%AD%E6%AF%92%E5%8F%AA%E8%83%BD%E8%87%AA%E8%AE%A4%E5%80%92%E9%9C%89%E5%90%97">偷吃别人桃子导致中毒，只能自认倒霉吗?</a></li>
+<li><a href="#%E5%A4%A9%E7%81%BE%E5%BC%95%E5%8F%91%E5%B7%A5%E5%8E%82%E6%B1%A1%E6%B0%B4%E5%A4%96%E6%B3%84%E5%B7%A5%E5%8E%82%E5%BA%94%E8%AF%A5%E6%89%BF%E6%8B%85%E8%B4%A3%E4%BB%BB%E5%90%97">天灾引发工厂污水外泄，工厂应该承担责任吗?</a></li>
+<li><a href="#%E4%B8%8B%E6%B0%B4%E4%BA%95%E7%9B%96%E6%B2%A1%E7%9B%96%E5%A5%BD%E8%A1%8C%E4%BA%BA%E6%8E%89%E8%BF%9B%E5%8E%BB%E5%BA%94%E5%BD%93%E7%94%B1%E8%B0%81%E6%89%BF%E6%8B%85%E8%B5%94%E5%81%BF%E8%B4%A3%E4%BB%BB">下水井盖没盖好，行人掉进去应当由谁承担赔偿责任?</a></li>
+<li><a href="#%E5%8A%A8%E7%89%A9%E8%A2%AB%E4%BB%96%E4%BA%BA%E9%A5%B2%E5%85%BB%E8%87%B4%E4%BA%BA%E6%8D%9F%E5%AE%B3%E5%8F%97%E5%AE%B3%E8%80%85%E5%BA%94%E5%90%91%E8%B0%81%E8%A6%81%E6%B1%82%E8%B5%94%E5%81%BF">动物被他人饲养致人损害，受害者应向谁要求赔偿?</a></li>
+<li><a href="#%E8%8A%B1%E7%9B%86%E4%BB%8E%E6%A5%BC%E4%B8%8A%E5%9D%A0%E8%90%BD%E7%A0%B8%E4%BC%A4%E8%B7%AF%E4%BA%BA%E8%B0%81%E5%BA%94%E6%89%BF%E6%8B%85%E8%B5%94%E5%81%BF%E8%B4%A3%E4%BB%BB">花盆从楼上坠落砸伤路人，谁应承担赔偿责任?</a></li>
+<li><a href="#%E9%A3%8E%E6%8A%8A%E8%B7%AF%E8%BE%B9%E7%9A%84%E6%A0%91%E6%9E%9D%E5%90%B9%E6%96%AD%E7%A0%B8%E4%BC%A4%E8%A1%8C%E4%BA%BA%E5%BA%94%E5%BD%93%E7%94%B1%E8%B0%81%E6%89%BF%E6%8B%85%E8%B4%A3%E4%BB%BB">风把路边的树枝吹断砸伤行人，应当由谁承担责任?</a></li>
+<li><a href="#%E6%89%93%E4%BC%A4%E6%AD%A3%E5%9C%A8%E8%A1%8C%E5%87%B6%E7%9A%84%E6%AD%B9%E5%BE%92%E5%BA%94%E8%AF%A5%E8%B5%94%E5%81%BF%E5%8C%BB%E7%96%97%E8%B4%B9%E5%90%97">打伤正在行凶的歹徒，应该赔偿医疗费吗?</a></li>
+<li><a href="#%E6%91%A9%E7%9A%84%E4%B8%BA%E9%81%BF%E5%85%8D%E7%BD%9A%E6%AC%BE%E7%BB%99%E4%BB%96%E4%BA%BA%E9%80%A0%E6%88%90%E7%9A%84%E6%8D%9F%E5%AE%B3%E5%BA%94%E5%BD%93%E6%89%BF%E6%8B%85%E8%B5%94%E5%81%BF%E8%B4%A3%E4%BB%BB%E5%90%97">“摩的”为避免罚款给他人造成的损害，应当承担赔偿责任吗?</a></li>
+<li><a href="#%E5%AD%A6%E9%9B%B7%E9%94%8B%E9%80%A0%E6%88%90%E7%9A%84%E6%8D%9F%E5%A4%B1%E7%94%B1%E8%B0%81%E6%89%BF%E6%8B%85%E8%B5%94%E5%81%BF%E8%B4%A3%E4%BB%BB">学雷锋造成的损失，由谁承担赔偿责任?</a></li>
+<li><a href="#%E9%9B%87%E5%91%98%E5%9C%A8%E5%8A%B3%E5%8A%A8%E4%B8%AD%E9%80%A0%E6%88%90%E4%BB%96%E4%BA%BA%E4%BC%A4%E5%AE%B3%E9%9B%87%E4%B8%BB%E8%B4%9F%E8%B4%A3%E8%B5%94%E5%81%BF%E5%90%97">雇员在劳动中造成他人伤害，雇主负责赔偿吗？</a></li>
+<li><a href="#%E4%B8%A4%E8%BD%A6%E7%9B%B8%E6%92%9E%E9%80%A0%E6%88%90%E8%BD%A6%E5%A4%96%E4%BA%BA%E5%8F%97%E4%BC%A4%E8%B0%81%E5%BA%94%E5%BD%93%E6%89%BF%E6%8B%85%E8%B5%94%E5%81%BF%E8%B4%A3%E4%BB%BB">两车相撞，造成车外人受伤，谁应当承担赔偿责任?</a></li>
+<li><a href="#%E7%BB%99%E4%BA%BA%E5%B8%AE%E5%BF%99%E7%9A%84%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%80%A0%E6%88%90%E4%BB%96%E4%BA%BA%E6%8D%9F%E5%AE%B3%E5%BA%94%E7%94%B1%E8%B0%81%E6%89%BF%E6%8B%85%E8%B4%A3%E4%BB%BB">给人帮忙的过程中造成他人损害，应由谁承担责任?</a></li>
+<li><a href="#%E7%BB%99%E5%88%AB%E4%BA%BA%E5%B8%AE%E5%BF%99%E9%80%A0%E6%88%90%E8%87%AA%E5%B7%B1%E5%8F%97%E4%BC%A4%E8%B4%A3%E4%BB%BB%E7%94%B1%E8%B0%81%E6%9D%A5%E6%8B%85">给别人帮忙造成自己受伤，责任由谁来担?</a></li>
+<li><a href="#%E5%AD%A9%E5%AD%90%E4%BB%AC%E5%85%B1%E5%90%8C%E7%8E%A9%E8%80%8D%E4%B8%AD%E4%B8%80%E4%BA%BA%E5%8F%97%E4%BC%A4%E4%BD%86%E4%B8%8D%E7%9F%A5%E8%B0%81%E6%98%AF%E5%8A%A0%E5%AE%B3%E4%BA%BA">孩子们共同玩耍中一人受伤，但不知谁是加害人，</a></li>
+<li><a href="#%E5%BA%94%E8%AF%A5%E5%90%91%E8%B0%81%E8%A6%81%E6%B1%82%E8%B5%94%E5%81%BF">应该向谁要求赔偿?</a></li>
+<li><a href="#%E4%B8%AD%E5%AD%A6%E7%94%9F%E5%9C%A8%E5%AD%A6%E6%A0%A1%E9%81%AD%E5%8F%97%E6%AE%B4%E6%89%93%E5%AD%A6%E6%A0%A1%E6%98%AF%E5%90%A6%E5%BA%94%E5%BD%93%E6%89%BF%E6%8B%85%E8%B5%94%E5%81%BF%E8%B4%A3%E4%BB%BB">中学生在学校遭受殴打，学校是否应当承担赔偿责任?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C%E5%A7%93%E5%90%8D%E8%AF%81%E4%BB%B6%E4%B8%8E%E8%82%96%E5%83%8F">二、姓名、证件与肖像</a>
+<ul>
+<li><a href="#%E5%85%BB%E5%AD%90%E5%8F%AA%E8%83%BD%E9%9A%8F%E5%85%BB%E7%88%B6%E6%AF%8D%E5%A7%93%E5%90%97">养子只能随养父母姓吗?</a></li>
+<li><a href="#%E7%A6%BB%E5%BC%82%E5%86%8D%E5%A9%9A%E5%90%8E%E6%AF%8D%E4%BA%B2%E6%9C%89%E6%9D%83%E7%A7%81%E8%87%AA%E8%AE%A9%E5%AD%A9%E5%AD%90%E6%94%B9%E5%A7%93%E5%90%97">离异再婚后，母亲有权私自让孩子改姓吗?</a></li>
+<li><a href="#%E8%BA%AB%E4%BB%BD%E8%AF%81%E8%A2%AB%E4%BB%96%E4%BA%BA%E9%AA%97%E5%8E%BB%E5%8A%9E%E7%90%86%E4%BF%A1%E7%94%A8%E5%8D%A1%E5%8F%AF%E4%BB%A5%E8%AF%B7%E6%B1%82%E5%8A%A0%E5%AE%B3%E4%BA%BA%E8%B5%94%E5%81%BF%E5%90%97">身份证被他人骗去办理信用卡，可以请求加害人赔偿吗?</a></li>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%82%96%E5%83%8F%E6%9D%83%E6%80%8E%E6%A0%B7%E7%AE%97%E6%98%AF%E4%BE%B5%E7%8A%AF%E8%82%96%E5%83%8F%E6%9D%83">什么是肖像权?怎样算是侵犯肖像权?</a></li>
+<li><a href="#%E4%BA%BA%E6%AD%BB%E4%B9%8B%E5%90%8E%E8%82%96%E5%83%8F%E6%9D%83%E4%B9%9F%E4%B8%80%E5%B9%B6%E6%B6%88%E5%A4%B1%E4%BA%86%E5%90%97">人死之后，肖像权也一并消失了吗?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89%E5%90%8D%E8%AA%89%E6%9D%83%E4%B8%8E%E9%9A%90%E7%A7%81%E6%9D%83">三、名誉权与隐私权</a>
+<ul>
+<li><a href="#%E8%A2%AB%E4%BA%BA%E6%8D%8F%E9%80%A0%E8%B0%A3%E8%A8%80%E8%AF%AC%E4%B8%BA%E6%9C%89%E4%BD%9C%E9%A3%8E%E9%97%AE%E9%A2%98%E8%AF%A5%E6%80%8E%E4%B9%88%E5%8A%9E">被人捏造谣言诬为“有作风问题”该怎么办?</a></li>
+<li><a href="#%E7%8E%A9%E7%AC%91%E5%BC%80%E5%BE%97%E8%BF%87%E7%81%AB%E7%AE%97%E6%98%AF%E4%BE%B5%E7%8A%AF%E5%90%8D%E8%AA%89%E6%9D%83%E5%90%97">玩笑开得“过火”，算是侵犯名誉权吗?</a></li>
+<li><a href="#%E8%A2%AB%E4%BA%BA%E5%9C%A8%E7%BD%91%E4%B8%8A%E5%8F%91%E5%B8%96%E8%AF%8B%E6%AF%81%E5%8F%AF%E4%BB%A5%E8%A6%81%E6%B1%82%E8%B5%94%E5%81%BF%E5%90%97">被人在网上发帖诋毁，可以要求赔偿吗?</a></li>
+<li><a href="#%E6%AD%BB%E8%80%85%E4%BA%AB%E6%9C%89%E5%90%8D%E8%AA%89%E6%9D%83%E5%90%97">死者享有名誉权吗?</a></li>
+<li><a href="#%E5%A6%BB%E5%AD%90%E6%95%A3%E5%B8%83%E4%B8%88%E5%A4%AB%E6%80%A7%E6%97%A0%E8%83%BD%E6%98%AF%E5%90%A6%E4%BE%B5%E7%8A%AF%E9%9A%90%E7%A7%81%E6%9D%83">妻子散布丈夫性无能，是否侵犯隐私权?</a></li>
+<li><a href="#%E7%94%A8%E6%9C%9B%E8%BF%9C%E9%95%9C%E7%AA%A5%E6%8E%A2%E4%BB%96%E4%BA%BA%E5%AE%B6%E7%9A%84%E6%B4%BB%E5%8A%A8%E6%9E%84%E6%88%90%E4%BE%B5%E6%9D%83%E5%90%97">用望远镜窥探他人家的活动构成侵权吗?</a></li>
+<li><a href="#%E8%A2%AB%E4%BB%96%E4%BA%BA%E5%9C%A8%E5%B1%8B%E5%86%85%E5%AE%89%E8%A3%85%E6%91%84%E5%83%8F%E5%A4%B4%E5%81%B7%E7%AA%A5%E5%8F%AF%E4%BB%A5%E7%B4%A2%E8%A6%81%E8%B5%94%E5%81%BF%E5%90%97">被他人在屋内安装摄像头偷窥，可以索要赔偿吗?</a></li>
+<li><a href="#%E5%A6%BB%E5%AD%90%E5%81%B7%E6%8B%8D%E4%B8%88%E5%A4%AB%E4%B8%8E%E6%83%85%E4%BA%BA%E5%9C%A8%E4%B8%80%E8%B5%B7%E7%9A%84%E7%85%A7%E7%89%87%E6%98%AF%E5%90%A6%E4%BE%B5%E7%8A%AF%E9%9A%90%E7%A7%81%E6%9D%83">妻子偷拍丈夫与情人在一起的照片是否侵犯隐私权?</a></li>
+<li><a href="#%E5%A5%B3%E6%82%A3%E8%80%85%E6%B5%81%E4%BA%A7%E6%89%8B%E6%9C%AF%E9%81%AD%E8%A7%82%E6%91%A9%E6%82%A3%E8%80%85%E7%9A%84%E9%9A%90%E7%A7%81%E6%9D%83%E5%BA%94%E5%A6%82%E4%BD%95%E4%BF%9D%E6%8A%A4">女患者流产手术遭观摩，患者的隐私权应如何保护?</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B%E4%BA%BA%E8%BA%AB%E8%87%AA%E7%94%B1">四、人身自由</a>
+<ul>
+<li><a href="#%E7%88%B6%E6%AF%8D%E5%8F%AF%E4%BB%A5%E5%9B%A0%E5%B9%B2%E6%B6%89%E5%A5%B3%E5%84%BF%E5%A9%9A%E5%A7%BB%E8%87%AA%E7%94%B1%E8%80%8C%E5%B0%86%E5%A5%B3%E5%84%BF%E9%94%81%E5%9C%A8%E5%AE%B6%E4%B8%AD%E5%90%97">父母可以因干涉女儿婚姻自由而将女儿锁在家中吗?</a></li>
+<li><a href="#%E8%AD%A6%E5%AF%9F%E6%8A%93%E9%94%99%E4%BA%BA%E6%94%BE%E4%BA%86%E5%B0%B1%E5%AE%8C%E4%BA%8B%E4%BA%86%E5%90%97">警察抓错人，放了就完事了吗?</a></li>
+<li><a href="#%E6%94%BE%E5%AD%A6%E5%90%8E%E8%80%81%E5%B8%88%E5%B0%86%E5%AD%A6%E7%94%9F%E7%95%99%E4%B8%8B%E5%81%9A%E4%BD%9C%E4%B8%9A%E6%98%AF%E5%90%A6%E4%BE%B5%E7%8A%AF%E4%BA%86%E5%AD%A6%E7%94%9F%E7%9A%84%E4%BA%BA%E8%BA%AB%E8%87%AA%E7%94%B1%E6%9D%83">放学后老师将学生留下做作业，是否侵犯了学生的人身自由权?</a></li>
+<li><a href="#%E9%81%AD%E5%88%B0%E8%B6%85%E5%B8%82%E4%BF%9D%E5%AE%89%E6%90%9C%E8%BA%AB%E6%B6%88%E8%B4%B9%E8%80%85%E5%8F%AF%E4%BB%A5%E7%B4%A2%E8%A6%81%E8%B5%94%E5%81%BF%E5%90%97">遭到超市保安“搜身”，消费者可以索要赔偿吗?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%80%E7%89%A9%E6%9D%83%E4%B8%8E%E6%89%80%E6%9C%89%E6%9D%83">一、物权与所有权</a>
+<ul>
+<li><a href="#%E8%B0%81%E4%B8%BA%E6%88%BF%E5%B1%8B%E7%9A%84%E9%94%99%E8%AF%AF%E7%99%BB%E8%AE%B0%E6%9D%A5%E4%B9%B0%E5%8D%95">谁为房屋的错误登记来买单?</a></li>
+<li><a href="#%E7%BB%A7%E6%89%BF%E7%9A%84%E6%88%BF%E5%AD%90%E5%87%BA%E5%8D%96%E7%9A%84%E6%97%B6%E5%80%99%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88">继承的房子，出卖的时候要注意什么?</a></li>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%A2%84%E5%91%8A%E7%99%BB%E8%AE%B0%E9%A2%84%E5%91%8A%E7%99%BB%E8%AE%B0%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8">什么是预告登记?预告登记有什么作用?</a></li>
+<li><a href="#%E7%8B%97%E8%B5%B0%E5%A4%B1%E4%BA%86%E5%8E%86%E7%BB%8F%E5%87%A0%E4%BA%BA%E4%B9%8B%E6%89%8B%E4%B8%BB%E4%BA%BA%E8%83%BD%E5%90%A6%E5%86%8D%E8%A6%81%E5%9B%9E">狗走失了，历经几人之手，主人能否再要回?</a></li>
+<li><a href="#%E7%99%BB%E8%AE%B0%E5%9C%A8%E4%B8%80%E4%BA%BA%E5%90%8D%E4%B8%8B%E7%9A%84%E5%85%B1%E6%9C%89%E6%88%BF%E4%BA%A7%E5%A4%AB%E6%88%96%E5%A6%BB%E4%B8%80%E6%96%B9%E8%83%BD%E5%90%A6%E5%8D%95%E7%8B%AC%E5%87%BA%E5%8D%96">登记在一人名下的共有房产，夫或妻一方能否单独出卖?</a></li>
+<li><a href="#%E5%AF%B9%E5%85%B1%E6%9C%89%E8%B4%A2%E4%BA%A7%E7%9A%84%E4%BF%AE%E7%BC%AE%E8%A1%8C%E4%B8%BA%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C">对共有财产的修缮行为如何进行?</a></li>
+<li><a href="#%E5%87%BA%E5%8D%96%E5%85%B1%E6%9C%89%E8%B4%A2%E4%BA%A7%E5%85%B1%E6%9C%89%E4%BA%BA%E8%83%BD%E5%90%A6%E4%BC%98%E5%85%88%E8%B4%AD%E4%B9%B0">出卖共有财产，共有人能否优先购买?</a></li>
+<li><a href="#%E7%94%B1%E5%85%B1%E6%9C%89%E8%B4%A2%E4%BA%A7%E5%BC%95%E8%B5%B7%E7%9A%84%E5%80%BA%E6%9D%83%E5%92%8C%E5%80%BA%E5%8A%A1%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86">由共有财产引起的债权和债务如何处理?</a></li>
+<li><a href="#%E5%85%B1%E6%9C%89%E4%BA%BA%E5%88%86%E5%BE%97%E7%9A%84%E8%B4%A2%E4%BA%A7%E6%9C%89%E8%B4%A8%E9%87%8F%E9%97%AE%E9%A2%98%E5%85%B6%E4%BB%96%E5%85%B1%E6%9C%89%E4%BA%BA%E8%A6%81%E5%88%86%E6%8B%85%E6%8D%9F%E5%A4%B1%E5%90%97">共有人分得的财产有质量问题，其他共有人要分担损失吗?</a></li>
+<li><a href="#%E6%8B%BE%E5%BE%97%E4%BA%BA%E9%80%A0%E6%88%90%E9%81%97%E5%A4%B1%E7%89%A9%E6%8D%9F%E5%A4%B1%E7%9A%84%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86">拾得人造成遗失物损失的如何处理?</a></li>
+<li><a href="#%E8%80%81%E6%88%BF%E5%AD%90%E5%9F%8B%E8%97%8F%E7%9A%84%E5%AD%97%E7%94%BB%E5%BD%92%E8%B0%81%E6%89%80%E6%9C%89">老房子埋藏的字画归谁所有?</a></li>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E5%8F%AF%E4%BB%A5%E8%A1%8C%E4%BD%BF%E6%9B%B4%E6%AD%A3%E7%99%BB%E8%AE%B0%E5%92%8C%E5%BC%82%E8%AE%AE%E7%99%BB%E8%AE%B0%E7%9A%84%E6%9D%83%E5%88%A9">什么情况下可以行使更正登记和异议登记的权利?</a></li>
+<li><a href="#%E6%A5%BC%E4%B8%8A%E9%9F%B3%E4%B9%90%E6%89%B0%E6%B0%91%E6%80%8E%E4%B9%88%E5%8A%9E">楼上音乐扰民怎么办?</a></li>
+<li><a href="#%E6%88%BF%E5%B1%8B%E9%87%87%E5%85%89%E8%A2%AB%E9%81%AE%E6%8C%A1%E4%BA%86%E6%80%8E%E4%B9%88%E5%8A%9E">房屋采光被遮挡了怎么办?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C%E5%9C%9F%E5%9C%B0%E6%9D%83%E7%9B%8A">二、土地权益</a>
+<ul>
+<li><a href="#%E6%B2%A1%E6%9C%89%E5%9C%9F%E5%9C%B0%E6%89%BF%E5%8C%85%E7%BB%8F%E8%90%A5%E6%9D%83%E8%AF%81%E4%B9%A6%E5%B0%B1%E6%B2%A1%E6%9C%89%E5%9C%9F%E5%9C%B0%E6%89%BF%E5%8C%85%E7%BB%8F%E8%90%A5%E6%9D%83%E5%90%97">没有土地承包经营权证书就没有土地承包经营权吗?</a></li>
+<li><a href="#%E4%B8%80%E5%9C%B0%E4%B8%A4%E5%8C%85%E5%BA%94%E5%BD%92%E8%B0%81">“一地两包”应归谁?</a></li>
+<li><a href="#%E5%9C%9F%E5%9C%B0%E4%BD%BF%E7%94%A8%E6%9D%83%E8%BD%AC%E8%AE%A9%E5%85%B6%E4%B8%8A%E9%99%84%E9%9A%8F%E7%9A%84%E6%9D%83%E5%88%A9%E4%B9%9F%E9%9A%8F%E4%B9%8B%E8%BD%AC%E8%AE%A9%E5%90%97">土地使用权转让，其上附随的权利也随之转让吗?</a></li>
+<li><a href="#%E5%8D%A0%E7%94%A8%E8%80%95%E5%9C%B0%E5%BB%BA%E5%B7%A5%E5%8E%82%E5%90%88%E6%B3%95%E5%90%97">占用耕地建工厂合法吗?</a></li>
+<li><a href="#%E5%9C%B0%E4%B8%8B%E5%9C%B0%E8%A1%A8%E5%9C%B0%E4%B8%8A%E5%8F%AF%E4%BB%A5%E5%88%86%E5%88%AB%E8%AE%BE%E7%AB%8B%E5%BB%BA%E8%AE%BE%E7%94%A8%E5%9C%B0%E4%BD%BF%E7%94%A8%E6%9D%83%E5%90%97">地下，地表，地上可以分别设立建设用地使用权吗?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89%E6%88%BF%E5%B1%8B%E4%B9%B0%E5%8D%96">三、房屋买卖</a>
+<ul>
+<li><a href="#%E4%B8%80%E6%88%BF%E4%BA%8C%E5%8D%96%E6%88%BF%E5%AD%90%E5%BD%92%E8%B0%81">一房二卖，房子归谁?</a></li>
+<li><a href="#%E7%A7%9F%E8%B5%81%E6%88%BF%E5%B1%8B%E8%A2%AB%E5%8D%96%E7%A7%9F%E6%88%BF%E4%BA%BA%E6%9C%89%E6%9D%83%E7%BB%A7%E7%BB%AD%E5%B1%85%E4%BD%8F%E5%90%97">租赁房屋被卖，租房人有权继续居住吗?</a></li>
+<li><a href="#%E6%88%BF%E5%B1%8B%E6%89%BF%E7%A7%9F%E4%BA%BA%E5%AF%B9%E6%88%BF%E5%B1%8B%E6%9C%89%E4%BC%98%E5%85%88%E8%B4%AD%E4%B9%B0%E6%9D%83%E5%90%97">房屋承租人对房屋有优先购买权吗?</a></li>
+<li><a href="#%E4%BB%85%E6%9C%89%E6%88%BF%E4%BA%A7%E8%AF%81%E4%BD%86%E6%B2%A1%E6%9C%89%E5%8A%9E%E7%90%86%E4%B8%8D%E5%8A%A8%E4%BA%A7%E7%99%BB%E8%AE%B0%E8%83%BD%E5%8F%96%E5%BE%97%E6%88%BF%E5%B1%8B%E6%89%80%E6%9C%89%E6%9D%83%E5%90%97">仅有房产证，但没有办理不动产登记，能取得房屋所有权吗?</a></li>
+<li><a href="#%E5%94%AE%E6%A5%BC%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%85%81%E8%AF%BA%E6%B2%A1%E6%9C%89%E5%86%99%E8%BF%9B%E5%90%88%E5%90%8C%E5%BC%80%E5%8F%91%E5%95%86%E6%89%BF%E6%8B%85%E8%BF%9D%E7%BA%A6%E8%B4%A3%E4%BB%BB%E5%90%97">售楼广告中的允诺没有写进合同，开发商承担违约责任吗?</a></li>
+<li><a href="#%E6%88%BF%E5%B1%8B%E8%B4%A8%E9%87%8F%E4%B8%8D%E5%90%88%E6%A0%BC%E5%8D%96%E5%AE%B6%E6%9C%89%E4%B9%89%E5%8A%A1%E4%BF%AE%E7%90%86%E5%90%97">房屋质量不合格，卖家有义务修理吗?</a></li>
+<li><a href="#%E4%B9%B0%E6%9D%A5%E7%9A%84%E4%BD%8F%E6%88%BF%E9%9D%A2%E7%A7%AF%E7%BC%A9%E6%B0%B4%E6%80%8E%E4%B9%88%E5%8A%9E">买来的住房面积缩水怎么办?</a></li>
+<li><a href="#%E5%BC%80%E5%8F%91%E5%95%86%E9%80%BE%E6%9C%9F%E4%BA%A4%E6%88%BF%E6%80%8E%E4%B9%88%E5%8A%9E">开发商逾期交房怎么办?</a></li>
+<li><a href="#%E5%90%88%E5%90%8C%E6%B2%A1%E7%AD%BE%E4%B9%B0%E6%88%BF%E8%80%85%E5%8F%AF%E4%BB%A5%E6%94%B6%E5%9B%9E%E5%B7%B2%E4%BA%A4%E7%9A%84%E8%AE%A2%E9%87%91%E5%90%97">合同没签，买房者可以收回已交的订金吗?</a></li>
+<li><a href="#%E4%B9%B0%E6%96%B9%E6%97%A0%E6%95%85%E4%B8%8D%E7%AD%BE%E5%90%88%E5%90%8C%E8%BF%98%E8%83%BD%E8%A6%81%E6%B1%82%E5%BC%80%E5%8F%91%E5%95%86%E8%BF%94%E8%BF%98%E5%AE%9A%E9%87%91%E5%90%97">买方无故不签合同，还能要求开发商返还定金吗?</a></li>
+<li><a href="#%E4%B9%B0%E6%88%BF%E6%97%B6%E5%A6%82%E4%BD%95%E9%98%B2%E8%8C%83%E4%B8%AD%E4%BB%8B%E9%A3%8E%E9%99%A9">买房时如何防范中介风险?</a></li>
+<li><a href="#%E6%B2%A1%E6%9C%89%E4%BF%83%E6%88%90%E6%88%BF%E4%BA%A7%E4%B9%B0%E5%8D%96%E5%90%88%E5%90%8C%E4%B8%AD%E4%BB%8B%E8%B4%B9%E8%A6%81%E4%BA%A4%E5%90%97">没有促成房产买卖合同，中介费要交吗?</a></li>
+<li><a href="#%E6%B2%A1%E6%9C%89%E5%8F%96%E5%BE%97%E9%A2%84%E5%94%AE%E8%AE%B8%E5%8F%AF%E8%AF%81%E5%B0%B1%E9%94%80%E5%94%AE%E6%9C%9F%E6%88%BF%E8%B4%A3%E4%BB%BB%E5%A6%82%E4%BD%95%E6%89%BF%E6%8B%85">没有取得预售许可证就销售期房，责任如何承担?</a></li>
+<li><a href="#%E4%B9%B0%E5%8F%97%E4%BA%BA%E7%9A%84%E5%8E%9F%E5%9B%A0%E5%AF%BC%E8%87%B4%E9%80%BE%E6%9C%9F%E4%BA%A4%E6%88%BF%E9%A3%8E%E9%99%A9%E7%94%B1%E8%B0%81%E6%89%BF%E6%8B%85">买受人的原因导致逾期交房，风险由谁承担?</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B%E4%B8%9A%E4%B8%BB%E6%9D%83%E7%9B%8A">四、业主权益</a>
+<ul>
+<li><a href="#%E5%B0%8F%E5%8C%BA%E7%9A%84%E8%BD%A6%E4%BD%8D%E5%88%B0%E5%BA%95%E5%BD%92%E8%B0%81">小区的车位到底归谁?</a></li>
+<li><a href="#%E7%94%A8%E6%A5%BC%E9%A1%B6%E5%81%9A%E5%B9%BF%E5%91%8A%E6%94%B6%E7%9B%8A%E5%BD%92%E8%B0%81">用楼顶做广告收益归谁?</a></li>
+<li><a href="#%E4%B8%9A%E4%B8%BB%E5%8F%AF%E4%BB%A5%E7%82%92%E7%89%A9%E4%B8%9A%E9%B1%BF%E9%B1%BC%E5%90%97">业主可以炒物业鱿鱼吗?</a></li>
+<li><a href="#%E5%BA%95%E5%B1%82%E4%BD%8F%E6%88%B7%E5%8F%AF%E4%BB%A5%E6%8B%92%E7%BB%9D%E7%BC%B4%E7%BA%B3%E7%94%B5%E6%A2%AF%E8%BF%90%E8%A1%8C%E7%BB%B4%E4%BF%AE%E8%B4%B9%E5%90%97">底层住户可以拒绝缴纳电梯运行维修费吗?</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96%E4%B8%9A%E4%B8%BB%E4%B9%B1%E4%B8%A2%E5%9E%83%E5%9C%BE%E4%B8%9A%E4%B8%BB%E6%80%8E%E6%A0%B7%E7%BB%B4%E6%9D%83">其他业主乱丢垃圾，业主怎样维权?</a></li>
+<li><a href="#%E4%B8%9A%E4%B8%BB%E5%AF%B9%E8%87%AA%E5%B7%B1%E7%9A%84%E6%88%BF%E5%AD%90%E8%BF%9B%E8%A1%8C%E8%A3%85%E4%BF%AE%E4%BB%96%E4%BA%BA%E6%9C%89%E6%9D%83%E5%B9%B2%E6%B6%89%E5%90%97">业主对自己的房子进行装修，他人有权干涉吗?</a></li>
+<li><a href="#%E4%B8%9A%E4%B8%BB%E4%BD%8F%E6%94%B9%E5%95%86%E5%8F%AF%E4%BB%A5%E9%9A%8F%E6%84%8F%E8%BF%9B%E8%A1%8C%E5%90%97">业主“住改商”可以随意进行吗?</a></li>
+<li><a href="#%E4%B8%9A%E4%B8%BB%E5%A4%A7%E4%BC%9A%E7%9A%84%E5%86%B3%E5%AE%9A%E4%B8%9A%E4%B8%BB%E6%9C%89%E4%B9%89%E5%8A%A1%E6%9C%8D%E4%BB%8E%E5%90%97">业主大会的决定，业主有义务服从吗?</a></li>
+<li><a href="#%E8%B4%AD%E4%B9%B0%E4%BA%8C%E6%89%8B%E6%88%BF%E5%B1%8B%E6%B2%A1%E6%9C%89%E8%BD%A6%E4%BD%8D%E6%80%8E%E4%B9%88%E5%8A%9E">购买二手房屋，没有车位怎么办?</a></li>
+<li><a href="#%E4%B8%9A%E4%B8%BB%E5%AE%B6%E4%B8%AD%E8%B4%A2%E4%BA%A7%E8%A2%AB%E7%9B%97%E7%89%A9%E4%B8%9A%E5%85%AC%E5%8F%B8%E8%A6%81%E6%89%BF%E6%8B%85%E8%B4%A3%E4%BB%BB%E5%90%97">业主家中财产被盗，物业公司要承担责任吗?</a></li>
+<li><a href="#%E5%BC%80%E5%8F%91%E5%95%86%E5%8F%AF%E4%BB%A5%E6%93%85%E8%87%AA%E5%A4%84%E5%88%86%E5%B0%8F%E5%8C%BA%E5%86%85%E7%9A%84%E5%85%AC%E7%94%A8%E8%AE%BE%E6%96%BD%E5%90%97">开发商可以擅自处分小区内的公用设施吗?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%94%E6%B1%BD%E8%BD%A6%E4%B9%B0%E5%8D%96">五、汽车买卖</a>
+<ul>
+<li><a href="#%E4%B8%80%E8%BD%A6%E4%BA%8C%E5%8D%96%E8%B0%81%E8%83%BD%E5%8F%96%E5%BE%97%E6%89%80%E6%9C%89%E6%9D%83">一车二卖谁能取得所有权?</a></li>
+<li><a href="#%E6%B1%BD%E8%BD%A6%E4%B9%B0%E5%8D%96%E5%90%88%E5%90%8C%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E7%94%9F%E6%95%88">汽车买卖合同什么时候生效?</a></li>
+<li><a href="#%E8%B4%AD%E4%B9%B0%E8%80%85%E8%AF%95%E8%BD%A6%E8%BF%87%E7%A8%8B%E4%B8%AD%E8%BD%A6%E8%BE%86%E6%84%8F%E5%A4%96%E8%A2%AB%E6%AF%81%E5%9D%8F%E8%A6%81%E6%89%BF%E6%8B%85%E8%B4%A3%E4%BB%BB%E5%90%97">购买者试车过程中车辆意外被毁坏，要承担责任吗?</a></li>
+<li><a href="#%E7%BA%A6%E5%AE%9A%E5%8D%96%E6%96%B9%E4%BF%9D%E7%95%99%E6%89%80%E6%9C%89%E6%9D%83%E6%B1%BD%E8%BD%A6%E6%AF%81%E5%9D%8F%E8%B0%81%E6%9D%A5%E4%B9%B0%E5%8D%95">约定卖方保留所有权，汽车毁坏谁来买单?</a></li>
+<li><a href="#%E4%B9%B0%E8%BD%A6%E5%90%8E%E6%B1%BD%E8%BD%A6%E9%97%AE%E9%A2%98%E5%B1%A1%E4%BF%AE%E4%B8%8D%E5%A5%BD%E4%B9%B0%E8%BD%A6%E4%BA%BA%E5%A6%82%E4%BD%95%E7%BB%B4%E6%9D%83">买车后，汽车问题屡修不好，买车人如何维权?</a></li>
+<li><a href="#%E5%88%86%E6%9C%9F%E4%BB%98%E6%AC%BE%E4%B9%B0%E8%BD%A6%E5%87%BA%E5%8D%96%E4%BA%BA%E6%9D%83%E7%9B%8A%E5%A6%82%E4%BD%95%E7%BB%B4%E6%8A%A4">分期付款买车，出卖人权益如何维护?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%80%E5%90%88%E5%90%8C%E4%B9%8B%E5%80%BA">一、合同之债</a>
+<ul>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%A6%81%E7%BA%A6%E5%95%86%E4%B8%9A%E5%B9%BF%E5%91%8A%E5%8F%AF%E4%BB%A5%E6%88%90%E4%B8%BA%E8%A6%81%E7%BA%A6%E5%90%97">什么是要约?商业广告可以成为要约吗?</a></li>
+<li><a href="#%E4%B8%A2%E5%A4%B1%E4%BA%BA%E4%B8%8D%E6%94%AF%E4%BB%98%E6%82%AC%E8%B5%8F%E5%B9%BF%E5%91%8A%E7%BA%A6%E5%AE%9A%E7%9A%84%E6%8A%A5%E9%85%AC%E5%BD%92%E8%BF%98%E8%80%85%E6%9C%89%E6%9D%83%E8%AF%B7%E6%B1%82%E6%94%AF%E4%BB%98%E6%8A%A5%E9%85%AC%E5%90%97">丢失人不支付悬赏广告约定的报酬，归还者有权请求支付报酬吗?</a></li>
+<li><a href="#%E5%8F%A3%E5%A4%B4%E5%8D%8F%E8%AE%AE%E8%83%BD%E7%AE%97%E4%BD%9C%E6%9C%89%E6%95%88%E7%9A%84%E5%90%88%E5%90%8C%E5%90%97">口头协议能算作有效的合同吗?</a></li>
+<li><a href="#%E8%83%B6%E5%8D%B7%E6%8D%9F%E5%9D%8F%E6%89%A9%E5%8D%B0%E5%85%AC%E5%8F%B8%E5%8F%AF%E4%BB%A5%E6%8C%89%E7%85%A7%E8%87%AA%E5%88%B6%E5%90%88%E5%90%8C%E8%B5%94%E5%81%BF%E9%A1%BE%E5%AE%A2%E5%90%97">胶卷损坏，扩印公司可以按照自制合同赔偿顾客吗?</a></li>
+<li><a href="#%E6%97%A0%E8%B4%AD%E4%B9%B0%E6%84%8F%E6%84%BF%E5%8D%B4%E5%81%87%E6%84%8F%E8%B4%AD%E4%B9%B0%E7%BB%99%E5%AF%B9%E6%96%B9%E9%80%A0%E6%88%90%E6%8D%9F%E5%A4%B1%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E8%B5%94%E5%81%BF">无购买意愿却假意购买，给对方造成损失，是否需要赔偿?</a></li>
+<li><a href="#%E4%B8%8D%E6%BB%A116%E5%91%A8%E5%B2%81%E7%9A%84%E4%BA%BA%E7%AD%BE%E8%AE%A2%E7%9A%84%E5%90%88%E5%90%8C%E6%9C%89%E6%95%88%E5%90%97">不满16周岁的人签订的合同有效吗?</a></li>
+<li><a href="#%E8%A2%AB%E9%99%A4%E5%90%8D%E5%90%8E%E6%8C%81%E5%8D%95%E4%BD%8D%E7%A9%BA%E7%99%BD%E5%90%88%E5%90%8C%E7%AD%BE%E8%AE%A2%E7%9A%84%E5%90%88%E5%90%8C%E5%8D%95%E4%BD%8D%E6%89%BF%E6%8B%85%E8%B4%A3%E4%BB%BB%E5%90%97">被除名后持单位空白合同签订的合同，单位承担责任吗?</a></li>
+<li><a href="#%E8%A2%AB%E9%AA%97%E8%B4%AD%E4%B9%B0%E4%BA%BA%E5%B7%A5%E9%92%BB%E7%9F%B3%E5%8F%AF%E4%BB%A5%E8%AF%B7%E6%B1%82%E6%B3%95%E9%99%A2%E6%92%A4%E9%94%80%E5%90%97">被骗购买人工钻石，可以请求法院撤销吗?</a></li>
+<li><a href="#%E4%B9%B0%E5%8D%96%E5%90%88%E5%90%8C%E4%B8%AD%E6%B2%A1%E6%9C%89%E7%BA%A6%E5%AE%9A%E4%BB%B7%E6%A0%BC%E8%AF%A5%E6%80%8E%E4%B9%88%E5%B1%A5%E8%A1%8C">买卖合同中没有约定价格，该怎么履行?</a></li>
+<li><a href="#%E4%B8%80%E6%96%B9%E6%BF%92%E4%B8%B4%E7%A0%B4%E4%BA%A7%E5%85%88%E5%B1%A5%E8%A1%8C%E6%96%B9%E5%8F%AF%E4%BB%A5%E4%B8%AD%E6%AD%A2%E5%B1%A5%E8%A1%8C%E5%90%97">一方濒临破产，先履行方可以中止履行吗?</a></li>
+<li><a href="#%E6%AC%A0%E9%92%B1%E4%B8%8D%E8%BF%98%E4%BD%8E%E4%BB%B7%E8%BD%AC%E8%AE%A9%E8%B4%A2%E4%BA%A7%E5%80%BA%E6%9D%83%E4%BA%BA%E6%97%A0%E8%AE%A1%E5%8F%AF%E6%96%BD%E5%90%97">欠钱不还低价转让财产，债权人无计可施吗?</a></li>
+<li><a href="#%E6%98%A5%E8%8A%82%E8%BF%87%E5%90%8E%E4%BA%A4%E4%BB%98%E6%98%A5%E8%81%94%E5%8F%A6%E4%B8%80%E6%96%B9%E5%BD%93%E4%BA%8B%E4%BA%BA%E8%83%BD%E5%8D%95%E6%96%B9%E8%A7%A3%E9%99%A4%E5%90%88%E5%90%8C%E5%90%97">春节过后交付春联，另一方当事人能单方解除合同吗?</a></li>
+<li><a href="#%E4%B8%80%E6%96%B9%E6%8B%92%E7%BB%9D%E5%8F%97%E9%A2%86%E8%B4%A7%E7%89%A9%E5%8F%A6%E4%B8%80%E6%96%B9%E5%8F%AF%E4%BB%A5%E6%8F%90%E5%AD%98%E8%B4%A7%E7%89%A9%E5%90%97">一方拒绝受领货物，另一方可以提存货物吗?</a></li>
+<li><a href="#%E8%BF%9D%E7%BA%A6%E9%87%91%E5%92%8C%E5%AE%9A%E9%87%91%E5%8F%AF%E4%BB%A5%E5%90%8C%E6%97%B6%E9%80%82%E7%94%A8%E5%90%97">违约金和定金可以同时适用吗?</a></li>
+<li><a href="#%E5%8F%91%E7%94%9F%E4%B8%8D%E5%8F%AF%E6%8A%97%E5%8A%9B%E8%BF%98%E9%9C%80%E8%A6%81%E6%89%BF%E6%8B%85%E7%BA%A6%E5%AE%9A%E7%9A%84%E8%BF%9D%E7%BA%A6%E8%B4%A3%E4%BB%BB%E5%90%97">发生不可抗力，还需要承担约定的违约责任吗?</a></li>
+<li><a href="#%E4%B9%99%E8%BF%9D%E7%BA%A6%E4%BA%A4%E4%BB%98%E7%94%B2%E5%95%86%E5%9C%BA%E4%B8%8D%E5%A6%A5%E5%96%84%E4%BF%9D%E7%AE%A1%E9%80%A0%E6%88%90%E9%A6%99%E8%95%89%E8%85%90%E7%83%82%E8%B0%81%E8%B5%94%E5%81%BF">乙违约交付，甲商场不妥善保管造成香蕉腐烂，谁赔偿?</a></li>
+<li><a href="#%E5%9B%A0%E9%93%81%E8%B7%AF%E8%BF%90%E8%90%A5%E5%A4%B1%E8%AF%AF%E5%AF%BC%E8%87%B4%E8%BF%9D%E7%BA%A6%E5%8F%AF%E4%BB%A5%E5%85%8D%E9%99%A4%E8%BF%9D%E7%BA%A6%E8%B4%A3%E4%BB%BB%E5%90%97">因铁路运营失误导致违约，可以免除违约责任吗?</a></li>
+<li><a href="#%E4%BB%A3%E5%8A%9E%E6%89%98%E8%BF%90%E5%90%8E%E8%8B%B9%E6%9E%9C%E6%84%8F%E5%A4%96%E6%AF%81%E6%8D%9F%E8%B0%81%E6%89%BF%E6%8B%85%E6%8D%9F%E5%A4%B1">代办托运后，苹果意外毁损，谁承担损失?</a></li>
+<li><a href="#%E6%9C%AA%E5%9C%A8%E5%90%88%E7%90%86%E6%9C%9F%E9%97%B4%E6%A3%80%E9%AA%8C%E8%8B%B9%E6%9E%9C%E8%85%90%E7%83%82%E8%B0%81%E6%89%BF%E6%8B%85%E6%8D%9F%E5%A4%B1">未在合理期间检验，苹果腐烂谁承担损失?</a></li>
+<li><a href="#%E5%88%86%E6%89%B9%E5%B1%A5%E8%A1%8C%E5%90%88%E5%90%8C%E4%B8%AD%E4%B8%80%E6%89%B9%E4%B8%8D%E5%90%88%E6%A0%BC%E5%8F%AF%E4%BB%A5%E6%95%B4%E4%BD%93%E8%A7%A3%E9%99%A4%E5%90%88%E5%90%8C%E5%90%97">分批履行合同中一批不合格，可以整体解除合同吗?</a></li>
+<li><a href="#%E6%9C%AA%E7%BA%A6%E5%AE%9A%E4%BD%BF%E7%94%A8%E8%B4%B9%E8%AF%95%E7%94%A8%E5%90%8E%E4%B8%8D%E6%BB%A1%E6%84%8F%E5%8F%AF%E4%BB%A5%E6%8B%92%E7%BB%9D%E4%BB%98%E4%BD%BF%E7%94%A8%E8%B4%B9%E5%90%97">未约定使用费，试用后不满意可以拒绝付使用费吗?</a></li>
+<li><a href="#%E6%8A%97%E9%9C%87%E6%95%91%E7%81%BE%E6%8D%90%E6%AC%BE%E8%83%BD%E9%9A%8F%E6%84%8F%E6%92%A4%E9%94%80%E5%90%97">抗震救灾捐款，能随意撤销吗?</a></li>
+<li><a href="#%E5%A5%BD%E5%8F%8B%E5%80%9F%E6%AC%BE%E6%9C%AA%E7%BA%A6%E5%AE%9A%E5%88%A9%E6%81%AF%E5%8F%AF%E4%BB%A5%E4%B8%8D%E6%94%AF%E4%BB%98%E5%88%A9%E6%81%AF%E5%90%97">好友借款未约定利息，可以不支付利息吗?</a></li>
+<li><a href="#%E5%88%A9%E6%81%AF%E5%8F%AF%E4%BB%A5%E4%BB%8E%E5%80%9F%E6%AC%BE%E6%9C%AC%E9%87%91%E4%B8%AD%E9%A2%84%E5%85%88%E6%89%A3%E9%99%A4%E5%90%97">利息可以从借款本金中预先扣除吗?</a></li>
+<li><a href="#%E6%A5%BC%E4%B8%8A%E6%B8%97%E6%B0%B4%E8%87%B4%E4%BD%BF%E5%8F%A4%E7%94%BB%E6%8D%9F%E5%9D%8F%E6%97%A0%E5%81%BF%E4%BF%9D%E7%AE%A1%E4%BA%BA%E9%9C%80%E8%A6%81%E8%B5%94%E5%81%BF%E6%8D%9F%E5%A4%B1%E5%90%97">楼上渗水致使古画损坏，无偿保管人需要赔偿损失吗?</a></li>
+<li><a href="#%E8%B4%A7%E7%89%A9%E5%9B%A0%E8%87%AA%E7%84%B6%E7%81%BE%E5%AE%B3%E7%81%AD%E5%A4%B1%E8%BF%90%E8%BE%93%E4%BA%BA%E8%83%BD%E8%AF%B7%E6%B1%82%E6%94%AF%E4%BB%98%E8%BF%90%E8%B4%B9%E5%90%97">货物因自然灾害灭失，运输人能请求支付运费吗?</a></li>
+<li><a href="#%E4%B9%98%E8%BD%A6%E8%A2%AB%E6%AD%B9%E5%BE%92%E7%A0%8D%E4%BC%A4%E8%BF%90%E8%BE%93%E5%85%AC%E5%8F%B8%E5%BA%94%E8%AF%A5%E8%B5%94%E5%81%BF%E5%8C%BB%E7%96%97%E8%B4%B9%E5%90%97">乘车被歹徒砍伤，运输公司应该赔偿医疗费吗?</a></li>
+<li><a href="#%E9%9A%90%E7%9E%92%E4%BA%8B%E5%AE%9E%E8%87%B4%E4%BD%BF%E5%BD%93%E4%BA%8B%E4%BA%BA%E5%88%A9%E7%9B%8A%E5%8F%97%E6%8D%9F%E5%B1%85%E9%97%B4%E4%BA%BA%E6%89%BF%E6%8B%85%E8%B4%A3%E4%BB%BB%E5%90%97">隐瞒事实致使当事人利益受损，居间人承担责任吗?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C%E4%B8%8D%E5%BD%93%E5%BE%97%E5%88%A9%E4%B8%8E%E6%97%A0%E5%9B%A0%E7%AE%A1%E7%90%86">二、不当得利与无因管理</a>
+<ul>
+<li><a href="#%E5%88%B0%E9%93%B6%E8%A1%8C%E5%AF%84%E9%94%99%E9%92%B1%E4%BA%86%E8%BF%98%E8%83%BD%E8%A6%81%E5%9B%9E%E6%9D%A5%E5%90%97">到银行寄错钱了，还能要回来吗?</a></li>
+<li><a href="#%E7%94%A8%E5%88%AB%E4%BA%BA%E7%9A%84%E9%92%B1%E6%89%80%E8%8E%B7%E5%8F%96%E7%9A%84%E5%88%A9%E7%9B%8A%E5%BD%92%E8%B0%81%E6%89%80%E6%9C%89">用别人的钱所获取的利益归谁所有?</a></li>
+<li><a href="#%E6%81%B6%E6%84%8F%E5%A4%9A%E9%A2%86%E5%8F%96%E5%88%AB%E4%BA%BA%E7%9A%84%E8%B4%A7%E7%89%A9%E5%90%8E%E8%B4%A7%E7%89%A9%E7%81%AD%E5%A4%B1%E5%BA%94%E5%90%A6%E8%B5%94%E5%81%BF">恶意多领取别人的货物，后货物灭失应否赔偿?</a></li>
+<li><a href="#%E5%96%84%E6%84%8F%E5%8F%97%E9%A2%86%E4%BA%BA%E8%BF%94%E8%BF%98%E4%B8%8D%E5%BD%93%E5%BE%97%E5%88%A9%E7%9A%84%E8%8C%83%E5%9B%B4%E6%98%AF%E4%BB%80%E4%B9%88">善意受领人返还不当得利的范围是什么?</a></li>
+<li><a href="#%E5%B8%AE%E5%A4%96%E5%87%BA%E7%9A%84%E9%82%BB%E5%B1%85%E4%BF%AE%E6%88%BF%E5%AD%90%E4%BF%AE%E7%90%86%E8%B4%B9%E8%B0%81%E6%9D%A5%E4%BB%98">帮外出的邻居修房子，修理费谁来付?</a></li>
+<li><a href="#%E4%BB%A3%E4%BB%96%E4%BA%BA%E5%8D%96%E4%B8%9C%E8%A5%BF%E9%80%A0%E6%88%90%E6%8D%9F%E5%A4%B1%E7%9A%84%E5%BA%94%E5%90%A6%E8%B5%94%E5%81%BF">代他人卖东西造成损失的应否赔偿?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89%E6%8B%85%E4%BF%9D%E7%BA%A0%E7%BA%B7">三、担保纠纷</a>
+<ul>
+<li><a href="#%E6%9C%AA%E5%8A%9E%E7%90%86%E7%99%BB%E8%AE%B0%E7%9A%84%E6%8A%B5%E6%8A%BC%E6%9D%83%E6%97%A0%E6%95%88%E5%90%97">未办理登记的抵押权无效吗?</a></li>
+<li><a href="#%E6%9C%AA%E7%BA%A6%E5%AE%9A%E4%BF%9D%E8%AF%81%E6%96%B9%E5%BC%8F%E6%89%BF%E6%8B%85%E4%BB%80%E4%B9%88%E4%BF%9D%E8%AF%81%E8%B4%A3%E4%BB%BB">未约定保证方式，承担什么保证责任?</a></li>
+<li><a href="#%E5%A6%BB%E5%AD%90%E4%B8%8D%E7%9F%A5%E6%83%85%E4%B8%88%E5%A4%AB%E5%B0%86%E6%88%BF%E4%BA%A7%E6%8A%B5%E6%8A%BC%E9%93%B6%E8%A1%8C%E5%8F%AF%E4%BB%A5%E8%A1%8C%E4%BD%BF%E6%8A%B5%E6%8A%BC%E6%9D%83%E5%90%97">妻子不知情，丈夫将房产抵押，银行可以行使抵押权吗?</a></li>
+<li><a href="#%E5%80%BA%E5%8A%A1%E4%BA%BA%E5%B0%86%E5%80%BA%E5%8A%A1%E8%BD%AC%E8%AE%A9%E7%9A%84%E4%BF%9D%E8%AF%81%E4%BA%BA%E6%98%AF%E5%90%A6%E7%BB%A7%E7%BB%AD%E6%89%BF%E6%8B%85%E4%BF%9D%E8%AF%81%E8%B4%A3%E4%BB%BB">债务人将债务转让的，保证人是否继续承担保证责任?</a></li>
+<li><a href="#%E9%93%B6%E8%A1%8C%E4%B8%8E%E5%80%BA%E5%8A%A1%E4%BA%BA%E4%BB%A5%E8%B4%B7%E8%BF%98%E8%B4%B7%E4%BF%9D%E8%AF%81%E4%BA%BA%E6%98%AF%E5%90%A6%E6%89%BF%E6%8B%85%E4%BF%9D%E8%AF%81%E8%B4%A3%E4%BB%BB">银行与债务人以贷还贷，保证人是否承担保证责任?</a></li>
+<li><a href="#%E7%A7%81%E8%87%AA%E8%BD%AC%E8%B4%A8%E9%80%A0%E6%88%90%E8%B4%A8%E6%8A%BC%E8%B4%A2%E4%BA%A7%E6%AF%81%E6%8D%9F%E7%81%AD%E5%A4%B1%E7%9A%84%E6%80%8E%E4%B9%88%E5%8A%9E">私自转质，造成质押财产毁损灭失的怎么办?</a></li>
+<li><a href="#%E8%A1%A3%E6%9C%8D%E5%81%9A%E5%A5%BD%E4%BA%86%E5%AE%9A%E5%81%9A%E4%BA%BA%E4%B8%8D%E4%BA%A4%E5%8A%A0%E5%B7%A5%E8%B4%B9%E6%80%8E%E4%B9%88%E5%8A%9E">衣服做好了，定做人不交加工费怎么办?</a></li>
+<li><a href="#%E9%A4%90%E5%8E%85%E6%94%B6%E4%BA%86%E5%AE%9A%E9%87%91%E4%B8%8D%E6%8F%90%E4%BE%9B%E6%9C%8D%E5%8A%A1%E6%80%8E%E4%B9%88%E5%8A%9E">餐厅收了定金不提供服务怎么办?</a></li>
+<li><a href="#%E5%BB%BA%E8%AE%BE%E7%94%A8%E5%9C%B0%E4%BD%BF%E7%94%A8%E6%9D%83%E6%8A%B5%E6%8A%BC%E5%90%8E%E6%96%B0%E5%A2%9E%E7%9A%84%E5%BB%BA%E7%AD%91%E7%89%A9%E5%B1%9E%E4%BA%8E%E6%8A%B5%E6%8A%BC%E8%B4%A2%E4%BA%A7%E5%90%97">建设用地使用权抵押后，新增的建筑物属于抵押财产吗?</a></li>
+<li><a href="#%E8%A2%AB%E6%8A%B5%E6%8A%BC%E7%9A%84%E8%B4%A2%E4%BA%A7%E4%BB%B7%E5%80%BC%E5%87%8F%E5%B0%91%E6%97%B6%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86">被抵押的财产价值减少时如何处理?</a></li>
+<li><a href="#%E4%BC%81%E4%B8%9A%E7%9A%84%E7%94%9F%E4%BA%A7%E8%AE%BE%E5%A4%87%E4%BD%9C%E4%B8%BA%E6%8A%B5%E6%8A%BC%E8%B4%A2%E4%BA%A7%E6%97%B6%E5%8F%AF%E4%BB%A5%E8%BD%AC%E8%AE%A9%E5%90%97">企业的生产设备作为抵押财产时可以转让吗?</a></li>
+<li><a href="#%E8%A1%8C%E4%BD%BF%E6%8A%B5%E6%8A%BC%E6%9D%83%E6%9C%89%E6%97%B6%E9%97%B4%E7%9A%84%E9%99%90%E5%88%B6%E5%90%97">行使抵押权有时间的限制吗?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%80%E8%AE%A4%E8%AF%86%E7%8A%AF%E7%BD%AA%E4%B8%8E%E5%88%91%E7%BD%9A">一、认识犯罪与刑罚</a>
+<ul>
+<li><a href="#%E6%9C%AA%E6%88%90%E5%B9%B4%E4%BA%BA%E6%8A%A2%E5%8A%AB%E8%A6%81%E6%89%BF%E6%8B%85%E5%88%91%E4%BA%8B%E8%B4%A3%E4%BB%BB%E5%90%97">未成年人抢劫要承担刑事责任吗?</a></li>
+<li><a href="#%E9%86%89%E9%85%92%E5%90%8E%E7%8A%AF%E7%BD%AA%E9%9C%80%E8%A6%81%E6%89%BF%E6%8B%85%E5%88%91%E4%BA%8B%E8%B4%A3%E4%BB%BB%E5%90%97">醉酒后犯罪需要承担刑事责任吗?</a></li>
+<li><a href="#%E7%B2%BE%E7%A5%9E%E7%97%85%E4%BA%BA%E7%8A%AF%E7%BD%AA%E6%98%AF%E5%90%A6%E8%A6%81%E6%89%BF%E6%8B%85%E5%88%91%E4%BA%8B%E8%B4%A3%E4%BB%BB%E5%91%A2">精神病人犯罪是否要承担刑事责任呢?</a></li>
+<li><a href="#%E6%84%8F%E5%A4%96%E5%B0%86%E4%BA%BA%E7%A2%BE%E6%AD%BB%E5%BA%94%E8%AF%A5%E8%B4%9F%E5%88%91%E4%BA%8B%E8%B4%A3%E4%BB%BB%E5%90%97">意外将人碾死应该负刑事责任吗?</a></li>
+<li><a href="#%E5%B0%86%E5%B0%8F%E5%81%B7%E6%B4%BB%E6%B4%BB%E6%89%93%E6%AD%BB%E6%98%AF%E6%AD%A3%E5%BD%93%E9%98%B2%E5%8D%AB%E5%90%97">将小偷活活打死是正当防卫吗?</a></li>
+<li><a href="#%E4%B8%8D%E5%B1%A5%E8%A1%8C%E8%B5%A1%E5%85%BB%E4%B9%89%E5%8A%A1%E5%B0%86%E6%B2%A1%E6%9C%89%E7%94%9F%E6%B4%BB%E8%87%AA%E7%90%86%E8%83%BD%E5%8A%9B%E7%9A%84%E8%80%81%E4%BA%BA%E9%A5%BF%E6%AD%BB%E6%98%AF%E7%8A%AF%E7%BD%AA%E5%90%97">不履行赡养义务，将没有生活自理能力的老人饿死是犯罪吗?</a></li>
+<li><a href="#%E6%B2%A1%E6%9C%89%E5%AE%9E%E7%8E%B0%E7%8A%AF%E7%BD%AA%E7%BB%93%E6%9E%9C%E9%9C%80%E8%A6%81%E6%89%BF%E6%8B%85%E5%88%91%E4%BA%8B%E8%B4%A3%E4%BB%BB%E5%90%97">没有实现犯罪结果需要承担刑事责任吗?</a></li>
+<li><a href="#%E5%AD%95%E5%A6%87%E5%81%9A%E4%BA%86%E4%BA%BA%E5%B7%A5%E6%B5%81%E4%BA%A7%E5%90%8E%E6%98%AF%E5%90%A6%E8%83%BD%E5%88%A4%E5%A4%84%E6%AD%BB%E5%88%91">孕妇做了人工流产后是否能判处死刑?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C%E4%BE%B5%E7%8A%AF%E4%BA%BA%E8%BA%AB%E7%9A%84%E7%8A%AF%E7%BD%AA">二、侵犯人身的犯罪</a>
+<ul>
+<li><a href="#%E6%9B%BF%E5%A4%A9%E8%A1%8C%E9%81%93%E6%9D%80%E6%AD%BB%E5%AD%BD%E5%AD%90%E6%98%AF%E5%90%A6%E6%9E%84%E6%88%90%E6%95%85%E6%84%8F%E6%9D%80%E4%BA%BA%E7%BD%AA">“替天行道”杀死孽子是否构成故意杀人罪?</a></li>
+<li><a href="#%E6%83%B3%E6%89%93%E5%BC%A0%E4%B8%89%E5%8D%B4%E6%89%93%E6%AE%8B%E4%BA%86%E6%9D%8E%E5%9B%9B%E6%9E%84%E6%88%90%E6%95%85%E6%84%8F%E4%BC%A4%E5%AE%B3%E5%90%97">想打张三却打残了李四构成故意伤害吗?</a></li>
+<li><a href="#%E6%81%8B%E4%BA%BA%E5%88%86%E6%89%8B%E5%90%8E%E4%BB%8D%E5%BC%BA%E8%A1%8C%E5%8F%91%E7%94%9F%E6%80%A7%E5%85%B3%E7%B3%BB%E6%98%AF%E5%90%A6%E6%9E%84%E6%88%90%E5%BC%BA%E5%A5%B8%E7%BD%AA">恋人分手后仍强行发生性关系是否构成强奸罪?</a></li>
+<li><a href="#%E4%B8%8E%E4%B8%8D%E6%BB%A1%E5%8D%81%E5%9B%9B%E5%91%A8%E5%B2%81%E7%9A%84%E5%B9%BC%E5%A5%B3%E8%87%AA%E6%84%BF%E5%8F%91%E7%94%9F%E6%80%A7%E8%A1%8C%E4%B8%BA%E6%98%AF%E5%90%A6%E6%9E%84%E6%88%90%E5%BC%BA%E5%A5%B8%E7%BD%AA">与不满十四周岁的幼女自愿发生性行为是否构成强奸罪?</a></li>
+<li><a href="#%E7%BB%91%E6%9E%B6%E4%BB%96%E4%BA%BA%E5%90%8E%E6%9C%AA%E5%8B%92%E7%B4%A2%E5%88%B0%E9%92%B1%E8%B4%A2%E9%81%82%E5%B0%86%E4%BB%96%E4%BA%BA%E9%87%8A%E6%94%BE%E7%BB%91%E6%9E%B6%E7%BD%AA%E6%98%AF%E5%90%A6%E6%88%90%E7%AB%8B">绑架他人后未勒索到钱财遂将他人释放，绑架罪是否成立?</a></li>
+<li><a href="#%E4%B8%BA%E4%BA%86%E7%B4%A2%E8%A6%81%E5%80%BA%E5%8A%A1%E5%B0%86%E4%BB%96%E4%BA%BA%E5%85%B3%E8%B5%B7%E6%9D%A5%E6%9E%84%E6%88%90%E4%BD%95%E7%BD%AA">为了索要债务将他人关起来构成何罪?</a></li>
+<li><a href="#%E5%A5%B8%E6%B7%AB%E8%A2%AB%E6%8B%90%E5%8D%96%E7%9A%84%E5%A6%87%E5%A5%B3%E7%9A%84%E6%9E%84%E6%88%90%E4%BD%95%E7%BD%AA">奸淫被拐卖的妇女的构成何罪?</a></li>
+<li><a href="#%E9%80%BC%E8%BF%AB%E9%80%9A%E5%A5%B8%E8%80%85%E6%B8%B8%E8%A1%8C%E6%9E%84%E6%88%90%E4%BD%95%E7%BD%AA">逼迫通奸者游行构成何罪?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89%E4%BE%B5%E7%8A%AF%E8%B4%A2%E4%BA%A7%E7%9A%84%E7%8A%AF%E7%BD%AA">三、侵犯财产的犯罪</a>
+<ul>
+<li><a href="#%E7%9B%97%E7%AA%83%E8%A2%AB%E4%BA%BA%E5%8F%91%E7%8E%B0%E5%90%8E%E6%9A%B4%E5%8A%9B%E6%8A%B5%E6%8A%97%E7%9A%84%E6%9E%84%E6%88%90%E6%8A%A2%E5%8A%AB%E7%BD%AA%E5%90%97">盗窃被人发现后暴力抵抗的，构成抢劫罪吗?</a></li>
+<li><a href="#%E9%A3%9E%E8%BD%A6%E6%8A%A2%E5%A4%BA%E4%BB%96%E4%BA%BA%E8%B4%A2%E7%89%A9%E9%80%A0%E6%88%90%E8%A2%AB%E5%AE%B3%E4%BA%BA%E9%87%8D%E4%BC%A4%E7%9A%84%E6%9E%84%E6%88%90%E4%BD%95%E7%BD%AA">飞车抢夺他人财物造成被害人重伤的构成何罪?</a></li>
+<li><a href="#%E5%A4%8D%E5%88%B6%E4%BB%96%E4%BA%BA%E6%89%8B%E6%9C%BA%E5%8D%A1%E7%9B%97%E6%89%93%E7%94%B5%E8%AF%9D%E7%9A%84%E8%A1%8C%E4%B8%BA%E6%9E%84%E6%88%90%E4%BD%95%E7%BD%AA">复制他人手机卡盗打电话的行为构成何罪?</a></li>
+<li><a href="#%E6%8D%A1%E5%88%B0%E4%BB%96%E4%BA%BA%E9%81%97%E5%BF%98%E7%9A%84%E7%89%A9%E5%93%81%E6%8B%92%E4%B8%8D%E4%BA%A4%E8%BF%98%E6%9E%84%E6%88%90%E7%8A%AF%E7%BD%AA%E5%90%97">捡到他人遗忘的物品拒不交还，构成犯罪吗?</a></li>
+<li><a href="#%E6%8B%BE%E5%BE%97%E4%BB%96%E4%BA%BA%E5%AD%98%E6%8A%98%E5%86%92%E9%A2%86%E5%AD%98%E6%AC%BE%E7%9A%84%E8%A1%8C%E4%B8%BA%E6%9E%84%E6%88%90%E4%BD%95%E7%BD%AA">拾得他人存折冒领存款的行为构成何罪?</a></li>
+<li><a href="#%E5%86%92%E7%A7%B0%E8%87%AA%E5%B7%B1%E8%A2%AB%E7%BB%91%E6%9E%B6%E6%95%B2%E8%AF%88%E7%88%B6%E6%AF%8D%E9%92%B1%E8%B4%A2%E5%A6%82%E4%BD%95%E5%AE%9A%E6%80%A7">冒称自己被绑架敲诈父母钱财如何定性?</a></li>
+<li><a href="#%E4%B8%BA%E6%B3%84%E7%A7%81%E6%84%A4%E6%AF%92%E6%AD%BB%E9%82%BB%E4%BA%BA%E6%98%82%E8%B4%B5%E5%90%8D%E7%8A%AC%E6%9E%84%E6%88%90%E4%BD%95%E7%BD%AA">为泄私愤毒死邻人昂贵名犬构成何罪?</a></li>
+<li><a href="#%E7%A7%81%E6%8B%BF%E5%85%AC%E5%8F%B8%E9%92%B1%E8%B4%A2%E5%81%9A%E7%94%9F%E6%84%8F%E6%9E%84%E6%88%90%E4%BB%80%E4%B9%88%E7%BD%AA">私拿公司钱财做生意构成什么罪?</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B%E4%BE%B5%E7%8A%AF%E5%85%AC%E5%85%B1%E5%AE%89%E5%85%A8%E7%9A%84%E7%8A%AF%E7%BD%AA">四、侵犯公共安全的犯罪</a>
+<ul>
+<li><a href="#%E6%94%BE%E7%81%AB%E7%83%A7%E8%87%AA%E5%AE%B6%E7%83%A7%E4%BA%86%E8%A1%97%E5%9D%8A%E9%82%BB%E9%87%8C%E5%A6%82%E4%BD%95%E5%AE%9A%E7%BD%AA">放火烧自家烧了街坊邻里如何定罪?</a></li>
+<li><a href="#%E7%88%86%E7%82%B8%E6%9D%80%E4%BA%BA%E6%AE%83%E5%8F%8A%E6%97%A0%E8%BE%9C%E6%98%AF%E7%88%86%E7%82%B8%E7%BD%AA%E8%BF%98%E6%98%AF%E6%9D%80%E4%BA%BA%E7%BD%AA">爆炸杀人殃及无辜是爆炸罪还是杀人罪?</a></li>
+<li><a href="#%E4%B8%BA%E6%8A%A5%E4%BB%87%E9%A5%AD%E5%BA%97%E6%8A%95%E6%AF%92%E6%98%AF%E5%90%A6%E6%9E%84%E6%88%90%E6%8A%95%E6%94%BE%E5%8D%B1%E9%99%A9%E7%89%A9%E8%B4%A8%E7%BD%AA">为报仇饭店投毒是否构成投放危险物质罪?</a></li>
+<li><a href="#%E6%8C%87%E4%BD%BF%E8%82%87%E4%BA%8B%E5%8F%B8%E6%9C%BA%E9%80%83%E9%80%B8%E6%9E%84%E6%88%90%E7%8A%AF%E7%BD%AA%E5%90%97">指使肇事司机逃逸，构成犯罪吗?</a></li>
+<li><a href="#%E6%9C%AC%E6%83%B3%E7%9B%97%E7%AA%83%E8%B4%A2%E7%89%A9%E5%8D%B4%E8%AF%AF%E7%9B%97%E4%B8%80%E6%8A%8A%E6%89%8B%E6%9E%AA%E6%9E%84%E6%88%90%E4%BD%95%E7%BD%AA">本想盗窃财物却误盗一把手枪，构成何罪?</a></li>
+<li><a href="#%E5%81%B7%E7%AA%83%E5%88%B9%E8%BD%A6%E8%A3%85%E7%BD%AE%E6%9E%84%E6%88%90%E4%BB%80%E4%B9%88%E7%BD%AA">偷窃刹车装置构成什么罪?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%94%E6%89%B0%E4%B9%B1%E7%A4%BE%E4%BC%9A%E7%A7%A9%E5%BA%8F%E7%9A%84%E7%8A%AF%E7%BD%AA">五、扰乱社会秩序的犯罪</a>
+<ul>
+<li><a href="#%E5%86%92%E5%85%85%E8%AD%A6%E5%AF%9F%E6%94%B6%E4%BF%9D%E6%8A%A4%E8%B4%B9%E6%9E%84%E6%88%90%E4%BD%95%E7%BD%AA">冒充警察收保护费构成何罪?</a></li>
+<li><a href="#%E6%9A%B4%E5%8A%9B%E5%A6%A8%E5%AE%B3%E6%89%93%E5%81%87%E6%9E%84%E6%88%90%E4%BD%95%E7%BD%AA">暴力妨害打假构成何罪?</a></li>
+<li><a href="#%E4%B8%BA%E7%BD%AA%E7%8A%AF%E9%80%9A%E9%A3%8E%E6%8A%A5%E4%BF%A1%E6%9E%84%E6%88%90%E4%BD%95%E7%BD%AA">为罪犯通风报信构成何罪?</a></li>
+<li><a href="#%E5%8F%82%E5%8A%A0%E9%BB%91%E7%A4%BE%E4%BC%9A%E5%8F%88%E6%9D%80%E4%BA%BA%E6%9E%84%E6%88%90%E4%B8%80%E7%BD%AA%E8%BF%98%E6%98%AF%E5%A4%9A%E7%BD%AA">参加黑社会又杀人构成一罪还是多罪?</a></li>
+<li><a href="#%E5%88%A9%E7%94%A8%E6%9C%AA%E6%88%90%E5%B9%B4%E4%BA%BA%E8%B4%A9%E6%AF%92%E4%BC%9A%E5%8A%A0%E9%87%8D%E5%A4%84%E7%BD%9A%E5%90%97">利用未成年人贩毒会加重处罚吗?</a></li>
+<li><a href="#%E5%88%A9%E7%94%A8%E4%BA%92%E8%81%94%E7%BD%91%E4%BC%A0%E6%92%AD%E6%B7%AB%E7%A7%BD%E7%89%A9%E5%93%81%E7%89%9F%E5%88%A9%E6%9E%84%E6%88%90%E4%BD%95%E7%BD%AA">利用互联网传播淫秽物品牟利构成何罪?</a></li>
+</ul>
+</li>
+<li><a href="#%E5%85%AD%E7%BB%8F%E6%B5%8E%E6%B4%BB%E5%8A%A8%E4%B8%AD%E7%9A%84%E7%8A%AF%E7%BD%AA">六、经济活动中的犯罪</a>
+<ul>
+<li><a href="#%E8%B4%A9%E5%8D%96%E5%81%87%E7%83%9F%E6%9E%84%E6%88%90%E4%BD%95%E7%BD%AA">贩卖假烟构成何罪?</a></li>
+<li><a href="#%E6%81%B6%E6%84%8F%E9%80%8F%E6%94%AF%E4%BF%A1%E7%94%A8%E5%8D%A1%E6%9E%84%E6%88%90%E4%BD%95%E7%BD%AA">恶意透支信用卡构成何罪?</a></li>
+<li><a href="#%E7%AD%BE%E8%AE%A2%E5%90%88%E5%90%8C%E5%90%8E%E6%90%BA%E6%AC%BE%E6%BD%9C%E9%80%83%E6%9E%84%E6%88%90%E4%BD%95%E7%BD%AA">签订合同后携款潜逃构成何罪?</a></li>
+<li><a href="#%E5%88%B6%E9%80%A0%E8%BD%A6%E7%A5%B8%E9%AA%97%E5%8F%96%E4%BF%9D%E9%99%A9%E9%87%91%E6%9E%84%E6%88%90%E4%BD%95%E7%BD%AA">制造车祸骗取保险金构成何罪?</a></li>
+<li><a href="#%E8%BF%9B%E8%A1%8C%E8%99%9A%E5%81%87%E7%BA%B3%E7%A8%8E%E7%94%B3%E6%8A%A5%E6%9E%84%E6%88%90%E4%BD%95%E7%BD%AA">进行虚假纳税申报构成何罪?</a></li>
+<li><a href="#%E5%88%B6%E9%80%A0%E5%81%87%E9%92%B1%E5%B9%B6%E4%BD%BF%E7%94%A8%E7%9A%84%E8%A1%8C%E4%B8%BA%E6%9E%84%E6%88%90%E4%BD%95%E7%BD%AA">制造假钱并使用的行为构成何罪?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%83%E5%85%AC%E8%81%8C%E4%BA%BA%E5%91%98%E7%9A%84%E7%8A%AF%E7%BD%AA">七、公职人员的犯罪</a>
+<ul>
+<li><a href="#%E4%BC%99%E5%90%8C%E5%9B%BD%E5%AE%B6%E5%B7%A5%E4%BD%9C%E4%BA%BA%E5%91%98%E8%B4%AA%E6%B1%A1%E6%9E%84%E6%88%90%E4%BD%95%E7%BD%AA">伙同国家工作人员贪污构成何罪?</a></li>
+<li><a href="#%E5%8F%97%E4%BA%BA%E9%92%B1%E8%B4%A2%E5%8D%B4%E6%B2%A1%E6%9B%BF%E4%BA%BA%E5%8A%9E%E4%BA%8B%E6%98%AF%E5%90%A6%E6%9E%84%E6%88%90%E5%8F%97%E8%B4%BF%E7%BD%AA">受人钱财却没替人办事，是否构成受贿罪?</a></li>
+<li><a href="#%E6%8C%AA%E7%94%A8%E5%85%AC%E6%AC%BE%E5%81%9A%E7%94%9F%E6%84%8F%E6%9E%84%E6%88%90%E4%BD%95%E7%BD%AA">挪用公款做生意构成何罪?</a></li>
+<li><a href="#%E5%85%AC%E8%81%8C%E4%BA%BA%E5%91%98%E6%97%A0%E6%B3%95%E8%AF%B4%E6%98%8E%E4%B8%AA%E4%BA%BA%E5%B7%A8%E9%A2%9D%E8%B4%A2%E4%BA%A7%E6%9D%A5%E6%BA%90%E7%9A%84%E6%9E%84%E6%88%90%E4%BD%95%E7%BD%AA">公职人员无法说明个人巨额财产来源的构成何罪?</a></li>
+<li><a href="#%E6%BB%A5%E7%94%A8%E8%81%8C%E6%9D%83%E6%89%B9%E9%A1%B9%E7%9B%AE%E9%80%A0%E6%88%90%E6%8D%9F%E5%A4%B1%E5%AE%9A%E4%BD%95%E7%BD%AA">滥用职权批项目造成损失定何罪?</a></li>
+<li><a href="#%E6%B3%95%E5%AE%98%E5%AF%B9%E7%BD%AA%E7%8A%AF%E6%9C%89%E7%BD%AA%E5%88%A4%E6%97%A0%E7%BD%AA%E6%B3%95%E5%AE%98%E6%9E%84%E6%88%90%E4%BD%95%E7%BD%AA">法官对罪犯有罪判无罪，法官构成何罪?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%80%E6%B2%BB%E5%AE%89%E8%A1%8C%E6%94%BF%E7%AE%A1%E7%90%86">一、治安行政管理</a>
+<ul>
+<li><a href="#%E8%A7%82%E7%9C%8B%E6%99%9A%E4%BC%9A%E6%97%B6%E5%8F%91%E7%94%9F%E4%BA%8B%E6%95%85%E8%B0%81%E4%B8%BA%E4%BA%8B%E6%95%85%E4%B9%B0%E5%8D%95">观看晚会时发生事故，谁为事故买单?</a></li>
+<li><a href="#%E7%B2%BE%E7%A5%9E%E7%97%85%E4%BA%BA%E6%89%93%E4%BA%BA%E8%83%BD%E5%A4%9F%E8%A2%AB%E5%A4%84%E4%BB%A5%E6%B2%BB%E5%AE%89%E7%AE%A1%E7%90%86%E5%A4%84%E7%BD%9A%E5%90%97">精神病人打人能够被处以治安管理处罚吗?</a></li>
+<li><a href="#%E5%BC%BA%E4%B9%B0%E5%BC%BA%E5%8D%96%E8%A1%8C%E4%B8%BA%E5%8F%AF%E4%BB%A5%E8%A2%AB%E5%A4%84%E4%BB%A5%E6%B2%BB%E5%AE%89%E7%AE%A1%E7%90%86%E5%A4%84%E7%BD%9A%E5%90%97">强买强卖行为可以被处以治安管理处罚吗?</a></li>
+<li><a href="#%E5%87%BA%E7%A7%9F%E6%88%BF%E5%B1%8B%E6%B2%A1%E6%9C%89%E7%99%BB%E8%AE%B0%E6%89%BF%E7%A7%9F%E8%80%85%E7%9A%84%E8%BA%AB%E4%BB%BD%E8%AF%81%E4%B9%9F%E8%A6%81%E6%8E%A5%E5%8F%97%E6%B2%BB%E5%AE%89%E5%A4%84%E7%BD%9A%E5%90%97">出租房屋没有登记承租者的身份证，也要接受治安处罚吗?</a></li>
+<li><a href="#%E6%89%A7%E6%B3%95%E4%BA%BA%E5%91%98%E5%8F%AA%E6%9C%89%E4%B8%80%E4%BA%BA%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E5%8F%AF%E4%BB%A5%E5%AF%B9%E5%85%AC%E6%B0%91%E8%BF%9B%E8%A1%8C%E8%AF%A2%E9%97%AE%E5%90%97">执法人员只有一人的情况下，可以对公民进行询问吗?</a></li>
+<li><a href="#%E5%85%AC%E5%AE%89%E6%9C%BA%E5%85%B3%E6%89%A3%E6%8A%BC%E5%85%AC%E6%B0%91%E7%89%A9%E5%93%81%E6%97%B6%E5%8F%AF%E4%BB%A5%E4%B8%8D%E5%88%B6%E4%BD%9C%E6%89%A3%E6%8A%BC%E6%B8%85%E5%8D%95%E5%90%97">公安机关扣押公民物品时，可以不制作扣押清单吗?</a></li>
+<li><a href="#%E5%BD%93%E5%9C%BA%E5%81%9A%E5%87%BA%E8%A1%8C%E6%94%BF%E5%A4%84%E7%BD%9A%E5%BA%94%E8%AF%A5%E7%AC%A6%E5%90%88%E4%BB%80%E4%B9%88%E7%A8%8B%E5%BA%8F">当场做出行政处罚应该符合什么程序?</a></li>
+<li><a href="#%E5%8F%98%E5%8D%96%E8%A2%AB%E6%9F%A5%E5%B0%81%E6%89%A3%E6%8A%BC%E7%9A%84%E6%B1%BD%E8%BD%A6%E6%98%AF%E5%90%88%E6%B3%95%E7%9A%84%E8%A1%8C%E4%B8%BA%E5%90%97">变卖被查封扣押的汽车是合法的行为吗?</a></li>
+<li><a href="#%E8%A1%8C%E6%94%BF%E5%A4%84%E7%BD%9A%E5%89%8D%E8%A1%8C%E6%94%BF%E6%9C%BA%E5%85%B3%E6%9C%89%E4%B9%89%E5%8A%A1%E5%91%8A%E7%9F%A5%E8%A2%AB%E5%A4%84%E7%BD%9A%E4%BA%BA%E5%90%97">行政处罚前，行政机关有义务告知被处罚人吗?</a></li>
+<li><a href="#%E5%BD%93%E5%9C%BA%E6%94%B6%E7%BC%B4%E7%BD%9A%E6%AC%BE%E6%80%8E%E6%A0%B7%E8%BF%9B%E8%A1%8C%E5%91%A2">当场收缴罚款怎样进行呢?</a></li>
+<li><a href="#%E6%8B%98%E7%95%99%E5%A4%84%E7%BD%9A%E5%86%B3%E5%AE%9A%E4%B9%A6%E6%B2%A1%E6%9C%89%E5%8A%A0%E7%9B%96%E5%85%AC%E7%AB%A0%E5%90%88%E6%B3%95%E5%90%97">拘留处罚决定书没有加盖公章合法吗?</a></li>
+<li><a href="#%E9%81%AD%E5%84%BF%E5%AD%90%E9%81%97%E5%BC%83%E5%8F%A4%E7%A8%80%E8%80%81%E4%BA%BA%E6%9D%83%E7%9B%8A%E5%A6%82%E4%BD%95%E7%BB%B4%E6%8A%A4">遭儿子遗弃，古稀老人权益如何维护?</a></li>
+<li><a href="#%E5%AF%B9%E6%9C%AA%E6%BB%A118%E5%B2%81%E5%88%9D%E6%AC%A1%E8%BF%9D%E6%B3%95%E7%9A%84%E4%BA%BA%E8%83%BD%E6%89%A7%E8%A1%8C%E8%A1%8C%E6%94%BF%E6%8B%98%E7%95%99%E5%90%97">对未满18岁初次违法的人能执行行政拘留吗?</a></li>
+<li><a href="#%E8%A1%8C%E6%94%BF%E6%8B%98%E7%95%99%E5%8F%AF%E4%BB%A5%E6%9A%82%E7%BC%93%E6%89%A7%E8%A1%8C%E5%90%97">行政拘留可以暂缓执行吗?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C%E8%AD%A6%E5%AF%9F%E6%89%A7%E6%B3%95">二、警察执法</a>
+<ul>
+<li><a href="#%E8%AD%A6%E5%AF%9F%E7%95%99%E7%BD%AE%E7%9B%98%E9%97%AE%E5%8F%AF%E4%BB%A5%E6%AF%AB%E6%97%A0%E8%8A%82%E5%88%B6%E5%90%97">警察留置盘问可以毫无节制吗?</a></li>
+<li><a href="#%E8%AD%A6%E5%AF%9F%E6%89%A7%E6%B3%95%E4%B9%8B%E5%89%8D%E9%9C%80%E8%A6%81%E8%A1%A8%E6%98%8E%E8%BA%AB%E4%BB%BD%E5%90%97">警察执法之前需要表明身份吗?</a></li>
+<li><a href="#%E8%A2%AB%E5%A4%84%E7%BD%9A%E4%BA%BA%E6%9C%89%E6%9D%83%E8%A6%81%E6%B1%82%E6%89%A7%E6%B3%95%E4%BA%BA%E5%91%98%E5%9B%9E%E9%81%BF%E5%90%97">被处罚人有权要求执法人员回避吗?</a></li>
+<li><a href="#%E8%AD%A6%E5%AF%9F%E5%8F%AF%E4%BB%A5%E9%9A%8F%E6%84%8F%E6%A3%80%E6%9F%A5%E5%85%AC%E6%B0%91%E7%9A%84%E4%BD%8F%E5%AE%85%E5%90%97">警察可以随意检查公民的住宅吗?</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96%E5%85%AC%E6%B0%91%E6%8B%8D%E6%91%84%E7%9A%84%E5%8F%B8%E6%9C%BA%E8%BF%9D%E7%AB%A0%E7%85%A7%E7%89%87%E5%8F%AF%E4%BB%A5%E4%BD%9C%E4%B8%BA%E5%A4%84%E7%BD%9A%E7%9A%84%E4%BE%9D%E6%8D%AE%E5%90%97">其他公民拍摄的司机违章照片可以作为处罚的依据吗?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89%E8%A1%8C%E6%94%BF%E5%A4%84%E7%BD%9A">三、行政处罚</a>
+<ul>
+<li><a href="#%E8%BF%9D%E5%8F%8D%E6%B2%BB%E5%AE%89%E7%AE%A1%E7%90%86%E7%9A%84%E8%A1%8C%E4%B8%BA%E5%B7%B2%E8%BF%87%E5%8D%8A%E5%B9%B4%E8%BF%98%E8%83%BD%E5%AF%B9%E6%AD%A4%E4%BD%9C%E5%87%BA%E8%A1%8C%E6%94%BF%E5%A4%84%E7%BD%9A%E5%90%97">违反治安管理的行为已过半年，还能对此作出行政处罚吗?</a></li>
+<li><a href="#%E8%A2%AB%E5%A4%84%E7%BD%9A%E7%9A%84%E5%85%AC%E6%B0%91%E6%9C%89%E8%A6%81%E6%B1%82%E8%A1%8C%E6%94%BF%E6%9C%BA%E5%85%B3%E4%B8%BE%E8%A1%8C%E5%90%AC%E8%AF%81%E4%BC%9A%E7%9A%84%E6%9D%83%E5%88%A9%E5%90%97">被处罚的公民有要求行政机关举行听证会的权利吗?</a></li>
+<li><a href="#%E6%B4%BE%E5%87%BA%E6%89%80%E6%9C%89%E6%9D%83%E5%81%9A%E5%87%BA%E8%A1%8C%E6%94%BF%E5%A4%84%E7%BD%9A%E5%86%B3%E5%AE%9A%E5%90%97">派出所有权做出行政处罚决定吗?</a></li>
+<li><a href="#%E8%A2%AB%E5%A4%84%E7%BD%9A%E4%BA%BA%E6%8B%92%E7%BB%9D%E5%B1%A5%E8%A1%8C%E8%A1%8C%E6%94%BF%E5%A4%84%E7%BD%9A%E6%B3%95%E9%99%A2%E6%9C%89%E6%9D%83%E5%BC%BA%E5%88%B6%E6%89%A7%E8%A1%8C%E5%90%97">被处罚人拒绝履行行政处罚，法院有权强制执行吗?</a></li>
+<li><a href="#%E5%AF%B9%E4%B8%80%E4%B8%AA%E8%BF%9D%E6%B3%95%E8%A1%8C%E4%B8%BA%E8%83%BD%E5%90%A6%E7%BB%99%E4%BA%88%E4%B8%A4%E6%AC%A1%E7%BD%9A%E6%AC%BE%E5%A4%84%E7%BD%9A">对一个违法行为能否给予两次罚款处罚?</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B%E5%9B%BD%E5%AE%B6%E8%B5%94%E5%81%BF">四、国家赔偿</a>
+<ul>
+<li><a href="#%E5%85%AC%E6%B0%91%E4%BA%BA%E8%BA%AB%E6%9D%83%E5%92%8C%E8%B4%A2%E4%BA%A7%E6%9D%83%E9%81%AD%E5%9B%BD%E5%AE%B6%E5%B7%A5%E4%BD%9C%E4%BA%BA%E5%91%98%E4%BE%B5%E5%AE%B3%E8%83%BD%E8%A6%81%E6%B1%82%E5%9B%BD%E5%AE%B6%E8%B5%94%E5%81%BF%E5%90%97">公民人身权和财产权遭国家工作人员侵害，能要求国家赔偿吗?</a></li>
+<li><a href="#%E5%85%AC%E6%B0%91%E8%A2%AB%E9%94%99%E8%AF%AF%E5%88%A4%E5%88%91%E8%83%BD%E8%A6%81%E6%B1%82%E8%B5%94%E5%81%BF%E5%90%97">公民被错误判刑，能要求赔偿吗?</a></li>
+<li><a href="#%E5%85%AC%E6%B0%91%E5%93%AA%E4%BA%9B%E8%B4%A2%E4%BA%A7%E6%8D%9F%E5%A4%B1%E5%8F%AF%E4%BB%A5%E8%A6%81%E6%B1%82%E5%9B%BD%E5%AE%B6%E8%B5%94%E5%81%BF">公民哪些财产损失可以要求国家赔偿?</a></li>
+<li><a href="#%E6%B3%95%E9%99%A2%E5%AF%B9%E6%89%A3%E6%8A%BC%E8%B4%A2%E4%BA%A7%E7%9C%8B%E7%AE%A1%E4%B8%8D%E5%8A%9B%E9%80%A0%E6%88%90%E6%8D%9F%E5%A4%B1%E5%85%AC%E6%B0%91%E5%8F%AF%E4%BB%A5%E8%AF%B7%E6%B1%82%E5%9B%BD%E5%AE%B6%E8%B5%94%E5%81%BF%E5%90%97">法院对扣押财产看管不力造成损失，公民可以请求国家赔偿吗?</a></li>
+<li><a href="#%E5%85%AC%E6%B0%91%E5%9C%A8%E5%93%AA%E4%BA%9B%E6%83%85%E5%86%B5%E4%B8%8B%E4%B8%8D%E5%8F%AF%E4%BB%A5%E8%AF%B7%E6%B1%82%E5%9B%BD%E5%AE%B6%E8%B5%94%E5%81%BF">公民在哪些情况下不可以请求国家赔偿?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%94%E5%85%B6%E4%BB%96%E8%A1%8C%E6%94%BF%E7%BA%A0%E7%BA%B7">五、其他行政纠纷</a>
+<ul>
+<li><a href="#%E8%A1%8C%E6%94%BF%E6%9C%BA%E5%85%B3%E5%8F%AF%E4%BB%A5%E6%92%A4%E9%94%80%E8%A1%8C%E6%94%BF%E8%AE%B8%E5%8F%AF%E5%90%97">行政机关可以撤销行政许可吗?</a></li>
+<li><a href="#%E5%85%AC%E6%B0%91%E5%9C%A8%E8%A1%8C%E6%94%BF%E8%AE%B8%E5%8F%AF%E4%B8%AD%E6%9C%89%E8%A6%81%E6%B1%82%E5%9B%BD%E5%AE%B6%E6%9C%BA%E5%85%B3%E4%B8%BE%E8%A1%8C%E5%90%AC%E8%AF%81%E4%BC%9A%E7%9A%84%E6%9D%83%E5%88%A9%E5%90%97">公民在行政许可中有要求国家机关举行听证会的权利吗?</a></li>
+<li><a href="#%E8%A1%8C%E6%94%BF%E8%AE%B8%E5%8F%AF%E8%A2%AB%E6%92%A4%E5%9B%9E%E8%A2%AB%E8%AE%B8%E5%8F%AF%E5%8D%95%E4%BD%8D%E7%9A%84%E6%9D%83%E7%9B%8A%E5%A6%82%E4%BD%95%E7%BB%B4%E6%8A%A4">行政许可被撤回，被许可单位的权益如何维护?</a></li>
+<li><a href="#%E8%A1%8C%E6%94%BF%E6%9C%BA%E5%85%B3%E5%81%9A%E5%87%BA%E6%8E%88%E4%BA%88%E8%A1%8C%E6%94%BF%E8%AE%B8%E5%8F%AF%E7%9A%84%E5%86%B3%E5%AE%9A%E8%A6%81%E5%8F%97%E5%88%B0%E6%97%B6%E9%97%B4%E7%9A%84%E9%99%90%E5%88%B6%E5%90%97">行政机关做出授予行政许可的决定要受到时间的限制吗?</a></li>
+<li><a href="#%E8%A1%8C%E6%94%BF%E6%9C%BA%E5%85%B3%E9%9C%80%E8%A6%81%E5%AF%B9%E7%94%B3%E8%AF%B7%E4%BA%BA%E8%AF%B4%E6%98%8E%E4%B8%8D%E6%8E%88%E4%BA%88%E5%85%B6%E8%A1%8C%E6%94%BF%E8%AE%B8%E5%8F%AF%E7%9A%84%E7%90%86%E7%94%B1%E5%90%97">行政机关需要对申请人说明不授予其行政许可的理由吗?</a></li>
+<li><a href="#%E5%85%AC%E6%B0%91%E4%B8%8D%E6%9C%8D%E8%A1%8C%E6%94%BF%E5%A4%84%E7%BD%9A%E5%90%91%E8%B0%81%E7%94%B3%E8%AF%B7%E8%A1%8C%E6%94%BF%E5%A4%8D%E8%AE%AE">公民不服行政处罚，向谁申请行政复议?</a></li>
+<li><a href="#%E8%A1%8C%E6%94%BF%E5%A4%8D%E8%AE%AE%E4%B8%AD%E8%A1%8C%E6%94%BF%E6%9C%BA%E5%85%B3%E8%BF%9F%E5%BB%B6%E6%8F%90%E4%BA%A4%E7%9A%84%E8%AF%81%E6%8D%AE%E8%83%BD%E8%A2%AB%E9%87%87%E7%BA%B3%E5%90%97">行政复议中，行政机关迟延提交的证据能被采纳吗?</a></li>
+<li><a href="#%E8%A1%8C%E6%94%BF%E6%9C%BA%E5%85%B3%E6%8B%92%E4%B8%8D%E6%89%A7%E8%A1%8C%E8%A1%8C%E6%94%BF%E5%A4%8D%E8%AE%AE%E5%86%B3%E5%AE%9A%E5%85%AC%E6%B0%91%E5%A6%82%E4%BD%95%E7%BB%B4%E6%9D%83">行政机关拒不执行行政复议决定，公民如何维权?</a></li>
+<li><a href="#%E8%A1%8C%E6%94%BF%E6%9C%BA%E5%85%B3%E4%B8%8D%E5%8F%97%E7%90%86%E8%A1%8C%E6%94%BF%E5%A4%8D%E8%AE%AE%E7%94%B3%E8%AF%B7%E7%94%B3%E8%AF%B7%E4%BA%BA%E5%A6%82%E4%BD%95%E7%BB%B4%E6%9D%83">行政机关不受理行政复议申请，申请人如何维权?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%80%E5%91%8A%E8%B0%81%E5%88%B0%E5%93%AA%E5%91%8A%E6%80%8E%E6%A0%B7%E5%91%8A">一、告谁?到哪告?怎样告?</a>
+<ul>
+<li><a href="#%E9%80%89%E9%94%99%E8%A2%AB%E5%91%8A%E7%9A%84%E5%90%8E%E6%9E%9C%E6%98%AF%E4%BB%80%E4%B9%88">选错被告的后果是什么?</a></li>
+<li><a href="#%E5%90%88%E4%BC%99%E6%83%B9%E4%BA%86%E5%AE%98%E5%8F%B8%E8%B0%81%E4%B8%BA%E8%A2%AB%E5%91%8A">合伙惹了官司谁为被告?</a></li>
+<li><a href="#%E9%81%97%E4%BA%A7%E6%83%B9%E5%AE%98%E5%8F%B8%E8%A2%AB%E5%89%A5%E5%A4%BA%E7%BB%A7%E6%89%BF%E6%9D%83%E7%9A%84%E7%BB%A7%E6%89%BF%E4%BA%BA%E8%83%BD%E5%90%A6%E4%BD%9C%E4%B8%BA%E7%AC%AC%E4%B8%89%E4%BA%BA%E5%8F%82%E5%8A%A0%E8%AF%89%E8%AE%BC">遗产惹官司，被剥夺继承权的继承人能否作为第三人参加诉讼?</a></li>
+<li><a href="#%E8%A1%8C%E6%94%BF%E6%9C%BA%E5%85%B3%E5%8F%AF%E4%BB%A5%E5%81%9A%E8%A2%AB%E5%91%8A%E5%90%97">行政机关可以做被告吗?</a></li>
+<li><a href="#%E5%9C%A8%E5%B9%BC%E5%84%BF%E5%9B%AD%E4%B8%AD%E6%9C%AA%E6%88%90%E5%B9%B4%E4%BA%BA%E8%87%B4%E4%BA%BA%E6%8D%9F%E5%AE%B3%E8%B0%81%E4%B8%BA%E8%A2%AB%E5%91%8A">在幼儿园中，未成年人致人损害谁为被告?</a></li>
+<li><a href="#%E6%B3%95%E4%BA%BA%E5%B7%A5%E4%BD%9C%E4%BA%BA%E5%91%98%E8%87%B4%E4%BA%BA%E6%8D%9F%E5%AE%B3%E5%BA%94%E8%AF%A5%E5%91%8A%E8%B0%81">法人工作人员致人损害应该告谁?</a></li>
+<li><a href="#%E4%B8%AA%E4%BD%93%E5%B7%A5%E5%95%86%E6%88%B7%E5%AE%9E%E9%99%85%E4%B8%9A%E4%B8%BB%E4%B8%8E%E8%90%A5%E4%B8%9A%E6%89%A7%E7%85%A7%E4%B8%8A%E7%9A%84%E4%B8%8D%E4%B8%80%E8%87%B4%E8%B0%81%E4%B8%BA%E8%A2%AB%E5%91%8A">个体工商户实际业主与营业执照上的不一致，谁为被告?</a></li>
+<li><a href="#%E8%A2%AB%E5%91%8A%E4%BD%8F%E6%89%80%E5%9C%B0%E4%B8%8E%E5%B1%85%E4%BD%8F%E5%9C%B0%E4%B8%8D%E4%B8%80%E8%87%B4%E6%97%B6%E8%A6%81%E5%88%B0%E5%93%AA%E4%B8%AA%E6%B3%95%E9%99%A2%E5%8E%BB%E8%B5%B7%E8%AF%89">被告住所地与居住地不一致时要到哪个法院去起诉?</a></li>
+<li><a href="#%E5%90%88%E5%90%8C%E7%BA%A0%E7%BA%B7%E6%8F%90%E8%B5%B7%E8%AF%89%E8%AE%BC%E5%BA%94%E7%94%B1%E5%93%AA%E4%B8%AA%E6%B3%95%E9%99%A2%E7%AE%A1%E8%BE%96">合同纠纷提起诉讼应由哪个法院管辖?</a></li>
+<li><a href="#%E4%BE%B5%E6%9D%83%E7%BA%A0%E7%BA%B7%E5%BC%95%E8%B5%B7%E7%9A%84%E8%AF%89%E8%AE%BC%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E7%AE%A1%E8%BE%96%E6%B3%95%E9%99%A2">侵权纠纷引起的诉讼如何确定管辖法院?</a></li>
+<li><a href="#%E5%90%88%E5%90%8C%E5%BD%93%E4%BA%8B%E4%BA%BA%E5%8F%AF%E4%BB%A5%E5%8D%8F%E5%95%86%E9%80%89%E6%8B%A9%E7%AE%A1%E8%BE%96%E6%B3%95%E9%99%A2%E5%90%97">合同当事人可以协商选择管辖法院吗?</a></li>
+<li><a href="#%E5%9B%A0%E4%B8%8D%E5%8A%A8%E4%BA%A7%E7%BA%A0%E7%BA%B7%E6%8F%90%E8%B5%B7%E7%9A%84%E8%AF%89%E8%AE%BC%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E7%AE%A1%E8%BE%96">因不动产纠纷提起的诉讼如何确定管辖?</a></li>
+<li><a href="#%E9%87%8D%E5%A9%9A%E7%BD%AA%E7%9A%84%E5%8F%97%E5%AE%B3%E4%BA%BA%E8%83%BD%E7%9B%B4%E6%8E%A5%E5%B0%86%E5%8A%A0%E5%AE%B3%E4%BA%BA%E8%B5%B7%E8%AF%89%E5%88%B0%E6%B3%95%E9%99%A2%E5%90%97">重婚罪的受害人能直接将加害人起诉到法院吗?</a></li>
+<li><a href="#%E8%B5%B7%E8%AF%89%E5%BA%94%E8%AF%A5%E5%85%B7%E5%A4%87%E4%BB%80%E4%B9%88%E6%9D%A1%E4%BB%B6">起诉应该具备什么条件?</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E4%B9%A6%E5%86%99%E6%B0%91%E4%BA%8B%E8%B5%B7%E8%AF%89%E7%8A%B6">如何书写民事起诉状?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C%E6%80%8E%E6%A0%B7%E5%BE%97%E5%88%B0%E5%BE%8B%E5%B8%88%E7%9A%84%E5%B8%AE%E5%8A%A9">二、怎样得到律师的帮助</a>
+<ul>
+<li><a href="#%E6%89%93%E5%AE%98%E5%8F%B8%E5%A6%82%E4%BD%95%E8%81%98%E8%AF%B7%E5%BE%8B%E5%B8%88%E8%81%98%E8%AF%B7%E5%BE%8B%E5%B8%88%E6%9C%89%E5%93%AA%E4%BA%9B%E5%A5%BD%E5%A4%84">打官司如何聘请律师?聘请律师有哪些好处?</a></li>
+<li><a href="#%E5%A7%94%E6%89%98%E4%BB%A3%E7%90%86%E6%8E%88%E6%9D%83%E4%B8%8D%E6%98%8E%E4%BC%9A%E5%AF%BC%E8%87%B4%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E5%90%8E%E6%9E%9C">委托代理授权不明会导致什么样的后果?</a></li>
+<li><a href="#%E7%89%B9%E5%88%AB%E6%8E%88%E6%9D%83%E7%9A%84%E4%BB%A3%E7%90%86%E4%BA%BA%E5%9C%A8%E6%B3%95%E5%BA%AD%E4%B8%8A%E6%89%BF%E8%AE%A4%E5%AF%B9%E6%96%B9%E8%AF%B7%E6%B1%82%E4%BC%9A%E4%BA%A7%E7%94%9F%E4%BB%80%E4%B9%88%E7%BB%93%E6%9E%9C">特别授权的代理人在法庭上承认对方请求会产生什么结果?</a></li>
+<li><a href="#%E7%8A%AF%E7%BD%AA%E5%AB%8C%E7%96%91%E4%BA%BA%E5%A6%82%E4%BD%95%E8%8E%B7%E5%BE%97%E5%BE%8B%E5%B8%88%E5%B8%AE%E5%8A%A9">犯罪嫌疑人如何获得律师帮助?</a></li>
+<li><a href="#%E5%88%91%E4%BA%8B%E8%AF%89%E8%AE%BC%E8%A2%AB%E5%91%8A%E4%BA%BA%E6%8B%92%E7%BB%9D%E8%BE%A9%E6%8A%A4%E4%BA%BA%E4%B8%BA%E5%85%B6%E8%BE%A9%E6%8A%A4%E7%9A%84%E5%90%8E%E6%9E%9C%E6%98%AF%E4%BB%80%E4%B9%88">刑事诉讼被告人拒绝辩护人为其辩护的后果是什么?</a></li>
+<li><a href="#%E5%BE%8B%E5%B8%88%E5%9C%A8%E5%AE%A1%E6%9F%A5%E8%B5%B7%E8%AF%89%E9%98%B6%E6%AE%B5%E5%8F%AF%E4%BB%A5%E4%B8%BA%E5%A7%94%E6%89%98%E4%BA%BA%E5%81%9A%E4%BB%80%E4%B9%88">律师在审查起诉阶段可以为委托人做什么?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89%E6%89%93%E5%AE%98%E5%8F%B8%E4%BD%A0%E6%9C%89%E5%93%AA%E4%BA%9B%E6%9D%83%E5%88%A9">三、打官司，你有哪些权利</a>
+<ul>
+<li><a href="#%E5%93%AA%E4%BA%9B%E6%83%85%E5%BD%A2%E4%B8%8B%E5%BD%93%E4%BA%8B%E4%BA%BA%E6%9C%89%E7%94%B3%E8%AF%B7%E5%8F%B8%E6%B3%95%E5%B7%A5%E4%BD%9C%E4%BA%BA%E5%91%98%E5%9B%9E%E9%81%BF%E7%9A%84%E6%9D%83%E5%88%A9">哪些情形下当事人有申请司法工作人员回避的权利?</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E8%A1%8C%E4%BD%BF%E7%AE%A1%E8%BE%96%E6%9D%83%E5%BC%82%E8%AE%AE%E7%9A%84%E6%9D%83%E5%88%A9">如何行使管辖权异议的权利?</a></li>
+<li><a href="#%E5%8E%9F%E5%91%8A%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E7%94%B3%E8%AF%B7%E6%92%A4%E8%AF%89">原告是否可以申请撤诉?</a></li>
+<li><a href="#%E6%8E%A5%E5%8F%97%E8%B0%83%E8%A7%A3%E5%90%8E%E5%BD%93%E4%BA%8B%E4%BA%BA%E5%8F%AF%E4%BB%A5%E5%8F%8D%E6%82%94%E5%90%97">接受调解后当事人可以反悔吗?</a></li>
+<li><a href="#%E8%AF%89%E8%AE%BC%E4%B8%AD%E5%BD%93%E4%BA%8B%E4%BA%BA%E5%8F%AF%E4%BB%A5%E5%A2%9E%E5%8A%A0%E5%8F%98%E6%9B%B4%E8%AF%89%E8%AE%BC%E8%AF%B7%E6%B1%82%E5%90%97">诉讼中当事人可以增加、变更诉讼请求吗?</a></li>
+<li><a href="#%E8%A2%AB%E5%91%8A%E5%8F%AF%E4%BB%A5%E6%8F%90%E8%B5%B7%E5%8F%8D%E8%AF%89%E5%90%97">被告可以提起反诉吗?</a></li>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E5%88%A9%E5%AE%B3%E5%85%B3%E7%B3%BB%E4%BA%BA%E5%8F%AF%E4%BB%A5%E7%94%B3%E8%AF%B7%E8%AF%89%E5%89%8D%E8%B4%A2%E4%BA%A7%E4%BF%9D%E5%85%A8">什么情况下利害关系人可以申请诉前财产保全?</a></li>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E5%BD%93%E4%BA%8B%E4%BA%BA%E5%8F%AF%E4%BB%A5%E7%94%B3%E8%AF%B7%E8%AF%89%E8%AE%BC%E4%B8%AD%E8%B4%A2%E4%BA%A7%E4%BF%9D%E5%85%A8">什么情况下当事人可以申请诉讼中财产保全?</a></li>
+<li><a href="#%E7%94%B3%E8%AF%B7%E5%85%88%E4%BA%88%E6%89%A7%E8%A1%8C%E9%9C%80%E8%A6%81%E4%BB%80%E4%B9%88%E6%9D%A1%E4%BB%B6">申请先予执行需要什么条件?</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B%E8%AF%81%E6%8D%AE%E5%86%B3%E5%AE%9A%E6%88%90%E8%B4%A5">四、证据决定成败</a>
+<ul>
+<li><a href="#%E5%81%B7%E6%8B%8D%E5%81%B7%E5%BD%95%E5%8F%96%E5%BE%97%E7%9A%84%E8%AF%81%E6%8D%AE%E5%8F%AF%E5%90%A6%E4%BD%BF%E7%94%A8">偷拍偷录取得的证据可否使用?</a></li>
+<li><a href="#%E8%AF%89%E8%AE%BC%E4%B8%AD%E5%BD%93%E4%BA%8B%E4%BA%BA%E8%87%AA%E8%AE%A4%E4%BC%9A%E4%BA%A7%E7%94%9F%E4%BB%80%E4%B9%88%E7%BB%93%E6%9E%9C">诉讼中当事人自认会产生什么结果?</a></li>
+<li><a href="#%E5%93%AA%E4%BA%9B%E4%BA%BA%E4%B8%8D%E8%83%BD%E4%BD%9C%E4%B8%BA%E8%AF%81%E4%BA%BA">哪些人不能作为证人?</a></li>
+<li><a href="#%E9%80%BE%E6%9C%9F%E4%B8%BE%E8%AF%81%E4%BC%9A%E5%AF%BC%E8%87%B4%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E5%90%8E%E6%9E%9C">逾期举证会导致什么样的后果?</a></li>
+<li><a href="#%E6%8C%81%E6%9C%89%E8%AF%81%E6%8D%AE%E6%8B%92%E4%B8%8D%E4%BA%A4%E5%87%BA%E4%BC%9A%E5%AF%BC%E8%87%B4%E4%BB%80%E4%B9%88%E5%90%8E%E6%9E%9C">持有证据拒不交出会导致什么后果?</a></li>
+<li><a href="#%E8%AF%89%E8%AE%BC%E4%B8%AD%E8%AF%81%E4%BA%BA%E8%A6%81%E5%87%BA%E5%9B%BD%E4%B8%8D%E8%83%BD%E5%87%BA%E5%BA%AD%E5%81%9A%E8%AF%81%E6%80%8E%E4%B9%88%E5%8A%9E">诉讼中，证人要出国不能出庭做证怎么办?</a></li>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E5%8F%AF%E4%BB%A5%E7%94%B3%E8%AF%B7%E6%B3%95%E9%99%A2%E8%B0%83%E6%9F%A5%E6%94%B6%E9%9B%86%E8%AF%81%E6%8D%AE">什么情况下可以申请法院调查收集证据?</a></li>
+<li><a href="#%E4%B8%BE%E8%AF%81%E8%B4%A3%E4%BB%BB%E5%BA%94%E8%AF%A5%E5%9C%A8%E5%BD%93%E4%BA%8B%E4%BA%BA%E4%B9%8B%E9%97%B4%E5%A6%82%E4%BD%95%E5%88%86%E9%85%8D">举证责任应该在当事人之间如何分配?</a></li>
+<li><a href="#%E5%B9%BF%E5%91%8A%E7%89%8C%E7%A0%B8%E4%BC%A4%E4%BA%86%E4%BA%BA%E7%94%B1%E8%B0%81%E6%9D%A5%E6%89%BF%E6%8B%85%E8%AF%81%E6%98%8E%E8%B4%A3%E4%BB%BB">广告牌砸伤了人由谁来承担证明责任?</a></li>
+<li><a href="#%E9%A5%B2%E5%85%BB%E5%8A%A8%E7%89%A9%E8%87%B4%E4%BA%BA%E6%8D%9F%E5%AE%B3%E7%94%B1%E8%B0%81%E6%89%BF%E6%8B%85%E4%B8%BE%E8%AF%81%E8%B4%A3%E4%BB%BB">饲养动物致人损害由谁承担举证责任?</a></li>
+<li><a href="#%E4%B8%BA%E8%B0%83%E8%A7%A3%E6%89%80%E8%AE%A4%E5%8F%AF%E7%9A%84%E8%AF%81%E6%8D%AE%E5%8F%AF%E4%BB%A5%E5%9C%A8%E4%BB%A5%E5%90%8E%E4%BD%9C%E4%B8%BA%E5%AF%B9%E5%BD%93%E4%BA%8B%E4%BA%BA%E4%B8%8D%E5%88%A9%E7%9A%84%E8%AF%81%E6%8D%AE%E5%90%97">为调解所认可的证据可以在以后作为对当事人不利的证据吗?</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E8%AF%81%E6%8D%AE%E8%AF%81%E6%98%8E%E5%8A%9B%E5%A4%A7%E5%B0%8F">如何判断证据证明力大小?</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%94%E4%B8%8D%E6%9C%8D%E5%88%A4%E5%86%B3%E6%80%8E%E4%B9%88%E5%8A%9E">五、不服判决怎么办</a>
+<ul>
+<li><a href="#%E6%8F%90%E8%B5%B7%E4%B8%8A%E8%AF%89%E9%9C%80%E8%A6%81%E6%BB%A1%E8%B6%B3%E4%BB%80%E4%B9%88%E6%9D%A1%E4%BB%B6">提起上诉需要满足什么条件?</a></li>
+<li><a href="#%E4%B8%8A%E8%AF%89%E5%BA%94%E5%90%91%E5%93%AA%E4%B8%AA%E6%B3%95%E9%99%A2%E6%8F%90%E5%87%BA%E5%A6%82%E4%BD%95%E6%8F%90%E5%87%BA">上诉应向哪个法院提出?如何提出?</a></li>
+<li><a href="#%E5%AF%B9%E5%85%B1%E5%90%8C%E8%AF%89%E8%AE%BC%E4%BA%BA%E4%B9%8B%E9%97%B4%E7%9A%84%E6%9D%83%E5%88%A9%E4%B9%89%E5%8A%A1%E5%88%86%E9%85%8D%E6%9C%89%E5%BC%82%E8%AE%AE%E5%8F%AF%E5%90%A6%E4%B8%8A%E8%AF%89">对共同诉讼人之间的权利义务分配有异议可否上诉?</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E4%B9%A6%E5%86%99%E4%B8%8A%E8%AF%89%E7%8A%B6">如何书写上诉状?</a></li>
+<li><a href="#%E4%BA%8C%E5%AE%A1%E4%B8%AD%E5%BD%93%E4%BA%8B%E4%BA%BA%E5%8F%AF%E5%90%A6%E5%A2%9E%E5%8A%A0%E7%8B%AC%E7%AB%8B%E7%9A%84%E8%AF%89%E8%AE%BC%E8%AF%B7%E6%B1%82">二审中当事人可否增加独立的诉讼请求?</a></li>
+<li><a href="#%E4%B8%8A%E8%AF%89%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E6%92%A4%E5%9B%9E">上诉是否可以撤回?</a></li>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E5%BD%93%E4%BA%8B%E4%BA%BA%E5%8F%AF%E4%BB%A5%E7%94%B3%E8%AF%B7%E5%86%8D%E5%AE%A1">什么情况下当事人可以申请再审?</a></li>
+<li><a href="#%E8%83%BD%E5%90%A6%E5%AF%B9%E7%94%9F%E6%95%88%E8%B0%83%E8%A7%A3%E4%B9%A6%E7%94%B3%E8%AF%B7%E5%86%8D%E5%AE%A1">能否对生效调解书申请再审?</a></li>
+<li><a href="#%E7%94%B3%E8%AF%B7%E5%86%8D%E5%AE%A1%E7%9A%84%E6%9C%9F%E9%99%90%E6%98%AF%E5%A4%9A%E9%95%BF">申请再审的期限是多长?</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E5%86%99%E5%86%8D%E5%AE%A1%E7%94%B3%E8%AF%B7%E4%B9%A6">如何写再审申请书?</a></li>
+</ul>
+</li>
+<li><a href="#%E5%85%AD%E6%89%A7%E8%A1%8C%E6%8A%8A%E6%9D%83%E5%88%A9%E4%B8%BB%E5%BC%A0%E5%88%B0%E5%BA%95">六、执行——把权利主张到底</a>
+<ul>
+<li><a href="#%E7%94%B3%E8%AF%B7%E6%89%A7%E8%A1%8C%E7%9A%84%E6%9D%A1%E4%BB%B6%E6%9C%9F%E9%99%90%E6%98%AF%E4%BB%80%E4%B9%88">申请执行的条件、期限是什么?</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E6%9F%A5%E6%98%8E%E8%A2%AB%E6%89%A7%E8%A1%8C%E4%BA%BA%E8%B4%A2%E4%BA%A7">如何查明被执行人财产?</a></li>
+<li><a href="#%E6%89%A7%E8%A1%8C%E6%8B%85%E4%BF%9D%E5%90%8E%E4%BB%8D%E4%B8%8D%E5%B1%A5%E8%A1%8C%E4%B9%89%E5%8A%A1%E6%80%8E%E4%B9%88%E5%8A%9E">执行担保后仍不履行义务怎么办?</a></li>
+<li><a href="#%E8%BE%BE%E6%88%90%E6%89%A7%E8%A1%8C%E5%92%8C%E8%A7%A3%E5%90%8E%E4%B8%80%E6%96%B9%E4%B8%8D%E5%B1%A5%E8%A1%8C%E6%88%96%E6%9C%AA%E5%AE%8C%E5%85%A8%E5%B1%A5%E8%A1%8C%E5%92%8C%E8%A7%A3%E5%8D%8F%E8%AE%AE%E6%80%8E%E4%B9%88%E5%8A%9E">达成执行和解后，一方不履行或未完全履行和解协议怎么办?</a></li>
+<li><a href="#%E5%92%8C%E8%A7%A3%E5%8D%8F%E8%AE%AE%E5%B1%A5%E8%A1%8C%E5%AE%8C%E6%AF%95%E5%BD%93%E4%BA%8B%E4%BA%BA%E5%8F%AF%E5%90%A6%E7%94%B3%E8%AF%B7%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%94%9F%E6%95%88%E6%B3%95%E5%BE%8B%E6%96%87%E4%B9%A6">和解协议履行完毕，当事人可否申请执行原生效法律文书?</a></li>
+<li><a href="#%E6%89%A7%E8%A1%8C%E6%B6%89%E5%8F%8A%E6%A1%88%E5%A4%96%E4%BA%BA%E8%B4%A2%E4%BA%A7%E6%97%B6%E6%A1%88%E5%A4%96%E4%BA%BA%E5%A6%82%E4%BD%95%E4%BF%9D%E6%8A%A4%E8%87%AA%E5%B7%B1%E7%9A%84%E5%88%A9%E7%9B%8A">执行涉及案外人财产时，案外人如何保护自己的利益?</a></li>
+<li><a href="#%E8%A2%AB%E6%89%A7%E8%A1%8C%E4%BA%BA%E6%AD%BB%E4%BA%A1%E8%83%BD%E5%90%A6%E6%89%A7%E8%A1%8C%E9%81%97%E4%BA%A7">被执行人死亡，能否执行遗产?</a></li>
+<li><a href="#%E8%A2%AB%E6%89%A7%E8%A1%8C%E4%BA%BA%E5%BB%B6%E6%9C%9F%E5%B1%A5%E8%A1%8C%E4%B9%89%E5%8A%A1%E7%9A%84%E5%90%8E%E6%9E%9C%E6%98%AF%E4%BB%80%E4%B9%88">被执行人延期履行义务的后果是什么?</a></li>
+</ul>
+</li>
+</ul>
+</div>
         
         
     </body>

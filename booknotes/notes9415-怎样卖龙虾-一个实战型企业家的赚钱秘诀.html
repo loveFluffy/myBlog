@@ -17,15 +17,7 @@
 
 </style>
         
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-<style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
+        
         <style>
 .task-list-item {
     list-style-type: none;
@@ -48,6 +40,7 @@ html {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	text-rendering: optimizelegibility;
+	height: 100%;
 }
 
 /* 内外边距通常让各个浏览器样式的表现位置不同 */
@@ -96,8 +89,7 @@ body {
 	color: #333;
 	background: #f1e5c9;
 	font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
-	/* 上、右、下、左 */
-	margin: 5px;
+	height: 100%;
 }
 
 h1,
@@ -116,7 +108,7 @@ h1 {
 	font-size: 2em;
 	text-align: center;
 	/*这个属性如果不定义的话，在md转html的时候会莫名给赋值，导致h1下面出现一条线，所以这里定义一下*/
-	border-bottom-style:none; 
+	border-bottom-style: none;
 }
 
 h2 {
@@ -187,7 +179,7 @@ a:active {
 /* 块/段落引用 */
 blockquote {
 	font-size: 0.9em;
-	line-height: 1.6;
+	line-height: 1.5;
 	position: relative;
 	color: #666;
 	border-left: 2px solid #fbb;
@@ -196,7 +188,7 @@ blockquote {
 }
 
 blockquote p {
-	margin: 0 0 18px;
+	margin: 0 0 1em;
 }
 
 strong,
@@ -259,11 +251,12 @@ ul p {
 	margin-bottom: 0px;
 }
 
+/*
 li {
 	margin-bottom: 0.75em;
 	margin-top: 0.75em;
 }
-
+*/
 ol#footnotes {
 	font-size: 0.95em;
 	padding-top: 1em;
@@ -347,10 +340,140 @@ img {
 	max-width: 1000px;
 	width: 1000px;
 }
+
+/* 选中后背景浅粉色 */
+::selection {
+	background-color: #fbb;
+}
+
+
+
+/* ======== 侧边的目录相关 ======== */
+
+.content {
+	float: right;
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+
+	/* 滚动条 */
+	scrollbar-width: thin;
+	/* thumb & track */
+	scrollbar-color: skyblue #ededed;
+
+	scroll-behavior: smooth;
+}
+
+/* 
+手机：2400*1080
+iPad mini 5：2048*1536
+电脑：1920*1200 
+*/
+/* 窄屏幕：手机竖屏、iPad竖屏 */
+@media (max-width: 1536px) {
+	.content {
+		width: 99.5%;
+		padding-left: 0.5%;
+	}
+
+	/* 不显示目录 */
+	div.toc {
+		display: none;
+	}
+}
+
+/* 宽屏幕：电脑、手机横屏、iPad横屏 */
+@media (min-width: 1537px) {
+	div.toc {
+		line-height: 1.2;
+		max-width: 24%;
+		height: 100vh;
+		padding-right: 0.5%;
+
+		float: left;
+		font-size: 0.7em;
+		overflow: auto;
+		overflow-x: hidden;
+
+		/* 目录栏 滚动时固定在屏幕顶端：仅当父元素没有设置overflow、高度为确定数值且比toc高度更大的时候才起作用*/
+		/* 现在因为toc与body等高，所以不起作用，也无须起作用
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;*/
+
+		/* 滚动条 */
+		scrollbar-width: thin;
+		/* thumb & track */
+		scrollbar-color: rgb(178, 216, 232) #ededed;
+	}
+
+	/*
+	div.toc ul,
+	div.toc li {
+		margin: 0;
+		padding: 0;
+		border-bottom: 1px solid #f1e5c9;
+	}
+		*/
+	div.toc ul {
+		margin: 0;
+		padding: 0;
+		background-color: #f1e5c9;
+	}
+
+	div.toc li {
+		padding-left: 10px;
+		list-style-position: inside;
+	}
+
+	/*h1 h2 h3 h4滚动时固定在屏幕顶端*/
+	div.toc ul>li,
+	div.toc ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		/* Safari 及其他兼容 */
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;
+	}
+
+	div.toc ul>li {
+		z-index: 1;
+		/*#ff7e79*/
+		background-color: skyblue;
+	}
+
+	div.toc ul>li>ul>li {
+		z-index: 2;
+		/*#ff7e79*/
+		background-color: rgb(178, 216, 232);
+	}
+
+	div.toc ul>li>ul>li>ul>li {
+		z-index: 3;
+		/*#fbb*/
+		background-color: rgb(210, 231, 239);
+	}
+
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		z-index: 4;
+		background-color: rgb(228, 235, 238);
+	}
+
+	.content {
+		width: 75%;
+		padding-left: 0.5%;
+	}
+}
 </style>
     </head>
     <body class="vscode-body vscode-light">
-        <h1 id="怎样卖龙虾一个实战型企业家的赚钱秘诀">怎样卖龙虾：一个实战型企业家的赚钱秘诀</h1>
+        <div class="content">
+<h1 id="怎样卖龙虾一个实战型企业家的赚钱秘诀">怎样卖龙虾：一个实战型企业家的赚钱秘诀</h1>
 <h2 id="加比尔毕晓普bill-bishop著张恒-译">[加]比尔·毕晓普（Bill Bishop）著|张恒 译</h2>
 <h3 id="引言">引言</h3>
 <p>回顾过去，我对自己从事过那么多工作深感幸运，每份工作都教会我一些新的有价值的东西，通过赤膊上阵，我学到了如何开创新公司，如何获得客户，做出销售，赢取利润。我也学到了有时为了成功，你必须大胆行动，出奇不意。我更清楚知道，真切理解人们的行为动机才是生意成功的关键。</p>
@@ -687,7 +810,31 @@ img {
 <h3 id="17-一片森林">17. 一片森林</h3>
 <h3 id="后记营销大叔麦克之谜">后记：营销大叔麦克之谜</h3>
 <h3 id="鸣谢龙虾故事的背后">鸣谢：龙虾故事的背后</h3>
-
+</div>
+<div class="toc">
+<ul>
+<li><a href="#%E5%BC%95%E8%A8%80">引言</a></li>
+<li><a href="#1-%E6%80%8E%E6%A0%B7%E5%8D%96%E9%BE%99%E8%99%BE">1. 怎样卖龙虾</a></li>
+<li><a href="#2-%E7%AC%AC%E4%B8%80%E5%90%8D%E4%BC%9A%E5%91%98%E9%99%B7%E9%98%B1">2. 第一名会员陷阱</a></li>
+<li><a href="#3-%E6%8E%92%E9%98%9F%E6%95%88%E5%BA%94">3. 排队效应</a></li>
+<li><a href="#4-%E4%B8%89%E4%B8%AA%E7%9B%92%E5%AD%90">4. 三个盒子</a></li>
+<li><a href="#5-%E6%B3%B0%E5%9D%A6%E5%B0%BC%E5%85%8B%E5%8F%B7%E8%88%B9%E9%95%BF">5. 泰坦尼克号船长</a></li>
+<li><a href="#6-%E4%B8%80%E7%9B%92%E5%B7%A7%E5%85%8B%E5%8A%9B">6. 一盒巧克力</a></li>
+<li><a href="#7-%E7%AF%AE%E7%90%83%E5%BF%83%E6%99%BA%E9%99%B7%E9%98%B1">7. 篮球心智陷阱</a></li>
+<li><a href="#8-%E9%B8%9F%E7%AC%BC%E5%AE%A3%E4%BC%A0%E6%89%8B%E5%86%8C">8. 鸟笼宣传手册</a></li>
+<li><a href="#9-%E5%A4%A7%E6%89%8B%E7%AC%94">9. 大手笔</a></li>
+<li><a href="#10-5%E7%BE%8E%E5%85%83%E4%B8%80%E6%9D%AF%E7%9A%84%E5%92%96%E5%95%A1">10. 5美元一杯的咖啡</a></li>
+<li><a href="#11-%E7%B2%BE%E8%87%B4%E7%BE%8E%E9%A3%9F">11. 精致美食</a></li>
+<li><a href="#12-%E8%AE%A9%E9%A1%BE%E5%AE%A2%E6%89%93%E5%BC%80%E9%92%B1%E5%8C%85">12. 让顾客打开钱包</a></li>
+<li><a href="#13-%E9%80%9F%E6%95%88%E8%8D%AF%E4%B8%B8">13. 速效药丸</a></li>
+<li><a href="#14-%E7%9B%98%E9%97%AE%E6%B8%B8%E6%88%8F">14. 盘问游戏</a></li>
+<li><a href="#15-%E7%99%BB%E5%B1%B1%E5%90%91%E5%AF%BC">15. 登山向导</a></li>
+<li><a href="#16-%E7%BA%A6%E4%BC%9A%E6%B8%B8%E6%88%8F">16. 约会游戏</a></li>
+<li><a href="#17-%E4%B8%80%E7%89%87%E6%A3%AE%E6%9E%97">17. 一片森林</a></li>
+<li><a href="#%E5%90%8E%E8%AE%B0%E8%90%A5%E9%94%80%E5%A4%A7%E5%8F%94%E9%BA%A6%E5%85%8B%E4%B9%8B%E8%B0%9C">后记：营销大叔麦克之谜</a></li>
+<li><a href="#%E9%B8%A3%E8%B0%A2%E9%BE%99%E8%99%BE%E6%95%85%E4%BA%8B%E7%9A%84%E8%83%8C%E5%90%8E">鸣谢：龙虾故事的背后</a></li>
+</ul>
+</div>
         
         
     </body>

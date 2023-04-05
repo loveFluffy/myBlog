@@ -17,15 +17,7 @@
 
 </style>
         
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-<style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
+        
         <style>
 .task-list-item {
     list-style-type: none;
@@ -48,6 +40,7 @@ html {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	text-rendering: optimizelegibility;
+	height: 100%;
 }
 
 /* 内外边距通常让各个浏览器样式的表现位置不同 */
@@ -96,8 +89,7 @@ body {
 	color: #333;
 	background: #f1e5c9;
 	font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
-	/* 上、右、下、左 */
-	margin: 5px;
+	height: 100%;
 }
 
 h1,
@@ -116,7 +108,7 @@ h1 {
 	font-size: 2em;
 	text-align: center;
 	/*这个属性如果不定义的话，在md转html的时候会莫名给赋值，导致h1下面出现一条线，所以这里定义一下*/
-	border-bottom-style:none; 
+	border-bottom-style: none;
 }
 
 h2 {
@@ -187,7 +179,7 @@ a:active {
 /* 块/段落引用 */
 blockquote {
 	font-size: 0.9em;
-	line-height: 1.6;
+	line-height: 1.5;
 	position: relative;
 	color: #666;
 	border-left: 2px solid #fbb;
@@ -196,7 +188,7 @@ blockquote {
 }
 
 blockquote p {
-	margin: 0 0 18px;
+	margin: 0 0 1em;
 }
 
 strong,
@@ -259,11 +251,12 @@ ul p {
 	margin-bottom: 0px;
 }
 
+/*
 li {
 	margin-bottom: 0.75em;
 	margin-top: 0.75em;
 }
-
+*/
 ol#footnotes {
 	font-size: 0.95em;
 	padding-top: 1em;
@@ -347,10 +340,140 @@ img {
 	max-width: 1000px;
 	width: 1000px;
 }
+
+/* 选中后背景浅粉色 */
+::selection {
+	background-color: #fbb;
+}
+
+
+
+/* ======== 侧边的目录相关 ======== */
+
+.content {
+	float: right;
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+
+	/* 滚动条 */
+	scrollbar-width: thin;
+	/* thumb & track */
+	scrollbar-color: skyblue #ededed;
+
+	scroll-behavior: smooth;
+}
+
+/* 
+手机：2400*1080
+iPad mini 5：2048*1536
+电脑：1920*1200 
+*/
+/* 窄屏幕：手机竖屏、iPad竖屏 */
+@media (max-width: 1536px) {
+	.content {
+		width: 99.5%;
+		padding-left: 0.5%;
+	}
+
+	/* 不显示目录 */
+	div.toc {
+		display: none;
+	}
+}
+
+/* 宽屏幕：电脑、手机横屏、iPad横屏 */
+@media (min-width: 1537px) {
+	div.toc {
+		line-height: 1.2;
+		max-width: 24%;
+		height: 100vh;
+		padding-right: 0.5%;
+
+		float: left;
+		font-size: 0.7em;
+		overflow: auto;
+		overflow-x: hidden;
+
+		/* 目录栏 滚动时固定在屏幕顶端：仅当父元素没有设置overflow、高度为确定数值且比toc高度更大的时候才起作用*/
+		/* 现在因为toc与body等高，所以不起作用，也无须起作用
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;*/
+
+		/* 滚动条 */
+		scrollbar-width: thin;
+		/* thumb & track */
+		scrollbar-color: rgb(178, 216, 232) #ededed;
+	}
+
+	/*
+	div.toc ul,
+	div.toc li {
+		margin: 0;
+		padding: 0;
+		border-bottom: 1px solid #f1e5c9;
+	}
+		*/
+	div.toc ul {
+		margin: 0;
+		padding: 0;
+		background-color: #f1e5c9;
+	}
+
+	div.toc li {
+		padding-left: 10px;
+		list-style-position: inside;
+	}
+
+	/*h1 h2 h3 h4滚动时固定在屏幕顶端*/
+	div.toc ul>li,
+	div.toc ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		/* Safari 及其他兼容 */
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;
+	}
+
+	div.toc ul>li {
+		z-index: 1;
+		/*#ff7e79*/
+		background-color: skyblue;
+	}
+
+	div.toc ul>li>ul>li {
+		z-index: 2;
+		/*#ff7e79*/
+		background-color: rgb(178, 216, 232);
+	}
+
+	div.toc ul>li>ul>li>ul>li {
+		z-index: 3;
+		/*#fbb*/
+		background-color: rgb(210, 231, 239);
+	}
+
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		z-index: 4;
+		background-color: rgb(228, 235, 238);
+	}
+
+	.content {
+		width: 75%;
+		padding-left: 0.5%;
+	}
+}
 </style>
     </head>
     <body class="vscode-body vscode-light">
-        <h1 id="用普通股进行长期投资">用普通股进行长期投资</h1>
+        <div class="content">
+<h1 id="用普通股进行长期投资">用普通股进行长期投资</h1>
 <h2 id="美埃德加史密斯edgar-lawrence-smith-约翰穆迪-著曹泽枝-刘军伟-译">[美]埃德加·史密斯（Edgar Lawrence Smith） 约翰·穆迪 著|曹泽枝 刘军伟 译</h2>
 <h3 id="序一-沃伦巴菲特这本书充满了智慧">序一 沃伦·巴菲特：“这本书充满了智慧”</h3>
 <p>在1999年太阳谷年会上，关于股票市场过度膨胀的演讲就像是对一屋子声名狼藉的人宣扬贞洁。巴菲特的发言也许对听众产生了吸引力，他们坐在椅子上不肯离去，但是，这不意味着他们会打算放弃。</p>
@@ -431,7 +554,39 @@ img {
 <h3 id="第二十二章-企业重组和企业联合">第二十二章 企业重组和企业联合</h3>
 <h3 id="第二十三章-纽约证券交易所">第二十三章 纽约证券交易所</h3>
 <h3 id="第二十四章-华尔街习语和方法">第二十四章 华尔街习语和方法</h3>
-
+</div>
+<div class="toc">
+<ul>
+<li><a href="#%E5%BA%8F%E4%B8%80-%E6%B2%83%E4%BC%A6%E5%B7%B4%E8%8F%B2%E7%89%B9%E8%BF%99%E6%9C%AC%E4%B9%A6%E5%85%85%E6%BB%A1%E4%BA%86%E6%99%BA%E6%85%A7">序一 沃伦·巴菲特：“这本书充满了智慧”</a></li>
+<li><a href="#%E5%BA%8F%E4%BA%8C-%E5%A8%81%E5%BB%89%E6%B1%9F%E6%81%A9%E4%BB%96%E7%9A%84%E8%A7%82%E7%82%B9%E4%BB%A4%E6%88%91%E8%80%B3%E7%9B%AE%E4%B8%80%E6%96%B0">序二 威廉·江恩：“他的观点令我耳目一新”</a></li>
+<li><a href="#%E6%8E%A8%E8%8D%90%E5%BA%8F%E4%BA%8C">推荐序二</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%80%BA%E5%88%B8%E4%B8%8E%E7%BE%8E%E5%85%83">第一章 债券与美元</a></li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%80%BA%E5%88%B8%E4%B8%8E%E6%99%AE%E9%80%9A%E8%82%A1">第二章 债券与普通股</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-19011922%E5%B9%B4%E8%82%A1%E7%A5%A8%E4%B8%8E%E5%80%BA%E5%88%B8%E7%9A%84%E6%AF%94%E8%BE%83">第三章 1901～1922年股票与债券的比较</a></li>
+<li><a href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-18661899%E5%B9%B4%E8%82%A1%E7%A5%A8%E4%B8%8E%E5%80%BA%E5%88%B8%E7%9A%84%E6%AF%94%E8%BE%83">第四章 1866～1899年股票与债券的比较</a></li>
+<li><a href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-18661885%E5%B9%B4%E8%B4%A2%E6%94%BF%E7%8A%B6%E5%86%B5">第五章 1866～1885年财政状况</a></li>
+<li><a href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%AF%94%E8%BE%83%E6%99%AE%E9%80%9A%E8%82%A1%E4%B8%8E%E5%80%BA%E5%88%B8%E7%9A%84%E8%A1%A5%E5%85%85%E8%AF%95%E9%AA%8C">第六章 比较普通股与债券的补充试验</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-19011922%E5%B9%B4%E9%93%81%E8%B7%AF%E8%82%A1%E7%A5%A8">第七章 1901～1922年铁路股票</a></li>
+<li><a href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-18371923%E5%B9%B4%E6%96%B0%E8%82%A1%E5%B8%82%E5%9B%BE%E8%A1%A8">第八章 1837～1923年新股市图表</a></li>
+<li><a href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%99%AE%E9%80%9A%E8%82%A1%E4%BB%B7%E5%80%BC%E5%A2%9E%E9%95%BF%E4%B8%8E%E6%94%B6%E7%9B%8A%E6%B3%95%E5%88%99">第九章 普通股价值增长与收益法则</a></li>
+<li><a href="#%E7%AC%AC%E5%8D%81%E7%AB%A0-%E8%B4%AD%E4%B9%B0%E6%99%AE%E9%80%9A%E8%82%A1%E7%9A%84%E6%97%B6%E9%97%B4%E9%A3%8E%E9%99%A9">第十章 购买普通股的时间风险</a></li>
+<li><a href="#%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0-%E5%87%A0%E9%A1%B9%E6%A6%82%E6%8B%AC">第十一章 几项概括</a></li>
+<li><a href="#%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0-%E5%80%BA%E5%88%B8%E4%BB%B7%E5%80%BC%E7%9A%84%E6%B3%A2%E5%8A%A8">第十二章 债券价值的波动</a></li>
+<li><a href="#%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0-%E6%99%AE%E9%80%9A%E8%82%A1%E7%9A%84%E8%A1%A5%E5%85%85%E6%A3%80%E9%AA%8C%E5%89%A9%E4%BD%99%E6%94%B6%E5%85%A5%E5%86%8D%E6%8A%95%E8%B5%84">第十三章 普通股的补充检验，剩余收入再投资</a></li>
+<li><a href="#%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0-%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86">第十四章 投资管理</a></li>
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
+<li><a href="#%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0-%E5%AE%89%E5%85%A8%E6%80%A7">第十五章 安全性</a></li>
+<li><a href="#%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A0-%E5%80%BA%E5%88%B8%E7%A7%8D%E7%B1%BB%E5%8F%8A%E5%85%B6%E5%90%84%E8%87%AA%E7%9A%84%E5%90%AB%E4%B9%89">第十六章 债券种类及其各自的含义</a></li>
+<li><a href="#%E7%AC%AC%E5%8D%81%E4%B8%83%E7%AB%A0-%E8%82%A1%E7%A5%A8%E5%8F%8A%E5%85%B6%E5%90%AB%E4%B9%89">第十七章 股票及其含义</a></li>
+<li><a href="#%E7%AC%AC%E5%8D%81%E5%85%AB%E7%AB%A0-%E9%93%81%E8%B7%AF%E8%AF%81%E5%88%B8%E5%88%86%E6%9E%90">第十八章 铁路证券分析</a></li>
+<li><a href="#%E7%AC%AC%E5%8D%81%E4%B9%9D%E7%AB%A0-%E6%9C%89%E8%BD%A8%E7%94%B5%E8%BD%A6%E5%92%8C%E5%B7%A5%E4%B8%9A%E5%85%AC%E5%8F%B8%E8%AF%81%E5%88%B8">第十九章 有轨电车和工业公司证券</a></li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E7%AB%A0-%E6%8A%95%E8%B5%84%E4%B8%8E%E6%8A%95%E6%9C%BA">第二十章 投资与投机</a></li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%B8%80%E7%AB%A0-%E5%BF%AB%E9%80%9F%E8%87%B4%E5%AF%8C%E8%AE%A1%E5%88%92">第二十一章 “快速致富”计划</a></li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%BA%8C%E7%AB%A0-%E4%BC%81%E4%B8%9A%E9%87%8D%E7%BB%84%E5%92%8C%E4%BC%81%E4%B8%9A%E8%81%94%E5%90%88">第二十二章 企业重组和企业联合</a></li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%B8%89%E7%AB%A0-%E7%BA%BD%E7%BA%A6%E8%AF%81%E5%88%B8%E4%BA%A4%E6%98%93%E6%89%80">第二十三章 纽约证券交易所</a></li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E5%9B%9B%E7%AB%A0-%E5%8D%8E%E5%B0%94%E8%A1%97%E4%B9%A0%E8%AF%AD%E5%92%8C%E6%96%B9%E6%B3%95">第二十四章 华尔街习语和方法</a></li>
+</ul>
+</div>
         
         
     </body>

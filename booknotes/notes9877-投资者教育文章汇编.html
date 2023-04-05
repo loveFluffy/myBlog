@@ -17,15 +17,7 @@
 
 </style>
         
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-<style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
+        
         <style>
 .task-list-item {
     list-style-type: none;
@@ -48,6 +40,7 @@ html {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	text-rendering: optimizelegibility;
+	height: 100%;
 }
 
 /* 内外边距通常让各个浏览器样式的表现位置不同 */
@@ -96,8 +89,7 @@ body {
 	color: #333;
 	background: #f1e5c9;
 	font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
-	/* 上、右、下、左 */
-	margin: 5px;
+	height: 100%;
 }
 
 h1,
@@ -116,7 +108,7 @@ h1 {
 	font-size: 2em;
 	text-align: center;
 	/*这个属性如果不定义的话，在md转html的时候会莫名给赋值，导致h1下面出现一条线，所以这里定义一下*/
-	border-bottom-style:none; 
+	border-bottom-style: none;
 }
 
 h2 {
@@ -187,7 +179,7 @@ a:active {
 /* 块/段落引用 */
 blockquote {
 	font-size: 0.9em;
-	line-height: 1.6;
+	line-height: 1.5;
 	position: relative;
 	color: #666;
 	border-left: 2px solid #fbb;
@@ -196,7 +188,7 @@ blockquote {
 }
 
 blockquote p {
-	margin: 0 0 18px;
+	margin: 0 0 1em;
 }
 
 strong,
@@ -259,11 +251,12 @@ ul p {
 	margin-bottom: 0px;
 }
 
+/*
 li {
 	margin-bottom: 0.75em;
 	margin-top: 0.75em;
 }
-
+*/
 ol#footnotes {
 	font-size: 0.95em;
 	padding-top: 1em;
@@ -346,6 +339,135 @@ img {
 	align-self: center;
 	max-width: 1000px;
 	width: 1000px;
+}
+
+/* 选中后背景浅粉色 */
+::selection {
+	background-color: #fbb;
+}
+
+
+
+/* ======== 侧边的目录相关 ======== */
+
+.content {
+	float: right;
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+
+	/* 滚动条 */
+	scrollbar-width: thin;
+	/* thumb & track */
+	scrollbar-color: skyblue #ededed;
+
+	scroll-behavior: smooth;
+}
+
+/* 
+手机：2400*1080
+iPad mini 5：2048*1536
+电脑：1920*1200 
+*/
+/* 窄屏幕：手机竖屏、iPad竖屏 */
+@media (max-width: 1536px) {
+	.content {
+		width: 99.5%;
+		padding-left: 0.5%;
+	}
+
+	/* 不显示目录 */
+	div.toc {
+		display: none;
+	}
+}
+
+/* 宽屏幕：电脑、手机横屏、iPad横屏 */
+@media (min-width: 1537px) {
+	div.toc {
+		line-height: 1.2;
+		max-width: 24%;
+		height: 100vh;
+		padding-right: 0.5%;
+
+		float: left;
+		font-size: 0.7em;
+		overflow: auto;
+		overflow-x: hidden;
+
+		/* 目录栏 滚动时固定在屏幕顶端：仅当父元素没有设置overflow、高度为确定数值且比toc高度更大的时候才起作用*/
+		/* 现在因为toc与body等高，所以不起作用，也无须起作用
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;*/
+
+		/* 滚动条 */
+		scrollbar-width: thin;
+		/* thumb & track */
+		scrollbar-color: rgb(178, 216, 232) #ededed;
+	}
+
+	/*
+	div.toc ul,
+	div.toc li {
+		margin: 0;
+		padding: 0;
+		border-bottom: 1px solid #f1e5c9;
+	}
+		*/
+	div.toc ul {
+		margin: 0;
+		padding: 0;
+		background-color: #f1e5c9;
+	}
+
+	div.toc li {
+		padding-left: 10px;
+		list-style-position: inside;
+	}
+
+	/*h1 h2 h3 h4滚动时固定在屏幕顶端*/
+	div.toc ul>li,
+	div.toc ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		/* Safari 及其他兼容 */
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;
+	}
+
+	div.toc ul>li {
+		z-index: 1;
+		/*#ff7e79*/
+		background-color: skyblue;
+	}
+
+	div.toc ul>li>ul>li {
+		z-index: 2;
+		/*#ff7e79*/
+		background-color: rgb(178, 216, 232);
+	}
+
+	div.toc ul>li>ul>li>ul>li {
+		z-index: 3;
+		/*#fbb*/
+		background-color: rgb(210, 231, 239);
+	}
+
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		z-index: 4;
+		background-color: rgb(228, 235, 238);
+	}
+
+	.content {
+		width: 75%;
+		padding-left: 0.5%;
+	}
 }
 </style>
     </head>
@@ -893,20 +1015,20 @@ img {
 <p>（一）深市主板公司业绩大幅增长</p>
 <p>在国民经济快速发展、人民币持续保持升值强势、证券市场解决股权分置和资金占用两大顽症的大背景下，2007年上半年深市主板公司的盈利能力实现跳跃性增长，加权平均每股收益0.195元，与去年同期相比增长83.53％。每股净资产、净资产收益率和总资产收益率比上年同期分别增长7.56％、70%及66%；亏损公司数量有减少之势，亏损面缩小8.55个百分点。</p>
 <p>表1： 深市主板上市公司近年中报业绩</p>
-<p><img src="file:///d:\loveFluffy\myBlog\booknotes\md\img\notes9877-1.png" alt=""></p>
+<p><img src="file:///d:\loveFluffy\myBlog\booknotes\img\notes9877-1.png" alt=""></p>
 <p>（二）深市公司中报利润结构分析</p>
 <p>从表2的数据来看，深市公司2007年半年度共实现利润总额678.97亿元。其中，投资收益104.10亿元、公允价值变动损益9.14亿元和营业外收入42.49亿元对利润贡献的比例分别为15.33%、1.35%和6.26%，合计占利润总额比例的22.94%。而海外成熟市场中上市公司的上述收益占利润的比例一般低于10%，相比之下，深市主板上市公司投资收益等项目占利润的比例显得过高。</p>
 <p>表2：深市主板2007年中报利润结构表</p>
-<p><img src="file:///d:\loveFluffy\myBlog\booknotes\md\img\notes9877-2.png" alt=""></p>
+<p><img src="file:///d:\loveFluffy\myBlog\booknotes\img\notes9877-2.png" alt=""></p>
 <p>（三）利润构成年度间比较</p>
 <p>表3的数据表明，深市主板上市公司2004年、2005年及2006年中报的主营业务利润占利润总额的比例逐年增加，2006年中报该比例高达285.54％，但在2007年上半年该比例急剧下降为199.37％，这反映出2007年深市主板上市公司中报主营业务对利润的影响程度减弱。同时投资收益、营业外收入的指标则逐年增长，2007年增长幅度尤其突出，说明非主营因素对公司业绩影响增强。</p>
 <p>表3：利润构成情况年度比较                       单位：亿元</p>
-<p><img src="file:///d:\loveFluffy\myBlog\booknotes\md\img\notes9877-3.png" alt=""></p>
+<p><img src="file:///d:\loveFluffy\myBlog\booknotes\img\notes9877-3.png" alt=""></p>
 <p>（四）每股收益的结构性分析</p>
 <p>在总股本扩张23.84％的前提下，深市主板上市公司2007年中报加权平均的每股收益仍然比2006年同期增长82.53%，实现了每股收益0.195元。</p>
 <p>然而仔细分析表4中的每股收益构成，我们却不难发现背后隐藏的问题：首先，每股公允价值变动收益、每股投资收益和每股营业外收入的合计为0.0638元，占每股收益的比例为32.7%，比2006年中期上升了0.0348元，对总体经营业绩的贡献较大；其次，每股主营业务利润和每股营业利润分别增长25.33％和70.39%，增长幅度低于每股收益；再次，来自非主业的每股投资收益却增幅高达159.01％，每股公允价值变动收益增长158.73%。</p>
 <p>表4：2007年半年度深市公司每股收益变动分析表</p>
-<p><img src="file:///d:\loveFluffy\myBlog\booknotes\md\img\notes9877-4.png" alt=""></p>
+<p><img src="file:///d:\loveFluffy\myBlog\booknotes\img\notes9877-4.png" alt=""></p>
 <p>以上分析表明2007年半年度上市公司每股收益大幅提升与投资收益、公允价值变动收益的增长密切相关。如果上市公司盈利过分依赖股价上升而非核心业务的增长，一旦股市回落，将令不少公司盈利受到影响。</p>
 <h4 id="二影响中报业绩增长的因素分析">二、影响中报业绩增长的因素分析</h4>
 <p>（一）投资收益分析</p>
@@ -914,10 +1036,10 @@ img {
 <p>新的会计制度的实施导致深市主板公司投资收益发生了急剧的增长。统计表明，2007年中报487家公司实现投资收益104.10亿元，同比增长190.8%。投资收益占净利润的比重达到21.9%，这意味着，上市公司每股0.195元的收益中，有4分钱来自投资收益。</p>
 <p>再进一步分析投资收益的构成（见表5）可以看出，深市主板公司迅速增长的投资收益主要来自两部分：（1）权益法核算的长期股权投资收益以及处置长期股权投资产生的投资收益，上述投资收益合计达到61.01亿元，占投资收益的比重为58.6％；（2）持有交易性金融资产、持有至到期投资、可供出售金融资产等期间取得投资收益及处置收益，上述投资收益高达35.44亿元，较上年同期增长了1556%，占投资收益比重达34%。</p>
 <p>表5：投资收益明细分析表</p>
-<p><img src="file:///d:\loveFluffy\myBlog\booknotes\md\img\notes9877-5.png" alt=""></p>
+<p><img src="file:///d:\loveFluffy\myBlog\booknotes\img\notes9877-5.png" alt=""></p>
 <p>表6统计了深市公司2007年中报投资收益前10名公司投资收益情况，上述前十名的公司合计投资收益为41.36亿元，占深市公司投资收益合计的38.5％。以吉林敖东为例，该公司2007年半年度实现投资收益9.42亿元，占净利润的96.4％。</p>
 <p>表6：投资收益及投资亏损最大的十家公司排名</p>
-<p><img src="file:///d:\loveFluffy\myBlog\booknotes\md\img\notes9877-6.png" alt=""></p>
+<p><img src="file:///d:\loveFluffy\myBlog\booknotes\img\notes9877-6.png" alt=""></p>
 <p>（二）金融资产分析</p>
 <p>新会计准则规定可供出售金融资产以公允价值计价，其变动计入所有者权益。截至6月30日，深市主板公司可供出售金融资产118.03亿元，如股市出现震荡将有可能影响上市公司所有者权益的波动。</p>
 <p>按新准则的规定，如上市公司将其所持有其他上市公司的股票归属于交易性金融资产，则应当以公允价值计价，其变动计入公允价值变动收益。截至6月30日，深市主板上市公司交易性金融资产达到49.27亿元，因此股票市值变化将影响净利润。由于公允价值变动收益属于未实现的浮动盈利，如占上市公司利润总额比重过大，持股市值变化将引发净利润大幅波动。</p>
@@ -926,26 +1048,26 @@ img {
 <p>从表7我们可以看出，营业外收入前10名的上市公司合计高达20.8亿元，是前10名公司的营业外支出合计的5.2倍，其营业外收支净额表现为收益，共计33.23亿，说明营业外收入是非经常性收益的重要来源。</p>
 <p>根根新会计准则的规定，债务重组收益计入营业外收入，值得关注的是，该收益是一次性的收益，并不会给公司带来实际的现金流入， S*ST昌源因债务重组增加了3.89亿元的收益；中兴通讯营业外收入同比增长65.03%，主要由于收到软件产品增值税退税收入3.23亿元；丰原生化说明营业外收入主要来自2007年应取得的燃料乙醇中央财政补贴为2.37亿元。</p>
 <p>表7：营业外收支排名表                           单位：万元</p>
-<p><img src="file:///d:\loveFluffy\myBlog\booknotes\md\img\notes9877-7.png" alt=""></p>
+<p><img src="file:///d:\loveFluffy\myBlog\booknotes\img\notes9877-7.png" alt=""></p>
 <p>（四）公允价值变动损益分析</p>
 <p>交易性金融资产公允价值损益与股价走势有密切关系，出于谨慎考虑，多数上市公司并没有将持有的其他公司股权作为交易性金融资产计量，因此2007年中报反映出来的公允价值变动净损益只有9.14亿元，占利润总额的1.35%%。我们关注到，公允价值变动收益前十名上市公司共获得公允价值变动收益9.03亿元，占深市公司公允价值变动收益84％，同时前十名上市公司公允价值变动损失合计1.58亿元，占公允价值变动损失的97.9%%，说明公允价值变动净损益对部分公司的业绩影响非常重大。</p>
 <p>表8：公允价值变动损益排名表                       单位：万元</p>
-<p><img src="file:///d:\loveFluffy\myBlog\booknotes\md\img\notes9877-8.png" alt=""></p>
+<p><img src="file:///d:\loveFluffy\myBlog\booknotes\img\notes9877-8.png" alt=""></p>
 <h4 id="三非经常性损益的情况分析">三、非经常性损益的情况分析</h4>
 <p>（一）非经常性损益大幅上涨</p>
 <p>2007年2月，为了结合新会计准则中相关规定的变化，证监会对非经常性损益做出了相应修订，非经常性损益项目在此次修订后增至15项，其中新增5项，剔除4项。</p>
 <p>按照新的分类办法，深市主板上市478家公司2007年中报非经常性损益高达51亿元，而2006中报仅为12.07亿元。如果以每股非经常性损益的指标来衡量，2007年深市主板公司每股非经常性损益高达0.0207元，远高于2006年中报的0.0098元及2005年中报的0.0168元。非经常性损益大幅增加也从另一个侧面说明了上市公司盈利的质量存在一定的隐患。</p>
 <p>表9： 非经常性损益总体状况年度比较                    单位：元</p>
-<p><img src="file:///d:\loveFluffy\myBlog\booknotes\md\img\notes9877-9.png" alt=""></p>
+<p><img src="file:///d:\loveFluffy\myBlog\booknotes\img\notes9877-9.png" alt=""></p>
 <p>（二）部分公司依靠非经常性损益获取利润</p>
 <p>表10的统计表明， 2007年上半年深市主板有91家公司（占18.6%）的非经常性损益占净利润的比例超过50%，98家公司（占20.12％）的非经常性损益占净利润的比例为10％至50%之间，上述公司盈利能力的可持续性令人担忧。</p>
 <p>表10：深市主板公司非经常性损益占净利润的比例</p>
-<p><img src="file:///d:\loveFluffy\myBlog\booknotes\md\img\notes9877-10.png" alt=""></p>
+<p><img src="file:///d:\loveFluffy\myBlog\booknotes\img\notes9877-10.png" alt=""></p>
 <p>注：非经常性损益占净利润的比例＝│非经常性损益/净利润│比例＝公司家数/当年上市公司总数</p>
 <p>（三）非经常性损益较大的公司排名</p>
 <p>深市主板337家发生非经常性收益的公司中，S*ST昌源收益最多，高达3.99亿元，主要为实施债务重组导致债务收益增加；其次是长城开发，其非经常性收益达到3.67亿元，主要为出售所持有的中信证券股权所获得投资收益；第三为中粮地产，收益达2.4亿元，主要为出售子公司深圳新安湖实业有限公司55.2％股份的收益。337家公司发生的非经常性收益总和约为55.3亿元，其中前10名公司发生的非经常性收益占全部的41.32%。</p>
 <p>表11：非经常性收益及损失排名表                         单位：万元</p>
-<p><img src="file:///d:\loveFluffy\myBlog\booknotes\md\img\notes9877-11.png" alt=""></p>
+<p><img src="file:///d:\loveFluffy\myBlog\booknotes\img\notes9877-11.png" alt=""></p>
 <h4 id="四结论">四、结论</h4>
 <p>通过上述分析，我们可以初步得出以下结论：</p>
 <p>1、深市主板上市公司2007年中报主营业务利润绝对额的确发生了快速增长。导致中报主营业务快速增长的重要原因在于：股改完成后，大股东及高管人员的利益开始与股票市值挂钩，大股东不断将优质资产通过配股、增发、整体上市等方式注入上市公司。随着大股东资产注入的过程逐步完成，上述主营业务的快速增长将告一段落。</p>
@@ -960,7 +1082,7 @@ img {
 <p>由于ST股票和非ST股票的涨跌停板制度有差异，我们对ST股票和非ST股票分别进行了统计。</p>
 <p>深沪两市股票发生连续3次涨停的次数有1804次，其中，非ST股票有605次，ST股票有1199次。各连续涨停事件发生次数分布见说明。</p>
 <p>说明：各连续涨停事件发生次数分布（1996.12~2007.9）</p>
-<p><img src="file:///d:\loveFluffy\myBlog\booknotes\md\img\notes9877-12.png" alt=""></p>
+<p><img src="file:///d:\loveFluffy\myBlog\booknotes\img\notes9877-12.png" alt=""></p>
 <p>为深入分析追买连续涨停股票的风险，我们假设投资者按如下模式进行投资：投资者以连续涨停打开当天的开盘价买入，持有一段时间再以开盘价卖出。其中，连续涨停打开当天是指股价在当天以非涨停价收盘但前若干交易日均以涨停价收盘。</p>
 <p>上述模式基本上包括了大部分专门追买连续涨停股票的投资者的操作模式，但可能漏掉了那些在连续涨停中间打开而买入的情况。相比于追买连续涨停股票来说，在连续涨停中间打开而买入对投资者可能更有利。但我们认为漏掉的部分基本上不影响我们的研究结论，这是因为：<br>
 （1）一般投资者很难在这种情况下买到足够的股份；<br>
@@ -971,7 +1093,7 @@ img {
 <p>第三个阶段是从2005年6月1日到2007年9月18日，股价从1039点上涨到了5425点。这段时间市场处于单边上升时期。</p>
 <p>下面我们将分别叙述这三个时段中，投资者按照上述模式操作并持有一段时间卖出后而发生亏损的可能性。</p>
 <p>表1：假设投资者以连续涨停打开当天的开盘价买入并持有一段时间后卖出而发生亏损的可能性（1996.12~2007.9，包括两个牛市和一个熊市）</p>
-<p><img src="file:///d:\loveFluffy\myBlog\booknotes\md\img\notes9877-13.png" alt=""></p>
+<p><img src="file:///d:\loveFluffy\myBlog\booknotes\img\notes9877-13.png" alt=""></p>
 <p>注1：本表分别用20、60、120个交易日近似代替1个月、3个月、6个月。表中的亏损可能性是用按假定模式投资发生亏损的股票个数占样本股票个数的比例来代替。<br>
 注2：以1996.12为起点是因为深沪股市自1996年12月16日开始实施涨停板制度。</p>
 <h4 id="一在涨停板制度实施以来的整个区间19961220079包括两个牛市和一个熊市假定投资者以连续涨停打开当天的开盘价买入并持有一段时间后卖出而发生亏损的可能性分析">一、在涨停板制度实施以来的整个区间（1996.12~2007.9，包括两个牛市和一个熊市），假定投资者以连续涨停打开当天的开盘价买入并持有一段时间后卖出而发生亏损的可能性分析</h4>
@@ -986,7 +1108,7 @@ img {
 若投资者按上述模式操作并在6个月后卖出，发生亏损的可能性为42%。</p>
 <p>为了检验上述结论是否具有稳定性，我们同样将连续涨停事件分成“连续涨停3天”、“连续涨停4天”、“连续涨停5天或以上”三类，然后分别统计在每一类事件下，投资者按照上述投资模式操作并持有一段时间后卖出而发生亏损的可能性。</p>
 <p>表2：假设投资者在连续涨停打开当天买入并持有一段时间后卖出而发生亏损的可能性（假设买入价和卖出价均为开盘价，时间区间为1996.12~2007.9，包括两个牛市和一个熊市）</p>
-<p><img src="file:///d:\loveFluffy\myBlog\booknotes\md\img\notes9877-14.png" alt=""></p>
+<p><img src="file:///d:\loveFluffy\myBlog\booknotes\img\notes9877-14.png" alt=""></p>
 <p>注1：本表分别用20、60、120个交易日近似代替1个月、3个月、6个月。表中的亏损可能性用按假定模式投资发生亏损的股票个数占样本股票个数的比例来代替。<br>
 注2：以1996.12为起点是因为深沪股市自1996年12月16日开始实施涨停板制度。</p>
 <p>表2列出了结果，我们发现，</p>
@@ -1010,7 +1132,7 @@ img {
 若投资者按上述模式操作并在6个月后卖出，发生亏损的可能性为45.7%。</p>
 <p>为了检验上述结论是否具有稳定性，我们同样将连续涨停事件分成“连续涨停3天”、“连续涨停4天”、“连续涨停5天或以上”三类，然后分别统计在每一类事件下，投资者按照上述投资模式操作并持有一段时间后卖出而发生亏损的可能性。</p>
 <p>表3：假设投资者在连续涨停打开当天买入并持有一段时间后卖出而发生亏损的可能性（假设买入价和卖出价均为开盘价，时间区间为1996.12~2005.5，包括一个牛市和一个熊市）</p>
-<p><img src="file:///d:\loveFluffy\myBlog\booknotes\md\img\notes9877-15.png" alt=""></p>
+<p><img src="file:///d:\loveFluffy\myBlog\booknotes\img\notes9877-15.png" alt=""></p>
 <p>注1：本表分别用20、60、120个交易日近似代替1个月、3个月、6个月。表中的亏损可能性是用按假定模式投资发生亏损的股票个数占样本股票个数的比例来代替。<br>
 注2：以1996.12为起点是因为深沪股市自1996年12月16日开始实施涨停板制度。</p>
 <p>表3列出了结果，我们发现，</p>
@@ -1034,7 +1156,7 @@ img {
 若投资者按上述模式操作并在6个月后卖出，发生亏损的可能性为31%。</p>
 <p>为了检验上述结论是否具有稳定性，我们同样将连续涨停事件分成“连续涨停3天”、“连续涨停4天”、“连续涨停5天或以上”三类，然后分别统计在每一类事件下，投资者按照上述投资模式操作并持有一段时间后卖出而发生亏损的可能性。</p>
 <p>表4：假设投资者在连续涨停打开当天买入并持有一段时间后卖出而发生亏损的可能性（假设买入价和卖出价均为开盘价，时间区间为2005.6~2007.9，市场处于一个牛市中）</p>
-<p><img src="file:///d:\loveFluffy\myBlog\booknotes\md\img\notes9877-16.png" alt=""></p>
+<p><img src="file:///d:\loveFluffy\myBlog\booknotes\img\notes9877-16.png" alt=""></p>
 <p>注1：本表分别用20、60、120个交易日近似代替1个月、3个月、6个月。表中的亏损可能性用按假定模式投资发生亏损的股票个数占样本股票个数的比例来代替。<br>
 注2：以1996.12为起点是因为深沪股市自1996年12月16日开始实施涨停板制度。</p>
 <p>表4列出了结果，我们发现，</p>
@@ -1064,10 +1186,10 @@ img {
 <p>对模式1（即在新股上市首日以开盘价买入并持有一段时间后以开盘价卖出）这种情况，图1给出了投资者在各年度按照模式1操作并持有1个月后卖出发生亏损的可能性与上证综合指数的比较。</p>
 <p>表1给出了投资者在各年度按照模式1操作并分别持有1个月、3个月、6个月后卖出发生亏损的可能性。</p>
 <p>图1：各年度在新股上市首日买入并在1个月后卖出发生亏损的可能性与上证综合指数比较（假设买入和卖出价均为开盘价，时间区间为1991.1~2007.9）</p>
-<p><img src="file:///d:\loveFluffy\myBlog\booknotes\md\img\notes9877-17.png" alt=""></p>
+<p><img src="file:///d:\loveFluffy\myBlog\booknotes\img\notes9877-17.png" alt=""></p>
 <p>注1：图的上部分为上证综合指数，图的下部分为以深沪各年度所有新上市公司为样本计算的亏损可能性，其中亏损可能性用按假定模式投资发生亏损的股票个数占样本股票个数的比例来代替。</p>
 <p>表1：假设各年度在新股上市首日买入并持有一段时间后卖出发生亏损的可能性（假设买入和卖出价均为开盘价，时间区间为1991.1~2007.9）</p>
-<p><img src="file:///d:\loveFluffy\myBlog\booknotes\md\img\notes9877-18.png" alt=""></p>
+<p><img src="file:///d:\loveFluffy\myBlog\booknotes\img\notes9877-18.png" alt=""></p>
 <p>注：本表分别用20、60、120个交易日近似代替1个月、3个月、6个月。</p>
 <p>从图1可以看出一个大致的趋势：无论市场处于熊市还是牛市，投资者按上述模式1操作并在1个月后卖出发生亏损的可能性都相当大，但在熊市卖出发生亏损的可能性要比在牛市大。</p>
 <p>将表1中在各年度持有1个月后卖出发生亏损的可能性与前一年度进行比较，得到亏损可能性的变化，同时将各年度的上证综合指数和前一年度进行比较，得到上证综合指数的变化。我们发现：在1992~2007年间的16个年度中，亏损可能性的变化方向与大盘指数的变化方向相反的年度有11个。</p>
@@ -1077,10 +1199,10 @@ img {
 <p>对模式2（即在新股上市首日以开盘价买入并持有一段时间后以开盘价卖出）这种情况，图2给出了投资者在各年度按照模式2操作并持有1个月后卖出发生亏损的可能性与上证综合指数的比较。</p>
 <p>表2给出了投资者在各年度按照模式2操作并分别持有1个月、3个月、6个月后卖出发生亏损的可能性。</p>
 <p>图2：各年度在新股上市首日买入并在1个月后卖出发生亏损的可能性与上证综合指数比较（假设买入和卖出价均为最高价，时间区间为1991.1~2007.9）</p>
-<p><img src="file:///d:\loveFluffy\myBlog\booknotes\md\img\notes9877-19.png" alt=""></p>
+<p><img src="file:///d:\loveFluffy\myBlog\booknotes\img\notes9877-19.png" alt=""></p>
 <p>注1：图的上部分为上证综合指数，图的下部分为以深沪各年度所有新上市公司为样本计算的亏损可能性，其中亏损可能性用按假定模式投资发生亏损的股票个数占样本股票个数的比例来代替。</p>
 <p>表2：假设各年度在新股上市首日买入并持有一段时间后卖出发生亏损的可能性（假设买入和卖出价均为最高价，时间区间为1991.1~2007.9）</p>
-<p><img src="file:///d:\loveFluffy\myBlog\booknotes\md\img\notes9877-20.png" alt=""></p>
+<p><img src="file:///d:\loveFluffy\myBlog\booknotes\img\notes9877-20.png" alt=""></p>
 <p>注：本表分别用20、60、120个交易日近似代替1个月、3个月、6个月。</p>
 <p>从图2我们仍然可以得出类似于图1的结论：无论市场处于熊市还是牛市，投资者按上述模式2操作并在1个月后卖出发生亏损的可能性都相当大（超过50%）。但在熊市卖出发生亏损的可能性要比在牛市大。</p>
 <p>将表2中在各年度持有1个月后卖出发生亏损的可能性与前一年度进行比较，得到亏损可能性的变化，同时将各年度的上证综合指数和前一年度进行比较，得到上证综合指数的变化。我们发现：在1992~2007年间的16个年度中，与上一年度相比的亏损可能性变化方向与大盘指数的变化方向相反的年度有11个。</p>

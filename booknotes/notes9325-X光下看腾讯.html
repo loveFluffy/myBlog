@@ -17,15 +17,7 @@
 
 </style>
         
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-<style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
+        
         <style>
 .task-list-item {
     list-style-type: none;
@@ -48,6 +40,7 @@ html {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	text-rendering: optimizelegibility;
+	height: 100%;
 }
 
 /* 内外边距通常让各个浏览器样式的表现位置不同 */
@@ -96,8 +89,7 @@ body {
 	color: #333;
 	background: #f1e5c9;
 	font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
-	/* 上、右、下、左 */
-	margin: 5px;
+	height: 100%;
 }
 
 h1,
@@ -116,7 +108,7 @@ h1 {
 	font-size: 2em;
 	text-align: center;
 	/*这个属性如果不定义的话，在md转html的时候会莫名给赋值，导致h1下面出现一条线，所以这里定义一下*/
-	border-bottom-style:none; 
+	border-bottom-style: none;
 }
 
 h2 {
@@ -187,7 +179,7 @@ a:active {
 /* 块/段落引用 */
 blockquote {
 	font-size: 0.9em;
-	line-height: 1.6;
+	line-height: 1.5;
 	position: relative;
 	color: #666;
 	border-left: 2px solid #fbb;
@@ -196,7 +188,7 @@ blockquote {
 }
 
 blockquote p {
-	margin: 0 0 18px;
+	margin: 0 0 1em;
 }
 
 strong,
@@ -259,11 +251,12 @@ ul p {
 	margin-bottom: 0px;
 }
 
+/*
 li {
 	margin-bottom: 0.75em;
 	margin-top: 0.75em;
 }
-
+*/
 ol#footnotes {
 	font-size: 0.95em;
 	padding-top: 1em;
@@ -347,10 +340,140 @@ img {
 	max-width: 1000px;
 	width: 1000px;
 }
+
+/* 选中后背景浅粉色 */
+::selection {
+	background-color: #fbb;
+}
+
+
+
+/* ======== 侧边的目录相关 ======== */
+
+.content {
+	float: right;
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+
+	/* 滚动条 */
+	scrollbar-width: thin;
+	/* thumb & track */
+	scrollbar-color: skyblue #ededed;
+
+	scroll-behavior: smooth;
+}
+
+/* 
+手机：2400*1080
+iPad mini 5：2048*1536
+电脑：1920*1200 
+*/
+/* 窄屏幕：手机竖屏、iPad竖屏 */
+@media (max-width: 1536px) {
+	.content {
+		width: 99.5%;
+		padding-left: 0.5%;
+	}
+
+	/* 不显示目录 */
+	div.toc {
+		display: none;
+	}
+}
+
+/* 宽屏幕：电脑、手机横屏、iPad横屏 */
+@media (min-width: 1537px) {
+	div.toc {
+		line-height: 1.2;
+		max-width: 24%;
+		height: 100vh;
+		padding-right: 0.5%;
+
+		float: left;
+		font-size: 0.7em;
+		overflow: auto;
+		overflow-x: hidden;
+
+		/* 目录栏 滚动时固定在屏幕顶端：仅当父元素没有设置overflow、高度为确定数值且比toc高度更大的时候才起作用*/
+		/* 现在因为toc与body等高，所以不起作用，也无须起作用
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;*/
+
+		/* 滚动条 */
+		scrollbar-width: thin;
+		/* thumb & track */
+		scrollbar-color: rgb(178, 216, 232) #ededed;
+	}
+
+	/*
+	div.toc ul,
+	div.toc li {
+		margin: 0;
+		padding: 0;
+		border-bottom: 1px solid #f1e5c9;
+	}
+		*/
+	div.toc ul {
+		margin: 0;
+		padding: 0;
+		background-color: #f1e5c9;
+	}
+
+	div.toc li {
+		padding-left: 10px;
+		list-style-position: inside;
+	}
+
+	/*h1 h2 h3 h4滚动时固定在屏幕顶端*/
+	div.toc ul>li,
+	div.toc ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		/* Safari 及其他兼容 */
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;
+	}
+
+	div.toc ul>li {
+		z-index: 1;
+		/*#ff7e79*/
+		background-color: skyblue;
+	}
+
+	div.toc ul>li>ul>li {
+		z-index: 2;
+		/*#ff7e79*/
+		background-color: rgb(178, 216, 232);
+	}
+
+	div.toc ul>li>ul>li>ul>li {
+		z-index: 3;
+		/*#fbb*/
+		background-color: rgb(210, 231, 239);
+	}
+
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		z-index: 4;
+		background-color: rgb(228, 235, 238);
+	}
+
+	.content {
+		width: 75%;
+		padding-left: 0.5%;
+	}
+}
 </style>
     </head>
     <body class="vscode-body vscode-light">
-        <h1 id="x光下看腾讯">X光下看腾讯</h1>
+        <div class="content">
+<h1 id="x光下看腾讯">X光下看腾讯</h1>
 <h2 id="蓝狮子-编">蓝狮子 编</h2>
 <p>一场3Q大战把一度为中国市值最高的互联网公司——腾讯推到了风口浪尖上，也因此掀起了关于互联网行业生存业态的讨论。</p>
 <p>在互联网高速发展的同时，很多问题也暴露出来，互联网行业正处于变革的前夜。名为“诊断腾讯”的论坛邀请了来自互联网、政法、新闻、学界等70多位专家和意见领袖，望闻问切，从公众责任难题——“公众美誉度”、行业责任难题——“垄断与开放”、领袖责任难题——“山寨与创新”三个角度，通过给互联网领军者腾讯把脉，分析了整个互联网行业已经或者即将遇到的问题。</p>
@@ -700,7 +823,68 @@ img {
 <h3 id="50在原有的领域腾讯还有哪些机会可以挖掘">〔50〕在原有的领域，腾讯还有哪些机会可以挖掘？</h3>
 <h3 id="51开放会如何影响腾讯的创新">〔51〕开放会如何影响腾讯的创新？</h3>
 <h3 id="52腾讯离世界级创新还有多远">〔52〕腾讯离世界级创新还有多远？</h3>
-
+</div>
+<div class="toc">
+<ul>
+<li><a href="#%E5%BA%8F%E4%B8%80">序一</a></li>
+<li><a href="#%E5%BA%8F%E4%BA%8C-%E6%B1%82%E8%A7%A3%E6%96%AF%E8%8A%AC%E5%85%8B%E6%96%AF%E4%B9%8B%E8%B0%9C">序二 求解斯芬克斯之谜</a></li>
+<li><a href="#%E5%BA%8F%E4%B8%89-%E8%AF%8A%E6%96%AD%E8%85%BE%E8%AE%AF%E7%9A%84%E7%BE%A4%E4%BD%93%E4%BB%B7%E5%80%BC">序三 诊断腾讯的群体价值</a></li>
+<li><a href="#%E5%BA%8F%E5%9B%9B-%E6%8E%A2%E7%A9%B6%E4%B8%80%E5%AE%B6%E4%BC%9F%E5%A4%A7%E4%BC%81%E4%B8%9A%E5%8F%91%E5%B1%95%E7%9A%84%E8%A1%8C%E5%8A%A8%E8%B7%AF%E7%BA%BF%E5%9B%BE">序四 探究一家伟大企业发展的行动路线图</a></li>
+<li><a href="#%E8%AF%8A%E6%96%AD%E8%85%BE%E8%AE%AF%E5%98%89%E5%AE%BE%E7%AE%80%E4%BB%8B">“诊断腾讯”嘉宾简介</a></li>
+<li><a href="#13q%E5%A4%A7%E6%88%98%E7%9A%84%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B%E4%B8%AD%E8%85%BE%E8%AE%AF%E9%94%99%E5%9C%A8%E4%BD%95%E5%A4%84">〔1〕3Q大战的处理过程中，腾讯错在何处？</a></li>
+<li><a href="#23q%E5%A4%A7%E6%88%98%E6%98%AF%E5%81%B6%E7%84%B6%E8%BF%98%E6%98%AF%E5%BF%85%E7%84%B6%E6%98%AF%E5%90%A6%E4%BB%85%E6%98%AF%E4%B8%80%E5%9C%BA%E5%85%AC%E5%85%B3%E5%8D%B1%E6%9C%BA">〔2〕3Q大战是偶然还是必然？是否仅是一场公关危机？</a></li>
+<li><a href="#3%E5%9C%A8%E6%94%B6%E5%85%A5%E8%BF%98%E5%9C%A8%E6%8C%81%E7%BB%AD%E9%AB%98%E9%80%9F%E5%A2%9E%E9%95%BF%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E8%85%BE%E8%AE%AF%E6%94%B9%E9%9D%A9%E7%9A%84%E5%86%B3%E5%BF%83%E6%98%AF%E5%90%A6%E5%9D%9A%E5%AE%9A">〔3〕在收入还在持续高速增长的情况下，腾讯改革的决心是否坚定？</a></li>
+<li><a href="#4%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BB%85%E4%BB%85%E5%81%9A%E5%A5%BD%E4%BA%A7%E5%93%81%E4%B8%8D%E8%83%BD%E8%B5%A2%E5%BE%97%E7%94%A8%E6%88%B7%E7%9A%84%E7%88%B1%E5%92%8C%E5%B0%8A%E6%95%AC">〔4〕为什么仅仅做好产品不能赢得用户的爱和尊敬？</a></li>
+<li><a href="#5%E8%85%BE%E8%AE%AF%E7%9A%84%E8%87%AA%E6%88%91%E8%AE%A4%E7%9F%A5%E5%92%8C%E5%85%AC%E4%BC%97%E9%A2%84%E6%9C%9F%E4%B9%8B%E9%97%B4%E5%87%BA%E7%8E%B0%E4%BA%86%E6%80%8E%E6%A0%B7%E7%9A%84%E8%90%BD%E5%B7%AE">〔5〕腾讯的自我认知和公众预期之间出现了怎样的落差？</a></li>
+<li><a href="#6%E5%A6%82%E4%BD%95%E8%B5%A2%E5%BE%97%E5%85%AC%E4%BC%97%E7%9A%84%E4%BF%A1%E4%BB%BB">〔6〕如何赢得公众的信任？</a></li>
+<li><a href="#7%E8%85%BE%E8%AE%AF%E5%AF%B9%E8%87%AA%E5%B7%B1%E7%9A%84%E6%A0%B8%E5%BF%83%E6%88%98%E7%95%A5%E6%98%AF%E5%90%A6%E8%AE%A4%E8%AF%86%E6%B8%85%E6%99%B0">〔7〕腾讯对自己的核心战略是否认识清晰？</a></li>
+<li><a href="#8%E5%A6%82%E4%BD%95%E9%94%BB%E9%80%A0%E4%BC%81%E4%B8%9A%E7%9A%84%E9%A2%86%E8%A2%96%E6%B0%94%E8%B4%A8">〔8〕如何锻造企业的领袖气质？</a></li>
+<li><a href="#9%E8%85%BE%E8%AE%AF%E5%BA%94%E8%AF%A5%E5%9C%A8%E5%93%AA%E4%BA%9B%E9%A2%86%E5%9F%9F%E4%BD%9C%E7%9C%9F%E6%AD%A3%E7%9A%84%E5%89%8D%E7%9E%BB%E6%80%A7%E6%80%9D%E8%80%83">〔9〕腾讯应该在哪些领域作真正的前瞻性思考？</a></li>
+<li><a href="#10%E9%99%A4%E4%BA%86%E6%85%88%E5%96%84%E4%B9%8B%E5%A4%96%E4%BC%81%E4%B8%9A%E8%AF%A5%E5%A6%82%E4%BD%95%E5%A1%91%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E7%A4%BE%E4%BC%9A%E8%A7%92%E8%89%B2">〔10〕除了慈善之外，企业该如何塑造自己的社会角色？</a></li>
+<li><a href="#11%E4%BC%81%E4%B8%9A%E5%BA%94%E5%A6%82%E4%BD%95%E6%8E%A8%E5%8A%A8%E8%80%8C%E9%9D%9E%E5%B9%B2%E6%89%B0%E8%A7%84%E5%88%99%E5%92%8C%E6%B3%95%E5%BE%8B%E7%9A%84%E5%88%B6%E5%AE%9A">〔11〕企业应如何推动（而非干扰）规则和法律的制定？</a></li>
+<li><a href="#12%E8%85%BE%E8%AE%AF%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E4%BB%8E%E6%8A%80%E6%9C%AF%E5%92%8C%E4%BA%A7%E5%93%81%E9%A9%B1%E5%8A%A8%E8%BD%AC%E5%9E%8B%E4%B8%BA%E7%AE%A1%E7%90%86%E9%A9%B1%E5%8A%A8">〔12〕腾讯是否需要从技术和产品驱动转型为管理驱动？</a></li>
+<li><a href="#13%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%93%81%E7%89%8C%E7%AE%A1%E7%90%86%E5%A6%82%E4%BD%95%E7%BB%B4%E7%B3%BB%E7%94%A8%E6%88%B7%E5%92%8C%E4%BC%81%E4%B8%9A%E4%B9%8B%E9%97%B4%E7%9A%84%E6%83%85%E6%84%9F%E5%85%B3%E8%81%94">〔13〕如何进行品牌管理？如何维系用户和企业之间的情感关联？</a></li>
+<li><a href="#14%E4%BC%81%E4%B8%9A%E4%BD%8E%E8%B0%83%E8%80%8C%E6%B2%89%E9%BB%98%E4%BC%9A%E5%B8%A6%E6%9D%A5%E5%93%AA%E4%BA%9B%E9%97%AE%E9%A2%98">〔14〕企业低调而沉默会带来哪些问题？</a></li>
+<li><a href="#15%E4%BC%81%E4%B8%9A%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E5%92%8C%E5%A4%96%E7%95%8C%E8%89%AF%E6%80%A7%E6%B2%9F%E9%80%9A%E7%9A%84%E6%B8%A0%E9%81%93">〔15〕企业如何建立和外界良性沟通的渠道？</a></li>
+<li><a href="#16%E5%9E%84%E6%96%AD%E7%9A%84%E5%AE%9A%E4%B9%89%E6%98%AF%E4%BB%80%E4%B9%88%E8%85%BE%E8%AE%AF%E6%98%AF%E5%9E%84%E6%96%AD%E4%BC%81%E4%B8%9A%E5%90%97">〔16〕垄断的定义是什么？腾讯是垄断企业吗？</a></li>
+<li><a href="#17%E8%A6%81%E9%81%BF%E5%85%8D%E5%9E%84%E6%96%AD%E5%AF%B9%E4%BC%81%E4%B8%9A%E8%87%AA%E8%BA%AB%E4%BA%A7%E7%94%9F%E5%A8%81%E8%83%81%E5%8E%86%E5%8F%B2%E4%B8%8A%E6%9C%89%E4%BB%80%E4%B9%88%E5%8F%AF%E5%80%9F%E9%89%B4%E7%9A%84%E4%BE%8B%E5%AD%90">〔17〕要避免垄断对企业自身产生威胁，历史上有什么可借鉴的例子？</a></li>
+<li><a href="#18%E8%85%BE%E8%AE%AF%E7%9A%84%E6%8B%93%E5%B1%95%E6%96%B9%E5%BC%8F%E4%B8%AD%E5%86%85%E9%83%A8%E6%9C%89%E5%93%AA%E4%BA%9B%E5%8F%AF%E4%B8%BA%E8%A1%8C%E4%B8%9A%E5%80%9F%E9%89%B4">〔18〕腾讯的拓展方式中，内部有哪些可为行业借鉴？</a></li>
+<li><a href="#19%E8%85%BE%E8%AE%AF%E9%97%AE%E9%A2%98%E4%BA%A7%E7%94%9F%E7%9A%84%E6%A0%B9%E6%BA%90%E6%98%AF%E4%BB%80%E4%B9%88">〔19〕腾讯问题产生的根源是什么？</a></li>
+<li><a href="#20%E5%A6%82%E4%BD%95%E7%9C%8B%E5%BE%85%E4%BA%92%E8%81%94%E7%BD%91%E8%B6%8B%E5%8A%BF%E4%B8%8E%E8%85%BE%E8%AE%AF%E7%9A%84%E5%87%86%E5%A4%87%E4%B8%8D%E8%B6%B3">〔20〕如何看待互联网趋势与腾讯的准备不足？</a></li>
+<li><a href="#21%E5%9C%A8%E4%B8%AD%E5%9B%BD%E4%BA%92%E8%81%94%E7%BD%91%E4%BA%A7%E4%B8%9A%E4%B8%AD%E8%85%BE%E8%AE%AF%E7%9B%B8%E5%AF%B9%E7%9A%84%E6%A0%B8%E5%BF%83%E4%BC%98%E5%8A%BF%E5%9C%A8%E5%93%AA%E9%87%8C">〔21〕在中国互联网产业中，腾讯相对的核心优势在哪里？</a></li>
+<li><a href="#22%E5%9E%84%E6%96%AD%E5%92%8C%E5%BC%80%E6%94%BE%E6%98%AF%E5%AF%B9%E7%AB%8B%E7%9A%84%E5%90%97">〔22〕垄断和开放是对立的吗？</a></li>
+<li><a href="#23%E4%B8%BA%E4%BB%80%E4%B9%88%E8%85%BE%E8%AE%AF%E5%BF%85%E9%A1%BB%E8%A6%81%E5%BC%80%E6%94%BE">〔23〕为什么腾讯必须要开放？</a></li>
+<li><a href="#24%E8%85%BE%E8%AE%AF%E5%BA%94%E8%AF%A5%E5%A6%82%E4%BD%95%E6%A2%B3%E7%90%86%E8%87%AA%E5%B7%B1%E7%9A%84%E6%A0%B8%E5%BF%83%E4%B8%9A%E5%8A%A1">〔24〕腾讯应该如何梳理自己的核心业务？</a></li>
+<li><a href="#25%E5%A4%A7%E4%BC%81%E4%B8%9A%E5%BA%94%E8%AF%A5%E5%A6%82%E4%BD%95%E5%8E%BB%E7%9C%8B%E6%9C%AA%E6%9D%A5%E4%B8%AD%E5%9B%BD%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E7%BB%93%E6%9E%84">〔25〕大企业应该如何去看未来中国互联网的结构？</a></li>
+<li><a href="#26%E8%85%BE%E8%AE%AF%E5%9C%A8%E4%BA%A7%E4%B8%9A%E9%93%BE%E4%B8%AD%E5%BA%94%E8%AF%A5%E5%A6%82%E4%BD%95%E5%AE%9A%E4%BD%8D%E8%87%AA%E5%B7%B1">〔26〕腾讯在产业链中应该如何定位自己？</a></li>
+<li><a href="#27%E8%85%BE%E8%AE%AF%E5%AF%B9%E5%BE%85%E5%BC%80%E6%94%BE%E7%9A%84%E6%80%81%E5%BA%A6%E5%A6%82%E4%BD%95">〔27〕腾讯对待开放的态度如何？</a></li>
+<li><a href="#28%E5%9C%A8%E5%BC%80%E6%94%BE%E4%B9%8B%E8%B7%AF%E4%B8%8A%E8%85%BE%E8%AE%AF%E5%BA%94%E8%AF%A5%E6%80%8E%E4%B9%88%E5%81%9A">〔28〕在开放之路上，腾讯应该怎么做？</a></li>
+<li><a href="#29%E8%85%BE%E8%AE%AF%E5%BC%80%E6%94%BE%E9%9C%80%E8%A6%81%E5%93%AA%E4%BA%9B%E5%9F%BA%E7%A1%80%E6%9D%A5%E6%94%AF%E6%92%91">〔29〕腾讯开放需要哪些基础来支撑？</a></li>
+<li><a href="#30%E8%85%BE%E8%AE%AF%E5%BC%80%E6%94%BE%E7%9A%84%E8%87%AA%E8%BA%AB%E9%9A%BE%E7%82%B9%E5%9C%A8%E5%93%AA%E9%87%8C">〔30〕腾讯开放的自身难点在哪里？</a></li>
+<li><a href="#31%E5%85%B7%E4%BD%93%E8%80%8C%E8%A8%80%E8%85%BE%E8%AE%AF%E5%BC%80%E6%94%BE%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88">〔31〕具体而言，腾讯开放需要注意什么？</a></li>
+<li><a href="#32%E5%9C%A8%E4%BA%A7%E4%B8%9A%E4%B8%AD%E8%85%BE%E8%AE%AF%E8%BF%98%E5%BA%94%E6%89%BF%E6%8B%85%E4%BD%95%E7%A7%8D%E8%B4%A3%E4%BB%BB">〔32〕在产业中，腾讯还应承担何种责任？</a></li>
+<li><a href="#33%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%80%E6%94%BE%E7%9A%84%E8%83%BD%E5%8A%9B%E6%AF%94%E5%BC%80%E6%94%BE%E7%9A%84%E6%80%81%E5%BA%A6%E6%9B%B4%E9%87%8D%E8%A6%81">〔33〕为什么开放的能力比开放的态度更重要？</a></li>
+<li><a href="#34%E8%85%BE%E8%AE%AF%E6%98%AF%E5%B1%B1%E5%AF%A8%E5%85%AC%E5%8F%B8%E5%90%97">〔34〕腾讯是山寨公司吗？</a></li>
+<li><a href="#35%E8%85%BE%E8%AE%AF%E6%9C%89%E5%88%9B%E6%96%B0%E5%90%97">〔35〕腾讯有创新吗？</a></li>
+<li><a href="#36%E8%85%BE%E8%AE%AF%E7%9A%84%E5%88%9B%E6%96%B0%E6%A8%A1%E5%BC%8F%E6%98%AF%E4%BB%80%E4%B9%88">〔36〕腾讯的创新模式是什么？</a></li>
+<li><a href="#37%E8%85%BE%E8%AE%AF%E5%A6%82%E4%BD%95%E6%89%8D%E8%83%BD%E6%91%98%E6%8E%89%E5%B1%B1%E5%AF%A8%E7%9A%84%E5%B8%BD%E5%AD%90">〔37〕腾讯如何才能摘掉山寨的帽子？</a></li>
+<li><a href="#38%E8%85%BE%E8%AE%AF%E6%98%AF%E4%B8%80%E5%AE%B6%E7%9F%AD%E8%A7%86%E7%9A%84%E5%85%AC%E5%8F%B8%E5%90%97">〔38〕腾讯是一家短视的公司吗？</a></li>
+<li><a href="#39%E8%85%BE%E8%AE%AF%E8%83%8C%E7%A6%BB%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C%E8%87%B3%E4%B8%8A%E7%9A%84%E5%8E%9F%E5%88%99%E4%BA%86%E5%90%97">〔39〕腾讯背离用户体验至上的原则了吗？</a></li>
+<li><a href="#40%E5%BA%9E%E5%A4%A7%E7%9A%84%E7%94%A8%E6%88%B7%E7%BE%A4%E4%BC%9A%E7%BB%A7%E7%BB%AD%E5%B8%AE%E5%8A%A9%E8%85%BE%E8%AE%AF%E8%8E%B7%E5%BE%97%E6%88%90%E5%8A%9F%E5%90%97">〔40〕庞大的用户群会继续帮助腾讯获得成功吗？</a></li>
+<li><a href="#41%E8%85%BE%E8%AE%AF%E7%9A%84%E4%BA%A7%E5%93%81%E5%8A%9B%E6%AD%A3%E5%9C%A8%E4%B8%8B%E9%99%8D%E5%90%97">〔41〕腾讯的产品力正在下降吗？</a></li>
+<li><a href="#42%E8%85%BE%E8%AE%AF%E7%9A%84%E9%AB%98%E5%A2%9E%E9%95%BF%E6%97%B6%E4%BB%A3%E7%BB%93%E6%9D%9F%E4%BA%86%E5%90%97">〔42〕腾讯的高增长时代结束了吗？</a></li>
+<li><a href="#43%E8%85%BE%E8%AE%AF%E4%BB%8E%E5%B1%B1%E5%AF%A8%E8%B5%B0%E5%90%91%E5%88%9B%E6%96%B0%E5%B0%86%E9%9D%A2%E4%B8%B4%E5%93%AA%E4%BA%9B%E6%8C%91%E6%88%98">〔43〕腾讯从山寨走向创新将面临哪些挑战？</a></li>
+<li><a href="#44%E5%A4%96%E9%83%A8%E5%92%8C%E5%86%85%E9%83%A8%E5%88%9B%E6%96%B0%E5%93%AA%E7%A7%8D%E6%9B%B4%E9%80%82%E5%90%88%E8%85%BE%E8%AE%AF">〔44〕外部和内部创新，哪种更适合腾讯？</a></li>
+<li><a href="#45%E8%85%BE%E8%AE%AF%E5%BA%94%E8%AF%A5%E6%9C%89%E6%89%80%E4%B8%BA%E6%9C%89%E6%89%80%E4%B8%8D%E4%B8%BA%E5%90%97">〔45〕腾讯应该有所为有所不为吗？</a></li>
+<li><a href="#46%E5%88%9B%E6%96%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%B0%B1%E6%98%AF%E4%BB%B7%E5%80%BC%E8%A7%82%E7%9A%84%E9%97%AE%E9%A2%98">〔46〕创新的问题就是价值观的问题？</a></li>
+<li><a href="#47%E8%85%BE%E8%AE%AF%E7%AE%A1%E7%90%86%E5%B1%82%E5%9C%A8%E5%88%9B%E6%96%B0%E9%97%AE%E9%A2%98%E4%B8%8A%E7%9A%84%E5%9B%B0%E6%83%91%E6%98%AF%E4%BB%80%E4%B9%88">〔47〕腾讯管理层在创新问题上的困惑是什么？</a></li>
+<li><a href="#48%E8%85%BE%E8%AE%AF%E5%8F%AF%E8%83%BD%E7%9A%84%E9%A2%A0%E8%A6%86%E8%80%85%E6%9C%89%E5%93%AA%E4%BA%9B">〔48〕腾讯可能的颠覆者有哪些？</a></li>
+<li><a href="#49%E8%85%BE%E8%AE%AF%E6%9C%89%E5%93%AA%E4%BA%9B%E6%88%98%E7%95%A5%E6%80%A7%E6%9C%BA%E4%BC%9A">〔49〕腾讯有哪些战略性机会？</a></li>
+<li><a href="#50%E5%9C%A8%E5%8E%9F%E6%9C%89%E7%9A%84%E9%A2%86%E5%9F%9F%E8%85%BE%E8%AE%AF%E8%BF%98%E6%9C%89%E5%93%AA%E4%BA%9B%E6%9C%BA%E4%BC%9A%E5%8F%AF%E4%BB%A5%E6%8C%96%E6%8E%98">〔50〕在原有的领域，腾讯还有哪些机会可以挖掘？</a></li>
+<li><a href="#51%E5%BC%80%E6%94%BE%E4%BC%9A%E5%A6%82%E4%BD%95%E5%BD%B1%E5%93%8D%E8%85%BE%E8%AE%AF%E7%9A%84%E5%88%9B%E6%96%B0">〔51〕开放会如何影响腾讯的创新？</a></li>
+<li><a href="#52%E8%85%BE%E8%AE%AF%E7%A6%BB%E4%B8%96%E7%95%8C%E7%BA%A7%E5%88%9B%E6%96%B0%E8%BF%98%E6%9C%89%E5%A4%9A%E8%BF%9C">〔52〕腾讯离世界级创新还有多远？</a></li>
+</ul>
+</div>
         
         
     </body>

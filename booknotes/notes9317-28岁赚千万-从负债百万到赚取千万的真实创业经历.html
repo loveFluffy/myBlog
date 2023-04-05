@@ -17,15 +17,7 @@
 
 </style>
         
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-<style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
+        
         <style>
 .task-list-item {
     list-style-type: none;
@@ -48,6 +40,7 @@ html {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	text-rendering: optimizelegibility;
+	height: 100%;
 }
 
 /* 内外边距通常让各个浏览器样式的表现位置不同 */
@@ -96,8 +89,7 @@ body {
 	color: #333;
 	background: #f1e5c9;
 	font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
-	/* 上、右、下、左 */
-	margin: 5px;
+	height: 100%;
 }
 
 h1,
@@ -116,7 +108,7 @@ h1 {
 	font-size: 2em;
 	text-align: center;
 	/*这个属性如果不定义的话，在md转html的时候会莫名给赋值，导致h1下面出现一条线，所以这里定义一下*/
-	border-bottom-style:none; 
+	border-bottom-style: none;
 }
 
 h2 {
@@ -187,7 +179,7 @@ a:active {
 /* 块/段落引用 */
 blockquote {
 	font-size: 0.9em;
-	line-height: 1.6;
+	line-height: 1.5;
 	position: relative;
 	color: #666;
 	border-left: 2px solid #fbb;
@@ -196,7 +188,7 @@ blockquote {
 }
 
 blockquote p {
-	margin: 0 0 18px;
+	margin: 0 0 1em;
 }
 
 strong,
@@ -259,11 +251,12 @@ ul p {
 	margin-bottom: 0px;
 }
 
+/*
 li {
 	margin-bottom: 0.75em;
 	margin-top: 0.75em;
 }
-
+*/
 ol#footnotes {
 	font-size: 0.95em;
 	padding-top: 1em;
@@ -347,10 +340,140 @@ img {
 	max-width: 1000px;
 	width: 1000px;
 }
+
+/* 选中后背景浅粉色 */
+::selection {
+	background-color: #fbb;
+}
+
+
+
+/* ======== 侧边的目录相关 ======== */
+
+.content {
+	float: right;
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+
+	/* 滚动条 */
+	scrollbar-width: thin;
+	/* thumb & track */
+	scrollbar-color: skyblue #ededed;
+
+	scroll-behavior: smooth;
+}
+
+/* 
+手机：2400*1080
+iPad mini 5：2048*1536
+电脑：1920*1200 
+*/
+/* 窄屏幕：手机竖屏、iPad竖屏 */
+@media (max-width: 1536px) {
+	.content {
+		width: 99.5%;
+		padding-left: 0.5%;
+	}
+
+	/* 不显示目录 */
+	div.toc {
+		display: none;
+	}
+}
+
+/* 宽屏幕：电脑、手机横屏、iPad横屏 */
+@media (min-width: 1537px) {
+	div.toc {
+		line-height: 1.2;
+		max-width: 24%;
+		height: 100vh;
+		padding-right: 0.5%;
+
+		float: left;
+		font-size: 0.7em;
+		overflow: auto;
+		overflow-x: hidden;
+
+		/* 目录栏 滚动时固定在屏幕顶端：仅当父元素没有设置overflow、高度为确定数值且比toc高度更大的时候才起作用*/
+		/* 现在因为toc与body等高，所以不起作用，也无须起作用
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;*/
+
+		/* 滚动条 */
+		scrollbar-width: thin;
+		/* thumb & track */
+		scrollbar-color: rgb(178, 216, 232) #ededed;
+	}
+
+	/*
+	div.toc ul,
+	div.toc li {
+		margin: 0;
+		padding: 0;
+		border-bottom: 1px solid #f1e5c9;
+	}
+		*/
+	div.toc ul {
+		margin: 0;
+		padding: 0;
+		background-color: #f1e5c9;
+	}
+
+	div.toc li {
+		padding-left: 10px;
+		list-style-position: inside;
+	}
+
+	/*h1 h2 h3 h4滚动时固定在屏幕顶端*/
+	div.toc ul>li,
+	div.toc ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		/* Safari 及其他兼容 */
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;
+	}
+
+	div.toc ul>li {
+		z-index: 1;
+		/*#ff7e79*/
+		background-color: skyblue;
+	}
+
+	div.toc ul>li>ul>li {
+		z-index: 2;
+		/*#ff7e79*/
+		background-color: rgb(178, 216, 232);
+	}
+
+	div.toc ul>li>ul>li>ul>li {
+		z-index: 3;
+		/*#fbb*/
+		background-color: rgb(210, 231, 239);
+	}
+
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		z-index: 4;
+		background-color: rgb(228, 235, 238);
+	}
+
+	.content {
+		width: 75%;
+		padding-left: 0.5%;
+	}
+}
 </style>
     </head>
     <body class="vscode-body vscode-light">
-        <h1 id="28岁赚千万从负债百万到赚取千万的真实创业经历">28岁赚千万：从负债百万到赚取千万的真实创业经历</h1>
+        <div class="content">
+<h1 id="28岁赚千万从负债百万到赚取千万的真实创业经历">28岁赚千万：从负债百万到赚取千万的真实创业经历</h1>
 <h2 id="穷富弹指间">穷富弹指间</h2>
 <h3 id="序文">序文</h3>
 <p>写这个序文的时候，我不禁回想起了那一段斗志激昂的混沌岁月，那些刀光剑影、尔虞我诈，那些钩心斗角、笑里藏刀……无一不是我在商海中所经历过的沉浮。</p>
@@ -1399,7 +1522,54 @@ img {
 <p>由于这一切发生得太突然，以至于我恍如在梦中，直到冰冷的手铐铐在手腕时，我才感觉到，<strong>我这回算是彻底栽了，我被人算计了。我不确定自己是否担有刑事责任，但我知道我的工厂和仓库中的“三无”货品肯定免不了被封存摧毁的命运。一想到整整三年打拼积累的资产就要莫名地失去，我不禁一股急火涌上了胸口，重重地喷出了一口鲜血</strong>。</p>
 <p>当我从拘留所出来的时候，已经是半个月之后的事情了。由于我生产、制造、销售“三无”家电产品，被没收了工厂和仓库中的所有资产，不但行政拘留15日，还要缴纳一笔数目不小的罚款。唯一值得庆幸的是我的身边还有明军，他一直都在找朋友托关系奋力帮我，还东拼西凑了一大笔钱替我缴纳了罚款。</p>
 <p>我永远都记得那一天，天空中飘散着雪花，只有明军一个人来接我。那一刻，我的双目红肿，久久没能哭出来，我只是握紧了拳头哽咽地对明军说，同时也对自己说，我一定能够东山再起，我一定能够再次站起来。</p>
-
+</div>
+<div class="toc">
+<ul>
+<li><a href="#%E5%BA%8F%E6%96%87">序文</a>
+<ul>
+<li><a href="#%E7%BB%8F%E5%85%B8%E8%AF%AD%E5%BD%95">经典语录</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%80%E4%B8%AA%E4%BB%8E%E5%A4%A9%E5%A0%82%E5%88%B0%E5%9C%B0%E7%8B%B1%E7%9A%84%E5%AE%B6%E5%BA%AD">一个从天堂到地狱的家庭</a></li>
+<li><a href="#%E5%91%BD%E8%BF%90%E7%9A%84%E5%AE%A3%E5%88%A4">命运的宣判</a></li>
+<li><a href="#17%E5%B2%81%E5%B0%91%E5%B9%B4%E7%9A%84%E8%9C%95%E5%8F%98">17岁少年的蜕变</a></li>
+<li><a href="#%E6%88%91%E7%94%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E6%96%B9%E6%B3%95%E8%AE%A9%E8%87%AA%E5%B7%B1%E6%88%90%E9%95%BF">我用自己的方法让自己成长</a></li>
+<li><a href="#%E7%A9%B7%E5%88%99%E5%9B%B0%E5%9B%B0%E5%88%99%E6%80%9D%E6%80%9D%E5%88%99%E5%8F%98%E5%8F%98%E5%88%99%E9%80%9A%E9%80%9A%E5%88%99%E5%AF%8C">穷则困，困则思，思则变，变则通，通则富</a></li>
+<li><a href="#%E4%B8%80%E5%A4%A9%E6%89%93%E4%B8%89%E4%BB%BD%E5%B7%A5%E7%9A%84%E7%85%8E%E7%86%AC%E5%8E%86%E7%A8%8B">一天打三份工的煎熬历程</a></li>
+<li><a href="#%E6%88%91%E4%BA%BA%E7%94%9F%E7%9A%84%E7%AC%AC%E4%B8%80%E6%A1%B6%E9%87%91">我人生的第一桶金</a></li>
+<li><a href="#%E4%BA%AB%E5%8F%97%E5%AD%A4%E7%8B%AC">享受孤独</a></li>
+<li><a href="#%E4%B8%8E%E8%80%81%E6%9D%BF%E7%9A%84%E5%BF%83%E7%90%86%E5%8D%9A%E5%BC%88">与老板的心理博弈</a></li>
+<li><a href="#%E7%9B%B4%E9%9D%A2%E5%BF%83%E7%81%B5%E7%9A%84%E9%80%89%E6%8B%A9">直面心灵的选择</a></li>
+<li><a href="#%E9%94%80%E5%94%AE%E7%9A%84%E7%B2%BE%E9%AB%93">销售的精髓</a></li>
+<li><a href="#%E6%89%80%E6%9C%89%E7%9A%84%E8%A1%8C%E4%B8%9A%E9%83%BD%E6%9C%89%E5%8F%AF%E8%A1%8D%E7%94%9F%E7%9A%84%E5%88%A9%E7%9B%8A%E5%85%B3%E9%94%AE%E5%9C%A8%E4%BA%8E%E4%BD%A0%E6%98%AF%E5%90%A6%E6%9C%89%E4%B8%80%E5%8F%8C%E6%85%A7%E7%9C%BC">所有的行业都有可衍生的利益，关键在于你是否有一双慧眼</a></li>
+<li><a href="#%E6%88%91%E7%9A%84%E6%8B%BC%E7%BC%9D%E7%94%9F%E6%B6%AF">我的“拼缝”生涯</a></li>
+<li><a href="#%E6%96%B0%E7%9A%84%E6%9C%BA%E9%81%87%E5%92%8C%E6%8C%91%E6%88%98">新的机遇和挑战</a></li>
+<li><a href="#%E7%AE%A1%E7%90%86%E8%80%85%E7%9A%84%E8%85%B9%E9%BB%91%E6%89%8B%E5%86%8C">管理者的“腹黑”手册</a></li>
+<li><a href="#%E5%95%86%E5%9C%BA%E5%A6%82%E6%88%98%E5%9C%BA%E9%9A%8F%E6%97%B6%E9%83%BD%E5%8F%AF%E4%BB%A5%E5%B9%B2%E6%8E%89%E5%88%AB%E4%BA%BA%E4%B9%9F%E5%8F%AF%E8%83%BD%E9%9A%8F%E6%97%B6%E8%A2%AB%E5%88%AB%E4%BA%BA%E5%B9%B2%E6%8E%89">商场如战场，随时都可以干掉别人，也可能随时被别人干掉</a></li>
+<li><a href="#%E8%B4%AA%E5%A9%AA%E4%B8%8E%E8%89%AF%E5%BF%83%E7%9A%84%E5%AF%B9%E8%B4%A3">贪婪与良心的对责</a></li>
+<li><a href="#%E5%AF%B9%E4%BA%8E%E9%87%91%E9%92%B1%E6%B4%BB%E7%9D%80%E7%9A%84%E4%BA%BA%E6%B0%B8%E8%BF%9C%E4%B8%8D%E4%BC%9A%E5%81%9C%E4%B8%8B%E8%BF%BD%E9%80%90%E7%9A%84%E8%84%9A%E6%AD%A5">对于金钱，活着的人永远不会停下追逐的脚步</a></li>
+<li><a href="#%E5%B0%8F%E5%89%B2%E8%82%89%E9%AC%BC%E7%9A%84%E7%94%B1%E6%9D%A5">“小割肉鬼”的由来</a></li>
+<li><a href="#%E6%88%91%E7%9A%84%E6%AC%B2%E6%9C%9B%E6%B2%A1%E6%9C%89%E6%AD%A2%E5%A2%83">我的欲望没有止境</a></li>
+<li><a href="#%E4%BB%8E%E6%89%8E%E5%95%A4%E5%92%8C%E8%82%89%E4%B8%B2%E4%B8%AD%E6%8C%A4%E5%87%BA%E7%9A%84%E8%B4%A2%E5%AF%8C">从扎啤和肉串中挤出的财富</a></li>
+<li><a href="#%E6%AC%A2%E4%B9%90%E7%9A%84%E9%A4%90%E9%A5%AE%E6%A6%82%E5%BF%B5">“欢乐”的餐饮概念</a></li>
+<li><a href="#%E4%B8%80%E4%B8%AA%E4%BA%BA%E7%9A%84%E7%94%9F%E5%AD%98%E7%8E%AF%E5%A2%83%E5%8F%96%E5%86%B3%E4%BA%8E%E4%BB%96%E7%9A%84%E7%94%9F%E5%AD%98%E6%80%81%E5%BA%A6">一个人的生存环境取决于他的生存态度</a></li>
+<li><a href="#%E9%9D%A2%E5%AF%B9%E9%AB%98%E8%96%AA%E8%AF%B1%E6%83%91%E6%88%91%E6%94%BE%E5%BC%83%E4%BA%86%E9%92%9E%E7%A5%A8%E8%80%8C%E9%80%89%E6%8B%A9%E4%BA%86%E7%8E%AF%E5%A2%83">面对高薪诱惑，我放弃了钞票，而选择了环境</a></li>
+<li><a href="#%E5%88%9B%E4%B8%9A%E6%B3%95%E5%88%99%E4%B8%8E%E5%95%86%E4%B8%9A%E7%90%86%E5%BF%B5">创业法则与商业理念</a></li>
+<li><a href="#%E5%88%A9%E7%9B%8A%E8%87%B3%E6%AD%BB%E7%9A%84%E5%8E%AE%E6%9D%80">利益至死的厮杀</a></li>
+<li><a href="#%E5%AE%8C%E7%BE%8E%E7%9A%84%E8%90%A5%E9%94%80%E7%AD%96%E7%95%A5">完美的营销策略</a></li>
+<li><a href="#%E6%83%B0%E6%80%A7%E6%B0%B8%E8%BF%9C%E9%83%BD%E6%98%AF%E6%9C%80%E8%87%B4%E5%91%BD%E7%9A%84%E6%9D%80%E6%89%8B">惰性永远都是最致命的“杀手”</a></li>
+<li><a href="#%E4%BB%A5%E8%AF%9A%E4%BF%A1%E4%B8%BA%E6%9C%AC%E4%BB%A5%E5%8B%A4%E5%8B%89%E4%B8%BA%E5%9F%BA%E4%BB%A5%E7%A8%B3%E5%A6%A5%E4%B8%BA%E8%83%9C">以诚信为本，以勤勉为基，以稳妥为胜</a></li>
+<li><a href="#%E5%9C%A8%E8%87%B4%E5%AF%8C%E7%9A%84%E9%81%93%E8%B7%AF%E4%B8%8A%E6%88%91%E4%B8%80%E8%B7%AF%E7%8B%82%E5%A5%94">在致富的道路上，我一路狂奔</a></li>
+<li><a href="#%E6%88%91%E8%A6%81%E7%88%AC%E4%B8%8A%E9%87%91%E5%AD%97%E5%A1%94%E9%A1%B6%E7%AB%AF">我要爬上金字塔顶端</a></li>
+<li><a href="#%E5%A4%B4%E8%84%91%E9%A3%8E%E6%9A%B4">头脑风暴</a></li>
+<li><a href="#%E6%9C%89%E6%97%B6%E5%80%99%E9%87%91%E9%92%B1%E5%B0%B1%E6%98%AF%E9%99%B7%E9%98%B1">有时候，金钱就是陷阱</a></li>
+<li><a href="#%E6%AC%B2%E5%A3%91%E9%9A%BE%E5%A1%AB%E7%9A%84%E8%BA%81%E5%8A%A8">欲壑难填的躁动</a></li>
+<li><a href="#%E5%8D%97%E4%B8%8B%E5%8C%97%E4%B8%8A%E6%88%91%E5%88%9B%E7%AB%8B%E4%BA%86%E8%87%AA%E5%B7%B1%E7%9A%84%E5%AE%B6%E7%94%B5%E7%8E%8B%E5%9B%BD">南下北上，我创立了自己的家电王国</a></li>
+<li><a href="#%E4%BA%BA%E7%BB%88%E7%A9%B6%E8%A6%81%E4%B8%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%84%9A%E8%A0%A2%E5%9F%8B%E5%8D%95">人，终究要为自己的愚蠢埋单</a></li>
+<li><a href="#20%E5%B2%81%E6%88%91%E6%88%90%E4%BA%86%E7%99%BE%E4%B8%87%E5%AF%8C%E7%BF%81">20岁，我成了百万富翁</a></li>
+<li><a href="#%E4%BB%8E%E8%BA%AB%E5%AE%B6%E7%99%BE%E4%B8%87%E5%88%B0%E4%B8%80%E6%97%A0%E6%89%80%E6%9C%89%E6%88%91%E7%BB%8F%E5%8E%86%E4%BA%86%E5%86%B0%E7%81%AB%E4%B8%A4%E9%87%8D%E5%A4%A9">从身家百万到一无所有，我经历了“冰火两重天”</a></li>
+</ul>
+</div>
         
         
     </body>

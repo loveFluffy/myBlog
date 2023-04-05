@@ -17,15 +17,7 @@
 
 </style>
         
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-<style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
+        
         <style>
 .task-list-item {
     list-style-type: none;
@@ -48,6 +40,7 @@ html {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	text-rendering: optimizelegibility;
+	height: 100%;
 }
 
 /* 内外边距通常让各个浏览器样式的表现位置不同 */
@@ -96,8 +89,7 @@ body {
 	color: #333;
 	background: #f1e5c9;
 	font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
-	/* 上、右、下、左 */
-	margin: 5px;
+	height: 100%;
 }
 
 h1,
@@ -116,7 +108,7 @@ h1 {
 	font-size: 2em;
 	text-align: center;
 	/*这个属性如果不定义的话，在md转html的时候会莫名给赋值，导致h1下面出现一条线，所以这里定义一下*/
-	border-bottom-style:none; 
+	border-bottom-style: none;
 }
 
 h2 {
@@ -187,7 +179,7 @@ a:active {
 /* 块/段落引用 */
 blockquote {
 	font-size: 0.9em;
-	line-height: 1.6;
+	line-height: 1.5;
 	position: relative;
 	color: #666;
 	border-left: 2px solid #fbb;
@@ -196,7 +188,7 @@ blockquote {
 }
 
 blockquote p {
-	margin: 0 0 18px;
+	margin: 0 0 1em;
 }
 
 strong,
@@ -259,11 +251,12 @@ ul p {
 	margin-bottom: 0px;
 }
 
+/*
 li {
 	margin-bottom: 0.75em;
 	margin-top: 0.75em;
 }
-
+*/
 ol#footnotes {
 	font-size: 0.95em;
 	padding-top: 1em;
@@ -347,10 +340,140 @@ img {
 	max-width: 1000px;
 	width: 1000px;
 }
+
+/* 选中后背景浅粉色 */
+::selection {
+	background-color: #fbb;
+}
+
+
+
+/* ======== 侧边的目录相关 ======== */
+
+.content {
+	float: right;
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+
+	/* 滚动条 */
+	scrollbar-width: thin;
+	/* thumb & track */
+	scrollbar-color: skyblue #ededed;
+
+	scroll-behavior: smooth;
+}
+
+/* 
+手机：2400*1080
+iPad mini 5：2048*1536
+电脑：1920*1200 
+*/
+/* 窄屏幕：手机竖屏、iPad竖屏 */
+@media (max-width: 1536px) {
+	.content {
+		width: 99.5%;
+		padding-left: 0.5%;
+	}
+
+	/* 不显示目录 */
+	div.toc {
+		display: none;
+	}
+}
+
+/* 宽屏幕：电脑、手机横屏、iPad横屏 */
+@media (min-width: 1537px) {
+	div.toc {
+		line-height: 1.2;
+		max-width: 24%;
+		height: 100vh;
+		padding-right: 0.5%;
+
+		float: left;
+		font-size: 0.7em;
+		overflow: auto;
+		overflow-x: hidden;
+
+		/* 目录栏 滚动时固定在屏幕顶端：仅当父元素没有设置overflow、高度为确定数值且比toc高度更大的时候才起作用*/
+		/* 现在因为toc与body等高，所以不起作用，也无须起作用
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;*/
+
+		/* 滚动条 */
+		scrollbar-width: thin;
+		/* thumb & track */
+		scrollbar-color: rgb(178, 216, 232) #ededed;
+	}
+
+	/*
+	div.toc ul,
+	div.toc li {
+		margin: 0;
+		padding: 0;
+		border-bottom: 1px solid #f1e5c9;
+	}
+		*/
+	div.toc ul {
+		margin: 0;
+		padding: 0;
+		background-color: #f1e5c9;
+	}
+
+	div.toc li {
+		padding-left: 10px;
+		list-style-position: inside;
+	}
+
+	/*h1 h2 h3 h4滚动时固定在屏幕顶端*/
+	div.toc ul>li,
+	div.toc ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		/* Safari 及其他兼容 */
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;
+	}
+
+	div.toc ul>li {
+		z-index: 1;
+		/*#ff7e79*/
+		background-color: skyblue;
+	}
+
+	div.toc ul>li>ul>li {
+		z-index: 2;
+		/*#ff7e79*/
+		background-color: rgb(178, 216, 232);
+	}
+
+	div.toc ul>li>ul>li>ul>li {
+		z-index: 3;
+		/*#fbb*/
+		background-color: rgb(210, 231, 239);
+	}
+
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		z-index: 4;
+		background-color: rgb(228, 235, 238);
+	}
+
+	.content {
+		width: 75%;
+		padding-left: 0.5%;
+	}
+}
 </style>
     </head>
     <body class="vscode-body vscode-light">
-        <h1 id="向死而生我修的死亡学分">向死而生：我修的死亡学分</h1>
+        <div class="content">
+<h1 id="向死而生我修的死亡学分">向死而生：我修的死亡学分</h1>
 <h2 id="李开复-著">李开复 著</h2>
 <h3 id="自序-意外的假期">自序 意外的假期</h3>
 <p>在癌症降临之前，我的事业成就可谓一帆风顺。二十六岁时，博士论文就得到《纽约时报》半版报道，被全美计算机科学排名第一的卡内基·梅隆大学破格授予教职；之后投效苹果、微软及谷歌这三大引领世界科技的公司，都快速得到拔擢，担任华人最高层的职务；我还曾获选美国《时代杂志》年度百大风云人物；2009年，我更决心自己创业，意气风发地创办创新工场；在中国，我有数千万的微博粉丝，是许多年轻人愿意追随的“青年导师”……数十年来，尽管劳碌繁忙，每天工作十五六个小时，但我其实志得意满，毕竟自己想做的事多半都能实践，眼前还有无尽的前程，等待我去开拓。</p>
@@ -592,7 +715,66 @@ img {
 <p>她居然可以就此侃侃而谈，而且讲得神采飞扬，充满自信！我知道，我像很多父母一样，永远把孩子视为孩子，我们不知道他们其实早已长大成熟，有了自己的观点，甚至有时我们都可从她身上学到东西。</p>
 <p>“等你大学毕业，我们就不养你了，你确信自己可以自食其力吗？”人生的选择一点都不浪漫，没有通盘考虑，往往会把“兴趣”当作逃避的借口，而且连自己都搞不清楚。怎么可能现在就能确认自己的人生志趣？我真的不放心。</p>
 <p>“所以我会一边学习，一边想办法靠摄影赚钱。我会勇敢接受现实的磨炼。”也对，我突然想起她确实很早就开始做准备了。除了同学和亲人之外，我鼓励她再多动动脑筋，拓展人脉和事业的版图，她果然开始认真构思怎样慢慢建立“客户群”。她设计了自己的名片，也用免费摄影让更多人认识她。我们去台东旅行时，她就用这个方法得到一笔生意。</p>
-
+</div>
+<div class="toc">
+<ul>
+<li><a href="#%E8%87%AA%E5%BA%8F-%E6%84%8F%E5%A4%96%E7%9A%84%E5%81%87%E6%9C%9F">自序 意外的假期</a></li>
+<li><a href="#%E6%A5%94%E5%AD%90-%E5%99%A9%E8%80%97">楔子 噩耗</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86-%E4%B8%8E%E6%AD%BB%E4%BA%A1%E4%BA%A4%E6%89%8B">第一部分 与死亡交手</a>
+<ul>
+<li><a href="#02-%E5%BE%98%E5%BE%8A%E5%9C%A8%E5%9C%B0%E7%8B%B1%E9%97%A8%E5%89%8D">02. 徘徊在地狱门前</a></li>
+<li><a href="#03-26%E4%B8%AA%E8%82%BF%E7%98%A4">03. 26个肿瘤</a></li>
+<li><a href="#04-%E6%9C%AA%E7%9F%A5%E6%AD%BB%E7%84%89%E7%9F%A5%E7%94%9F">04. 未知死，焉知生</a></li>
+<li><a href="#05-%E7%A1%AE%E8%AF%8A">05. 确诊</a></li>
+<li><a href="#06-%E5%BD%B7%E5%BE%A8%E6%AD%A7%E8%B7%AF">06. 彷徨歧路</a></li>
+<li><a href="#07-%E8%87%AA%E5%B7%B1%E7%A0%94%E7%A9%B6%E7%97%85%E6%83%85">07. 自己研究病情</a></li>
+<li><a href="#08-%E5%BC%80%E5%A7%8B%E5%8C%96%E7%96%97">08. 开始化疗</a></li>
+<li><a href="#09-%E6%88%91%E7%9A%84%E4%BA%BA%E5%B7%A5%E8%A1%80%E7%AE%A1">09. 我的人工血管</a></li>
+<li><a href="#10-%E6%9C%80%E5%90%8E%E9%98%B6%E6%AE%B5%E7%9A%84%E6%B2%BB%E7%96%97">10. 最后阶段的治疗</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86-%E7%97%85%E4%B8%AD%E8%A7%89%E6%82%9F">第二部分 病中觉悟</a>
+<ul>
+<li><a href="#01-%E4%B8%8E%E8%BF%87%E4%B8%96%E7%9A%84%E7%88%B6%E4%BA%B2%E5%81%B6%E9%81%87">01. 与过世的父亲“偶遇”</a></li>
+<li><a href="#02-%E5%A6%82%E6%9E%9C%E7%94%9F%E5%91%BD%E5%8F%AA%E5%89%A9100%E5%A4%A9">02. 如果生命只剩100天</a></li>
+<li><a href="#%E4%B8%8E%E6%98%9F%E4%BA%91%E5%A4%A7%E5%B8%88%E5%AF%B9%E8%B0%88">与星云大师对谈</a></li>
+<li><a href="#04-%E4%BB%8E%E5%AE%B9%E5%92%8C%E8%87%AA%E5%B7%B1%E7%AB%9E%E8%B5%9B">04. 从容和自己竞赛</a></li>
+<li><a href="#05-%E5%AE%A1%E8%A7%86%E5%A2%93%E5%BF%97%E9%93%AD">05. 审视墓志铭</a></li>
+<li><a href="#06-%E6%94%BE%E4%B8%8B%E9%AA%84%E5%82%B2">06. 放下骄傲</a></li>
+<li><a href="#07-%E5%AD%A6%E4%BC%9A%E6%84%9F%E6%81%A9">07. 学会感恩</a></li>
+<li><a href="#08-%E7%94%9F%E5%91%BD%E6%98%AF%E6%9C%80%E4%B8%A5%E5%8E%89%E7%9A%84%E5%AF%BC%E5%B8%88">08. 生命是最严厉的导师</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86-%E6%9C%80%E6%9C%89%E4%BB%B7%E5%80%BC%E7%9A%84%E4%BA%BA%E7%94%9F">第三部分 最有价值的人生</a>
+<ul>
+<li><a href="#01-%E6%AF%8F%E5%A4%A9%E9%83%BD%E6%98%AF%E6%9C%80%E7%89%B9%E6%AE%8A%E7%9A%84%E4%B8%80%E5%A4%A9">01. 每天都是“最特殊的一天”</a></li>
+<li><a href="#02-%E6%94%BE%E5%BC%80%E6%89%8B%E4%BD%A0%E5%B0%B1%E6%8B%A5%E6%9C%89%E5%85%A8%E4%B8%96%E7%95%8C">02. 放开手，你就拥有全世界</a></li>
+<li><a href="#03-%E5%81%9A%E6%9C%80%E7%9C%9F%E5%AE%9E%E7%9A%84%E8%87%AA%E5%B7%B1">03. 做最真实的自己</a></li>
+<li><a href="#04-%E5%B9%B3%E8%A1%A1%E8%AE%A9%E4%BA%BA%E7%94%9F%E6%9B%B4%E4%B8%B0%E5%AF%8C">04. 平衡，让人生更丰富</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E5%9B%9B%E9%83%A8%E5%88%86-%E5%81%A5%E5%BA%B7%E6%88%91%E5%AF%B9%E8%87%AA%E5%B7%B1%E7%9A%84%E6%89%BF%E8%AF%BA">第四部分 健康，我对自己的承诺</a>
+<ul>
+<li><a href="#01-%E6%88%91%E7%9A%84%E9%87%8D%E7%94%9F%E4%B9%8B%E8%B7%AF">01. 我的重生之路</a></li>
+<li><a href="#02-%E7%99%8C%E7%97%87%E7%BB%99%E6%88%91%E7%9A%84%E7%A4%BC%E7%89%A9">02. 癌症给我的礼物</a></li>
+<li><a href="#03-%E5%A4%A9%E5%A4%A9%E7%9D%A1%E5%BE%97%E5%A5%BD%E7%83%A6%E6%81%BC%E8%87%AA%E7%84%B6%E5%B0%91">03. 天天睡得好，烦恼自然少</a></li>
+<li><a href="#04-%E5%90%83%E5%87%BA%E5%81%A5%E5%BA%B7">04. 吃出健康</a></li>
+<li><a href="#05-%E8%BF%90%E5%8A%A8%E6%B4%BB%E5%8A%9B%E7%9A%84%E6%BA%90%E6%B3%89">05. 运动，活力的源泉</a></li>
+<li><a href="#06-%E4%BB%8E%E8%BF%BD%E6%B1%82100%E5%88%86%E5%88%B0%E5%8F%AA%E8%A6%8180%E5%88%86">06. 从追求100分到只要80分</a></li>
+<li><a href="#07-%E6%B6%93%E6%BB%B4%E5%82%A8%E8%93%84%E6%AD%A3%E8%83%BD%E9%87%8F">07. 涓滴储蓄正能量</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E4%BA%94%E9%83%A8%E5%88%86-%E5%AE%B6%E4%BA%BA%E6%95%99%E6%88%91%E6%87%82%E7%88%B1">第五部分 家人，教我懂爱</a>
+<ul>
+<li><a href="#01-%E8%BF%BD%E9%9A%8F%E7%88%B6%E4%BA%B2">01. 追随父亲</a></li>
+<li><a href="#02-%E6%88%91%E7%9A%84%E8%80%81%E5%B0%8F%E5%AD%A9%E5%84%BF">02. 我的老小孩儿</a></li>
+<li><a href="#03-%E5%85%AD%E4%BD%8D%E8%80%81%E5%A4%A9%E4%BD%BF">03. 六位老天使</a></li>
+<li><a href="#05-%E6%88%91%E7%9A%84%E5%BC%80%E5%BF%83%E8%AE%BE%E8%AE%A1%E5%B8%88">05. 我的开心设计师</a></li>
+<li><a href="#06-%E5%AE%88%E6%8A%A4%E4%B8%80%E4%B8%AA%E5%BF%AB%E4%B9%90%E6%91%84%E5%BD%B1%E5%B8%88">06. 守护一个快乐摄影师</a></li>
+</ul>
+</li>
+</ul>
+</div>
         
         
     </body>

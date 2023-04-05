@@ -17,15 +17,7 @@
 
 </style>
         
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-<style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
+        
         <style>
 .task-list-item {
     list-style-type: none;
@@ -48,6 +40,7 @@ html {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	text-rendering: optimizelegibility;
+	height: 100%;
 }
 
 /* 内外边距通常让各个浏览器样式的表现位置不同 */
@@ -96,8 +89,7 @@ body {
 	color: #333;
 	background: #f1e5c9;
 	font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
-	/* 上、右、下、左 */
-	margin: 5px;
+	height: 100%;
 }
 
 h1,
@@ -116,7 +108,7 @@ h1 {
 	font-size: 2em;
 	text-align: center;
 	/*这个属性如果不定义的话，在md转html的时候会莫名给赋值，导致h1下面出现一条线，所以这里定义一下*/
-	border-bottom-style:none; 
+	border-bottom-style: none;
 }
 
 h2 {
@@ -187,7 +179,7 @@ a:active {
 /* 块/段落引用 */
 blockquote {
 	font-size: 0.9em;
-	line-height: 1.6;
+	line-height: 1.5;
 	position: relative;
 	color: #666;
 	border-left: 2px solid #fbb;
@@ -196,7 +188,7 @@ blockquote {
 }
 
 blockquote p {
-	margin: 0 0 18px;
+	margin: 0 0 1em;
 }
 
 strong,
@@ -259,11 +251,12 @@ ul p {
 	margin-bottom: 0px;
 }
 
+/*
 li {
 	margin-bottom: 0.75em;
 	margin-top: 0.75em;
 }
-
+*/
 ol#footnotes {
 	font-size: 0.95em;
 	padding-top: 1em;
@@ -347,10 +340,140 @@ img {
 	max-width: 1000px;
 	width: 1000px;
 }
+
+/* 选中后背景浅粉色 */
+::selection {
+	background-color: #fbb;
+}
+
+
+
+/* ======== 侧边的目录相关 ======== */
+
+.content {
+	float: right;
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+
+	/* 滚动条 */
+	scrollbar-width: thin;
+	/* thumb & track */
+	scrollbar-color: skyblue #ededed;
+
+	scroll-behavior: smooth;
+}
+
+/* 
+手机：2400*1080
+iPad mini 5：2048*1536
+电脑：1920*1200 
+*/
+/* 窄屏幕：手机竖屏、iPad竖屏 */
+@media (max-width: 1536px) {
+	.content {
+		width: 99.5%;
+		padding-left: 0.5%;
+	}
+
+	/* 不显示目录 */
+	div.toc {
+		display: none;
+	}
+}
+
+/* 宽屏幕：电脑、手机横屏、iPad横屏 */
+@media (min-width: 1537px) {
+	div.toc {
+		line-height: 1.2;
+		max-width: 24%;
+		height: 100vh;
+		padding-right: 0.5%;
+
+		float: left;
+		font-size: 0.7em;
+		overflow: auto;
+		overflow-x: hidden;
+
+		/* 目录栏 滚动时固定在屏幕顶端：仅当父元素没有设置overflow、高度为确定数值且比toc高度更大的时候才起作用*/
+		/* 现在因为toc与body等高，所以不起作用，也无须起作用
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;*/
+
+		/* 滚动条 */
+		scrollbar-width: thin;
+		/* thumb & track */
+		scrollbar-color: rgb(178, 216, 232) #ededed;
+	}
+
+	/*
+	div.toc ul,
+	div.toc li {
+		margin: 0;
+		padding: 0;
+		border-bottom: 1px solid #f1e5c9;
+	}
+		*/
+	div.toc ul {
+		margin: 0;
+		padding: 0;
+		background-color: #f1e5c9;
+	}
+
+	div.toc li {
+		padding-left: 10px;
+		list-style-position: inside;
+	}
+
+	/*h1 h2 h3 h4滚动时固定在屏幕顶端*/
+	div.toc ul>li,
+	div.toc ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		/* Safari 及其他兼容 */
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;
+	}
+
+	div.toc ul>li {
+		z-index: 1;
+		/*#ff7e79*/
+		background-color: skyblue;
+	}
+
+	div.toc ul>li>ul>li {
+		z-index: 2;
+		/*#ff7e79*/
+		background-color: rgb(178, 216, 232);
+	}
+
+	div.toc ul>li>ul>li>ul>li {
+		z-index: 3;
+		/*#fbb*/
+		background-color: rgb(210, 231, 239);
+	}
+
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		z-index: 4;
+		background-color: rgb(228, 235, 238);
+	}
+
+	.content {
+		width: 75%;
+		padding-left: 0.5%;
+	}
+}
 </style>
     </head>
     <body class="vscode-body vscode-light">
-        <h1 id="不可不知的经济真相">不可不知的经济真相</h1>
+        <div class="content">
+<h1 id="不可不知的经济真相">不可不知的经济真相</h1>
 <h2 id="许树泽-著">许树泽 著</h2>
 <h2 id="推荐序">推荐序</h2>
 <p>在书中，作者能够紧扣时代脉搏，围绕当前市场热点，用最通俗的语言，选取古今中外的事例，感应大众悲喜，疾呼社会正义，表达人文关怀，阐述经济现象。将相对枯燥的经济学原理解释得生动有趣，可谓化复杂为简明，引高深入浅显。能够让读者在最短的时间里，粗通经济现象背后的原理，应该说是本书的最主要特色了。</p>
@@ -434,7 +557,66 @@ img {
 <h3 id="泡沫启示录">泡沫启示录</h3>
 <h3 id="日本动漫产业探秘">日本动漫产业探秘</h3>
 <h3 id="工匠精神和菊与刀">工匠精神和《菊与刀》</h3>
-
+</div>
+<div class="toc">
+<ul>
+<li><a href="#%E4%B8%AD%E5%9B%BD%E5%88%9B%E6%96%B0%E7%BB%8F%E6%B5%8E%E5%AD%A6">中国创新经济学</a>
+<ul>
+<li><a href="#%E4%B8%80">一</a></li>
+<li><a href="#%E4%BA%8C">二</a></li>
+<li><a href="#%E4%B8%89">三</a></li>
+<li><a href="#%E5%9B%9B">四</a></li>
+</ul>
+</li>
+<li><a href="#%E6%96%B0%E5%A4%A7%E8%88%AA%E6%B5%B7%E6%97%B6%E4%BB%A3%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E%E9%A9%B6%E5%90%91%E4%BD%95%E5%A4%84">新大航海时代，中国经济驶向何处</a>
+<ul>
+<li><a href="#%E4%B8%80-1">一</a></li>
+<li><a href="#"></a></li>
+<li><a href="#-1"></a></li>
+<li><a href="#-2"></a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89%E5%88%86%E9%92%9F%E8%AF%BB%E6%87%82%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E">三分钟读懂中国经济</a></li>
+<li><a href="#gdp%E7%A0%B47%E6%80%8E%E4%B9%88%E5%8A%9E">GDP破7怎么办</a></li>
+<li><a href="#%E6%B6%88%E8%B4%B9%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E%E5%A2%9E%E9%95%BF%E6%96%B0%E5%BC%95%E6%93%8E">消费：中国经济增长新引擎</a></li>
+<li><a href="#%E4%BE%9B%E7%BB%99%E4%BE%A7%E7%A9%B6%E7%AB%9F%E6%98%AF%E6%80%8E%E6%A0%B7%E6%92%AC%E5%8A%A8%E7%BB%8F%E6%B5%8E%E7%9A%84">供给侧究竟是怎样撬动经济的</a></li>
+<li><a href="#%E5%A4%B1%E5%8E%BB%E7%9A%84%E4%BA%8C%E5%8D%81%E5%B9%B4%E6%97%A5%E6%9C%AC%E5%A4%B1%E8%90%BD%E4%B9%8B%E8%B0%9C">失去的二十年：日本失落之谜</a></li>
+<li><a href="#%E7%BE%8E%E5%85%83%E7%8B%82%E6%83%B3%E6%9B%B2">美元狂想曲</a></li>
+<li><a href="#%E5%8D%A2%E5%B8%83%E5%8D%B1%E6%9C%BA%E4%BF%84%E7%BD%97%E6%96%AF%E5%88%B0%E5%BA%95%E5%93%AA%E5%84%BF%E7%97%85%E4%BA%86">卢布危机：俄罗斯到底哪儿病了</a></li>
+<li><a href="#%E8%B0%81%E6%89%8D%E6%98%AF%E5%AF%BC%E8%87%B4%E8%B4%A7%E5%B8%81%E9%A3%8E%E6%9A%B4%E7%9A%84%E5%B9%95%E5%90%8E%E9%BB%91%E6%89%8B">谁才是导致货币风暴的幕后黑手</a></li>
+<li><a href="#%E4%BA%BA%E6%B0%91%E5%B8%81%E4%BF%9D%E5%8D%AB%E6%88%98">人民币保卫战</a></li>
+<li><a href="#%E4%B8%83%E4%B8%87%E4%BA%BF%E7%9A%84%E7%9C%9F%E7%9B%B8">“七万亿”的真相</a></li>
+<li><a href="#%E4%B8%8D%E5%8F%AF%E4%B8%8D%E7%9F%A5%E7%9A%84%E9%87%8F%E5%8C%96%E5%AE%BD%E6%9D%BE">不可不知的量化宽松</a></li>
+<li><a href="#%E4%BF%A1%E5%BF%83%E7%9A%84%E7%A7%98%E5%AF%86">信心的秘密</a></li>
+<li><a href="#%E6%8A%8A%E6%81%90%E6%83%A7%E7%86%94%E6%96%AD">把恐惧熔断</a></li>
+<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%886%E6%9C%88%E5%B8%82%E5%9C%BA%E6%80%BB%E9%A3%9E%E9%9B%AA">为什么6月市场总飞雪</a></li>
+<li><a href="#%E6%95%91%E6%95%91%E9%A6%99%E6%B8%AF%E5%B8%82%E5%9C%BA">救救香港市场</a></li>
+<li><a href="#%E4%B8%8A%E6%B6%A8%E4%B8%8B%E8%B7%8C%E9%9D%A0%E5%A4%A9%E6%B0%94">上涨下跌靠天气？！</a></li>
+<li><a href="#%E6%83%8A%E5%BF%83%E5%8A%A8%E9%AD%84%E7%9A%84%E4%B8%87%E7%A7%91%E5%9B%B4%E7%8C%8E%E6%88%98">惊心动魄的万科“围猎战”</a></li>
+<li><a href="#%E5%B7%B4%E8%8F%B2%E7%89%B9%E7%9A%84%E7%A7%98%E5%AF%86">巴菲特的秘密</a></li>
+<li><a href="#%E4%B8%8E%E7%B4%A2%E7%BD%97%E6%96%AF%E4%B8%80%E8%B5%B7%E8%B5%B0%E8%BF%87%E7%9A%84%E6%97%A5%E5%AD%90">与索罗斯一起走过的日子</a></li>
+<li><a href="#%E6%88%BF%E5%9C%B0%E4%BA%A7%E6%8B%AF%E6%95%91%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E">房地产拯救中国经济？</a></li>
+<li><a href="#%E6%9D%8E%E8%B6%85%E4%BA%BA%E7%9A%84%E6%8A%9B%E5%94%AE%E6%82%AC%E6%A1%88">“李超人”的抛售悬案</a></li>
+<li><a href="#%E7%BE%8E%E5%9B%BD%E6%88%BF%E5%9C%B0%E4%BA%A7%E7%9A%84%E6%83%8A%E4%BA%BA%E7%AD%94%E6%A1%882">美国房地产的惊人答案2</a></li>
+<li><a href="#%E6%A0%B9%E6%9C%AC%E5%81%9C%E4%B8%8D%E4%B8%8B%E6%9D%A5%E7%9A%84%E6%B7%B1%E5%9C%B3%E6%88%BF%E4%BB%B7">根本停不下来的深圳房价</a></li>
+<li><a href="#%E6%97%A5%E6%9C%AC%E4%BA%BA%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E4%B9%B0%E6%88%BF">日本人为什么不买房</a></li>
+<li><a href="#%E4%BB%B7%E5%80%BC%E8%BF%9E%E5%9F%8E%E7%9A%84%E5%9C%B0%E4%B8%8B%E4%B8%89%E5%89%91%E5%AE%A2">价值连城的“地下三剑客”</a></li>
+<li><a href="#%E5%A4%B1%E5%AE%A0%E7%9A%84%E7%BE%8A%E8%B4%B5%E5%A6%83">失宠的“羊贵妃”</a></li>
+<li><a href="#%E9%A2%A0%E8%A6%86%E6%9C%AA%E6%9D%A5%E7%9A%84%E5%85%B1%E4%BA%AB%E7%BB%8F%E6%B5%8E">颠覆未来的共享经济</a></li>
+<li><a href="#%E6%95%B0%E5%AD%97%E6%97%B6%E4%BB%A3%E7%9A%84%E5%A4%A7%E8%88%AA%E6%B5%B7">数字时代的大航海</a></li>
+<li><a href="#%E4%B8%83%E5%B9%B4%E4%B9%8B%E7%97%92%E7%9A%84%E7%94%B5%E5%95%86%E8%BF%9B%E5%8C%96%E5%8F%B2">七年之痒的电商进化史</a></li>
+<li><a href="#%E5%88%AB%E5%8F%AA%E7%9B%AF%E7%9D%80%E4%BA%92%E8%81%94%E7%BD%91">别只盯着互联网</a></li>
+<li><a href="#%E6%94%AF%E4%BB%98%E6%88%98%E4%BA%89">支付战争</a></li>
+<li><a href="#%E4%B8%80%E4%B8%AA%E6%8A%95%E8%B5%84%E4%BA%BA%E6%80%9D%E8%80%83apple-pay%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF">一个投资人思考Apple Pay的正确姿势</a></li>
+<li><a href="#%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E6%8A%95%E8%B5%84%E6%9C%BA%E5%99%A8%E4%BA%BA">手把手教你投资机器人</a></li>
+<li><a href="#%E4%BD%A0%E8%AF%A5%E4%B8%8D%E8%AF%A5%E4%B9%B0%E7%82%B9%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E8%82%A1%E7%A5%A8">你该不该买点人工智能的股票</a></li>
+<li><a href="#%E5%9D%9A%E6%8C%81%E4%B8%80%E4%B8%87%E5%B0%8F%E6%97%B6%E5%B0%B1%E8%83%BD%E5%AD%A6%E4%BC%9A%E6%8A%95%E8%B5%84%E5%90%97">坚持一万小时，就能学会投资吗</a></li>
+<li><a href="#%E6%9C%89%E9%92%B1%E4%BA%BA%E6%9B%B4%E6%8A%A0%E9%97%A8%E5%90%97">有钱人更抠门吗</a></li>
+<li><a href="#%E6%B3%A1%E6%B2%AB%E5%90%AF%E7%A4%BA%E5%BD%95">泡沫启示录</a></li>
+<li><a href="#%E6%97%A5%E6%9C%AC%E5%8A%A8%E6%BC%AB%E4%BA%A7%E4%B8%9A%E6%8E%A2%E7%A7%98">日本动漫产业探秘</a></li>
+<li><a href="#%E5%B7%A5%E5%8C%A0%E7%B2%BE%E7%A5%9E%E5%92%8C%E8%8F%8A%E4%B8%8E%E5%88%80">工匠精神和《菊与刀》</a></li>
+</ul>
+</div>
         
         
     </body>

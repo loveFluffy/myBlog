@@ -17,15 +17,7 @@
 
 </style>
         
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-<style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
+        
         <style>
 .task-list-item {
     list-style-type: none;
@@ -48,6 +40,7 @@ html {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	text-rendering: optimizelegibility;
+	height: 100%;
 }
 
 /* 内外边距通常让各个浏览器样式的表现位置不同 */
@@ -96,8 +89,7 @@ body {
 	color: #333;
 	background: #f1e5c9;
 	font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
-	/* 上、右、下、左 */
-	margin: 5px;
+	height: 100%;
 }
 
 h1,
@@ -116,7 +108,7 @@ h1 {
 	font-size: 2em;
 	text-align: center;
 	/*这个属性如果不定义的话，在md转html的时候会莫名给赋值，导致h1下面出现一条线，所以这里定义一下*/
-	border-bottom-style:none; 
+	border-bottom-style: none;
 }
 
 h2 {
@@ -187,7 +179,7 @@ a:active {
 /* 块/段落引用 */
 blockquote {
 	font-size: 0.9em;
-	line-height: 1.6;
+	line-height: 1.5;
 	position: relative;
 	color: #666;
 	border-left: 2px solid #fbb;
@@ -196,7 +188,7 @@ blockquote {
 }
 
 blockquote p {
-	margin: 0 0 18px;
+	margin: 0 0 1em;
 }
 
 strong,
@@ -259,11 +251,12 @@ ul p {
 	margin-bottom: 0px;
 }
 
+/*
 li {
 	margin-bottom: 0.75em;
 	margin-top: 0.75em;
 }
-
+*/
 ol#footnotes {
 	font-size: 0.95em;
 	padding-top: 1em;
@@ -347,6 +340,135 @@ img {
 	max-width: 1000px;
 	width: 1000px;
 }
+
+/* 选中后背景浅粉色 */
+::selection {
+	background-color: #fbb;
+}
+
+
+
+/* ======== 侧边的目录相关 ======== */
+
+.content {
+	float: right;
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+
+	/* 滚动条 */
+	scrollbar-width: thin;
+	/* thumb & track */
+	scrollbar-color: skyblue #ededed;
+
+	scroll-behavior: smooth;
+}
+
+/* 
+手机：2400*1080
+iPad mini 5：2048*1536
+电脑：1920*1200 
+*/
+/* 窄屏幕：手机竖屏、iPad竖屏 */
+@media (max-width: 1536px) {
+	.content {
+		width: 99.5%;
+		padding-left: 0.5%;
+	}
+
+	/* 不显示目录 */
+	div.toc {
+		display: none;
+	}
+}
+
+/* 宽屏幕：电脑、手机横屏、iPad横屏 */
+@media (min-width: 1537px) {
+	div.toc {
+		line-height: 1.2;
+		max-width: 24%;
+		height: 100vh;
+		padding-right: 0.5%;
+
+		float: left;
+		font-size: 0.7em;
+		overflow: auto;
+		overflow-x: hidden;
+
+		/* 目录栏 滚动时固定在屏幕顶端：仅当父元素没有设置overflow、高度为确定数值且比toc高度更大的时候才起作用*/
+		/* 现在因为toc与body等高，所以不起作用，也无须起作用
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;*/
+
+		/* 滚动条 */
+		scrollbar-width: thin;
+		/* thumb & track */
+		scrollbar-color: rgb(178, 216, 232) #ededed;
+	}
+
+	/*
+	div.toc ul,
+	div.toc li {
+		margin: 0;
+		padding: 0;
+		border-bottom: 1px solid #f1e5c9;
+	}
+		*/
+	div.toc ul {
+		margin: 0;
+		padding: 0;
+		background-color: #f1e5c9;
+	}
+
+	div.toc li {
+		padding-left: 10px;
+		list-style-position: inside;
+	}
+
+	/*h1 h2 h3 h4滚动时固定在屏幕顶端*/
+	div.toc ul>li,
+	div.toc ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		/* Safari 及其他兼容 */
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;
+	}
+
+	div.toc ul>li {
+		z-index: 1;
+		/*#ff7e79*/
+		background-color: skyblue;
+	}
+
+	div.toc ul>li>ul>li {
+		z-index: 2;
+		/*#ff7e79*/
+		background-color: rgb(178, 216, 232);
+	}
+
+	div.toc ul>li>ul>li>ul>li {
+		z-index: 3;
+		/*#fbb*/
+		background-color: rgb(210, 231, 239);
+	}
+
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		z-index: 4;
+		background-color: rgb(228, 235, 238);
+	}
+
+	.content {
+		width: 75%;
+		padding-left: 0.5%;
+	}
+}
 </style>
     </head>
     <body class="vscode-body vscode-light">
@@ -373,7 +495,7 @@ img {
 <p>第2~5章回顾了估值的基础性工具。它们侧重概述传统的现金流贴现模型、概率模型（模拟算法和决策树）、相对估值模型和实物期权。这些内容多半都在我的其他估值著作里有过表述。</p>
 <p>第6~8章探讨了影响所有估值的宏观变量的问题和争议。第6章审视的是无风险利率——其他所有估值要素的必要组成部分，并挑战这样一种观念：政府债券利率永远是无风险利率的有效评估值。第7章探讨股权风险溢价。这是另一个在估值中被视为不言自明的数字，主要是因为长期以来成熟市场的风险溢价都很稳定。在不断演变且波动性大的市场里，风险溢价甚至在短期内也会发生很大的变化。无视这种现实会导致对结果的误估。第8章研究了其他一些隐含于估值中的有关实体经济增长的宏观经济假设。本章还关注了汇率和通货膨胀率，讨论其评估的不一致性如何影响我们的结论。</p>
 <p>第9~12章探讨不同企业周期面临的估值挑战。下图列示了这些挑战。</p>
-<p><img src="file:///d:\loveFluffy\myBlog\booknotes\md\img\notes9122-1.jpg" alt="估值的生命周期观"></p>
+<p><img src="file:///d:\loveFluffy\myBlog\booknotes\img\notes9122-1.jpg" alt="估值的生命周期观"></p>
 <p>估值的生命周期观</p>
 <p>在第9章，我们关注估值初创公司时面临的挑战：这类公司有了某种产品或服务的创意，但缺乏有形的商业化产品。此时，它们的收入和市场都很有限，但该章还是探讨了这类创意演化为商业化产品的一些循序渐进的方法。该章还审视了初创企业估值最初阶段所面临的那些挑战。这些都是风险投资人在向小企业提供“天使投资”时所必须面对的挑战。第10章顺企业生命周期阶梯拾级而上，审视年幼成长型公司——其产品和服务已经找到了市场，而且收入增长很快。该章还研究了上市（相对于不上市）和保持增长的可持续性的估值内涵。另外，该章还认真打量了闯过风险投资阶段并已经上市的成长型公司。这些公司具有很好的增长表现，但它们的规模不够。在第11章，我们把注意力投向了成熟公司——它们已不再成长，提升价值的主要方式是并购、业务重组和财务重组。在这个过程中，我们也探讨了在杠杆收购的背景下，私募股权投资者如何看待成熟公司的价值及其控制权的价值。第12章关注处于衰落中的公司——负增长，且很可能陷入困境和出现倒闭。</p>
 <p>第13~17章探究了出于各种原因很难估值的各类公司。第13章审视了大宗商品类（石油和黄金）公司和周期性公司。它们的利润受外部因素（大宗商品价格和经济状况）左右、动荡不定，使得各种预测变得很困难。在第14章，我们梳理了与金融服务公司（银行、保险公司和投资银行）相关的特有挑战，重点放在监管的变化会如何影响价值上。第15章所考虑的公司，其价值都依赖于无形资产：专利、科技实力和人力资本。这些公司的资产性质及其会计处理准则的缺陷，为估值带来了很大的挑战。第16章审视了在动荡和年幼经济体（新兴市场）中经营的公司，探讨如何更好地评估这类公司的价值。第17章则设法了解在多国从事多元化经营的公司，探讨如何更好地处理这些公司内部不同部分的相互影响。</p>

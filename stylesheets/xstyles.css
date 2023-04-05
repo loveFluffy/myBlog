@@ -8,6 +8,7 @@ html {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
     text-rendering: optimizelegibility;
+    scroll-behavior: smooth;
 }
 
 /* 内外边距通常让各个浏览器样式的表现位置不同 */
@@ -259,8 +260,10 @@ iframe.copyright {
     height: 100px;
 
     /*滚动时固定在屏幕顶端*/
-    position: -webkit-sticky;
-    /* Safari */
+	/* Safari 及其他兼容 */
+	position: -webkit-sticky;
+	position: -ms-sticky;
+	position: -o-sticky;
     position: sticky;
     top: 0;
 }
@@ -287,4 +290,8 @@ hr {
 /* 将内容分成两栏显示，用以显示链接列表之类的 */
 ul.list {
     columns: 2;
+}
+
+::selection{
+	background-color: #fbb;
 }

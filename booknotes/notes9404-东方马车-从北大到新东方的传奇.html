@@ -17,15 +17,7 @@
 
 </style>
         
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-<style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
+        
         <style>
 .task-list-item {
     list-style-type: none;
@@ -48,6 +40,7 @@ html {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	text-rendering: optimizelegibility;
+	height: 100%;
 }
 
 /* 内外边距通常让各个浏览器样式的表现位置不同 */
@@ -96,8 +89,7 @@ body {
 	color: #333;
 	background: #f1e5c9;
 	font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
-	/* 上、右、下、左 */
-	margin: 5px;
+	height: 100%;
 }
 
 h1,
@@ -116,7 +108,7 @@ h1 {
 	font-size: 2em;
 	text-align: center;
 	/*这个属性如果不定义的话，在md转html的时候会莫名给赋值，导致h1下面出现一条线，所以这里定义一下*/
-	border-bottom-style:none; 
+	border-bottom-style: none;
 }
 
 h2 {
@@ -187,7 +179,7 @@ a:active {
 /* 块/段落引用 */
 blockquote {
 	font-size: 0.9em;
-	line-height: 1.6;
+	line-height: 1.5;
 	position: relative;
 	color: #666;
 	border-left: 2px solid #fbb;
@@ -196,7 +188,7 @@ blockquote {
 }
 
 blockquote p {
-	margin: 0 0 18px;
+	margin: 0 0 1em;
 }
 
 strong,
@@ -259,11 +251,12 @@ ul p {
 	margin-bottom: 0px;
 }
 
+/*
 li {
 	margin-bottom: 0.75em;
 	margin-top: 0.75em;
 }
-
+*/
 ol#footnotes {
 	font-size: 0.95em;
 	padding-top: 1em;
@@ -347,10 +340,140 @@ img {
 	max-width: 1000px;
 	width: 1000px;
 }
+
+/* 选中后背景浅粉色 */
+::selection {
+	background-color: #fbb;
+}
+
+
+
+/* ======== 侧边的目录相关 ======== */
+
+.content {
+	float: right;
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+
+	/* 滚动条 */
+	scrollbar-width: thin;
+	/* thumb & track */
+	scrollbar-color: skyblue #ededed;
+
+	scroll-behavior: smooth;
+}
+
+/* 
+手机：2400*1080
+iPad mini 5：2048*1536
+电脑：1920*1200 
+*/
+/* 窄屏幕：手机竖屏、iPad竖屏 */
+@media (max-width: 1536px) {
+	.content {
+		width: 99.5%;
+		padding-left: 0.5%;
+	}
+
+	/* 不显示目录 */
+	div.toc {
+		display: none;
+	}
+}
+
+/* 宽屏幕：电脑、手机横屏、iPad横屏 */
+@media (min-width: 1537px) {
+	div.toc {
+		line-height: 1.2;
+		max-width: 24%;
+		height: 100vh;
+		padding-right: 0.5%;
+
+		float: left;
+		font-size: 0.7em;
+		overflow: auto;
+		overflow-x: hidden;
+
+		/* 目录栏 滚动时固定在屏幕顶端：仅当父元素没有设置overflow、高度为确定数值且比toc高度更大的时候才起作用*/
+		/* 现在因为toc与body等高，所以不起作用，也无须起作用
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;*/
+
+		/* 滚动条 */
+		scrollbar-width: thin;
+		/* thumb & track */
+		scrollbar-color: rgb(178, 216, 232) #ededed;
+	}
+
+	/*
+	div.toc ul,
+	div.toc li {
+		margin: 0;
+		padding: 0;
+		border-bottom: 1px solid #f1e5c9;
+	}
+		*/
+	div.toc ul {
+		margin: 0;
+		padding: 0;
+		background-color: #f1e5c9;
+	}
+
+	div.toc li {
+		padding-left: 10px;
+		list-style-position: inside;
+	}
+
+	/*h1 h2 h3 h4滚动时固定在屏幕顶端*/
+	div.toc ul>li,
+	div.toc ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		/* Safari 及其他兼容 */
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;
+	}
+
+	div.toc ul>li {
+		z-index: 1;
+		/*#ff7e79*/
+		background-color: skyblue;
+	}
+
+	div.toc ul>li>ul>li {
+		z-index: 2;
+		/*#ff7e79*/
+		background-color: rgb(178, 216, 232);
+	}
+
+	div.toc ul>li>ul>li>ul>li {
+		z-index: 3;
+		/*#fbb*/
+		background-color: rgb(210, 231, 239);
+	}
+
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		z-index: 4;
+		background-color: rgb(228, 235, 238);
+	}
+
+	.content {
+		width: 75%;
+		padding-left: 0.5%;
+	}
+}
 </style>
     </head>
     <body class="vscode-body vscode-light">
-        <h1 id="东方马车从北大到新东方的传奇">东方马车：从北大到新东方的传奇</h1>
+        <div class="content">
+<h1 id="东方马车从北大到新东方的传奇">东方马车：从北大到新东方的传奇</h1>
 <h2 id="卢跃刚-著">卢跃刚 著</h2>
 <h3 id="序曲-异动">序曲 异动</h3>
 <p>2001年8月27日上午9时许，北京新东方学校校长俞敏洪正在跟人谈话，副校长王强的秘书推门进来，交给他一封信。信封贴着条子，要求收信回执，确认收到。封面字迹，是王强亲笔。</p>
@@ -2235,7 +2358,110 @@ GMAT or GRE<br>
 <h3 id="后记">后记</h3>
 <h3 id="附录">附录</h3>
 <h3 id="徐小平反思在鲜花与荣誉的废墟上">徐小平・反思在鲜花与荣誉的废墟上</h3>
-
+</div>
+<div class="toc">
+<ul>
+<li><a href="#%E5%BA%8F%E6%9B%B2-%E5%BC%82%E5%8A%A8">序曲 异动</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%96%B0%E4%B8%9C%E6%96%B9%E4%BA%BA%E7%89%A9">第一章 新东方人物</a>
+<ul>
+<li><a href="#01%E6%9C%AA%E9%81%82%E8%AF%97%E4%BA%BA%E4%BF%9E%E6%95%8F%E6%B4%AA">01.“未遂诗人”俞敏洪</a></li>
+<li><a href="#02%E4%BA%BA%E9%97%B4%E5%B0%8F%E7%B2%BE%E7%81%B5%E5%BE%90%E5%B0%8F%E5%B9%B3">02.“人间小精灵”徐小平</a></li>
+<li><a href="#03%E4%B9%A6%E7%97%B4%E7%8E%8B%E5%BC%BA">03.“书痴”王强</a></li>
+<li><a href="#04%E7%89%9B%E4%BA%BA%E5%AE%8B%E6%98%8A">04.“牛人”宋昊</a></li>
+<li><a href="#05%E8%80%B6%E9%B2%81%E5%8C%95%E9%A6%96%E9%92%B1%E6%B0%B8%E5%BC%BA">05.“耶鲁匕首”钱永强</a></li>
+<li><a href="#06%E7%BD%97%E6%B0%B8%E6%B5%A9%E8%8B%B1%E9%9B%84%E4%B8%8D%E9%97%AE%E5%87%BA%E5%A4%84">06.罗永浩：英雄不问出处</a></li>
+<li><a href="#07%E7%A9%B7%E6%95%99%E4%B9%A6%E5%8C%A0">07.穷教书匠</a></li>
+<li><a href="#08%E5%BC%A0%E4%BA%9A%E5%93%B2%E5%91%BD%E9%A2%98">08.“张亚哲命题”</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-ets%E9%A3%8E%E6%9A%B4">第二章 ETS风暴</a>
+<ul>
+<li><a href="#09%E5%8D%8E%E7%9B%9B%E9%A1%BF%E9%82%AE%E6%8A%A5%E7%88%86%E7%82%B8">09.《华盛顿邮报》爆炸</a></li>
+<li><a href="#10%E9%A3%8E%E6%BB%A1%E6%A5%BC">10.风满楼</a></li>
+<li><a href="#11%E6%97%A0%E5%A5%88%E9%A3%9E%E8%A1%8C">11.无奈飞行</a></li>
+<li><a href="#12ets%E5%AF%86%E5%87%BD">12.ETS密函</a></li>
+<li><a href="#13%E6%96%B0%E4%B8%9C%E6%96%B9%E6%95%99%E8%82%B2%E5%9C%A8%E7%BA%BF%E9%9A%90%E6%82%A3">13.“新东方教育在线”隐患</a></li>
+<li><a href="#14%E5%85%AC%E7%89%9B%E5%86%B2%E8%BF%9B%E4%BA%86%E7%93%B7%E5%99%A8china%E5%BA%97">14.公牛冲进了瓷器（China）店</a></li>
+<li><a href="#15%E7%9F%A5%E8%AF%86%E7%A6%81%E8%BF%90">15.知识禁运？</a></li>
+<li><a href="#16%E7%BE%8E%E5%9B%BD%E7%89%9B%E8%82%89%E5%8A%A0%E5%B7%A5%E5%8E%82">16.美国牛肉加工厂</a></li>
+<li><a href="#17%E4%B8%AD%E7%BE%8E%E8%80%83%E8%AF%95%E6%96%87%E5%8C%96%E7%9A%84%E5%86%B2%E7%AA%81">17.中美考试文化的冲突</a></li>
+<li><a href="#18%E8%80%83g%E4%B8%80%E6%97%8F">18.考“G”一族</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%99%BE%E5%B9%B4%E7%BE%8E%E5%88%A9%E5%9D%9A">第三章 百年美利坚</a>
+<ul>
+<li><a href="#19%E6%B4%8B%E6%8F%92%E9%98%9F%E6%83%85%E6%AD%8C">19.洋插队情歌</a></li>
+<li><a href="#20%E6%A2%A6%E6%96%AD%E7%95%99%E5%AD%A6">20.梦断留学</a></li>
+<li><a href="#21%E4%BB%8E-%E9%AC%BC%E8%AF%9D%E5%88%B0-%E4%BA%BA%E8%AF%9D">21.从 “鬼话”到 “人话”</a></li>
+<li><a href="#22%E7%83%AD%E8%84%B8%E8%B4%B4%E5%87%89%E5%B1%81%E8%82%A1">22.热脸贴凉屁股</a></li>
+<li><a href="#23%E5%A4%B4%E5%88%80%E8%8F%9C">23.头刀菜</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BA%A2%E5%A4%A7%E5%8F%91%E4%B9%8B%E6%97%85">第四章 红大发之旅</a>
+<ul>
+<li><a href="#24%E7%87%83%E6%83%85%E6%B8%A9%E5%93%A5%E5%8D%8E">24.燃情温哥华</a></li>
+<li><a href="#25%E7%BA%BD%E7%BA%A6%E9%A3%8E%E9%9B%AA%E4%B9%8B%E7%BA%A6">25.纽约风雪之约</a></li>
+<li><a href="#26%E9%80%90%E5%87%BA%E7%87%95%E5%9B%AD">26.逐出燕园</a></li>
+<li><a href="#27%E8%87%AA%E5%B7%B1%E5%BD%93%E6%89%98">27.自己当托</a></li>
+<li><a href="#28%E6%90%8F%E5%91%BD%E4%B8%89%E8%A7%92%E5%9C%B0">28.搏命三角地</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%BC%94%E7%BB%8E%E4%B8%89%E5%9B%BD">第五章 演绎“三国”</a>
+<ul>
+<li><a href="#29%E5%B9%BB%E7%81%AD">29.幻灭</a></li>
+<li><a href="#30%E5%9C%A3%E8%AF%9E%E7%A4%BC%E7%89%A9">30.圣诞礼物</a></li>
+<li><a href="#31-%E4%B8%89%E5%9B%BD%E6%80%9D%E7%BB%B4">31. “三国”思维</a></li>
+<li><a href="#32%E5%88%86%E4%B9%85%E5%BF%85%E5%90%88">32.分久必合</a></li>
+<li><a href="#33%E5%88%B6%E8%A1%A1%E4%BF%9E%E6%95%8F%E6%B4%AA">33.制衡俞敏洪</a></li>
+<li><a href="#34ceo%E5%BE%98%E5%BE%8A">34.CEO徘徊</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E4%B8%A4%E7%89%87%E8%82%BA%E5%9C%A8%E5%91%BC%E5%90%B8">第六章 两片肺在呼吸</a>
+<ul>
+<li><a href="#35%E5%9E%AB%E8%84%9A%E7%9F%B3">35.垫脚石</a></li>
+<li><a href="#36%E7%82%B9%E7%87%83%E7%83%9B%E5%85%89">36.点燃烛光</a></li>
+<li><a href="#37%E6%96%B0%E4%B8%9C%E6%96%B9%E6%82%96%E8%AE%BA">37.新东方悖论</a></li>
+<li><a href="#38%E5%8F%A6%E7%B1%BB%E6%A0%A1%E8%AE%AD">38.另类校训</a></li>
+<li><a href="#39%E5%8C%95%E9%A6%96%E4%B8%8E%E5%A4%A7%E9%94%A4">39.匕首与大锤</a></li>
+<li><a href="#40%E5%A4%A7%E9%9A%BE%E4%B8%8D%E6%AD%BB">40.大难不死</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E7%95%99%E5%AD%A6%E5%A4%A9%E9%97%AE">第七章 留学天问</a>
+<ul>
+<li><a href="#41%E8%A7%A3%E6%9E%84%E7%BE%8E%E5%9B%BD%E7%AD%BE%E8%AF%81%E5%A4%84">41.解构美国签证处</a></li>
+<li><a href="#42%E4%B8%80%E6%8A%8A%E9%92%A5%E5%8C%99%E5%BC%80%E4%B8%80%E6%8A%8A%E9%94%81">42.一把钥匙开一把锁</a></li>
+<li><a href="#43%E6%B2%88%E9%98%B3%E6%81%B6%E6%80%A7%E6%8B%92%E7%AD%BE">43.沈阳恶性拒签</a></li>
+<li><a href="#44%E7%AD%BE%E8%AF%81%E4%BA%9A%E6%96%87%E5%8C%96">44.签证亚文化</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E6%AF%8D%E4%B8%8E%E5%AD%90">第八章 母与子</a>
+<ul>
+<li><a href="#45%E6%9D%8E%E5%85%AB%E5%A6%B9">45.李八妹</a></li>
+<li><a href="#46%E6%B0%B8%E8%BF%9C%E6%98%AF%E5%84%BF%E5%AD%90">46.永远是儿子</a></li>
+<li><a href="#47%E6%8B%94%E5%86%9C%E6%A0%B9">47.拔农根</a></li>
+<li><a href="#48%E6%96%B0%E4%B8%9C%E6%96%B9%E4%B9%8B%E6%AF%8D">48.“新东方之母”</a></li>
+<li><a href="#49%E4%BF%9E%E6%95%8F%E6%B4%AA%E4%B8%8B%E8%B7%AA">49.俞敏洪下跪</a></li>
+<li><a href="#50%E6%B2%A1%E8%84%BE%E6%B0%94">50.没脾气</a></li>
+<li><a href="#51%E5%B0%8F%E7%8C%AB%E4%B8%8E%E8%80%81%E8%99%8E">51.小猫与老虎</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%B4%97%E7%89%8C">第九章 洗牌</a>
+<ul>
+<li><a href="#52%E4%B8%BA%E4%BA%86%E5%91%8A%E5%88%AB%E7%9A%84%E8%81%9A%E4%BC%9A">52.为了告别的聚会</a></li>
+<li><a href="#53%E5%A4%A7%E8%A7%89%E5%AF%BA%E6%97%A0%E5%A4%A7%E8%A7%89">53.大觉寺无大觉</a></li>
+<li><a href="#54%E6%AC%B2%E8%A1%8C%E9%9A%BE%E8%A1%8C">54.欲行难行</a></li>
+<li><a href="#55%E5%8C%BF%E5%90%8D%E4%BF%A1%E5%B9%BD%E7%81%B5">55.匿名信幽灵</a></li>
+<li><a href="#56%E5%86%B3%E6%96%AD%E9%9D%92%E5%9F%8E%E5%B1%B1">56.决断青城山</a></li>
+<li><a href="#57%E6%9D%80%E7%9D%80">57.杀着</a></li>
+<li><a href="#58%E6%B8%A1%E5%B0%BD%E5%8A%AB%E6%B3%A2">58.渡尽劫波</a></li>
+<li><a href="#59%E6%A1%83%E8%89%B2%E6%97%B6%E6%9C%9F">59.桃色时期</a></li>
+</ul>
+</li>
+<li><a href="#%E5%90%8E%E8%AE%B0">后记</a></li>
+<li><a href="#%E9%99%84%E5%BD%95">附录</a></li>
+<li><a href="#%E5%BE%90%E5%B0%8F%E5%B9%B3%E5%8F%8D%E6%80%9D%E5%9C%A8%E9%B2%9C%E8%8A%B1%E4%B8%8E%E8%8D%A3%E8%AA%89%E7%9A%84%E5%BA%9F%E5%A2%9F%E4%B8%8A">徐小平・反思在鲜花与荣誉的废墟上</a></li>
+</ul>
+</div>
         
         
     </body>

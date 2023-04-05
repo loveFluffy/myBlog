@@ -17,15 +17,7 @@
 
 </style>
         
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-<style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
+        
         <style>
 .task-list-item {
     list-style-type: none;
@@ -48,6 +40,7 @@ html {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	text-rendering: optimizelegibility;
+	height: 100%;
 }
 
 /* 内外边距通常让各个浏览器样式的表现位置不同 */
@@ -96,8 +89,7 @@ body {
 	color: #333;
 	background: #f1e5c9;
 	font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
-	/* 上、右、下、左 */
-	margin: 5px;
+	height: 100%;
 }
 
 h1,
@@ -116,7 +108,7 @@ h1 {
 	font-size: 2em;
 	text-align: center;
 	/*这个属性如果不定义的话，在md转html的时候会莫名给赋值，导致h1下面出现一条线，所以这里定义一下*/
-	border-bottom-style:none; 
+	border-bottom-style: none;
 }
 
 h2 {
@@ -187,7 +179,7 @@ a:active {
 /* 块/段落引用 */
 blockquote {
 	font-size: 0.9em;
-	line-height: 1.6;
+	line-height: 1.5;
 	position: relative;
 	color: #666;
 	border-left: 2px solid #fbb;
@@ -196,7 +188,7 @@ blockquote {
 }
 
 blockquote p {
-	margin: 0 0 18px;
+	margin: 0 0 1em;
 }
 
 strong,
@@ -259,11 +251,12 @@ ul p {
 	margin-bottom: 0px;
 }
 
+/*
 li {
 	margin-bottom: 0.75em;
 	margin-top: 0.75em;
 }
-
+*/
 ol#footnotes {
 	font-size: 0.95em;
 	padding-top: 1em;
@@ -347,10 +340,140 @@ img {
 	max-width: 1000px;
 	width: 1000px;
 }
+
+/* 选中后背景浅粉色 */
+::selection {
+	background-color: #fbb;
+}
+
+
+
+/* ======== 侧边的目录相关 ======== */
+
+.content {
+	float: right;
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+
+	/* 滚动条 */
+	scrollbar-width: thin;
+	/* thumb & track */
+	scrollbar-color: skyblue #ededed;
+
+	scroll-behavior: smooth;
+}
+
+/* 
+手机：2400*1080
+iPad mini 5：2048*1536
+电脑：1920*1200 
+*/
+/* 窄屏幕：手机竖屏、iPad竖屏 */
+@media (max-width: 1536px) {
+	.content {
+		width: 99.5%;
+		padding-left: 0.5%;
+	}
+
+	/* 不显示目录 */
+	div.toc {
+		display: none;
+	}
+}
+
+/* 宽屏幕：电脑、手机横屏、iPad横屏 */
+@media (min-width: 1537px) {
+	div.toc {
+		line-height: 1.2;
+		max-width: 24%;
+		height: 100vh;
+		padding-right: 0.5%;
+
+		float: left;
+		font-size: 0.7em;
+		overflow: auto;
+		overflow-x: hidden;
+
+		/* 目录栏 滚动时固定在屏幕顶端：仅当父元素没有设置overflow、高度为确定数值且比toc高度更大的时候才起作用*/
+		/* 现在因为toc与body等高，所以不起作用，也无须起作用
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;*/
+
+		/* 滚动条 */
+		scrollbar-width: thin;
+		/* thumb & track */
+		scrollbar-color: rgb(178, 216, 232) #ededed;
+	}
+
+	/*
+	div.toc ul,
+	div.toc li {
+		margin: 0;
+		padding: 0;
+		border-bottom: 1px solid #f1e5c9;
+	}
+		*/
+	div.toc ul {
+		margin: 0;
+		padding: 0;
+		background-color: #f1e5c9;
+	}
+
+	div.toc li {
+		padding-left: 10px;
+		list-style-position: inside;
+	}
+
+	/*h1 h2 h3 h4滚动时固定在屏幕顶端*/
+	div.toc ul>li,
+	div.toc ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		/* Safari 及其他兼容 */
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;
+	}
+
+	div.toc ul>li {
+		z-index: 1;
+		/*#ff7e79*/
+		background-color: skyblue;
+	}
+
+	div.toc ul>li>ul>li {
+		z-index: 2;
+		/*#ff7e79*/
+		background-color: rgb(178, 216, 232);
+	}
+
+	div.toc ul>li>ul>li>ul>li {
+		z-index: 3;
+		/*#fbb*/
+		background-color: rgb(210, 231, 239);
+	}
+
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		z-index: 4;
+		background-color: rgb(228, 235, 238);
+	}
+
+	.content {
+		width: 75%;
+		padding-left: 0.5%;
+	}
+}
 </style>
     </head>
     <body class="vscode-body vscode-light">
-        <h1 id="经济为什么会崩溃鱼美元和经济学的故事">经济为什么会崩溃：鱼、美元和经济学的故事</h1>
+        <div class="content">
+<h1 id="经济为什么会崩溃鱼美元和经济学的故事">经济为什么会崩溃：鱼、美元和经济学的故事</h1>
 <h2 id="美彼得d希夫peter-d-schiff-安德鲁j希夫andrew-j-schiff-著胡晓姣-吕靖纬-译">[美]彼得·D·希夫（Peter D. Schiff） 安德鲁·J·希夫（Andrew J. Schiff） 著|胡晓姣 吕靖纬 译</h2>
 <p>诚如作者所言，“凯恩斯主义允许政府摆出一副有能力提高生活水准的模样，只要印刷机呼呼运行，什么公开承诺都可以做。因为存有亲政府的倾向，凯恩斯主义者们比奥地利经济学派更有可能接受最高政府的经济任职”。</p>
 <p>凯恩斯的主张，为政府干预经济的做法找到了合理的理由和依据，却埋下了更大的隐患，因为，它使经济自身的运行规律遭到破坏，使得市场的自我调节能力被扼杀。</p>
@@ -614,7 +737,54 @@ img {
 <h3 id="第十六章-情形怎么变得如此糟糕">第十六章 情形怎么变得如此糟糕</h3>
 <h3 id="第十七章-无鱼不起浪">第十七章 无鱼不起浪</h3>
 <h3 id="后记">后记</h3>
-
+</div>
+<div class="toc">
+<ul>
+<li><a href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2">写在前面</a></li>
+<li><a href="#%E5%BA%8F%E8%A8%80">序言</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E4%B8%80%E4%B8%AA%E5%A5%BD%E7%82%B9%E5%AD%90%E5%87%BA%E7%82%89%E4%BA%86">第一章 一个好点子出炉了</a>
+<ul>
+<li><a href="#%E6%95%85%E4%BA%8B%E5%BC%95%E7%94%B3">故事引申</a></li>
+<li><a href="#%E7%8E%B0%E5%AE%9E%E9%93%BE%E6%8E%A5">现实链接</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%8A%8A%E8%B4%A2%E5%AF%8C%E5%88%86%E4%BA%AB%E7%BB%99%E5%88%AB%E4%BA%BA">第二章 把财富分享给别人</a>
+<ul>
+<li><a href="#%E6%95%85%E4%BA%8B%E5%BC%95%E7%94%B3-1">故事引申</a></li>
+<li><a href="#%E7%8E%B0%E5%AE%9E%E9%93%BE%E6%8E%A5-1">现实链接</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E4%BF%A1%E7%94%A8%E5%8D%A1%E7%9A%84%E5%A4%9A%E7%A7%8D%E7%94%A8%E9%80%94">第三章 信用卡的多种用途</a>
+<ul>
+<li><a href="#%E6%95%85%E4%BA%8B%E5%BC%95%E7%94%B3-2">故事引申</a></li>
+<li><a href="#%E6%B6%88%E8%B4%B9%E8%B4%B7%E6%AC%BE">消费贷款</a></li>
+<li><a href="#%E5%BA%94%E6%80%A5%E8%B4%B7%E6%AC%BE">应急贷款</a></li>
+<li><a href="#%E6%95%85%E4%BA%8B%E5%BC%95%E7%94%B3%E8%89%BE%E4%BC%AF%E8%83%BD%E6%89%A9%E5%A4%A7%E8%B4%B7%E6%AC%BE%E9%A2%9D%E5%BA%A6%E5%90%97">故事引申：艾伯能扩大贷款额度吗？</a></li>
+<li><a href="#%E7%8E%B0%E5%AE%9E%E9%93%BE%E6%8E%A5-2">现实链接</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BB%8F%E6%B5%8E%E5%88%B0%E5%BA%95%E6%98%AF%E5%A6%82%E4%BD%95%E5%8F%91%E5%B1%95%E7%9A%84">第四章 经济到底是如何发展的</a>
+<ul>
+<li><a href="#%E6%95%85%E4%BA%8B%E5%BC%95%E7%94%B3-3">故事引申</a></li>
+<li><a href="#%E7%8E%B0%E5%AE%9E%E9%93%BE%E6%8E%A5-3">现实链接</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E5%9C%A8%E9%B1%BC%E8%A2%AB%E6%8C%87%E5%AE%A3%E4%B8%BA%E8%B4%A7%E5%B8%81%E4%B9%8B%E5%90%8E">第五章 在鱼被指宣为货币之后</a></li>
+<li><a href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E6%9C%89%E5%82%A8%E8%93%84">第六章 为什么会有储蓄</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E4%B8%8E%E8%B4%B8%E6%98%93">第七章 基础设施与贸易</a></li>
+<li><a href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E4%B8%80%E4%B8%AA%E5%85%B1%E5%92%8C%E5%9B%BD%E5%B0%B1%E8%BF%99%E6%A0%B7%E8%AF%9E%E7%94%9F%E4%BA%86">第八章 一个共和国就这样诞生了</a></li>
+<li><a href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%94%BF%E5%BA%9C%E7%9A%84%E8%81%8C%E8%83%BD%E5%BC%80%E5%A7%8B%E8%BD%AC%E5%8F%98%E4%BA%86">第九章 政府的职能开始转变了</a></li>
+<li><a href="#%E7%AC%AC%E5%8D%81%E7%AB%A0-%E4%B8%8D%E6%96%AD%E7%BC%A9%E6%B0%B4%E7%9A%84%E9%B1%BC%E5%B0%B1%E5%83%8F%E8%B4%A7%E5%B8%81%E4%B8%80%E6%A0%B7">第十章 不断缩水的鱼就像货币一样</a></li>
+<li><a href="#%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0-%E4%B8%AD%E5%B2%9B%E5%B8%9D%E5%9B%BD%E8%BF%9C%E6%96%B9%E7%9A%84%E7%94%9F%E5%91%BD%E7%BA%BF">第十一章 中岛帝国：远方的生命线</a></li>
+<li><a href="#%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0-%E6%9C%8D%E5%8A%A1%E4%B8%9A%E6%98%AF%E5%A6%82%E4%BD%95%E5%B4%9B%E8%B5%B7%E7%9A%84">第十二章 服务业是如何崛起的</a></li>
+<li><a href="#%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0-%E9%B1%BC%E6%9C%AC%E4%BD%8D%E7%9A%84%E7%A0%B4%E7%81%AD">第十三章 “鱼本位”的破灭</a></li>
+<li><a href="#%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0-%E6%88%BF%E4%BB%B7%E6%98%AF%E5%A6%82%E4%BD%95%E6%B6%A8%E4%B8%8A%E5%8E%BB%E7%9A%84">第十四章 房价是如何涨上去的</a></li>
+<li><a href="#%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0-%E5%BF%AB%E4%BA%86%E5%BF%AB%E4%BA%86%E6%88%BF%E5%B8%82%E8%A6%81%E5%B4%A9%E6%BA%83%E4%BA%86">第十五章 快了！快了！房市要崩溃了</a></li>
+<li><a href="#%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A0-%E6%83%85%E5%BD%A2%E6%80%8E%E4%B9%88%E5%8F%98%E5%BE%97%E5%A6%82%E6%AD%A4%E7%B3%9F%E7%B3%95">第十六章 情形怎么变得如此糟糕</a></li>
+<li><a href="#%E7%AC%AC%E5%8D%81%E4%B8%83%E7%AB%A0-%E6%97%A0%E9%B1%BC%E4%B8%8D%E8%B5%B7%E6%B5%AA">第十七章 无鱼不起浪</a></li>
+<li><a href="#%E5%90%8E%E8%AE%B0">后记</a></li>
+</ul>
+</div>
         
         
     </body>

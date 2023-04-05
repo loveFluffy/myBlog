@@ -18,15 +18,7 @@
 </style>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-<style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
+        
         <style>
 .task-list-item {
     list-style-type: none;
@@ -49,6 +41,7 @@ html {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	text-rendering: optimizelegibility;
+	height: 100%;
 }
 
 /* 内外边距通常让各个浏览器样式的表现位置不同 */
@@ -97,8 +90,7 @@ body {
 	color: #333;
 	background: #f1e5c9;
 	font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
-	/* 上、右、下、左 */
-	margin: 5px;
+	height: 100%;
 }
 
 h1,
@@ -117,7 +109,7 @@ h1 {
 	font-size: 2em;
 	text-align: center;
 	/*这个属性如果不定义的话，在md转html的时候会莫名给赋值，导致h1下面出现一条线，所以这里定义一下*/
-	border-bottom-style:none; 
+	border-bottom-style: none;
 }
 
 h2 {
@@ -188,7 +180,7 @@ a:active {
 /* 块/段落引用 */
 blockquote {
 	font-size: 0.9em;
-	line-height: 1.6;
+	line-height: 1.5;
 	position: relative;
 	color: #666;
 	border-left: 2px solid #fbb;
@@ -197,7 +189,7 @@ blockquote {
 }
 
 blockquote p {
-	margin: 0 0 18px;
+	margin: 0 0 1em;
 }
 
 strong,
@@ -260,11 +252,12 @@ ul p {
 	margin-bottom: 0px;
 }
 
+/*
 li {
 	margin-bottom: 0.75em;
 	margin-top: 0.75em;
 }
-
+*/
 ol#footnotes {
 	font-size: 0.95em;
 	padding-top: 1em;
@@ -347,6 +340,135 @@ img {
 	align-self: center;
 	max-width: 1000px;
 	width: 1000px;
+}
+
+/* 选中后背景浅粉色 */
+::selection {
+	background-color: #fbb;
+}
+
+
+
+/* ======== 侧边的目录相关 ======== */
+
+.content {
+	float: right;
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+
+	/* 滚动条 */
+	scrollbar-width: thin;
+	/* thumb & track */
+	scrollbar-color: skyblue #ededed;
+
+	scroll-behavior: smooth;
+}
+
+/* 
+手机：2400*1080
+iPad mini 5：2048*1536
+电脑：1920*1200 
+*/
+/* 窄屏幕：手机竖屏、iPad竖屏 */
+@media (max-width: 1536px) {
+	.content {
+		width: 99.5%;
+		padding-left: 0.5%;
+	}
+
+	/* 不显示目录 */
+	div.toc {
+		display: none;
+	}
+}
+
+/* 宽屏幕：电脑、手机横屏、iPad横屏 */
+@media (min-width: 1537px) {
+	div.toc {
+		line-height: 1.2;
+		max-width: 24%;
+		height: 100vh;
+		padding-right: 0.5%;
+
+		float: left;
+		font-size: 0.7em;
+		overflow: auto;
+		overflow-x: hidden;
+
+		/* 目录栏 滚动时固定在屏幕顶端：仅当父元素没有设置overflow、高度为确定数值且比toc高度更大的时候才起作用*/
+		/* 现在因为toc与body等高，所以不起作用，也无须起作用
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;*/
+
+		/* 滚动条 */
+		scrollbar-width: thin;
+		/* thumb & track */
+		scrollbar-color: rgb(178, 216, 232) #ededed;
+	}
+
+	/*
+	div.toc ul,
+	div.toc li {
+		margin: 0;
+		padding: 0;
+		border-bottom: 1px solid #f1e5c9;
+	}
+		*/
+	div.toc ul {
+		margin: 0;
+		padding: 0;
+		background-color: #f1e5c9;
+	}
+
+	div.toc li {
+		padding-left: 10px;
+		list-style-position: inside;
+	}
+
+	/*h1 h2 h3 h4滚动时固定在屏幕顶端*/
+	div.toc ul>li,
+	div.toc ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		/* Safari 及其他兼容 */
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;
+	}
+
+	div.toc ul>li {
+		z-index: 1;
+		/*#ff7e79*/
+		background-color: skyblue;
+	}
+
+	div.toc ul>li>ul>li {
+		z-index: 2;
+		/*#ff7e79*/
+		background-color: rgb(178, 216, 232);
+	}
+
+	div.toc ul>li>ul>li>ul>li {
+		z-index: 3;
+		/*#fbb*/
+		background-color: rgb(210, 231, 239);
+	}
+
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		z-index: 4;
+		background-color: rgb(228, 235, 238);
+	}
+
+	.content {
+		width: 75%;
+		padding-left: 0.5%;
+	}
 }
 </style>
     </head>
@@ -1078,7 +1200,7 @@ If your fear is great enough, you will buy and hope the market keeps going up.</
 <p>However, from my trading and gambling experiences I have learned that the more the markets are treated as a game, the less likely you are to have losses due to psychological factors. Why? Games have rules and defined ending points. Their participants have a game plan. A plan takes the positive attributes of games (not gambling games per se, but the concept of a game) and applies them to the market, giving you the structure necessary to create a discrete event. This means you won't confuse Speculating with betting or gambling. It also prevents you from betting or gambling on a continuous process. Recall that thinking before acting is the definition of Speculation. Mixing up the order of the process (i.e., acting then thinking), is betting or gambling. Trying to be <em>right</em> (i.e., betting) about an event that never ends means that you will never be completely right. Trying to get excitement (i.e., gambling) from an event that never ends will provide you with more excitement than you bargained for.</p>
 <p>Having a plan requires thinking, which only an individual can do -- not a crowd. A crowd cannot think any more than it can eat or drink. There is no such thing as a group brain. Since a plan is about having rules, and since mass behavior is not rule governed, having and following a plan means, by definition, you are not part of the crowd. Following your plan imposes discipline over your emotions. Since discipline means not doing what your emotions would have you do, then if you don't have the discipline to follow the plan, your emotions have taken control and you wind up in the crowd. If you don't have control of your emotions via a plan, then your decision-making will be based on emotions. That makes you highly subject to contagion because of the hypnotic effect of the changing prices, and you fall into either one of the psychological crowd models mentioned earlier since the crowd epitomizes emotionalism. So rather than monitoring yourself for evidence of each individual emotion, if you avoid the characteristics of crowd behavior you will, by default, avoid emotional decisionmaking. As my mom used to say, &quot;Weak is he who allows his actions to be controlled by his emotions and strong is he who forces his actions to control his emotions.&quot; If you're not consciously doing the latter, then you're unconsciously doing the former, which is precisely Le Bon's description of the conscious personality of an individual vanishing when he enters the crowd.</p>
 <p>This last section has been a detailed explanation of how following a plan keeps you from falling into the three part psychological trap discussed in Chapters Six, Seven and Eight. Obviously, the three don't have to occur in the order we covered them. That was simply the order given in the definition of psychology back in Chapter Five. The errors can occur in any sequence and form a vicious circle. For example, you could: 1) make a crowd trade after falling into one of the crowd models previously outlined, then 2) confuse the different types of risk activities and wind up betting because you're only interested in being right and finally 3) personalize a loss when it develops and go through the Five Stages of Internal Loss. Or you could easily reverse the order of number two and three or the whole sequence, for that matter. The permutations are there for you to work out, but the point to understand is that these three mistakes feed on each other and lead to each other regardless of which one you fall into first. On the next page is a flow chart that gives you the visual representation of what happens when you do not have and follow a plan.</p>
-<p><img src="file:///d:\loveFluffy\myBlog\booknotes\md\img\notes0041-1.png" alt="avatar"></p>
+<p><img src="file:///d:\loveFluffy\myBlog\booknotes\img\notes0041-1.png" alt="avatar"></p>
 <h3 id="a-plan-and-objectivity">A Plan and Objectivity</h3>
 <p>The failure to have and follow a plan is the root cause of most of the other &quot;reasons&quot; (or more accurately, &quot;excuses&quot;) why people lose money in the markets. And while you will still lose <em>some</em> money with a plan, you are certain to lose all your money, eventually, without one. You will enter the market and <em>then</em> draw up your possible courses of action on an as-needed-basis. Unless your timing is perfect, which may happen occasionally but probably not often, immediately after establishing a market position it is either going to show a profit then a loss, or a loss then a profit. But it will be a loss at some point and you will say, &quot;If only I had sold instead of bought, I would have a profit now instead of a loss.&quot; After a series of such trades, you would say, &quot;All those losses would have been profits and I'd be up x amount dollars.&quot; Nonsense! Since your timing will in all likelihood never be perfect, the market would have been against you at some point, providing you plenty of opportunity to make an emotional decision and lose money. You must have a means to remove yourself from &quot;subjectively experiencing&quot; the market while making decisions. Obversely stated, you must have a means to &quot;objectively perceive&quot; the market while making decisions and to maintain that <em>objectivity</em> once you're in the market. That's exactly what a plan does.</p>
 <p>For the roulette player, the last moment of objectivity is just before he places his bet and the wheel starts spinning, after which he can't do anything to lose more money than he wagered. For the market participant, the last moment of objectivity is the moment before he enters the market, after which he <em>can</em> still do plenty to lose more money. This is why you must determine your exit and entry criteria during the pre-trade, objective time period when your thinking is clear. You wouldn't sign off on an unacceptable loss before entering the market, so the decision about how much you're willing to lose must be made before you get in the market. This keeps you from making or re-making decisions after you have established a position when you would be prone to personalize the market and succumb to the errors discussed in Chapters Six, Seven and Eight.</p>

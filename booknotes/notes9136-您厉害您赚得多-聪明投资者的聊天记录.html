@@ -17,15 +17,7 @@
 
 </style>
         
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-<style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
+        
         <style>
 .task-list-item {
     list-style-type: none;
@@ -48,6 +40,7 @@ html {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	text-rendering: optimizelegibility;
+	height: 100%;
 }
 
 /* 内外边距通常让各个浏览器样式的表现位置不同 */
@@ -96,8 +89,7 @@ body {
 	color: #333;
 	background: #f1e5c9;
 	font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
-	/* 上、右、下、左 */
-	margin: 5px;
+	height: 100%;
 }
 
 h1,
@@ -116,7 +108,7 @@ h1 {
 	font-size: 2em;
 	text-align: center;
 	/*这个属性如果不定义的话，在md转html的时候会莫名给赋值，导致h1下面出现一条线，所以这里定义一下*/
-	border-bottom-style:none; 
+	border-bottom-style: none;
 }
 
 h2 {
@@ -187,7 +179,7 @@ a:active {
 /* 块/段落引用 */
 blockquote {
 	font-size: 0.9em;
-	line-height: 1.6;
+	line-height: 1.5;
 	position: relative;
 	color: #666;
 	border-left: 2px solid #fbb;
@@ -196,7 +188,7 @@ blockquote {
 }
 
 blockquote p {
-	margin: 0 0 18px;
+	margin: 0 0 1em;
 }
 
 strong,
@@ -259,11 +251,12 @@ ul p {
 	margin-bottom: 0px;
 }
 
+/*
 li {
 	margin-bottom: 0.75em;
 	margin-top: 0.75em;
 }
-
+*/
 ol#footnotes {
 	font-size: 0.95em;
 	padding-top: 1em;
@@ -347,10 +340,140 @@ img {
 	max-width: 1000px;
 	width: 1000px;
 }
+
+/* 选中后背景浅粉色 */
+::selection {
+	background-color: #fbb;
+}
+
+
+
+/* ======== 侧边的目录相关 ======== */
+
+.content {
+	float: right;
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+
+	/* 滚动条 */
+	scrollbar-width: thin;
+	/* thumb & track */
+	scrollbar-color: skyblue #ededed;
+
+	scroll-behavior: smooth;
+}
+
+/* 
+手机：2400*1080
+iPad mini 5：2048*1536
+电脑：1920*1200 
+*/
+/* 窄屏幕：手机竖屏、iPad竖屏 */
+@media (max-width: 1536px) {
+	.content {
+		width: 99.5%;
+		padding-left: 0.5%;
+	}
+
+	/* 不显示目录 */
+	div.toc {
+		display: none;
+	}
+}
+
+/* 宽屏幕：电脑、手机横屏、iPad横屏 */
+@media (min-width: 1537px) {
+	div.toc {
+		line-height: 1.2;
+		max-width: 24%;
+		height: 100vh;
+		padding-right: 0.5%;
+
+		float: left;
+		font-size: 0.7em;
+		overflow: auto;
+		overflow-x: hidden;
+
+		/* 目录栏 滚动时固定在屏幕顶端：仅当父元素没有设置overflow、高度为确定数值且比toc高度更大的时候才起作用*/
+		/* 现在因为toc与body等高，所以不起作用，也无须起作用
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;*/
+
+		/* 滚动条 */
+		scrollbar-width: thin;
+		/* thumb & track */
+		scrollbar-color: rgb(178, 216, 232) #ededed;
+	}
+
+	/*
+	div.toc ul,
+	div.toc li {
+		margin: 0;
+		padding: 0;
+		border-bottom: 1px solid #f1e5c9;
+	}
+		*/
+	div.toc ul {
+		margin: 0;
+		padding: 0;
+		background-color: #f1e5c9;
+	}
+
+	div.toc li {
+		padding-left: 10px;
+		list-style-position: inside;
+	}
+
+	/*h1 h2 h3 h4滚动时固定在屏幕顶端*/
+	div.toc ul>li,
+	div.toc ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li,
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		/* Safari 及其他兼容 */
+		position: -webkit-sticky;
+		position: -ms-sticky;
+		position: -o-sticky;
+		position: sticky;
+		top: 0;
+	}
+
+	div.toc ul>li {
+		z-index: 1;
+		/*#ff7e79*/
+		background-color: skyblue;
+	}
+
+	div.toc ul>li>ul>li {
+		z-index: 2;
+		/*#ff7e79*/
+		background-color: rgb(178, 216, 232);
+	}
+
+	div.toc ul>li>ul>li>ul>li {
+		z-index: 3;
+		/*#fbb*/
+		background-color: rgb(210, 231, 239);
+	}
+
+	div.toc ul>li>ul>li>ul>li>ul>li {
+		z-index: 4;
+		background-color: rgb(228, 235, 238);
+	}
+
+	.content {
+		width: 75%;
+		padding-left: 0.5%;
+	}
+}
 </style>
     </head>
     <body class="vscode-body vscode-light">
-        <h1 id="您厉害您赚得多聪明投资者的聊天记录">您厉害，您赚得多：聪明投资者的聊天记录</h1>
+        <div class="content">
+<h1 id="您厉害您赚得多聪明投资者的聊天记录">您厉害，您赚得多：聪明投资者的聊天记录</h1>
 <h2 id="方三文-著">方三文 著</h2>
 <h3 id="序言-聪明投资者的聊天记录">序言 聪明投资者的聊天记录</h3>
 <p>首先，作为曾经靠码字为生的人，我认为跟帖比主帖更有价值，聊天比发文章更有价值。发文章的主要价值是为了证明自己有多牛，聊天的主要价值却在于发现自己有多傻。但是，这个聊天有一个前提，就是聊天对象不固定，意见来自不确定的对象。如果把聊天对象限定在熟人关系圈，进步就停滞了。</p>
@@ -435,7 +558,23 @@ img {
 <h2 id="第三部分-问答及方法论">第三部分 问答及方法论</h2>
 <h3 id="第六章-问答">第六章 问答</h3>
 <h3 id="第七章-雪球方法论">第七章 雪球方法论</h3>
-
+</div>
+<div class="toc">
+<ul>
+<li><a href="#%E5%BA%8F%E8%A8%80-%E8%81%AA%E6%98%8E%E6%8A%95%E8%B5%84%E8%80%85%E7%9A%84%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95">序言 聪明投资者的聊天记录</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A4%E8%AF%86%E5%B8%82%E5%9C%BA">第一章 认识市场</a>
+<ul>
+<li><a href="#%E6%88%91%E5%92%8C%E4%BD%A0">我和你</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E8%AE%A4%E8%AF%86%E5%85%AC%E5%8F%B8">第二章 认识公司</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E8%AE%A4%E8%AF%86%E8%87%AA%E5%B7%B1">第三章 认识自己</a></li>
+<li><a href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E8%B5%84%E4%BA%A7%E9%85%8D%E7%BD%AE">第四章 资产配置</a></li>
+<li><a href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E9%80%89%E8%82%A1">第五章 选股</a></li>
+<li><a href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E9%97%AE%E7%AD%94">第六章 问答</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E9%9B%AA%E7%90%83%E6%96%B9%E6%B3%95%E8%AE%BA">第七章 雪球方法论</a></li>
+</ul>
+</div>
         
         
     </body>
