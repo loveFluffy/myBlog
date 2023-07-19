@@ -1,3 +1,7 @@
+# This repository has been merged into <a href="https://github.com/loveFluffy/loveFluffy.github.io">"loveFluffy.github.io"</a>. 
+
+so this one is archived now.
+
 # My Website
 
 Welcome to [My Website](https://lovefluffy.github.io/myBlog/index.html).
